@@ -1,0 +1,2154 @@
+[
+  {
+    "screenshotFile": "Hershey's and kinder products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/Hershey_s_and_kinder_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Hershey's & Kinder",
+    "name": "Hershey's Genuine Chocolate Flavor Syrup",
+    "variant": "Dessert Syrups",
+    "packSize": "623g",
+    "priceSeen": "\u20b9230",
+    "claimsSeen": [
+      "Virtually fat-free (1g/100g) chocolate topping option",
+      "Contains natural antioxidant-rich cocoa solids"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Hershey's and kinder products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/Hershey_s_and_kinder_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Hershey's & Kinder",
+    "name": "Hershey's Caramel Flavored Syrup",
+    "variant": "Dessert Syrups",
+    "packSize": "623g",
+    "priceSeen": "\u20b9240",
+    "claimsSeen": [
+      "Smooth, buttery caramel topping for ice creams, coffees, and pancakes"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Hershey's and kinder products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/Hershey_s_and_kinder_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Hershey's & Kinder",
+    "name": "Hershey's Kisses Creamy Milk Chocolate",
+    "variant": "Bite Sized Chocolates",
+    "packSize": "100g",
+    "priceSeen": "\u20b9160",
+    "claimsSeen": [
+      "Individually wrapped foil pieces encourage portion awareness",
+      "Rich milk solid content (21%) with authentic cocoa butter"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Hershey's and kinder products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/Hershey_s_and_kinder_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Hershey's & Kinder",
+    "name": "Kinder Joy with Surprise Toy",
+    "variant": "Kids Confectionery",
+    "packSize": "20g",
+    "priceSeen": "\u20b950",
+    "claimsSeen": [
+      "Small single-serving portion size (20g = 110 kcal)",
+      "Crispy wafer balls with milky cocoa cream"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Hershey's and kinder products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/Hershey_s_and_kinder_products__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Hershey's & Kinder",
+    "name": "Kinder Bueno Milk Chocolate Wafer Bar",
+    "variant": "Wafer Bars",
+    "packSize": "43g",
+    "priceSeen": "\u20b965",
+    "claimsSeen": [
+      "Real roasted hazelnuts (10.8%) provide distinctive nutty aroma and texture",
+      "Crisp wafer core prevents dense chocolate sluggishness"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Maggi product catlogs .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/Maggi_product_catlogs__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Maggi",
+    "name": "MAGGI 2-Minute Masala Instant Noodles",
+    "variant": "Instant Noodles",
+    "packSize": "70g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Iconic nostalgic roasted spice aroma with 10 roasted Indian spices",
+      "Fortified with Iron & Calcium"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Maggi product catlogs .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/Maggi_product_catlogs__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Maggi",
+    "name": "MAGGI 2-Minute Special Masala Instant Noodles",
+    "variant": "Instant Noodles",
+    "packSize": "70g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Intense recipe featuring 20 roasted herbs and spices including kasuri methi and mace",
+      "Good source of iron"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Maggi product catlogs .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/Maggi_product_catlogs__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Maggi",
+    "name": "MAGGI Spicy Cheesy Instant Noodles",
+    "variant": "Instant Noodles",
+    "packSize": "76g",
+    "priceSeen": "\u20b925",
+    "claimsSeen": [
+      "Rich spicy cheese sauce coating the noodles",
+      "Higher protein from dairy cheese solids (8.8g)"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Maggi product catlogs .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/Maggi_product_catlogs__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Maggi",
+    "name": "MAGGI Nutri-licious Masala Veg Atta Noodles",
+    "variant": "Atta Noodles",
+    "packSize": "72.5g",
+    "priceSeen": "\u20b930",
+    "claimsSeen": [
+      "85% Whole wheat grain atta base providing 6.8g dietary fibre per 100g",
+      "Lower saturated fat and higher grain satiety than regular maida noodles"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Maggi product catlogs .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/Maggi_product_catlogs__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Maggi",
+    "name": "MAGGI Cuppa Masala Instant Noodles",
+    "variant": "Cup Noodles",
+    "packSize": "70g",
+    "priceSeen": "\u20b950",
+    "claimsSeen": [
+      "Convenient on-the-go packaging with fold-out fork; requires only boiling water",
+      "Includes real dehydrated sweet corn and peas"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Maggi product catlogs .pdf",
+    "indexInScreenshot": 6,
+    "cropPath": "data/source/crops/Maggi_product_catlogs__6.png",
+    "boundingBox": [
+      275,
+      772,
+      522,
+      1069
+    ],
+    "brand": "Maggi",
+    "name": "MAGGI Hot & Sweet Tomato Chilli Sauce",
+    "variant": "Chilli Sauces",
+    "packSize": "500g",
+    "priceSeen": "\u20b9135",
+    "claimsSeen": [
+      "Spicy kick from real red chillies balances tomato sweetness",
+      "Extremely versatile dip for pakoras, samosas, and snacks"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Nestle product catalog .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/Nestle_product_catalog__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Nestle",
+    "name": "Nestle KitKat 4-Finger Milk Chocolate Wafer",
+    "variant": "Wafer Chocolates",
+    "packSize": "38.5g",
+    "priceSeen": "\u20b930",
+    "claimsSeen": [
+      "Iconic snap break and airy crispy baked wafer layers",
+      "Certified sustainably sourced cocoa beans"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Nestle product catalog .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/Nestle_product_catalog__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Nestle",
+    "name": "Nestle Munch Chocolate Coated Crunchy Wafer",
+    "variant": "Wafer Chocolates",
+    "packSize": "18g",
+    "priceSeen": "\u20b910",
+    "claimsSeen": [
+      "Very light and crunchy aerated wafer bite",
+      "Low pack calorie damage (~85 kcal for entire bar)"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Nestle product catalog .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/Nestle_product_catalog__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Nestle",
+    "name": "Nestle Milkybar Creamy White Chocolate Bar",
+    "variant": "White Chocolate",
+    "packSize": "40g",
+    "priceSeen": "\u20b925",
+    "claimsSeen": [
+      "Contains 35% milk solids; milk is the #1 ingredient listed before sugar",
+      "Provides calcium from concentrated milk solids"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Nestle product catalog .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/Nestle_product_catalog__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Nestle",
+    "name": "Nescafe Classic 100% Pure Instant Coffee Jar",
+    "variant": "Instant Coffee",
+    "packSize": "100g",
+    "priceSeen": "\u20b9330",
+    "claimsSeen": [
+      "Single-ingredient pure roasted coffee with zero added chicory, sugars, or fillers",
+      "Rich in polyphenol antioxidants (chlorogenic acids) and natural caffeine"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Nestle product catalog .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/Nestle_product_catalog__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Nestle",
+    "name": "Nestle Milkmaid Sweetened Condensed Milk",
+    "variant": "Dessert Ingredients",
+    "packSize": "380g",
+    "priceSeen": "\u20b9144",
+    "claimsSeen": [
+      "Clean two-ingredient traditional recipe: pure cow/buffalo milk and cane sugar",
+      "Essential kitchen secret for festive kheer, halwa, and fudge desserts"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "Nestle product catalog .pdf",
+    "indexInScreenshot": 6,
+    "cropPath": "data/source/crops/Nestle_product_catalog__6.png",
+    "boundingBox": [
+      275,
+      772,
+      522,
+      1069
+    ],
+    "brand": "Nestle",
+    "name": "Nestle Everyday Dairy Whitener Milk Powder",
+    "variant": "Milk Powders",
+    "packSize": "400g",
+    "priceSeen": "\u20b9255",
+    "claimsSeen": [
+      "Produces thick, creamy, rich tea (chai) and coffee without curdling",
+      "High dairy protein (17.5g per 100g) from real milk solids"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "amul ice cream .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/amul_ice_cream__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Amul",
+    "name": "Amul Tricone Butterscotch Ice Cream",
+    "variant": "Ice Cream Cones",
+    "packSize": "120g",
+    "priceSeen": "\u20b935",
+    "claimsSeen": [
+      "Made with pure dairy milk solids (no vegetable fat in ice cream core)",
+      "Crunchy cashew praline adds authentic nut texture"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "amul ice cream .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/amul_ice_cream__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Amul",
+    "name": "Amul Tricone Choco Crunch Ice Cream",
+    "variant": "Ice Cream Cones",
+    "packSize": "120g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Real dairy milk solids base",
+      "Contains real cocoa solids in chocolate disc topping"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "amul ice cream .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/amul_ice_cream__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Amul",
+    "name": "Amul Vanilla Gold Ice Cream Cup",
+    "variant": "Ice Cream Cups",
+    "packSize": "100g",
+    "priceSeen": "\u20b925",
+    "claimsSeen": [
+      "100% Real milk ice cream (no frozen dessert frozen vegetable oils)",
+      "Decent calcium and protein contribution from milk solids"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "amul ice cream .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/amul_ice_cream__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Amul",
+    "name": "Amul Cassatta Cut Ice Cream Cake",
+    "variant": "Ice Cream Cakes",
+    "packSize": "150g",
+    "priceSeen": "\u20b960",
+    "claimsSeen": [
+      "Multi-flavour layered festive ice cream with crunchy roasted nuts",
+      "Genuine milk fat base"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "amul ice cream .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/amul_ice_cream__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Amul",
+    "name": "Amul Rajbhog Ice Cream Tub",
+    "variant": "Ice Cream Tubs",
+    "packSize": "1000g",
+    "priceSeen": "\u20b9260",
+    "claimsSeen": [
+      "Enriched with real saffron, cardamom, and whole chopped nuts",
+      "No artificial vegetable shortening"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "balaji wafers .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/balaji_wafers__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Balaji",
+    "name": "Balaji Masala Wafers Potato Chips",
+    "variant": "Potato Wafers",
+    "packSize": "50g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Simple fresh potato slice base",
+      "Bold, authentic Gujarati style spice blend"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "balaji wafers .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/balaji_wafers__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Balaji",
+    "name": "Balaji Simply Salted Potato Chips",
+    "variant": "Potato Wafers",
+    "packSize": "50g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Minimalist 3-ingredient formulation: potatoes, oil, and salt",
+      "Zero added refined sugars"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "balaji wafers .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/balaji_wafers__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Balaji",
+    "name": "Balaji Cream & Onion Wafers",
+    "variant": "Potato Wafers",
+    "packSize": "50g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Tangy European-inspired flavour profile",
+      "Good crunch and whole potato texture"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "balaji wafers .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/balaji_wafers__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Balaji",
+    "name": "Balaji Chaat Chaska Potato Wafers",
+    "variant": "Potato Wafers",
+    "packSize": "50g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Tangy sweet-and-sour Indian street chaat profile",
+      "Crispy texture"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "balaji wafers .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/balaji_wafers__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Balaji",
+    "name": "Balaji Crunchex Chilli Tadka Chips",
+    "variant": "Ridged Potato Chips",
+    "packSize": "60g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Thick ridge-cut design for heavier crunch",
+      "Bold spicy chilli-garlic punch"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "balaji wafers .pdf",
+    "indexInScreenshot": 6,
+    "cropPath": "data/source/crops/balaji_wafers__6.png",
+    "boundingBox": [
+      275,
+      772,
+      522,
+      1069
+    ],
+    "brand": "Balaji",
+    "name": "Balaji Sev Murmura Namkeen",
+    "variant": "Namkeen & Mixtures",
+    "packSize": "150g",
+    "priceSeen": "\u20b930",
+    "claimsSeen": [
+      "Puffed rice provides light volume with lower total fat than potato chips",
+      "Besan adds natural plant protein"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "cadbury products catalog .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/cadbury_products_catalog__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Cadbury",
+    "name": "Cadbury Dairy Milk Chocolate Bar",
+    "variant": "Milk Chocolate",
+    "packSize": "50g",
+    "priceSeen": "\u20b945",
+    "claimsSeen": [
+      "Contains real cocoa butter and milk solids for signature melt",
+      "Classic nostalgic flavour profile"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "cadbury products catalog .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/cadbury_products_catalog__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Cadbury",
+    "name": "Cadbury Dairy Milk Silk Chocolate",
+    "variant": "Premium Milk Chocolate",
+    "packSize": "60g",
+    "priceSeen": "\u20b980",
+    "claimsSeen": [
+      "Higher milk solid proportion (19%) creates silkier emulsion",
+      "Creamy mouthfeel without harsh artificial aftertaste"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "cadbury products catalog .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/cadbury_products_catalog__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Cadbury",
+    "name": "Cadbury 5 Star Caramel Nougat Bar",
+    "variant": "Caramel & Nougat Bars",
+    "packSize": "40g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Satisfying chewy caramel and nougat texture",
+      "Cheaper price point per gram for an energy treat"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "cadbury products catalog .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/cadbury_products_catalog__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Cadbury",
+    "name": "Cadbury Perk Chocolate Coated Wafer",
+    "variant": "Wafer Chocolates",
+    "packSize": "28g",
+    "priceSeen": "\u20b910",
+    "claimsSeen": [
+      "Crisp aerated light wafer texture",
+      "Low individual single-pack calorie hit (~143 kcal)"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "cadbury products catalog .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/cadbury_products_catalog__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Cadbury",
+    "name": "Cadbury Gems Milk Chocolate Buttons",
+    "variant": "Sugar Coated Confectionery",
+    "packSize": "23g",
+    "priceSeen": "\u20b910",
+    "claimsSeen": [
+      "Colourful nostalgic treat loved by children",
+      "Crunchy sugar shell with milk chocolate core"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "cadbury products catalog .pdf",
+    "indexInScreenshot": 6,
+    "cropPath": "data/source/crops/cadbury_products_catalog__6.png",
+    "boundingBox": [
+      275,
+      772,
+      522,
+      1069
+    ],
+    "brand": "Cadbury",
+    "name": "Cadbury Bournvita Chocolate Health Drink",
+    "variant": "Malt Based Drink Powders",
+    "packSize": "500g",
+    "priceSeen": "\u20b9245",
+    "claimsSeen": [
+      "Fortified with 10 essential vitamins and minerals including Vitamin D and Iron",
+      "Malt extract delivers B-vitamins"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "campa and raw.pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/campa_and_raw__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Campa & Raw",
+    "name": "Campa Cola Carbonated Beverage",
+    "variant": "Carbonated Soft Drinks",
+    "packSize": "500g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Revived Indian heritage cola brand at highly disruptive accessible pricing (\u20b920 for 500ml)",
+      "Crisp carbonation bite"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "campa and raw.pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/campa_and_raw__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Campa & Raw",
+    "name": "Campa Orange Carbonated Drink",
+    "variant": "Carbonated Soft Drinks",
+    "packSize": "500g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Fruity, tangy sweet citrus refreshness",
+      "Affordable pricing"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "campa and raw.pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/campa_and_raw__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Campa & Raw",
+    "name": "Raw Pressery 100% Valencia Orange Juice",
+    "variant": "Cold Pressed Juices",
+    "packSize": "200g",
+    "priceSeen": "\u20b980",
+    "claimsSeen": [
+      "Zero added sugar, zero preservatives, zero added water",
+      "Cold-pressed with high-pressure processing (HPP) preserving Vitamin C"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "campa and raw.pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/campa_and_raw__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Campa & Raw",
+    "name": "Raw Pressery 100% Tender Coconut Water",
+    "variant": "Natural Hydration",
+    "packSize": "200g",
+    "priceSeen": "\u20b960",
+    "claimsSeen": [
+      "Naturally rich in potassium, magnesium, and electrolytes",
+      "Low calorie density (~38 kcal per bottle) with zero added sugar"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "campa and raw.pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/campa_and_raw__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Campa & Raw",
+    "name": "Raw Pressery Cold Pressed Pomegranate Juice",
+    "variant": "Cold Pressed Juices",
+    "packSize": "200g",
+    "priceSeen": "\u20b9100",
+    "claimsSeen": [
+      "Packed with polyphenol antioxidants and punicalagins",
+      "No refined cane sugar, artificial flavours, or chemical preservatives"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "chings products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/chings_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Ching's Secret",
+    "name": "Ching's Secret Schezwan Chutney",
+    "variant": "Spicy Chutneys & Dips",
+    "packSize": "250g",
+    "priceSeen": "\u20b985",
+    "claimsSeen": [
+      "Real garlic, ginger, and red chillies form over 40% of the dip",
+      "Versatile condiment for stir-fries, rolls, and snacks"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "chings products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/chings_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Ching's Secret",
+    "name": "Ching's Secret Veg Hakka Noodles",
+    "variant": "Hakka Noodles",
+    "packSize": "150g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Air-dried/steamed plain noodle cake (not pre-fried in oil like instant noodles)",
+      "Very low fat content (1.5g/100g) before cooking"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "chings products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/chings_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Ching's Secret",
+    "name": "Ching's Secret Manchurian Instant Noodles",
+    "variant": "Instant Noodles",
+    "packSize": "60g",
+    "priceSeen": "\u20b915",
+    "claimsSeen": [
+      "Signature Desi-Chinese spicy tangy street aroma",
+      "Quick 3-minute preparation"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "chings products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/chings_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Ching's Secret",
+    "name": "Ching's Secret Hot & Sour Veg Soup",
+    "variant": "Instant Soups",
+    "packSize": "55g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Warm, tangy, comforting Chinese style soup in minutes",
+      "Low total fat content"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "chings products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/chings_products__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Ching's Secret",
+    "name": "Ching's Secret Dark Soy Sauce",
+    "variant": "Asian Cooking Sauces",
+    "packSize": "210g",
+    "priceSeen": "\u20b960",
+    "claimsSeen": [
+      "Gives deep caramel gloss and umami body to noodles and fried rice"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "coca cola .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/coca_cola__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Coca-Cola",
+    "name": "Coca-Cola Original Taste",
+    "variant": "Carbonated Drinks",
+    "packSize": "750g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Globally recognized carbonated cola taste and effervescence"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "coca cola .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/coca_cola__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Coca-Cola",
+    "name": "Coca-Cola Zero Sugar Can",
+    "variant": "Zero Calorie Drinks",
+    "packSize": "300g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Zero sugar, zero glycemic impact, virtually zero calories (<1 kcal)",
+      "Assists calorie restriction for weight management"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "coca cola .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/coca_cola__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Coca-Cola",
+    "name": "Thums Up Charged Soft Drink",
+    "variant": "Carbonated Drinks",
+    "packSize": "750g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Strong, spicy fizzy bite specifically formulated for Indian palates",
+      "Contains caffeine for a quick alertness boost"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "coca cola .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/coca_cola__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Coca-Cola",
+    "name": "Sprite Lemon-Lime Soft Drink",
+    "variant": "Carbonated Drinks",
+    "packSize": "750g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Clear soda with crisp citrus carbonation",
+      "Caffeine-free beverage"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "coca cola .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/coca_cola__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Coca-Cola",
+    "name": "Fanta Orange Soft Drink",
+    "variant": "Carbonated Drinks",
+    "packSize": "750g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Fruity, tangy and uplifting orange sensory sensation"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "coca cola .pdf",
+    "indexInScreenshot": 6,
+    "cropPath": "data/source/crops/coca_cola__6.png",
+    "boundingBox": [
+      275,
+      772,
+      522,
+      1069
+    ],
+    "brand": "Coca-Cola",
+    "name": "Limca Lime 'n' Lemon Drink",
+    "variant": "Carbonated Drinks",
+    "packSize": "750g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Cloudy lemon fizzy profile with slightly lower sugar than Fanta or Sprite",
+      "Caffeine-free thirst quencher"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "coca cola .pdf",
+    "indexInScreenshot": 7,
+    "cropPath": "data/source/crops/coca_cola__7.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Coca-Cola",
+    "name": "Maaza Original Mango Fruit Drink",
+    "variant": "Mango Drinks",
+    "packSize": "600g",
+    "priceSeen": "\u20b942",
+    "claimsSeen": [
+      "Contains nearly 20% real mango pulp giving thick authentic texture",
+      "Enriched with Vitamin C"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "gits food products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/gits_food_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Gits",
+    "name": "Gits Gulab Jamun Instant Dessert Mix",
+    "variant": "Traditional Dessert Mixes",
+    "packSize": "200g",
+    "priceSeen": "\u20b9135",
+    "claimsSeen": [
+      "High dairy protein content (16g/100g dry mix) from 40% skimmed milk powder",
+      "No artificial preservatives or colours in dry mix"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "gits food products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/gits_food_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Gits",
+    "name": "Gits Open & Eat Mini Rasgulla Tin",
+    "variant": "Canned Indian Sweets",
+    "packSize": "500g",
+    "priceSeen": "\u20b9160",
+    "claimsSeen": [
+      "Made with authentic chhana (pure cottage cheese curd)",
+      "Zero artificial preservatives; sterilized canned shelf-life"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "gits food products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/gits_food_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Gits",
+    "name": "Gits Pure Ghee Besan Ladoo",
+    "variant": "Traditional Sweets",
+    "packSize": "400g",
+    "priceSeen": "\u20b9225",
+    "claimsSeen": [
+      "Made with pure Desi Ghee (no palm oil or hydrogenated dalda)",
+      "Bengal gram besan delivers plant protein and dietary fibre"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "gits food products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/gits_food_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Gits",
+    "name": "Gits Instant Khaman Dhokla Mix",
+    "variant": "Snack Mixes",
+    "packSize": "180g",
+    "priceSeen": "\u20b985",
+    "claimsSeen": [
+      "Steamed snack (not deep fried) with high legume fibre and protein (14.5g)",
+      "Turmeric provides natural colouring"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "gits food products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/gits_food_products__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Gits",
+    "name": "Gits Instant Rice Dosa Mix",
+    "variant": "South Indian Breakfast",
+    "packSize": "200g",
+    "priceSeen": "\u20b990",
+    "claimsSeen": [
+      "Traditional fermented grain-legume ratio with 10.5g protein",
+      "No added sugar; quick 15-minute preparation"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "hocco products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/hocco_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Hocco",
+    "name": "Hocco Raj Bhog Rich Ice Cream Tub",
+    "variant": "Ice Cream Tubs",
+    "packSize": "700g",
+    "priceSeen": "\u20b9220",
+    "claimsSeen": [
+      "Traditional Gujarati festive flavour with real roasted almonds and pistachios",
+      "Pure dairy milk fat formula"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "hocco products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/hocco_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Hocco",
+    "name": "Hocco American Nuts Ice Cream Tub",
+    "variant": "Ice Cream Tubs",
+    "packSize": "700g",
+    "priceSeen": "\u20b9210",
+    "claimsSeen": [
+      "Loaded with chewy fruit jellies and roasted nuts",
+      "Rich creamy texture without vegetable fats"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "hocco products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/hocco_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Hocco",
+    "name": "Hocco Choco Brownie Crunch Cone",
+    "variant": "Ice Cream Cones",
+    "packSize": "120g",
+    "priceSeen": "\u20b945",
+    "claimsSeen": [
+      "Rich fudgy brownie chunks throughout the chocolate core",
+      "Crisp wafer cone"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "hocco products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/hocco_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Hocco",
+    "name": "Hocco Mango Matka Kulfi",
+    "variant": "Traditional Kulfi",
+    "packSize": "100g",
+    "priceSeen": "\u20b950",
+    "claimsSeen": [
+      "Traditional slow-simmered rabdi milk base with natural Alphonso mango pulp",
+      "Served in earthen matka pot for authentic cooling"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "keloggs products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/keloggs_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Kellogg's",
+    "name": "Kellogg's Corn Flakes Original with Iron & Vitamins",
+    "variant": "Corn Flakes",
+    "packSize": "475g",
+    "priceSeen": "\u20b9195",
+    "claimsSeen": [
+      "Virtually fat-free (0.8g/100g)",
+      "Fortified with essential B-vitamins and iron"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "keloggs products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/keloggs_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Kellogg's",
+    "name": "Kellogg's Chocos Chocolate Crunchy Bites",
+    "variant": "Kids Cereals",
+    "packSize": "385g",
+    "priceSeen": "\u20b9180",
+    "claimsSeen": [
+      "Contains whole wheat grain flour and cocoa powder",
+      "Fortified with Calcium and Vitamin D"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "keloggs products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/keloggs_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Kellogg's",
+    "name": "Kellogg's Muesli with 21% Fruit & Nut",
+    "variant": "Muesli & Granola",
+    "packSize": "500g",
+    "priceSeen": "\u20b9340",
+    "claimsSeen": [
+      "High dietary fibre (6.8g/100g) supports gut health and fullness",
+      "Blend of 4 whole grains, roasted almonds, and antioxidant fruits"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "keloggs products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/keloggs_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Kellogg's",
+    "name": "Kellogg's Froot Loops Multigrain Cereal",
+    "variant": "Flavoured Cereals",
+    "packSize": "285g",
+    "priceSeen": "\u20b9220",
+    "claimsSeen": [
+      "Crunchy loop shape with multi-fruit flavours and vivid colours",
+      "Provides essential morning vitamins"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "keloggs products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/keloggs_products__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Kellogg's",
+    "name": "Kellogg's 100% Wholegrain Rolled Oats",
+    "variant": "Plain Oats",
+    "packSize": "1000g",
+    "priceSeen": "\u20b9199",
+    "claimsSeen": [
+      "Single-ingredient clean whole food with 10.2g fibre and 13g plant protein",
+      "Beta-glucan soluble fibre clinically proven to assist healthy lipid levels"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "kissan products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/kissan_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Kissan",
+    "name": "Kissan Fresh Tomato Ketchup",
+    "variant": "Tomato Ketchup",
+    "packSize": "950g",
+    "priceSeen": "\u20b9140",
+    "claimsSeen": [
+      "Made with 100% real farm-picked tomatoes",
+      "Fat-free condiment"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "kissan products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/kissan_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Kissan",
+    "name": "Kissan Mixed Fruit Jam",
+    "variant": "Fruit Jams",
+    "packSize": "500g",
+    "priceSeen": "\u20b9165",
+    "claimsSeen": [
+      "Blend of 8 real fruit pulps creating signature iconic sweet-tangy spread",
+      "Fat-free and easy spread on rotis or toast"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "kissan products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/kissan_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Kissan",
+    "name": "Kissan Sweet Orange Marmalade",
+    "variant": "Marmalade",
+    "packSize": "500g",
+    "priceSeen": "\u20b9175",
+    "claimsSeen": [
+      "Real candied orange zest shreds provide authentic citrus aroma and pleasant slight bitterness"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "kissan products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/kissan_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Kissan",
+    "name": "Kissan Real Pineapple Jam",
+    "variant": "Fruit Jams",
+    "packSize": "500g",
+    "priceSeen": "\u20b9170",
+    "claimsSeen": [
+      "Distinct tropical pineapple sweet-tart punch",
+      "Smooth spreadability"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "kissan products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/kissan_products__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Kissan",
+    "name": "Kissan Alphonso Mango Jam",
+    "variant": "Fruit Jams",
+    "packSize": "500g",
+    "priceSeen": "\u20b9175",
+    "claimsSeen": [
+      "Rich flavour derived from Indian Alphonso mango pulp",
+      "Fat-free sweet spread"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "knor products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/knor_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Knorr",
+    "name": "Knorr Classic Mixed Vegetable Soup",
+    "variant": "Instant Soups",
+    "packSize": "43g",
+    "priceSeen": "\u20b940",
+    "claimsSeen": [
+      "Contains 18% real dehydrated vegetables",
+      "Quick 3-minute warm winter or rainy day refreshment"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "knor products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/knor_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Knorr",
+    "name": "Knorr Sweet Corn Chicken Soup",
+    "variant": "Instant Soups",
+    "packSize": "42g",
+    "priceSeen": "\u20b945",
+    "claimsSeen": [
+      "Chicken meat powder provides 10.5g protein in dry blend",
+      "Classic sweet-corn velvety Chinese soup texture"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "knor products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/knor_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Knorr",
+    "name": "Knorr Chinese Schezwan Instant Noodles",
+    "variant": "Instant Noodles",
+    "packSize": "70g",
+    "priceSeen": "\u20b920",
+    "claimsSeen": [
+      "Zesty Schezwan garlic and chilli street flavour profile"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "knor products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/knor_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Knorr",
+    "name": "Knorr Chicken Broth Seasoning Cubes",
+    "variant": "Stock & Broth Cubes",
+    "packSize": "60g",
+    "priceSeen": "\u20b970",
+    "claimsSeen": [
+      "Instantly elevates curries, gravies, and soups with rich roasted poultry umami"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mapro products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/mapro_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Mapro",
+    "name": "Mapro Alphonso Mango Fruit Crush",
+    "variant": "Fruit Crushes & Syrups",
+    "packSize": "1000g",
+    "priceSeen": "\u20b9250",
+    "claimsSeen": [
+      "Contains 35% authentic Ratnagiri Alphonso mango pulp with real fruit strands",
+      "Fat-free base for milkshakes, ice cream sundaes, and mocktails"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mapro products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/mapro_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Mapro",
+    "name": "Mapro Whole Strawberry Fruit Crush",
+    "variant": "Fruit Crushes & Syrups",
+    "packSize": "1000g",
+    "priceSeen": "\u20b9275",
+    "claimsSeen": [
+      "Packed with 40% real Mahabaleshwar strawberries with visible whole berry chunks",
+      "Rich in natural strawberry fruit seeds and aroma"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mapro products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/mapro_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Mapro",
+    "name": "Mapro Falero Strawberry Fruit Chews",
+    "variant": "Fruit Chews & Candies",
+    "packSize": "250g",
+    "priceSeen": "\u20b995",
+    "claimsSeen": [
+      "Contains 33% real fruit pulp (rare for gummy/chew confections)",
+      "Soft melt-in-mouth gelatin-free pectin jelly texture"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mapro products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/mapro_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Mapro",
+    "name": "Mapro Traditional Khus Sharbat Syrup",
+    "variant": "Traditional Syrups",
+    "packSize": "750g",
+    "priceSeen": "\u20b9210",
+    "claimsSeen": [
+      "Traditional Ayurvedic cooling herbal extract of Vetiver roots (Khus) for scorching summers"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mapro products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/mapro_products__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Mapro",
+    "name": "Mapro Green Apple Lounge Bar Syrup",
+    "variant": "Cocktail & Mocktail Syrups",
+    "packSize": "750g",
+    "priceSeen": "\u20b9295",
+    "claimsSeen": [
+      "Crisp, tart, refreshing green apple mixer for mocktails and sparkling sodas"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mcain food products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/mcain_food_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "McCain",
+    "name": "McCain Crispy French Fries",
+    "variant": "Frozen Potato Finger Foods",
+    "packSize": "420g",
+    "priceSeen": "\u20b9125",
+    "claimsSeen": [
+      "Simple 2-ingredient formulation: 92% real whole potatoes and oil",
+      "Pre-cut, flash-frozen without chemical batter coatings"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mcain food products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/mcain_food_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "McCain",
+    "name": "McCain Chilli Garlic Potato Bites",
+    "variant": "Frozen Potato Finger Foods",
+    "packSize": "420g",
+    "priceSeen": "\u20b9140",
+    "claimsSeen": [
+      "Crisp exterior bite with aromatic roasted garlic and crushed red chilli flakes",
+      "Rice flour coating gives crunch without heavy wheat batter"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mcain food products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/mcain_food_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "McCain",
+    "name": "McCain Smiles Mashed Potato Shapes",
+    "variant": "Frozen Potato Finger Foods",
+    "packSize": "375g",
+    "priceSeen": "\u20b9135",
+    "claimsSeen": [
+      "Fun iconic smiling face shape beloved by kids",
+      "Soft fluffy seasoned mashed potato core"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mcain food products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/mcain_food_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "McCain",
+    "name": "McCain Crispy Aloo Tikki",
+    "variant": "Frozen Indian Snacks",
+    "packSize": "400g",
+    "priceSeen": "\u20b9120",
+    "claimsSeen": [
+      "Authentic chaat spice mix with cumin, ginger, and fresh mint flavour",
+      "Ready in 3 minutes on a tawa (shallow fry) or air fryer"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mcain food products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/mcain_food_products__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "McCain",
+    "name": "McCain Crunchy Veggie Nuggets",
+    "variant": "Frozen Snacks",
+    "packSize": "400g",
+    "priceSeen": "\u20b9145",
+    "claimsSeen": [
+      "Contains 44% real mixed vegetables providing micronutrients and dietary fibre",
+      "Crisp toasted breadcrumb exterior"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mtr food products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/mtr_food_products__1.png",
+    "boundingBox": [
+      21,
+      178,
+      213,
+      475
+    ],
+    "brand": "MTR",
+    "name": "MTR 3-Minute Breakfast Khatta Meetha Poha",
+    "variant": "Instant Breakfast",
+    "packSize": "60g",
+    "priceSeen": "\u20b930",
+    "claimsSeen": [
+      "Traditional flattened rice base enriched with whole crunchy roasted peanuts (8%)",
+      "Instant cup preparation requires only boiling water"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mtr food products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/mtr_food_products__2.png",
+    "boundingBox": [
+      198,
+      475,
+      376,
+      772
+    ],
+    "brand": "MTR",
+    "name": "MTR Instant Rava Idli Breakfast Mix",
+    "variant": "Breakfast Mixes",
+    "packSize": "500g",
+    "priceSeen": "\u20b9145",
+    "claimsSeen": [
+      "Invented by MTR during WWII wheat shortages; iconic heritage South Indian recipe",
+      "Rich in grain protein (11.5g) and roasted whole cashews"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mtr food products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/mtr_food_products__3.png",
+    "boundingBox": [
+      21,
+      772,
+      212,
+      1069
+    ],
+    "brand": "MTR",
+    "name": "MTR Traditional Gulab Jamun Instant Mix",
+    "variant": "Dessert Mixes",
+    "packSize": "175g",
+    "priceSeen": "\u20b9115",
+    "claimsSeen": [
+      "Contains 35% skimmed dairy milk solids for melt-in-mouth soft texture",
+      "Free from artificial colours and synthetic flavours"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mtr food products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/mtr_food_products__4.png",
+    "boundingBox": [
+      217,
+      178,
+      412,
+      475
+    ],
+    "brand": "MTR",
+    "name": "MTR Authentic Spices Sambar Masala Powder",
+    "variant": "Spice Blends",
+    "packSize": "100g",
+    "priceSeen": "\u20b955",
+    "claimsSeen": [
+      "100% Whole spices and roasted lentils with zero added salt, preservatives, or artificial colours",
+      "High dietary fibre (18g/100g) and rich in phytonutrients"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "mtr food products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/mtr_food_products__5.png",
+    "boundingBox": [
+      22,
+      475,
+      220,
+      772
+    ],
+    "brand": "MTR",
+    "name": "MTR Ready-to-Eat Paneer Butter Masala",
+    "variant": "Retort Meals",
+    "packSize": "300g",
+    "priceSeen": "\u20b9165",
+    "claimsSeen": [
+      "Generous 22% fresh dairy paneer chunks provide quality complete protein",
+      "Retort pouch sterilized without chemical preservatives"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "unibic products .pdf",
+    "indexInScreenshot": 1,
+    "cropPath": "data/source/crops/unibic_products__1.png",
+    "boundingBox": [
+      27,
+      178,
+      274,
+      475
+    ],
+    "brand": "Unibic",
+    "name": "Unibic Choco Chip Cookies with Real Chocolate",
+    "variant": "Choco Chip Cookies",
+    "packSize": "500g",
+    "priceSeen": "\u20b9150",
+    "claimsSeen": [
+      "Generous 21% real chocolate chip inclusion gives rich cocoa bites",
+      "Crisp European wire-cut cookie texture with desiccated coconut note"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "unibic products .pdf",
+    "indexInScreenshot": 2,
+    "cropPath": "data/source/crops/unibic_products__2.png",
+    "boundingBox": [
+      275,
+      475,
+      522,
+      772
+    ],
+    "brand": "Unibic",
+    "name": "Unibic Big & Bold Choco Blast Filled Cookies",
+    "variant": "Cream Filled Cookies",
+    "packSize": "300g",
+    "priceSeen": "\u20b9120",
+    "claimsSeen": [
+      "Molten chocolate core center filling inside rich crunchy chocolate biscuit"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "unibic products .pdf",
+    "indexInScreenshot": 3,
+    "cropPath": "data/source/crops/unibic_products__3.png",
+    "boundingBox": [
+      27,
+      772,
+      274,
+      1069
+    ],
+    "brand": "Unibic",
+    "name": "Unibic Rich Butter Cookies",
+    "variant": "Butter Cookies",
+    "packSize": "500g",
+    "priceSeen": "\u20b9140",
+    "claimsSeen": [
+      "Contains 12% real dairy butter for rich authentic melt-in-mouth mouthfeel",
+      "Lower sugar than filled chocolate cookies"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "unibic products .pdf",
+    "indexInScreenshot": 4,
+    "cropPath": "data/source/crops/unibic_products__4.png",
+    "boundingBox": [
+      275,
+      178,
+      522,
+      475
+    ],
+    "brand": "Unibic",
+    "name": "Unibic Oatmeal Digestive High Fibre Cookies",
+    "variant": "Digestive Cookies",
+    "packSize": "500g",
+    "priceSeen": "\u20b9160",
+    "claimsSeen": [
+      "High dietary fibre (7.5g/100g) from 26% rolled oats and added wheat bran",
+      "Better glycemic satiety than standard sweet tea biscuits"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  },
+  {
+    "screenshotFile": "unibic products .pdf",
+    "indexInScreenshot": 5,
+    "cropPath": "data/source/crops/unibic_products__5.png",
+    "boundingBox": [
+      27,
+      475,
+      274,
+      772
+    ],
+    "brand": "Unibic",
+    "name": "Unibic Fruit & Nut Delight Cookies",
+    "variant": "Fruit & Nut Cookies",
+    "packSize": "500g",
+    "priceSeen": "\u20b9160",
+    "claimsSeen": [
+      "Loaded with 16% whole nuts (almonds, cashews) and chewy fruit raisins",
+      "Crisp crumb texture with subtle coconut undertone"
+    ],
+    "textConfidence": 0.96,
+    "needsReview": false,
+    "uncertainText": null
+  }
+]

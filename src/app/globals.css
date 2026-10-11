@@ -1,0 +1,773 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   1. TOKENS & THEMING
+   ========================================================================== */
+:root {
+  --ink: #14211A;
+  --cream: #FFFBF2;
+  --leaf: #16A34A;
+  --mint: #C8F5D8;
+  --mango: #FFB703;
+  --tomato: #FF5A4E;
+  --berry: #7C5CFF;
+  --sky: #38BDF8;
+  --bubblegum: #FF8FB8;
+  --surface: #FFFFFF;
+  --surface-alt: #F3F0E8;
+  
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  
+  --shadow-hard: 0px 4px 0px var(--ink);
+  --shadow-hard-hover: 0px 6px 0px var(--ink);
+  --shadow-hard-press: 0px 0px 0px var(--ink);
+  
+  --ease-spring: cubic-bezier(.2,.8,.2,1);
+  --motion-fast: 150ms;
+  --motion-med: 300ms;
+  --motion-slow: 700ms;
+
+  --nav-height: 72px;
+}
+
+[data-theme="dark"] {
+  --ink: #FFFBF2;
+  --cream: #121413;
+  --surface: #1E2320;
+  --surface-alt: #2A302C;
+  --leaf: #22C55E;
+  --mint: #064E3B;
+  --shadow-hard: 0px 4px 0px #000000;
+  --shadow-hard-hover: 0px 6px 0px #000000;
+  --shadow-hard-press: 0px 0px 0px #000000;
+}
+
+/* ==========================================================================
+   2. RESET & BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color var(--motion-med), color var(--motion-med);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img { max-width: 100%; display: block; }
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--berry);
+  color: white;
+  padding: 8px 16px;
+  font-weight: 800;
+  z-index: 1000;
+  transition: top 0.2s;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+.skip-link:focus { top: 0; }
+
+/* Typography */
+.t-display-huge {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.t-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 3.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.t-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.t-h3 {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.t-body {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.t-small {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.t-numbers {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   3. NEO-BRUTALIST COMPONENTS
+   ========================================================================== */
+/* Chunky Buttons */
+.btn-chunky {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-hard);
+  transition: transform var(--motion-fast) var(--ease-spring), box-shadow var(--motion-fast) var(--ease-spring);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.btn-chunky:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hard-hover);
+}
+
+.btn-chunky:active {
+  transform: translateY(4px);
+  box-shadow: var(--shadow-hard-press);
+}
+
+.btn-primary {
+  background: var(--leaf);
+  color: #FFFFFF;
+}
+
+.btn-berry {
+  background: var(--berry);
+  color: #FFFFFF;
+}
+
+.btn-mango {
+  background: var(--mango);
+  color: var(--ink);
+}
+
+/* Chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform var(--motion-fast), background-color var(--motion-fast);
+}
+
+.chip:hover {
+  transform: rotate(-2deg) scale(1.05);
+}
+
+.chip.active {
+  background: var(--leaf);
+  color: #FFFFFF;
+}
+
+/* Bubble Cards */
+.bubble-card {
+  background: var(--surface);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: 4px 4px 0px rgba(20, 33, 26, 0.15);
+  transition: transform var(--motion-med) var(--ease-spring), box-shadow var(--motion-med);
+}
+
+[data-theme="dark"] .bubble-card {
+  box-shadow: 4px 4px 0px #000000;
+}
+
+@media(min-width: 768px) {
+  .bubble-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Stickers */
+.sticker {
+  position: absolute;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  border: 3px solid var(--ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  box-shadow: 2px 2px 0px var(--ink);
+  text-transform: uppercase;
+  animation: float 4s ease-in-out infinite;
+  z-index: 10;
+  background: var(--surface);
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+/* Scanner Line */
+.scanner-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--berry);
+  box-shadow: 0 0 20px 5px rgba(124, 92, 255, 0.6);
+  animation: scan 2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+@keyframes scan {
+  0% { top: 10%; }
+  100% { top: 90%; }
+}
+
+/* ==========================================================================
+   4. SIGNATURE: FBS VITALITY CAPSULE
+   ========================================================================== */
+.fbs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.capsule-wrapper {
+  position: relative;
+  width: 120px;
+  height: 280px;
+  cursor: pointer;
+  transition: transform var(--motion-fast);
+}
+
+.capsule-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.capsule {
+  width: 100%;
+  height: 100%;
+  border: 4px solid var(--ink);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  position: relative;
+  background: var(--surface);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="dark"] .capsule {
+  border-color: rgba(255,255,255,0.4);
+}
+
+.capsule-liquid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: var(--band-color, var(--leaf));
+  transition: height 1.2s var(--ease-spring);
+  z-index: 1;
+}
+
+.capsule-liquid::before, .capsule-liquid::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -15px;
+  left: -50%;
+  background: rgba(255,255,255,0.18);
+  border-radius: 40%;
+  animation: slosh 5s linear infinite;
+}
+
+.capsule-liquid::after {
+  top: -25px;
+  border-radius: 45%;
+  background: rgba(255,255,255,0.25);
+  animation: slosh 7s linear infinite reverse;
+}
+
+@keyframes slosh {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.capsule-score {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--ink);
+  text-shadow: 0 2px 4px rgba(255,255,255,0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.capsule-score small {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.fbs-band-label {
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+/* Horizontal variation for Desktop Showcase */
+@media(min-width: 768px) {
+  .fbs-container.horizontal {
+    flex-direction: row;
+  }
+  .fbs-container.horizontal .capsule-wrapper {
+    width: 380px;
+    height: 110px;
+  }
+  .fbs-container.horizontal .capsule-liquid {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    transition: width 1.2s var(--ease-spring);
+  }
+  .fbs-container.horizontal .capsule-liquid::before,
+  .fbs-container.horizontal .capsule-liquid::after {
+    top: -50%;
+    left: auto;
+    right: -15px;
+    width: 200%;
+    height: 200%;
+  }
+}
+
+/* ==========================================================================
+   5. NAVIGATION STYLES
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  border-bottom: 3px solid var(--ink);
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.5px;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-top: 3px solid var(--ink);
+  padding: 10px 20px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  opacity: 0.65;
+  transition: opacity 0.2s, color 0.2s;
+  color: var(--ink);
+}
+
+.nav-item.active {
+  opacity: 1;
+  color: var(--leaf);
+}
+
+.nav-scan-btn {
+  width: 54px;
+  height: 54px;
+  background: var(--berry);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--ink);
+  transform: translateY(-20px);
+  box-shadow: var(--shadow-hard);
+  font-size: 1.6rem;
+  transition: transform var(--motion-fast);
+}
+
+.nav-scan-btn:active {
+  transform: translateY(-16px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+@media(min-width: 768px) {
+  .bottom-nav { display: none; }
+}
+
+/* ==========================================================================
+   6. CARDS & PRODUCT GRIDS
+   ========================================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 20px;
+}
+
+@media(min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+}
+
+.product-card {
+  background: var(--surface);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: var(--shadow-hard);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hard-hover);
+}
+
+.pc-image-wrap {
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid var(--ink);
+  background: var(--surface-alt);
+  position: relative;
+  overflow: hidden;
+}
+
+.pc-content {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pc-brand {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  opacity: 0.65;
+}
+
+.pc-name {
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.pc-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  font-size: 0.85rem;
+  border: 2px solid var(--ink);
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Search Pill */
+.search-pill {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  padding: 6px 20px;
+  width: 100%;
+  max-width: 540px;
+  box-shadow: var(--shadow-hard);
+  position: relative;
+}
+
+.search-pill input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: inherit;
+  width: 100%;
+  padding: 10px 12px;
+  color: var(--ink);
+}
+
+.search-results {
+  position: absolute;
+  top: 115%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-hard);
+  text-align: left;
+  z-index: 50;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.search-item {
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--surface-alt);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color var(--motion-fast);
+}
+
+.search-item:hover {
+  background: var(--mint);
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   7. RDA, INGREDIENTS & COIN STACK
+   ========================================================================== */
+/* Ingredient pills */
+.ingredient-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 4px;
+  cursor: help;
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  transition: transform var(--motion-fast);
+}
+
+.ingredient-pill:hover {
+  transform: scale(1.05);
+}
+
+.ing-useful { background: var(--leaf); color: #FFFFFF; }
+.ing-functional { background: var(--sky); color: var(--ink); }
+.ing-attention { background: var(--tomato); color: #FFFFFF; }
+.ing-worth { background: var(--mango); color: var(--ink); }
+
+/* RDA Bars */
+.rda-row {
+  margin-bottom: 14px;
+}
+
+.rda-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 6px;
+}
+
+.rda-track {
+  height: 18px;
+  background: rgba(0,0,0,0.08);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  border: 2px solid var(--ink);
+}
+
+[data-theme="dark"] .rda-track {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.rda-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 1s var(--ease-spring);
+}
+
+/* Coin Stack */
+.coin-stack-container {
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: center;
+  height: 120px;
+}
+
+.coin-stack {
+  display: flex;
+  flex-direction: column-reverse;
+  cursor: pointer;
+}
+
+.coin {
+  width: 64px;
+  height: 20px;
+  background: var(--mango);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 0 4px 0 var(--ink);
+  margin-bottom: -10px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.coin:hover {
+  transform: translateY(-2px);
+}
+
+.coin.spent {
+  opacity: 0.2;
+  transform: translateY(10px) scale(0.9);
+}
+
+/* Compare Table */
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+}
+
+.compare-table th, .compare-table td {
+  padding: 16px;
+  border: 3px solid var(--ink);
+  text-align: left;
+}
+
+.compare-table th {
+  background: var(--surface-alt);
+  font-weight: 800;
+}
+
+.winner-cell {
+  background: var(--mint) !important;
+  position: relative;
+  font-weight: 800;
+}
+
+.winner-cell::after {
+  content: '👑';
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 1.25rem;
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  animation: fall linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Easter Egg */
+.noodle-wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

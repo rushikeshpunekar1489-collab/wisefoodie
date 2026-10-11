@@ -1,0 +1,164 @@
+{
+  "rolled oats": {
+    "name": "Rolled Oats",
+    "category": "useful",
+    "icon": "🟢",
+    "tag": "Useful (Whole Food)",
+    "whatItIs": "Whole oat groats that have been dehusked, steamed, and rolled into flat flakes.",
+    "whyUsed": "Provides sustained low-glycemic complex carbohydrates and natural satiety.",
+    "whatToKnow": "Rich in beta-glucan soluble fibre, scientifically shown to help manage LDL cholesterol."
+  },
+  "milk": {
+    "name": "Pasteurized Milk",
+    "category": "useful",
+    "icon": "🟢",
+    "tag": "Useful (Whole Food)",
+    "whatItIs": "Wholesome bovine milk containing natural whey and casein proteins.",
+    "whyUsed": "Provides complete amino acids, calcium, and dairy fats for texture and nourishment.",
+    "whatToKnow": "Natural source of bioavailable calcium, riboflavin, and high-biological-value protein."
+  },
+  "curd": {
+    "name": "Curd / Dahi",
+    "category": "useful",
+    "icon": "🟢",
+    "tag": "Useful (Whole Food)",
+    "whatItIs": "Traditional fermented dairy culture.",
+    "whyUsed": "Provides protein, probiotics, and creamy mouthfeel.",
+    "whatToKnow": "Fermentation naturally breaks down lactose and enriches gut microflora."
+  },
+  "paneer": {
+    "name": "Fresh Paneer",
+    "category": "useful",
+    "icon": "🟢",
+    "tag": "Useful (Whole Food)",
+    "whatItIs": "Fresh cottage cheese coagulated with natural food acids.",
+    "whyUsed": "Dense protein and dairy calcium source.",
+    "whatToKnow": "Excellent vegetarian complete protein; high in natural saturated dairy lipids."
+  },
+  "almonds": {
+    "name": "Almonds",
+    "category": "useful",
+    "icon": "🟢",
+    "tag": "Useful (Whole Food)",
+    "whatItIs": "Whole edible tree nuts.",
+    "whyUsed": "Adds rich crunch, protein, and heart-healthy monounsaturated fats.",
+    "whatToKnow": "Packed with vitamin E, magnesium, and dietary fibre."
+  },
+  "cocoa solids": {
+    "name": "Cocoa Solids",
+    "category": "useful",
+    "icon": "🟢",
+    "tag": "Useful (Antioxidant)",
+    "whatItIs": "The non-fat component of chocolate liquor derived from fermented cacao beans.",
+    "whyUsed": "Provides authentic chocolate flavour, dark color, and aroma.",
+    "whatToKnow": "Contains beneficial polyphenol and flavonoid antioxidants."
+  },
+  "citric acid": {
+    "name": "Citric Acid (INS 330)",
+    "category": "functional",
+    "icon": "🔵",
+    "tag": "Functional (Acidity Regulator)",
+    "whatItIs": "Natural organic acid naturally present in citrus fruits.",
+    "whyUsed": "Controls acidity, balances sweetness, and extends shelf freshness.",
+    "whatToKnow": "Standard, thoroughly evaluated regulator widely recognized as safe globally."
+  },
+  "soy lecithin": {
+    "name": "Soy Lecithin (INS 322)",
+    "category": "functional",
+    "icon": "🔵",
+    "tag": "Functional (Emulsifier)",
+    "whatItIs": "Natural phospholipid blend extracted from soybean oil.",
+    "whyUsed": "Prevents fat and water from separating, providing smooth blending in chocolates and bakery.",
+    "whatToKnow": "Natural plant-derived lipid; allergy warning applies only to individuals with severe soy allergies."
+  },
+  "raising agents": {
+    "name": "Raising Agents (INS 500ii, INS 503ii)",
+    "category": "functional",
+    "icon": "🔵",
+    "tag": "Functional (Leavening)",
+    "whatItIs": "Sodium bicarbonate and ammonium bicarbonate food-grade baking salts.",
+    "whyUsed": "Releases carbon dioxide micro-bubbles during baking for light, crispy texture.",
+    "whatToKnow": "Dissipates cleanly during oven baking, leaving standard trace mineral residues."
+  },
+  "iodised salt": {
+    "name": "Iodised Salt",
+    "category": "functional",
+    "icon": "🔵",
+    "tag": "Functional (Seasoning)",
+    "whatItIs": "Food-grade sodium chloride fortified with micro-nutritional potassium iodate.",
+    "whyUsed": "Essential culinary seasoning and microbiological stabilizer.",
+    "whatToKnow": "Supports thyroid hormone synthesis, but daily intake should stay within WHO <2000mg sodium targets."
+  },
+  "liquid glucose": {
+    "name": "Liquid Glucose / Glucose Syrup",
+    "category": "worth-understanding",
+    "icon": "🟡",
+    "tag": "Worth Understanding",
+    "whatItIs": "Concentrated aqueous solution of nutritive saccharides obtained from starch hydrolysis.",
+    "whyUsed": "Prevents sugar crystallization in confectioneries, boosts chewiness and moisture retention.",
+    "whatToKnow": "Rapidly digested simple carbohydrate with a high glycemic index."
+  },
+  "maltodextrin": {
+    "name": "Maltodextrin",
+    "category": "worth-understanding",
+    "icon": "🟡",
+    "tag": "Worth Understanding",
+    "whatItIs": "Water-soluble polysaccharide produced from vegetable starch by partial enzymatic breakdown.",
+    "whyUsed": "Bulking agent, carrier for flavor powders, and mouthfeel improver without intense sweetness.",
+    "whatToKnow": "Has a high glycemic index (GI 85–105) despite not tasting overtly sweet on the tongue."
+  },
+  "invert sugar": {
+    "name": "Invert Sugar Syrup",
+    "category": "worth-understanding",
+    "icon": "🟡",
+    "tag": "Worth Understanding",
+    "whatItIs": "Equimolar mixture of glucose and fructose produced by splitting sucrose.",
+    "whyUsed": "Retains moisture in biscuits and snacks, preventing them from drying out or staling.",
+    "whatToKnow": "Acts metabolically just like refined sugar; contributes directly to total added sugars."
+  },
+  "refined wheat flour": {
+    "name": "Refined Wheat Flour (Maida)",
+    "category": "worth-understanding",
+    "icon": "🟡",
+    "tag": "Worth Understanding",
+    "whatItIs": "Finely milled wheat flour stripped of both its fibrous bran shell and germ layer.",
+    "whyUsed": "Provides soft, elastic crumb structure and long ambient shelf life.",
+    "whatToKnow": "Rapidly digested starch with minimal intrinsic fibre or micronutrients compared to whole grains."
+  },
+  "palm oil": {
+    "name": "Edible Vegetable Oil (Palm Oil / Palmolein)",
+    "category": "attention",
+    "icon": "🟠",
+    "tag": "Attention (High Saturated Fat)",
+    "whatItIs": "Tropical plant oil pressed from the mesocarp of oil palm fruit.",
+    "whyUsed": "High oxidative stability at frying temperatures and low cost with semi-solid mouthfeel.",
+    "whatToKnow": "Comprises ~45–50% saturated palmitic fatty acids. Best consumed in moderation."
+  },
+  "flavour enhancer": {
+    "name": "Flavour Enhancer (INS 635 / INS 621)",
+    "category": "attention",
+    "icon": "🟠",
+    "tag": "Attention (Ultra-Processing)",
+    "whatItIs": "Nucleotide salts (Disodium 5'-ribonucleotides) and glutamates.",
+    "whyUsed": "Intensifies savory umami flavor profiles in noodle seasonings and extruded snacks.",
+    "whatToKnow": "Encourages over-consumption of hyper-palatable snacks. Best enjoyed occasionally."
+  },
+  "caramel color": {
+    "name": "Caramel Colour (INS 150d)",
+    "category": "attention",
+    "icon": "🟠",
+    "tag": "Attention (Ammonia-Sulphite Caramel)",
+    "whatItIs": "Deep brown coloring manufactured by heating carbohydrates with sulfite and ammonium compounds.",
+    "whyUsed": "Provides dark brown hue in colas, sauces, and confectionery.",
+    "whatToKnow": "Purely cosmetic synthetic additive without any nutritional value."
+  },
+  "phosphoric acid": {
+    "name": "Acidity Regulator (INS 338 / Phosphoric Acid)",
+    "category": "attention",
+    "icon": "🟠",
+    "tag": "Attention (Inorganic Phosphate)",
+    "whatItIs": "Inorganic mineral acid used exclusively in dark colas.",
+    "whyUsed": "Imparts sharp tangy bite and preserves beverage stability.",
+    "whatToKnow": "High consumption of dietary inorganic phosphates can affect calcium-phosphorus bone balance."
+  }
+}
