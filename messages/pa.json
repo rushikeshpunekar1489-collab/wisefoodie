@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "ਹੋਮ",
+    "explore": "ਐਕਸਪਲੋਰ",
+    "compare": "ਤੁਲਨਾ ਕਰੋ",
+    "learn": "ਜਾਣੋ",
+    "scanner": "ਸਕੈਨ",
+    "favourites": "ਮਨਪਸੰਦ",
+    "cart": "ਸਮਾਰਟ ਬਾਸਕੇਟ",
+    "diary": "ਡਾਇਰੀ",
+    "search": "ਖੋਜੋ",
+    "about": "ਸਾਡੇ ਬਾਰੇ",
+    "terms": "ਨਿਯਮ",
+    "privacy": "ਪ੍ਰਾਈਵੇਸੀ"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "ਆਪਣੇ ਖਾਣੇ ਨੂੰ ਜਾਣੋ",
+    "chooseBetter": "ਬਿਹਤਰ ਚੁਣੋ",
+    "eatSmarter": "ਸਮਝਦਾਰੀ ਨਾਲ ਖਾਓ",
+    "searchPlaceholder": "ਬਿਸਕੁਟ, ਓਟਸ, ਨੂਡਲਜ਼ ਜਾਂ 'ਹਾਈ ਪ੍ਰੋਟੀਨ' ਖੋਜੋ...",
+    "sampleData": "ਸੈਂਪਲ ਡਾਟਾ",
+    "notAvailable": "ਅਜੇ ਉਪਲਬਧ ਨਹੀਂ",
+    "verified": "ਤਸਦੀਕਸ਼ੁਦਾ ਲੇਬਲ",
+    "incomplete": "ਅਧੂਰਾ ਲੇਬਲ",
+    "per100g": "ਪ੍ਰਤੀ 100g",
+    "perPack": "ਪ੍ਰਤੀ ਪੈਕ",
+    "back": "ਪਿੱਛੇ",
+    "viewAll": "ਸਭ ਦੇਖੋ",
+    "compare": "ਤੁਲਨਾ ਕਰੋ",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "save": "ਸੰਭਾਲੋ",
+    "close": "ਬੰਦ ਕਰੋ",
+    "clearAll": "ਸਭ ਸਾਫ਼ ਕਰੋ",
+    "share": "ਸਾਂਝਾ ਕਰੋ",
+    "copied": "ਕਾਪੀ ਹੋ ਗਿਆ!",
+    "copyLink": "ਲਿੰਕ ਕਾਪੀ ਕਰੋ",
+    "whatsApp": "ਵ੍ਹਟਸਐਪ",
+    "downloadImage": "PNG ਡਾਊਨਲੋਡ",
+    "error": "ਕੁਝ ਗੜਬੜ ਹੋਈ",
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "disclaimerNote": "ਸਿਰਫ਼ ਜਾਣਕਾਰੀ ਲਈ, ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ। ਖਾਣ ਤੋਂ ਪਹਿਲਾਂ ਹਮੇਸ਼ਾ ਪੈਕ ਦੇਖੋ।",
+    "forInfoOnly": "ਸਿਰਫ਼ ਜਾਣਕਾਰੀ ਲਈ, ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ।",
+    "ingredientsUnknown": "ਸਮੱਗਰੀ ਅਣਜਾਣ",
+    "contains": "ਸ਼ਾਮਲ ਹੈ",
+    "freeFrom": "ਤੋਂ ਮੁਕਤ"
+  },
+  "fbs": {
+    "title": "ਫੂਡ ਬੈਨੀਫਿਟ ਸਕੋਰ",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS ਵਾਈਟੈਲਿਟੀ ਕੈਪਸੂਲ",
+    "scoreOutOf10": "10 ਵਿੱਚੋਂ",
+    "bands": {
+      "good": "ਚੰਗਾ ਵਿਕਲਪ",
+      "moderate": "ਦਰਮਿਆਨਾ",
+      "limited": "ਸੀਮਤ",
+      "avoid": "ਅਲਟਰਾ ਪ੍ਰੋਸੈਸਡ / ਪਰਹੇਜ਼ ਕਰੋ"
+    },
+    "frequency": {
+      "everyday": "ਰੋਜ਼ਾਨਾ ਖਾਣ ਲਈ ਢੁਕਵਾਂ",
+      "often": "ਅਕਸਰ ਖਾ ਸਕਦੇ ਹੋ",
+      "occasionally": "ਕਦੇ-ਕਦਾਈਂ ਮਾਣੋ",
+      "rarely": "ਬਹੁਤ ਘੱਟ ਖਾਓ"
+    }
+  },
+  "value": {
+    "title": "ਪੈਸੇ ਪ੍ਰਤੀ ਪੋਸ਼ਣ",
+    "subtitle": "ਹਰ ₹10 ਦੇ ਖਰਚੇ 'ਤੇ ਪ੍ਰਾਪਤ ਕਰੋ ਵੱਧ ਪ੍ਰੋਟੀਨ ਅਤੇ ਫਾਈਬਰ",
+    "tenRupeesGet": "₹10 ਵਿੱਚ ਤੁਹਾਨੂੰ ਮਿਲਦਾ ਹੈ",
+    "proteinPerRupee": "ਪ੍ਰਤੀ ₹1 ਪ੍ਰੋਟੀਨ",
+    "fibrePerRupee": "ਪ੍ਰਤੀ ₹1 ਫਾਈਬਰ",
+    "costPerGramProtein": "₹ ਪ੍ਰਤੀ ਗ੍ਰਾਮ ਪ੍ਰੋਟੀਨ"
+  },
+  "alternatives": {
+    "title": "ਇਸ ਤੋਂ ਬਿਹਤਰ ਵਿਕਲਪ",
+    "subtitle": "ਉਸੇ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਸਿਹਤਮੰਦ ਵਿਕਲਪ ਜੋ ਤੁਹਾਡੇ ਪੋਸ਼ਣ ਨੂੰ ਵਧਾਉਂਦੇ ਹਨ",
+    "alreadyBest": "ਪਹਿਲਾਂ ਹੀ ਇਸ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਸਭ ਤੋਂ ਵਧੀਆ ਵਿਕਲਪਾਂ ਵਿੱਚੋਂ ਇੱਕ ਹੈ!",
+    "alreadyBestDesc": "ਇਹ ਉਤਪਾਦ ਆਪਣੀ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਸਿਖਰ 'ਤੇ ਹੈ।",
+    "modes": {
+      "overall": "ਕੁੱਲ ਮਿਲਾ ਕੇ ਬਿਹਤਰ",
+      "fbs": "ਵੱਧ FBS",
+      "sugar": "ਘੱਟ ਖੰਡ",
+      "protein": "ਵੱਧ ਪ੍ਰੋਟੀਨ",
+      "sodium": "ਘੱਟ ਸੋਡੀਅਮ",
+      "cheaper": "ਸਸਤਾ",
+      "value": "ਸਭ ਤੋਂ ਵਧੀਆ ਮੁੱਲ"
+    },
+    "compareWith": "ਇਸ ਨਾਲ ਤੁਲਨਾ ਕਰੋ",
+    "noAlternatives": "ਇਸ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਅਜੇ ਕੋਈ ਬਦਲ ਨਹੀਂ ਮਿਲਿਆ।"
+  },
+  "cart": {
+    "title": "ਸਮਾਰਟ ਬਾਸਕੇਟ",
+    "subtitle": "ਖਰੀਦਣ ਤੋਂ ਪਹਿਲਾਂ ਕੁੱਲ ਪੋਸ਼ਣ, ਬਾਸਕੇਟ FBS ਅਤੇ ਸਮਾਰਟ ਸਵੈਪ ਟਰੈਕ ਕਰੋ",
+    "emptyTitle": "ਤੁਹਾਡੀ ਬਾਸਕੇਟ ਖਾਲੀ ਹੈ",
+    "emptySubtitle": "ਕੁੱਲ ਪੋਸ਼ਣ ਦੇਖਣ ਲਈ ਉਤਪਾਦ ਸ਼ਾਮਲ ਕਰੋ।",
+    "exploreProducts": "ਉਤਪਾਦ ਦੇਖੋ",
+    "itemsInBasket": "ਬਾਸਕੇਟ ਵਿੱਚ ਚੀਜ਼ਾਂ",
+    "basketFBS": "ਬਾਸਕੇਟ ਔਸਤ FBS",
+    "totalSpend": "ਕੁੱਲ ਖਰਚਾ",
+    "totalNutrition": "ਕੁੱਲ ਬਾਸਕੇਟ ਪੋਸ਼ਣ",
+    "weightedByCalories": "ਕੈਲੋਰੀਆਂ ਅਨੁਸਾਰ ਗਿਣਿਆ ਗਿਆ",
+    "nutritionPer10": "ਬਾਸਕੇਟ ਪੋਸ਼ਣ ਪ੍ਰਤੀ ₹10",
+    "macroBreakdown": "ਮੈਕਰੋ ਵੇਰਵਾ",
+    "whatDraggingDown": "ਸਕੋਰ ਕੀ ਘਟਾ ਰਿਹਾ ਹੈ?",
+    "smartSwapsTitle": "ਇਸ ਬਾਸਕੇਟ ਨੂੰ ਹੋਰ ਬਿਹਤਰ ਬਣਾਓ",
+    "smartSwapsSubtitle": "ਸਿਹਤਮੰਦ ਬਦਲਾਅ ਜੋ ਬਾਸਕੇਟ FBS ਵਧਾਉਂਦੇ ਹਨ",
+    "applySwap": "ਬਦਲਾਅ ਲਾਗੂ ਕਰੋ",
+    "undo": "ਵਾਪਸ ਕਰੋ",
+    "swapApplied": "ਬਦਲਾਅ ਸਫਲਤਾਪੂਰਵਕ ਲਾਗੂ ਹੋ ਗਿਆ!",
+    "saveBasket": "ਬਾਸਕੇਟ ਸੂਚੀ ਸੰਭਾਲੋ",
+    "shareBasket": "ਬਾਸਕੇਟ ਸਾਂਝੀ ਕਰੋ",
+    "clearBasket": "ਬਾਸਕੇਟ ਖਾਲੀ ਕਰੋ"
+  },
+  "favourites": {
+    "title": "ਮੇਰੇ ਮਨਪਸੰਦ",
+    "subtitle": "ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਹੋਏ ਖਾਣਿਆਂ ਦੀ ਸੂਚੀ",
+    "emptyTitle": "ਅਜੇ ਤੱਕ ਕੁਝ ਨਹੀਂ ਸੰਭਾਲਿਆ",
+    "emptySubtitle": "ਤੇਜ਼ੀ ਨਾਲ ਲੱਭਣ ਲਈ ਉਤਪਾਦ 'ਤੇ ਦਿਲ ਦੇ ਨਿਸ਼ਾਨ 'ਤੇ ਟੈਪ ਕਰੋ।",
+    "compareSelected": "ਚੁਣੇ ਹੋਏ ਦੀ ਤੁਲਨਾ ਕਰੋ",
+    "addAllToCart": "ਸਭ ਬਾਸਕੇਟ ਵਿੱਚ ਜੋੜੋ",
+    "clearAll": "ਸਭ ਸਾਫ਼ ਕਰੋ",
+    "filterCategory": "ਸਾਰੀਆਂ ਸ਼੍ਰੇਣੀਆਂ"
+  },
+  "ingredients": {
+    "filterTitle": "ਸਮੱਗਰੀ ਖੋਜ ਅਤੇ ਫਿਲਟਰ",
+    "naturalMatch": "ਕੁਦਰਤੀ ਭਾਸ਼ਾ ਮੇਲ ਖਾਂਦੀ ਹੈ",
+    "containsHeading": "ਜ਼ਰੂਰ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ",
+    "freeFromHeading": "ਤੋਂ ਮੁਕਤ (ਨਹੀਂ ਹੋਣਾ ਚਾਹੀਦਾ)",
+    "allergenDisclaimer": "ਹਮੇਸ਼ਾ ਪੈਕ ਦੇਖੋ। ਐਲਰਜੀ ਵਾਲੇ ਤੱਤ ਹੋ ਸਕਦੇ ਹਨ।",
+    "unknownListTitle": "ਸਮੱਗਰੀ ਅਣਜਾਣ",
+    "unknownListNotice": "ਸਹੀ ਜਾਣਕਾਰੀ ਲਈ ਅਧੂਰੀ ਸਮੱਗਰੀ ਵਾਲੇ ਉਤਪਾਦ ਬਾਹਰ ਰੱਖੇ ਗਏ ਹਨ।"
+  },
+  "scanner": {
+    "title": "ਸਮਾਰਟ ਫੂਡ ਸਕੈਨਰ",
+    "subtitle": "ਪੈਕੇਜਿੰਗ, ਪੋਸ਼ਣ ਸਾਰਣੀ ਜਾਂ ਬਾਰਕੋਡ ਸਕੈਨ ਕਰੋ",
+    "scanButton": "ਬਾਰਕੋਡ ਜਾਂ ਲੇਬਲ ਸਕੈਨ ਕਰੋ",
+    "manualInput": "ਜਾਂ ਬਾਰਕੋਡ ਖੁਦ ਦਰਜ ਕਰੋ",
+    "manualPlaceholder": "ਉਦਾ. 8901262010053",
+    "lookup": "ਖੋਜੋ",
+    "scanningNotice": "ਕੈਮਰਾ ਬਾਰਕੋਡ ਜਾਂ ਪੋਸ਼ਣ ਪੈਨਲ ਵੱਲ ਸਥਿਰ ਰੱਖੋ।"
+  },
+  "ai": {
+    "title": "WiseFoodies ਸਹਾਇਕ",
+    "subtitle": "ਸਮੱਗਰੀ, FBS ਸਕੋਰ ਜਾਂ ਬਦਲਾਂ ਬਾਰੇ ਪੁੱਛੋ",
+    "placeholder": "ਪੁੱਛੋ: 'ਕੀ ਇਹ ਨਾਸ਼ਤੇ ਲਈ ਚੰਗਾ ਹੈ?'...",
+    "disclaimer": "AI ਜਵਾਬ ਸਿਰਫ਼ ਪੋਸ਼ਣ ਸੰਬੰਧੀ ਜਾਣਕਾਰੀ ਲਈ ਹਨ, ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ।",
+    "quickPrompt1": "₹30 ਵਿੱਚ ਹਾਈ ਪ੍ਰੋਟੀਨ ਸਨੈਕਸ",
+    "quickPrompt2": "ਮੈਗੀ ਦੇ ਵਧੀਆ ਬਦਲ",
+    "quickPrompt3": "ਕੀ ਪਾਮ ਆਇਲ ਸਿਹਤ ਲਈ ਮਾੜਾ ਹੈ?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "ਮਾਸਪੇਸ਼ੀਆਂ ਦੀ ਸਿਹਤ ਲਈ ਉੱਚ ਪ੍ਰੋਟੀਨ",
+      "goodProtein": "ਪ੍ਰੋਟੀਨ ਦਾ ਚੰਗਾ ਸਰੋਤ",
+      "fibreRich": "ਹਾਜ਼ਮੇ ਲਈ ਉੱਚ ਫਾਈਬਰ",
+      "lowSugar": "ਘੱਟ ਖੰਡ",
+      "zeroAddedSugar": "ਜ਼ੀਰੋ ਵਾਧੂ ਖੰਡ",
+      "wholeGrain": "ਸਾਬਤ ਅਨਾਜ ਨਾਲ ਬਣਿਆ",
+      "calciumRich": "ਕੈਲਸ਼ੀਅਮ ਦਾ ਚੰਗਾ ਸਰੋਤ",
+      "transFatFree": "ਜ਼ੀਰੋ ਟ੍ਰਾਂਸ ਫੈਟ",
+      "lowSodium": "ਘੱਟ ਸੋਡੀਅਮ ਫਾਰਮੂਲੇਸ਼ਨ",
+      "naturalIngredients": "ਸਧਾਰਨ ਅਤੇ ਸਿਹਤਮੰਦ ਸਮੱਗਰੀ"
+    },
+    "concerns": {
+      "highAddedSugar": "ਵਾਧੂ ਖੰਡ ਵੱਧ",
+      "highSodium": "ਸੋਡੀਅਮ ਵੱਧ",
+      "containsPalmOil": "ਰਿਫਾਇੰਡ ਪਾਮ ਆਇਲ ਸ਼ਾਮਲ ਹੈ",
+      "refinedFlour": "ਮੁੱਖ ਅਧਾਰ ਮੈਦਾ ਹੈ",
+      "artificialSweeteners": "ਨਕਲੀ ਮਿੱਠੇ ਸ਼ਾਮਲ ਹਨ",
+      "syntheticColour": "ਸਿੰਥੈਟਿਕ ਰੰਗ ਸ਼ਾਮਲ ਹਨ",
+      "highSatFat": "ਸੈਚੁਰੇਟਿਡ ਫੈਟ ਵੱਧ",
+      "ultraProcessed": "ਅਲਟਰਾ-ਪ੍ਰੋਸੈਸਡ ਉਤਪਾਦ"
+    }
+  },
+  "language": {
+    "select": "ਭਾਸ਼ਾ",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "ਬਿਹਤਰ ਅਨੁਵਾਦ ਦਾ ਸੁਝਾਅ ਦਿਓ"
+  }
+}

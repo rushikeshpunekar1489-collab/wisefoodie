@@ -4,16 +4,18 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, Compass, Scan, Scale, BookOpen } from 'lucide-react';
+import { useI18n } from '@/context/I18nContext';
 
 export default function MobileNav() {
   const pathname = usePathname();
+  const { t } = useI18n();
 
   const links = [
-    { href: '/', label: 'Home', icon: Home },
-    { href: '/explore', label: 'Explore', icon: Compass },
-    { href: '/scanner', label: 'Scan', icon: Scan, isPrimary: true },
-    { href: '/compare', label: 'Compare', icon: Scale },
-    { href: '/learn', label: 'Learn', icon: BookOpen },
+    { href: '/', label: t('nav.home'), icon: Home },
+    { href: '/explore', label: t('nav.explore'), icon: Compass },
+    { href: '/scanner', label: t('nav.scanner'), icon: Scan, isPrimary: true },
+    { href: '/compare', label: t('nav.compare'), icon: Scale },
+    { href: '/learn', label: t('nav.learn'), icon: BookOpen },
   ];
 
   return (

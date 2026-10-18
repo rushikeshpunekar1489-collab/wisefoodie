@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "ہوم",
+    "explore": "دریافت کریں",
+    "compare": "موازنہ کریں",
+    "learn": "جانیں",
+    "scanner": "اسکین",
+    "favourites": "پسندیدہ",
+    "cart": "اسمارٹ باسکٹ",
+    "diary": "ڈائری",
+    "search": "تلاش کریں",
+    "about": "ہمارے بارے میں",
+    "terms": "شرائط",
+    "privacy": "رازداری"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "اپنی غذا کو جانیں",
+    "chooseBetter": "بہتر کا انتخاب کریں",
+    "eatSmarter": "سمجھداری سے کھائیں",
+    "searchPlaceholder": "بسکٹ، اوٹس، نوڈلز یا 'ہائی پروٹین' تلاش کریں...",
+    "sampleData": "نمونہ ڈیٹا",
+    "notAvailable": "ابھی دستیاب نہیں",
+    "verified": "تصدیق شدہ لیبل",
+    "incomplete": "نامکمل لیبل",
+    "per100g": "فی 100g",
+    "perPack": "فی پیکٹ",
+    "back": "واپس",
+    "viewAll": "سب دیکھیں",
+    "compare": "موازنہ کریں",
+    "cancel": "منسوخ",
+    "save": "محفوظ کریں",
+    "close": "بند کریں",
+    "clearAll": "سب صاف کریں",
+    "share": "شیئر کریں",
+    "copied": "کاپی ہو گیا!",
+    "copyLink": "لنک کاپی کریں",
+    "whatsApp": "واٹس ایپ",
+    "downloadImage": "PNG ڈاؤن لوڈ",
+    "error": "کچھ غلط ہو گیا",
+    "loading": "لوڈ ہو رہا ہے...",
+    "disclaimerNote": "صرف معلوماتی مقاصد کے لیے، طبی مشورہ نہیں۔ استعمال سے پہلے ہمیشہ پیکٹ چیک کریں۔",
+    "forInfoOnly": "صرف معلوماتی مقاصد کے لیے، طبی مشورہ نہیں۔",
+    "ingredientsUnknown": "اجزاء نامعلوم",
+    "contains": "شامل ہے",
+    "freeFrom": "سے پاک"
+  },
+  "fbs": {
+    "title": "فوڈ بینیفٹ اسکور",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS وائٹالٹی کیپسول",
+    "scoreOutOf10": "10 میں سے",
+    "bands": {
+      "good": "اچھا انتخاب",
+      "moderate": "معتدل",
+      "limited": "محدود",
+      "avoid": "انتہائی پروسیس شدہ / گریز کریں"
+    },
+    "frequency": {
+      "everyday": "روزانہ کھانے کے لیے موزوں",
+      "often": "اکثر کھا سکتے ہیں",
+      "occasionally": "کبھی کبھار کھائیں",
+      "rarely": "بہت کم استعمال کریں"
+    }
+  },
+  "value": {
+    "title": "غذائیت فی پیسہ",
+    "subtitle": "ہر ₹10 کے خرچ پر حاصل کریں زیادہ پروٹین اور فائبر",
+    "tenRupeesGet": "₹10 میں آپ کو ملتا ہے",
+    "proteinPerRupee": "پروٹین فی ₹1",
+    "fibrePerRupee": "فائبر فی ₹1",
+    "costPerGramProtein": "₹ فی گرام پروٹین"
+  },
+  "alternatives": {
+    "title": "اس سے بہتر متبادل",
+    "subtitle": "اسی زمرے میں صحت بخش انتخاب جو غذائیت بڑھاتے ہیں",
+    "alreadyBest": "پہلے سے ہی اس زمرے کے بہترین متبادلات میں سے ایک!",
+    "alreadyBestDesc": "یہ پروڈکٹ اپنی کیٹیگری میں سرفہرست ہے۔",
+    "modes": {
+      "overall": "مجموعی طور پر بہتر",
+      "fbs": "زیادہ FBS",
+      "sugar": "کم چینی",
+      "protein": "زیادہ پروٹین",
+      "sodium": "کم سوڈیم",
+      "cheaper": "سستا",
+      "value": "بہترین قیمت"
+    },
+    "compareWith": "اس سے موازنہ کریں",
+    "noAlternatives": "اس زمرے میں فی الحال کوئی متبادل نہیں ملا۔"
+  },
+  "cart": {
+    "title": "اسمارٹ باسکٹ",
+    "subtitle": "خریدنے سے پہلے کل غذائیت، باسکٹ FBS اور اسمارٹ تبدیلیاں دیکھیں",
+    "emptyTitle": "آپ کی باسکٹ خالی ہے",
+    "emptySubtitle": "کل غذائیت دیکھنے کے لیے پروڈکٹس شامل کریں۔",
+    "exploreProducts": "پروڈکٹس دیکھیں",
+    "itemsInBasket": "باسکٹ میں اشیاء",
+    "basketFBS": "باسکٹ اوسط FBS",
+    "totalSpend": "کل خرچ",
+    "totalNutrition": "کل باسکٹ غذائیت",
+    "weightedByCalories": "کیلوریز کے تناسب سے حساب شدہ",
+    "nutritionPer10": "باسکٹ غذائیت فی ₹10",
+    "macroBreakdown": "میکرو تفصیلات",
+    "whatDraggingDown": "کون سا جزو اسکور کم کر رہا ہے؟",
+    "smartSwapsTitle": "اس باسکٹ کو مزید بہتر بنائیں",
+    "smartSwapsSubtitle": "صحت مند متبادل جو باسکٹ FBS بڑھاتے ہیں",
+    "applySwap": "تبدیلی لاگو کریں",
+    "undo": "پہلے جیسا کریں",
+    "swapApplied": "تبدیلی کامیابی سے لاگو ہو گئی!",
+    "saveBasket": "فہرست محفوظ کریں",
+    "shareBasket": "باسکٹ شیئر کریں",
+    "clearBasket": "باسکٹ خالی کریں"
+  },
+  "favourites": {
+    "title": "میرے پسندیدہ",
+    "subtitle": "آپ کی محفوظ کردہ اشیاء کی فہرست",
+    "emptyTitle": "ابھی تک کچھ محفوظ نہیں کیا گیا",
+    "emptySubtitle": "فوری رسائی کے لیے دل کے نشان پر ٹیپ کریں۔",
+    "compareSelected": "منتخب کا موازنہ کریں",
+    "addAllToCart": "سب باسکٹ میں شامل کریں",
+    "clearAll": "سب صاف کریں",
+    "filterCategory": "تمام زمرہ جات"
+  },
+  "ingredients": {
+    "filterTitle": "اجزاء کی تلاش اور فلٹرز",
+    "naturalMatch": "قدرتی زبان مماثل ہے",
+    "containsHeading": "ضرور شامل ہونا چاہیے",
+    "freeFromHeading": "سے پاک (نہیں ہونا چاہیے)",
+    "allergenDisclaimer": "ہمیشہ پیکٹ چیک کریں۔ الرجی پیدا کرنے والے اجزاء ہو سکتے ہیں۔",
+    "unknownListTitle": "اجزاء نامعلوم",
+    "unknownListNotice": "درستگی کے لیے نامکمل اجزاء والی مصنوعات کو خارج کر دیا گیا ہے۔"
+  },
+  "scanner": {
+    "title": "اسمارٹ فوڈ اسکینر",
+    "subtitle": "پیکیجنگ، نیوٹریشن ٹیبل یا بارکوڈ اسکین کریں",
+    "scanButton": "بارکوڈ یا لیبل اسکین کریں",
+    "manualInput": "یا بارکوڈ خود درج کریں",
+    "manualPlaceholder": "مثلاً 8901262010053",
+    "lookup": "تلاش کریں",
+    "scanningNotice": "کیمرہ بارکوڈ یا غذائی پینل کی طرف سیدھا رکھیں۔"
+  },
+  "ai": {
+    "title": "WiseFoodies اسسٹنٹ",
+    "subtitle": "اجزاء، FBS اسکور یا متبادل کے بارے میں پوچھیں",
+    "placeholder": "پوچھیں: 'کیا یہ ناشتے کے لیے اچھا ہے؟'...",
+    "disclaimer": "AI کے جوابات صرف غذائی معلومات کے لیے ہیں، طبی مشورہ نہیں۔",
+    "quickPrompt1": "₹30 میں ہائی پروٹین اسنیکس",
+    "quickPrompt2": "میگی کے بہترین متبادل",
+    "quickPrompt3": "کیا پام آئل صحت کے لیے نقصان دہ ہے؟"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "پٹھوں کی صحت کے لیے ہائی پروٹین",
+      "goodProtein": "پروٹین کا اچھا ذریعہ",
+      "fibreRich": "ہاضمے کے لیے مفید ہائی فائبر",
+      "lowSugar": "کم چینی",
+      "zeroAddedSugar": "اضافی چینی صفر",
+      "wholeGrain": "مکمل اناج سے تیار کردہ",
+      "calciumRich": "کیلشیم کا اچھا ذریعہ",
+      "transFatFree": "ٹرانس فیٹ سے پاک",
+      "lowSodium": "کم سوڈیم فارمولیشن",
+      "naturalIngredients": "سادہ اور صحت بخش اجزاء"
+    },
+    "concerns": {
+      "highAddedSugar": "اضافی چینی زیادہ ہے",
+      "highSodium": "سوڈیم زیادہ ہے",
+      "containsPalmOil": "ریفائنڈ پام آئل شامل ہے",
+      "refinedFlour": "بنیادی جزو میدہ ہے",
+      "artificialSweeteners": "مصنوعی میٹھا شامل ہے",
+      "syntheticColour": "مصنوعی رنگ شامل ہیں",
+      "highSatFat": "سیچوریٹڈ فیٹ زیادہ ہے",
+      "ultraProcessed": "انتہائی پروسیس شدہ پروڈکٹ"
+    }
+  },
+  "language": {
+    "select": "زبان",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "بہتر ترجمہ تجویز کریں"
+  }
+}

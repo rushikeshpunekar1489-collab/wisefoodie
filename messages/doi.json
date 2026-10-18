@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "घरे",
+    "explore": "एक्सप्लोर",
+    "compare": "मुकाबला करो",
+    "learn": "सिक्खो",
+    "scanner": "स्कैन",
+    "favourites": "मनपसंद",
+    "cart": "स्मार्ट टोकरी",
+    "diary": "डायरी",
+    "search": "लभ्भो",
+    "about": "साढ़े बारै",
+    "terms": "शरतां",
+    "privacy": "गोपनीयता"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "अपनें खाने गी जानो",
+    "chooseBetter": "बहतरीन चुनो",
+    "eatSmarter": "अकलमंदी कन्नै खाओ",
+    "searchPlaceholder": "बिस्कुट, ओट्स, नूडल्स जां 'हाई प्रोटीन' लब्भो...",
+    "sampleData": "नमूना डेटा",
+    "notAvailable": "अज्जै तगर नेईं",
+    "verified": "तसदीकशुदा लेबल",
+    "incomplete": "अधूरा लेबल",
+    "per100g": "प्रति 100g",
+    "perPack": "प्रति पैकेट",
+    "back": "पिच्छें",
+    "viewAll": "सब दिक्खो",
+    "compare": "मुकाबला करो",
+    "cancel": "रद्द करो",
+    "save": "सांभो",
+    "close": "बंद करो",
+    "clearAll": "सब साफ करो",
+    "share": "शेयर करो",
+    "copied": "कापी होई गेआ!",
+    "copyLink": "लिंक कापी करो",
+    "whatsApp": "व्हाट्सएप",
+    "downloadImage": "PNG डाउनलोड",
+    "error": "कोई खराबी आई गेई",
+    "loading": "लोड होंदा ऐ...",
+    "disclaimerNote": "सिर्फ जानकारी लेई, डाक्टरी सलाह नेईं। खाने शा पैह्ले पैकेट दिक्खो।",
+    "forInfoOnly": "सिर्फ जानकारी लेई, डाक्टरी सलाह नेईं।",
+    "ingredientsUnknown": "सामग्री दा पता नेईं",
+    "contains": "शामल ऐ",
+    "freeFrom": "रहित"
+  },
+  "fbs": {
+    "title": "फूड बेनिफिट स्कोर",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS वाइटैलिटी कैप्सूल",
+    "scoreOutOf10": "10 चा",
+    "bands": {
+      "good": "शैल विकल्प",
+      "moderate": "मध्यम",
+      "limited": "कट्ट",
+      "avoid": "अल्ट्रा प्रोसेस्ड / बचो"
+    },
+    "frequency": {
+      "everyday": "रोज खाने लेई खरा",
+      "often": "अक्सर खाई सकदे ओ",
+      "occasionally": "कदे-कदाएं खाओ",
+      "rarely": "बड़ा कट्ट खाओ"
+    }
+  },
+  "value": {
+    "title": "पैसे कन्ने पोषण",
+    "subtitle": "हर ₹10 च थ्होंदा ऐ मती प्रोटीन ते फाइबर",
+    "tenRupeesGet": "₹10 च थ्होंदा ऐ",
+    "proteinPerRupee": "प्रति ₹1 प्रोटीन",
+    "fibrePerRupee": "प्रति ₹1 फाइबर",
+    "costPerGramProtein": "₹ प्रति ग्राम प्रोटीन"
+  },
+  "alternatives": {
+    "title": "इस चा शैल विकल्प",
+    "subtitle": "उसी कटेगरी च सेहतमंद विकल्प जे पोषण बधांदे न",
+    "alreadyBest": "इस कटेगरी च पैह्ले शा गै शैल विकल्पां च इक!",
+    "alreadyBestDesc": "एह चीज पोषण च सबने शा उप्पर ऐ।",
+    "modes": {
+      "overall": "कुल मिलाई खरा",
+      "fbs": "मते FBS",
+      "sugar": "कट्ट खंड",
+      "protein": "मती प्रोटीन",
+      "sodium": "कट्ट लून",
+      "cheaper": "सस्ता",
+      "value": "बहतरीन मुल्ल"
+    },
+    "compareWith": "कन्ने मुकाबला करो",
+    "noAlternatives": "इस श्रेणी च कोई होर विकल्प नेईं लब्भा।"
+  },
+  "cart": {
+    "title": "स्मार्ट टोकरी",
+    "subtitle": "मुल लैने शा पैह्ले कुल पोषण ते शैल बदलाव दिक्खो",
+    "emptyTitle": "टोकरी खाली ऐ",
+    "emptySubtitle": "पोषण दिक्खने लेई चीजां जोड़ो।",
+    "exploreProducts": "चीजां दिक्खो",
+    "itemsInBasket": "टोकरी च चीजां",
+    "basketFBS": "टोकरी दा औसतन FBS",
+    "totalSpend": "कुल खर्चा",
+    "totalNutrition": "टोकरी दा कुल पोषण",
+    "weightedByCalories": "कैलरी कन्ने हिसाब लाया",
+    "nutritionPer10": "टोकरी पोषण प्रति ₹10",
+    "macroBreakdown": "मैक्रो ब्यौरा",
+    "whatDraggingDown": "स्कोर केह्ड़ा घटक घटांदा ऐ?",
+    "smartSwapsTitle": "इस टोकरी गी होर खरा बनाओ",
+    "smartSwapsSubtitle": "सेहतमंद बदलाव जे टोकरी FBS बधांदे न",
+    "applySwap": "बदलाव लागू करो",
+    "undo": "पैह्ले चाल्ली करो",
+    "swapApplied": "बदलाव लागू होई गेआ!",
+    "saveBasket": "टोकरी सांभो",
+    "shareBasket": "टोकरी शेयर करो",
+    "clearBasket": "टोकरी खाली करो"
+  },
+  "favourites": {
+    "title": "मेरी मनपसंद",
+    "subtitle": "सांभी दित्ती दियां चीजां दी लिस्ट",
+    "emptyTitle": "अज्जै तगर किश नेईं सांभेआ",
+    "emptySubtitle": "दिल दे निशाण पर दबाई कन्ने सांभो।",
+    "compareSelected": "चुने दे मुकाबला करो",
+    "addAllToCart": "सब टोकरी च पाओ",
+    "clearAll": "सब साफ करो",
+    "filterCategory": "सब कटेगरी"
+  },
+  "ingredients": {
+    "filterTitle": "सामग्री खोज ते फिल्टर",
+    "naturalMatch": "कुदरती बोली रली",
+    "containsHeading": "जरूर होना चाहिदा",
+    "freeFromHeading": "मुक्त (नेईं होना चाहिदा)",
+    "allergenDisclaimer": "पैकेट जरूर दिक्खो। एलर्जी वाली चीजां होई सकदी न।",
+    "unknownListTitle": "सामग्री दा पता नेईं",
+    "unknownListNotice": "सटीकता लेई अधूरी सामग्री आह्ली चीजां कड्डी दित्ती गेई न।"
+  },
+  "scanner": {
+    "title": "स्मार्ट फूड स्कैनर",
+    "subtitle": "पैकिंग, पोषण तालिका जां बारकोड स्कैन करो",
+    "scanButton": "बारकोड जां लेबल स्कैन करो",
+    "manualInput": "जां बारकोड हत्थै कन्नै लिखो",
+    "manualPlaceholder": "उदा. 8901262010053",
+    "lookup": "लभ्भो",
+    "scanningNotice": "कैमरा बारकोड पास्से थिर रक्खो।"
+  },
+  "ai": {
+    "title": "WiseFoodies मददगार",
+    "subtitle": "सामग्री, FBS स्कोर जां विकल्पां बारै पुच्छो",
+    "placeholder": "पुच्छो: 'केह् एह सवेर दे नाश्ते लेई खरा ऐ?'...",
+    "disclaimer": "AI दे जवाब सिर्फ पोषण जानकारी लेई न, डाक्टरी सलाह नेईं।",
+    "quickPrompt1": "₹30 च हाई प्रोटीन स्नैक्स",
+    "quickPrompt2": "मैगी दा खरा विकल्प",
+    "quickPrompt3": "केह् पाम तेल सेहत लेई माड़ा ऐ?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "मसल्स लेई मती प्रोटीन",
+      "goodProtein": "प्रोटीन दा खरा जरिया",
+      "fibreRich": "पाचन लेई खरा मते फाइबर",
+      "lowSugar": "कट्ट खंड",
+      "zeroAddedSugar": "बाहरा खंड शून्य",
+      "wholeGrain": "साबुत अनाजे कन्नै त्यार",
+      "calciumRich": "कैल्शियम दा खरा साधन",
+      "transFatFree": "ट्रांस फैट मुक्त",
+      "lowSodium": "कट्ट लून आह्ली त्यारी",
+      "naturalIngredients": "सादे ते पौष्टिक घटक"
+    },
+    "concerns": {
+      "highAddedSugar": "खंड मती ऐ",
+      "highSodium": "लून मता ऐ",
+      "containsPalmOil": "पाम तेल शामल ऐ",
+      "refinedFlour": "मुख्य आधार मैदा ऐ",
+      "artificialSweeteners": "नकली मिठास ऐ",
+      "syntheticColour": "नकली रंग शामल न",
+      "highSatFat": "सैचुरेटेड फैट मती",
+      "ultraProcessed": "अल्ट्रा प्रोसेस्ड प्रोडक्ट"
+    }
+  },
+  "language": {
+    "select": "बोली",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "होर खरे अनुवाद दा सुझाव देओ"
+  }
+}

@@ -8,3 +8,6 @@ build
 .idea
 .vscode
 tsconfig.tsbuildinfo
+__pycache__/
+*.pyc
+.env

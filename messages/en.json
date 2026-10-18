@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "Home",
+    "explore": "Explore",
+    "compare": "Compare",
+    "learn": "Learn",
+    "scanner": "Scan",
+    "favourites": "Favourites",
+    "cart": "Basket",
+    "diary": "Diary",
+    "search": "Search",
+    "about": "About",
+    "terms": "Terms",
+    "privacy": "Privacy"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "Know Your Food",
+    "chooseBetter": "Choose Better",
+    "eatSmarter": "Eat Smarter",
+    "searchPlaceholder": "Search biscuit, oats, noodles, or 'high protein'...",
+    "sampleData": "Sample data",
+    "notAvailable": "Not available yet",
+    "verified": "Verified label",
+    "incomplete": "Incomplete label",
+    "per100g": "Per 100g",
+    "perPack": "Per pack",
+    "back": "Back",
+    "viewAll": "View all",
+    "compare": "Compare",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "clearAll": "Clear all",
+    "share": "Share",
+    "copied": "Copied to clipboard!",
+    "copyLink": "Copy link",
+    "whatsApp": "WhatsApp",
+    "downloadImage": "Download PNG",
+    "error": "Something went wrong",
+    "loading": "Loading...",
+    "disclaimerNote": "For information only, not medical advice. Always check the pack before consumption.",
+    "forInfoOnly": "For information only, not medical advice.",
+    "ingredientsUnknown": "Ingredients unknown",
+    "contains": "Contains",
+    "freeFrom": "Free from"
+  },
+  "fbs": {
+    "title": "Food Benefit Score",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS Vitality Capsule",
+    "scoreOutOf10": "out of 10",
+    "bands": {
+      "good": "Good Choice",
+      "moderate": "Moderate",
+      "limited": "Limited",
+      "avoid": "Ultra Processed / Avoid"
+    },
+    "frequency": {
+      "everyday": "Suitable for regular consumption",
+      "often": "Good to eat often",
+      "occasionally": "Enjoy occasionally",
+      "rarely": "Keep for rare treats"
+    }
+  },
+  "value": {
+    "title": "Nutrition Per Paisa",
+    "subtitle": "Get more protein and fibre for every ₹10 spent",
+    "tenRupeesGet": "For ₹10 you get",
+    "proteinPerRupee": "Protein per ₹1",
+    "fibrePerRupee": "Fibre per ₹1",
+    "costPerGramProtein": "₹ per gram of protein"
+  },
+  "alternatives": {
+    "title": "Isse Behtar Options",
+    "subtitle": "Smarter swaps in the same category that elevate your nutrition",
+    "alreadyBest": "Already one of the best in this category!",
+    "alreadyBestDesc": "This product scores at the very top of its category. Here are other comparable choices.",
+    "modes": {
+      "overall": "Better overall",
+      "fbs": "Higher FBS",
+      "sugar": "Lower sugar",
+      "protein": "More protein",
+      "sodium": "Lower sodium",
+      "cheaper": "Cheaper",
+      "value": "Best value"
+    },
+    "compareWith": "Compare with this",
+    "noAlternatives": "No alternative options found in this category yet."
+  },
+  "cart": {
+    "title": "Smart Basket",
+    "subtitle": "Track total nutrition, basket FBS, and smart swaps before you buy",
+    "emptyTitle": "Your basket is empty",
+    "emptySubtitle": "Add foods from Explore, Search, or Scan to see total nutrition and smart swaps.",
+    "exploreProducts": "Explore products",
+    "itemsInBasket": "items in basket",
+    "basketFBS": "Basket Average FBS",
+    "totalSpend": "Total Spend",
+    "totalNutrition": "Total Basket Nutrition",
+    "weightedByCalories": "Weighted by calories",
+    "nutritionPer10": "Basket Nutrition Per ₹10",
+    "macroBreakdown": "Macro Breakdown",
+    "whatDraggingDown": "What's dragging your score down?",
+    "smartSwapsTitle": "Make this basket better",
+    "smartSwapsSubtitle": "Deterministic swaps that lift your basket FBS",
+    "applySwap": "Apply swap",
+    "undo": "Undo swap",
+    "swapApplied": "Swap applied successfully!",
+    "saveBasket": "Save basket as list",
+    "shareBasket": "Share basket",
+    "clearBasket": "Clear basket"
+  },
+  "favourites": {
+    "title": "My Favourites",
+    "subtitle": "Your saved foods and products watchlist",
+    "emptyTitle": "No favourites saved yet",
+    "emptySubtitle": "Tap the heart on any product card or report to save it here for quick access.",
+    "compareSelected": "Compare Selected",
+    "addAllToCart": "Add All to Basket",
+    "clearAll": "Clear All",
+    "filterCategory": "All Categories"
+  },
+  "ingredients": {
+    "filterTitle": "Ingredient Search & Filters",
+    "naturalMatch": "Natural language query matched",
+    "containsHeading": "Must contain",
+    "freeFromHeading": "Free from (Doesn't contain)",
+    "allergenDisclaimer": "Always check the pack. Manufacturing may involve cross-contact with allergens.",
+    "unknownListTitle": "Ingredients unknown",
+    "unknownListNotice": "Products with incomplete ingredient declarations are excluded from 'Free from' filters for accuracy."
+  },
+  "scanner": {
+    "title": "Smart Food Scanner",
+    "subtitle": "Scan front packaging, nutrition tables, or barcodes",
+    "scanButton": "Scan Barcode or Label",
+    "manualInput": "Or enter barcode manually",
+    "manualPlaceholder": "e.g. 8901262010053",
+    "lookup": "Lookup",
+    "scanningNotice": "Hold camera steady towards the product barcode or nutrition panel."
+  },
+  "ai": {
+    "title": "WiseFoodies Assistant",
+    "subtitle": "Ask anything about ingredients, FBS scores, or smart swaps",
+    "placeholder": "Ask: 'Is this good for breakfast?' or 'Suggest high protein snacks'...",
+    "disclaimer": "AI answers are for nutritional information only, not medical advice.",
+    "quickPrompt1": "High protein snacks under ₹30",
+    "quickPrompt2": "Best alternatives for Maggi",
+    "quickPrompt3": "Is palm oil bad for health?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "High in protein for muscle health",
+      "goodProtein": "Good source of dietary protein",
+      "fibreRich": "High dietary fibre supporting digestion",
+      "lowSugar": "Low in total sugar",
+      "zeroAddedSugar": "Zero added sugar",
+      "wholeGrain": "Made with whole grains",
+      "calciumRich": "Good source of calcium",
+      "transFatFree": "Zero trans fat",
+      "lowSodium": "Low sodium formulation",
+      "naturalIngredients": "Simple and wholesome ingredients"
+    },
+    "concerns": {
+      "highAddedSugar": "High in added sugar",
+      "highSodium": "High in sodium",
+      "containsPalmOil": "Contains refined palm oil",
+      "refinedFlour": "Primary base is refined wheat flour (maida)",
+      "artificialSweeteners": "Contains artificial sweeteners",
+      "syntheticColour": "Contains synthetic food colours",
+      "highSatFat": "High in saturated fat",
+      "ultraProcessed": "Ultra-processed with multiple cosmetic additives"
+    }
+  },
+  "language": {
+    "select": "Language",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "Suggest a better translation"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "હોમ",
+    "explore": "એક્સપ્લોર",
+    "compare": "સરખામણી કરો",
+    "learn": "જાણો",
+    "scanner": "સ્કેન",
+    "favourites": "પસંદગીઓ",
+    "cart": "સ્માર્ટ બાસ્કેટ",
+    "diary": "ડાયરી",
+    "search": "શોધો",
+    "about": "અમારા વિશે",
+    "terms": "નિયમો",
+    "privacy": "ગોપનીયતા"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "તમારા ખોરાકને ઓળખો",
+    "chooseBetter": "શ્રેષ્ઠ પસંદ કરો",
+    "eatSmarter": "સમજદારીથી ખાઓ",
+    "searchPlaceholder": "બિસ્કિટ, ઓટ્સ, નૂડલ્સ અથવા 'હાઈ પ્રોટીન' શોધો...",
+    "sampleData": "નમૂના ડેટા",
+    "notAvailable": "હજી ઉપલબ્ધ નથી",
+    "verified": "ચકાસાયેલ લેબલ",
+    "incomplete": "અપૂર્ણ લેબલ",
+    "per100g": "પ્રતિ 100g",
+    "perPack": "પ્રતિ પેક",
+    "back": "પાછા જાઓ",
+    "viewAll": "બધું જુઓ",
+    "compare": "સરખામણી કરો",
+    "cancel": "રદ કરો",
+    "save": "સાચવો",
+    "close": "બંધ કરો",
+    "clearAll": "બધું સાફ કરો",
+    "share": "શેર કરો",
+    "copied": "કૉપિ થઈ ગયું!",
+    "copyLink": "લિંક કૉપિ કરો",
+    "whatsApp": "વોટ્સએપ",
+    "downloadImage": "PNG ડાઉનલોડ",
+    "error": "કંઈક ખોટું થયું",
+    "loading": "લોડ થઈ રહ્યું છે...",
+    "disclaimerNote": "માત્ર માહિતી માટે, તબીબી સલાહ નથી. વપરાશ પહેલાં હંમેશા પેક તપાસો.",
+    "forInfoOnly": "માત્ર માહિતી માટે, તબીબી સલાહ નથી.",
+    "ingredientsUnknown": "સામગ્રી અજ્ઞાત",
+    "contains": "સમાવે છે",
+    "freeFrom": "મુક્ત"
+  },
+  "fbs": {
+    "title": "ફૂડ બેનિફિટ સ્કોર",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS વાઇટેલિટી કેપ્સ્યુલ",
+    "scoreOutOf10": "10 માંથી",
+    "bands": {
+      "good": "સારો વિકલ્પ",
+      "moderate": "મધ્યમ",
+      "limited": "સીમિત",
+      "avoid": "અલ્ટ્રા પ્રોસેસ્ડ / ટાળો"
+    },
+    "frequency": {
+      "everyday": "નિયમિત વપરાશ માટે યોગ્ય",
+      "often": "વારંવાર ખાઈ શકાય છે",
+      "occasionally": "ક્યારેક માણો",
+      "rarely": "ખૂબ ઓછું ખાઓ"
+    }
+  },
+  "value": {
+    "title": "પૈસા દીઠ પોષણ",
+    "subtitle": "દર ₹10 ના ખર્ચે મેળવો વધુ પ્રોટીન અને ફાઇબર",
+    "tenRupeesGet": "₹10 માં તમને મળે છે",
+    "proteinPerRupee": "પ્રોટીન પ્રતિ ₹1",
+    "fibrePerRupee": "ફાઇબર પ્રતિ ₹1",
+    "costPerGramProtein": "₹ પ્રતિ ગ્રામ પ્રોટીન"
+  },
+  "alternatives": {
+    "title": "આનાથી વધુ સારા વિકલ્પો",
+    "subtitle": "તે જ કેટેગરીમાં સ્વસ્થ વિકલ્પો જે તમારા પોષણને વધારે છે",
+    "alreadyBest": "આ કેટેગરીમાં પહેલેથી જ શ્રેષ્ઠ પૈકી એક!",
+    "alreadyBestDesc": "આ ઉત્પાદન તેના શ્રેણીમાં ટોચ પર છે.",
+    "modes": {
+      "overall": "એકંદરે સારું",
+      "fbs": "ઉચ્ચ FBS",
+      "sugar": "ઓછી ખાંડ",
+      "protein": "વધુ પ્રોટીન",
+      "sodium": "ઓછું સોડિયમ",
+      "cheaper": "સસ્તું",
+      "value": "શ્રેષ્ઠ મૂલ્ય"
+    },
+    "compareWith": "આની સાથે સરખાવો",
+    "noAlternatives": "આ કેટેગરીમાં હજી કોઈ વિકલ્પો મળ્યા નથી."
+  },
+  "cart": {
+    "title": "સ્માર્ટ બાસ્કેટ",
+    "subtitle": "ખરીદતા પહેલા કુલ પોષણ, બાસ્કેટ FBS અને સ્માર્ટ સ્વેપ્સ ટ્રૅક કરો",
+    "emptyTitle": "તમારી બાસ્કેટ ખાલી છે",
+    "emptySubtitle": "કુલ પોષણ જોવા માટે ઉત્પાદનો ઉમેરો.",
+    "exploreProducts": "ઉત્પાદનો જુઓ",
+    "itemsInBasket": "બાસ્કેટમાં વસ્તુઓ",
+    "basketFBS": "બાસ્કેટ સરેરાશ FBS",
+    "totalSpend": "કુલ ખર્ચ",
+    "totalNutrition": "બાસ્કેટનું કુલ પોષણ",
+    "weightedByCalories": "કેલરીના આધારે ગણતરી કરેલ",
+    "nutritionPer10": "બાસ્કેટ પોષણ પ્રતિ ₹10",
+    "macroBreakdown": "મેક્રો વિશ્લેષણ",
+    "whatDraggingDown": "સ્કોર શું ઘટાડી રહ્યું છે?",
+    "smartSwapsTitle": "આ બાસ્કેટને વધુ સારું બનાવો",
+    "smartSwapsSubtitle": "તંદુરસ્ત સ્વેપ જે તમારા બાસ્કેટ FBS ને વધારે છે",
+    "applySwap": "સ્વેપ લાગુ કરો",
+    "undo": "પૂર્વવત્ કરો",
+    "swapApplied": "સ્વેપ સફળતાપૂર્વક લાગુ થયો!",
+    "saveBasket": "બાસ્કેટ યાદી સાચવો",
+    "shareBasket": "બાસ્કેટ શેર કરો",
+    "clearBasket": "બાસ્કેટ ખાલી કરો"
+  },
+  "favourites": {
+    "title": "મારી પસંદગીઓ",
+    "subtitle": "તમારા સાચવેલા ખોરાક અને ઉત્પાદનોની યાદી",
+    "emptyTitle": "હજી સુધી કંઈ સાચવ્યું નથી",
+    "emptySubtitle": "ઝડપી ઍક્સેસ માટે કોઈપણ ઉત્પાદન પર હૃદય ચિહ્નને ટેપ કરો.",
+    "compareSelected": "પસંદ કરેલાની સરખામણી કરો",
+    "addAllToCart": "બધું બાસ્કેટમાં ઉમેરો",
+    "clearAll": "બધું સાફ કરો",
+    "filterCategory": "બધી કેટેગરીઓ"
+  },
+  "ingredients": {
+    "filterTitle": "સામગ્રી શોધ અને ફિલ્ટર્સ",
+    "naturalMatch": "કુદરતી ભાષા મેળ ખાય છે",
+    "containsHeading": "હોવું જ જોઈએ",
+    "freeFromHeading": "મુક્ત (ન હોવું જોઈએ)",
+    "allergenDisclaimer": "હંમેશા પેક તપાસો. એલર્જનના સંપર્કમાં આવી શકે છે.",
+    "unknownListTitle": "સામગ્રી અજ્ઞાત",
+    "unknownListNotice": "ચોકસાઈ માટે અપૂર્ણ સામગ્રીવાળા ઉત્પાદનો બાકાત રાખવામાં આવ્યા છે."
+  },
+  "scanner": {
+    "title": "સ્માર્ટ ફૂડ સ્કેનર",
+    "subtitle": "પેકેજિંગ, પોષણ કોષ્ટક અથવા બારકોડ સ્કેન કરો",
+    "scanButton": "બારકોડ અથવા લેબલ સ્કેન કરો",
+    "manualInput": "અથવા બારકોડ જાતે દાખલ કરો",
+    "manualPlaceholder": "દા.ત. 8901262010053",
+    "lookup": "શોધો",
+    "scanningNotice": "કેમેરાને બારકોડ અથવા ન્યુટ્રિશન પેનલ તરફ સ્થિર રાખો."
+  },
+  "ai": {
+    "title": "WiseFoodies સહાયક",
+    "subtitle": "સામગ્રી, FBS સ્કોર અથવા વિકલ્પો વિશે પૂછો",
+    "placeholder": "પૂછો: 'શું આ નાસ્તા માટે સારું છે?'...",
+    "disclaimer": "AI જવાબો માત્ર પોષણ માહિતી માટે છે, તબીબી સલાહ નથી.",
+    "quickPrompt1": "₹30 માં હાઈ પ્રોટીન નાસ્તો",
+    "quickPrompt2": "મેગીના શ્રેષ્ઠ વિકલ્પો",
+    "quickPrompt3": "શું પામ તેલ સ્વાસ્થ્ય માટે ખરાબ છે?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "સ્નાયુઓના સ્વાસ્થ્ય માટે પ્રોટીનથી ભરપૂર",
+      "goodProtein": "આહાર પ્રોટીનનો સારો સ્ત્રોત",
+      "fibreRich": "પાચનમાં મદદરૂપ ઉચ્ચ ફાઇબર",
+      "lowSugar": "કુલ ખાંડનું ઓછું પ્રમાણ",
+      "zeroAddedSugar": "ઉમેરેલી ખાંડ શૂન્ય",
+      "wholeGrain": "આખા અનાજમાંથી બનાવેલ",
+      "calciumRich": "કેલ્શિયમનો સારો સ્ત્રોત",
+      "transFatFree": "શૂન્ય ટ્રાન્સ ફેટ",
+      "lowSodium": "ઓછું સોડિયમ ફોર્મ્યુલેશન",
+      "naturalIngredients": "સરળ અને આરોગ્યપ્રદ ઘટકો"
+    },
+    "concerns": {
+      "highAddedSugar": "ઉમેરેલી ખાંડનું ઊંચું પ્રમાણ",
+      "highSodium": "સોડિયમનું ઊંચું પ્રમાણ",
+      "containsPalmOil": "રિફાઇન્ડ પામ તેલ ધરાવે છે",
+      "refinedFlour": "મુખ્ય આધાર મેંદો છે",
+      "artificialSweeteners": "કૃત્રિમ સ્વીટનર્સ ધરાવે છે",
+      "syntheticColour": "સિન્થેટીક ખાદ્ય રંગો ધરાવે છે",
+      "highSatFat": "સેચ્યુરેટેડ ફેટ વધારે છે",
+      "ultraProcessed": "અલ્ટ્રા-પ્રોસેસ્ડ પ્રોડક્ટ"
+    }
+  },
+  "language": {
+    "select": "ભાષા",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "વધુ સારા અનુવાદનું સૂચન કરો"
+  }
+}

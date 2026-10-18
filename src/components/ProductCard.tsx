@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Product } from '@/types/product';
 import { ShieldCheck, Sparkles, Zap, ArrowUpRight } from 'lucide-react';
+import FavouriteButton from '@/components/FavouriteButton';
+import AddToCartButton from '@/components/AddToCartButton';
 
 interface ProductCardProps {
   product: Product;
@@ -32,7 +34,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       className="product-card group"
     >
       {/* Product Image Area */}
-      <div className="pc-image-wrap p-4 bg-white">
+      <div className="pc-image-wrap p-4 bg-white relative">
         {/* Verification badge */}
         <div className="absolute top-2.5 left-2.5 z-10">
           {isSample ? (
@@ -53,6 +55,16 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
           </div>
         )}
+
+        {/* Add to Basket button */}
+        <div className="absolute bottom-2.5 left-2.5 z-10">
+          <AddToCartButton slug={product.slug} productName={product.name} size="sm" />
+        </div>
+
+        {/* Favourites heart button */}
+        <div className="absolute bottom-2.5 right-2.5 z-10">
+          <FavouriteButton slug={product.slug} productName={product.name} size="sm" />
+        </div>
 
         {product.image ? (
           <div className="relative w-full h-44">

@@ -11,6 +11,10 @@ import NutritionPerPaisaCard from '@/components/NutritionPerPaisaCard';
 import IngredientBreakdown from '@/components/IngredientBreakdown';
 import ProductPageClientExtras from '@/components/ProductPageClientExtras';
 import ReportIssueModal from '@/components/ReportIssueModal';
+import BetterAlternativesCarousel from '@/components/BetterAlternativesCarousel';
+import FavouriteButton from '@/components/FavouriteButton';
+import ShareButton from '@/components/ShareButton';
+import AddToCartButton from '@/components/AddToCartButton';
 import {
   ShieldCheck,
   AlertCircle,
@@ -36,15 +40,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const scoreText = product.fbs.score ? ` (FBS: ${product.fbs.score}/10)` : '';
+  const ogImageUrl = `/api/og?slug=${encodeURIComponent(product.slug)}`;
   return {
     title: `${product.name}${scoreText} Nutrition & Food Benefit Score | WiseFoodies`,
     description: `Decoded label report for ${product.name} by ${product.brand}. Verified nutrients, ingredients, FBS rating, and value intelligence.`,
+    openGraph: {
+      title: `${product.name} — WiseFoodies FBS Report`,
+      description: `Decoded label report: ${product.fbs.band || 'Rating'} • ${product.brand}`,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${product.name} FBS Card`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} (FBS: ${product.fbs.score ?? '—'}/10)`,
+      description: `Decoded label report for ${product.name} by ${product.brand}`,
+      images: [ogImageUrl],
+    },
   };
 }
 
 export async function generateStaticParams() {
   const products = getAllProductsWithSamples();
-  return products.map((p) => ({ slug: p.slug }));
+  // Pre-render the top 40 most popular products at build time; all others render on demand
+  return products.slice(0, 40).map((p) => ({ slug: p.slug }));
 }
 
 export default async function ProductDetailPage({ params }: Props) {
@@ -54,6 +78,8 @@ export default async function ProductDetailPage({ params }: Props) {
   if (!product) {
     notFound();
   }
+
+  const allProducts = getAllProductsWithSamples();
 
   const valueData = computeNutritionPerPaisa({
     priceINR: product.priceINR,
@@ -221,7 +247,21 @@ export default async function ProductDetailPage({ params }: Props) {
               />
 
               <div className="space-y-3 flex flex-col items-center sm:items-start">
-                <ProductPageClientExtras product={product} />
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                  <ProductPageClientExtras product={product} />
+                  <FavouriteButton
+                    slug={product.slug}
+                    productName={product.name}
+                    size="md"
+                    showLabel={true}
+                  />
+                  <AddToCartButton
+                    slug={product.slug}
+                    productName={product.name}
+                    size="md"
+                  />
+                  <ShareButton product={product} size="md" showLabel={true} />
+                </div>
                 <p className="text-xs font-bold opacity-60 max-w-xs text-center sm:text-left">
                   Algorithmically grounded per 100g on Indian Dietary Guidelines (ICMR-NIN).
                 </p>
@@ -344,7 +384,13 @@ export default async function ProductDetailPage({ params }: Props) {
           <IngredientBreakdown ingredients={product.ingredients} />
         </div>
 
-        {/* 7. COMPARISON ACTION BANNER */}
+        {/* 7. BETTER ALTERNATIVES (ISSE BEHTAR OPTION) */}
+        <BetterAlternativesCarousel
+          targetProduct={product}
+          allProducts={allProducts}
+        />
+
+        {/* 8. COMPARISON ACTION BANNER */}
         <div className="bubble-card bg-[var(--berry)] text-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
             <h3 className="t-h3 text-white">Compare Against Similar Grocery Items</h3>

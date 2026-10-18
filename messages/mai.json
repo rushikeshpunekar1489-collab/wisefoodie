@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "होम",
+    "explore": "एक्सप्लोर",
+    "compare": "तुलना करू",
+    "learn": "जानू",
+    "scanner": "स्कैन",
+    "favourites": "पसंदीदा",
+    "cart": "स्मार्ट बास्केट",
+    "diary": "डायरी",
+    "search": "खोजू",
+    "about": "हमर बारे में",
+    "terms": "नियम ও शर्त",
+    "privacy": "गोपनीयता"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "अपन भोजन कें जानू",
+    "chooseBetter": "बेहतर चुनू",
+    "eatSmarter": "बुद्धिमत्ता सँ खाऊ",
+    "searchPlaceholder": "बिस्कुट, ओट्स, नूडल्स वा 'हाई प्रोटीन' खोजू...",
+    "sampleData": "सैंपल डेटा",
+    "notAvailable": "एखन उपलब्ध नहि अछि",
+    "verified": "सत्यापित लेबल",
+    "incomplete": "अपूर्ण लेबल",
+    "per100g": "प्रति 100g",
+    "perPack": "प्रति पैकेट",
+    "back": "पाछाँ",
+    "viewAll": "सब देखू",
+    "compare": "तुलना करू",
+    "cancel": "रद्द करू",
+    "save": "सहेजू",
+    "close": "बंद करू",
+    "clearAll": "सब हटाऊ",
+    "share": "शेयर करू",
+    "copied": "कॉपी भऽ गेल!",
+    "copyLink": "लिंक कॉपी",
+    "whatsApp": "व्हाट्सएप",
+    "downloadImage": "PNG डाउनलोड",
+    "error": "किछु गड़बड़ भेल",
+    "loading": "लोड भऽ रहल अछि...",
+    "disclaimerNote": "मात्र जानकारीक लेल, चिकित्सकीय सलाह नहि। उपभोग सँ पहिने सदैव पैकेट देखू।",
+    "forInfoOnly": "मात्र जानकारीक लेल, चिकित्सकीय सलाह नहि।",
+    "ingredientsUnknown": "सामग्री अज्ञात",
+    "contains": "शामिल अछि",
+    "freeFrom": "सँ मुक्त"
+  },
+  "fbs": {
+    "title": "फूड बेनिफिट स्कोर",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS वाइटैलिटी कैप्सूल",
+    "scoreOutOf10": "10 में सँ",
+    "bands": {
+      "good": "नीक विकल्प",
+      "moderate": "मध्यम",
+      "limited": "सीमित मात्रा",
+      "avoid": "अल्ट्रा प्रोसेस्ड / बचू"
+    },
+    "frequency": {
+      "everyday": "नियमित उपभोग लेल उपयुक्त",
+      "often": "प्रायः खा सकैत छी",
+      "occasionally": "कखनो-कखनो खाऊ",
+      "rarely": "खूब कम खाऊ"
+    }
+  },
+  "value": {
+    "title": "पैसा प्रति पोषण",
+    "subtitle": "प्रति ₹10 खर्च पर पाबू बेसी प्रोटीन आओर फाइबर",
+    "tenRupeesGet": "₹10 में अहाँ पाबैत छी",
+    "proteinPerRupee": "प्रोटीन प्रति ₹1",
+    "fibrePerRupee": "फाइबर प्रति ₹1",
+    "costPerGramProtein": "₹ प्रति ग्राम प्रोटीन"
+  },
+  "alternatives": {
+    "title": "एहि सँ बेहतर विकल्प",
+    "subtitle": "ओही श्रेणी में स्वस्थ विकल्प जे पोषण बढ़बैत अछि",
+    "alreadyBest": "पहिनहिये सँ एहि श्रेणीक श्रेष्ठ विकल्प में सँ एक!",
+    "alreadyBestDesc": "ई उत्पाद अपन श्रेणी में शीर्ष पर अछि।",
+    "modes": {
+      "overall": "समग्र रूप सँ बेहतर",
+      "fbs": "उच्च FBS",
+      "sugar": "कम चीनी",
+      "protein": "बेसी प्रोटीन",
+      "sodium": "कम सोडियम",
+      "cheaper": "सस्ता",
+      "value": "श्रेष्ठ मूल्य"
+    },
+    "compareWith": "एकर सँग तुलना करू",
+    "noAlternatives": "एहि श्रेणी में एखन विकल्प नहि भेटल।"
+  },
+  "cart": {
+    "title": "स्मार्ट बास्केट",
+    "subtitle": "किणबा सँ पहिने कुल पोषण, बास्केट FBS आओर स्मार्ट स्वैप देखू",
+    "emptyTitle": "अहाँक बास्केट खाली अछि",
+    "emptySubtitle": "कुल पोषण देखबाक लेल उत्पाद जोड़ू।",
+    "exploreProducts": "उत्पाद देखू",
+    "itemsInBasket": "बास्केट में सामान",
+    "basketFBS": "बास्केट औसत FBS",
+    "totalSpend": "कुल खर्च",
+    "totalNutrition": "बास्केट कें कुल पोषण",
+    "weightedByCalories": "कैलोरीक अनुपात पर आधारित",
+    "nutritionPer10": "बास्केट पोषण प्रति ₹10",
+    "macroBreakdown": "मैक्रो विवरण",
+    "whatDraggingDown": "कोन घटक स्कोर घटा रहल अछि?",
+    "smartSwapsTitle": "बास्केट कें आओर बेहतर बनाऊ",
+    "smartSwapsSubtitle": "स्वस्थ बदलाव जे बास्केट FBS बढ़बैत अछि",
+    "applySwap": "बदलाव लागू करू",
+    "undo": "पहिनहि सन करू",
+    "swapApplied": "बदलाव सफलतापूर्वक लागू भेल!",
+    "saveBasket": "सूची सहेजू",
+    "shareBasket": "बास्केट शेयर करू",
+    "clearBasket": "बास्केट खाली करू"
+  },
+  "favourites": {
+    "title": "हमर पसंदीदा",
+    "subtitle": "अहाँक सहेजल भोजन सूची",
+    "emptyTitle": "एखन धरि किछु नहि सहेजल गेल",
+    "emptySubtitle": "त्वरित पहुँच लेल दिलक निशान पर टैप करू।",
+    "compareSelected": "चुनल गेल तुलना करू",
+    "addAllToCart": "सब बास्केट में जोड़ू",
+    "clearAll": "सब हटाऊ",
+    "filterCategory": "सब श्रेणी"
+  },
+  "ingredients": {
+    "filterTitle": "सामग्री खोज आओर फिल्टर",
+    "naturalMatch": "प्राकृतिक भाषा मैच भेल",
+    "containsHeading": "अवश्य होबक चाही",
+    "freeFromHeading": "मुक्त (नहि होबक चाही)",
+    "allergenDisclaimer": "सदैव पैकेट देखू। एलर्जी घटक भऽ सकैत अछि।",
+    "unknownListTitle": "सामग्री अज्ञात",
+    "unknownListNotice": "सटीकताक लेल अपूर्ण सामग्री वला उत्पाद हटाओल गेल अछि।"
+  },
+  "scanner": {
+    "title": "स्मार्ट फूड स्कैनर",
+    "subtitle": "पैकेजिंग, पोषण तालिका वा बारकोड स्कैन करू",
+    "scanButton": "बारकोड वा लेबल स्कैन करू",
+    "manualInput": "वा बारकोड दर्ज करू",
+    "manualPlaceholder": "उदा. 8901262010053",
+    "lookup": "खोजू",
+    "scanningNotice": "कैमरा कें बारकोड वा पोषण पैनल दिस स्थिर राखू।"
+  },
+  "ai": {
+    "title": "WiseFoodies सहायक",
+    "subtitle": "सामग्री, FBS स्कोर वा विकल्पक संबंध में पूछू",
+    "placeholder": "पूछू: 'की ई जलपान लेल नीक अछि?'...",
+    "disclaimer": "AI उत्तर मात्र पोषण जानकारीक लेल अछि, चिकित्सीय सलाह नहि।",
+    "quickPrompt1": "₹30 में हाई प्रोटीन स्नैक्स",
+    "quickPrompt2": "मैगीक श्रेष्ठ विकल्प",
+    "quickPrompt3": "की पाम तेल स्वास्थ्य लेल हानिकारक अछि?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "मांसपेशीक स्वास्थ्य लेल उच्च प्रोटीन",
+      "goodProtein": "प्रोटीनल नीक स्रोत",
+      "fibreRich": "पाचन लेल उच्च फाइबर",
+      "lowSugar": "कम चीनी",
+      "zeroAddedSugar": "अतिरिक्त चीनी शून्य",
+      "wholeGrain": "साबुत अनाज सँ निर्मित",
+      "calciumRich": "कैल्शियमक नीक स्रोत",
+      "transFatFree": "शून्य ट्रांस फैट",
+      "lowSodium": "कम सोडियम फार्मूला",
+      "naturalIngredients": "सरल आओर पौष्टिक सामग्री"
+    },
+    "concerns": {
+      "highAddedSugar": "अतिरिक्त चीनी बेसी",
+      "highSodium": "सोडियम बेसी",
+      "containsPalmOil": "रिफाइंड पाम तेल अछि",
+      "refinedFlour": "मुख्य आधार मैदा अछि",
+      "artificialSweeteners": "कृत्रिम मीठा अछि",
+      "syntheticColour": "सिंथेटिक रंग अछि",
+      "highSatFat": "सैचुरेटेड फैट बेसी",
+      "ultraProcessed": "अल्ट्रा-प्रोसेस्ड उत्पाद"
+    }
+  },
+  "language": {
+    "select": "भाषा",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "बेहतर अनुवादक सुझाव दियौक"
+  }
+}

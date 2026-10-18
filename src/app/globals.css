@@ -16,8 +16,8 @@
   --surface: #FFFFFF;
   --surface-alt: #F3F0E8;
   
-  --font-display: 'Bricolage Grotesque', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Noto Sans Devanagari', 'Noto Sans Bengali', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Noto Sans Devanagari', 'Noto Sans Bengali', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Gujarati', 'Noto Sans Kannada', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Oriya', 'Noto Sans Arabic', 'Noto Nastaliq Urdu', 'Noto Sans', sans-serif;
   
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -770,4 +770,39 @@ img { max-width: 100%; display: block; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ==========================================================================
+   RTL & MULTILINGUAL SUPPORT (Urdu, Kashmiri, Sindhi)
+   ========================================================================== */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .ltr-only,
+html[dir="rtl"] input[type="tel"],
+html[dir="rtl"] input[type="email"],
+html[dir="rtl"] .code-font {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Micro-animations for modals */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

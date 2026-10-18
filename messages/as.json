@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "হোম",
+    "explore": "অন্বেষণ",
+    "compare": "তুলনা কৰক",
+    "learn": "জানক",
+    "scanner": "স্কেন",
+    "favourites": "পছন্দ",
+    "cart": "স্মাৰ্ট বাস্কেট",
+    "diary": "ডায়েৰী",
+    "search": "সন্ধান কৰক",
+    "about": "আমাৰ বিষয়ে",
+    "terms": "চৰ্তাৱলী",
+    "privacy": "গোপনীয়তা"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "আপোনাৰ খাদ্যৰ বিষয়ে জানক",
+    "chooseBetter": "উন্নত বাছক",
+    "eatSmarter": "বুদ্ধিমত্তাৰে খাওক",
+    "searchPlaceholder": "বিস্কুট, ওটছ, নুডুলছ বা 'উচ্চ প্ৰ'টিন' সন্ধান কৰক...",
+    "sampleData": "নমুনা তথ্য",
+    "notAvailable": "এতিয়াও উপলব্ধ নহয়",
+    "verified": "পৰীক্ষিত লেবেল",
+    "incomplete": "অসম্পূৰ্ণ লেবেল",
+    "per100g": "প্ৰতি 100g",
+    "perPack": "প্ৰতি পেকেট",
+    "back": "উভতি যাওক",
+    "viewAll": "সকলো চাওক",
+    "compare": "তুলনা কৰক",
+    "cancel": "বাতিল কৰক",
+    "save": "সংৰক্ষণ",
+    "close": "বন্ধ কৰক",
+    "clearAll": "সকলো মচক",
+    "share": "শ্বেয়াৰ",
+    "copied": "কপি কৰা হ'ল!",
+    "copyLink": "লিংক কপি",
+    "whatsApp": "হোৱাটছএপ",
+    "downloadImage": "PNG ডাউনল'ড",
+    "error": "কিবা ভুল হ'ল",
+    "loading": "লোড হৈ আছে...",
+    "disclaimerNote": "কেৱল তথ্যৰ বাবে, চিকিৎসা পৰামৰ্শ নহয়। ব্যৱহাৰৰ পূৰ্বে সদায় পেকেট পৰীক্ষা কৰক।",
+    "forInfoOnly": "কেৱল তথ্যৰ বাবে, চিকিৎসা পৰামৰ্শ নহয়।",
+    "ingredientsUnknown": "উপাদান অজ্ঞাত",
+    "contains": "আছে",
+    "freeFrom": "মুক্ত"
+  },
+  "fbs": {
+    "title": "ফুড বেনিফিট স্কোৰ",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS ভাইটালিটি কেপচুল",
+    "scoreOutOf10": "১০ ৰ ভিতৰত",
+    "bands": {
+      "good": "ভাল পছন্দ",
+      "moderate": "মধ্যমীয়া",
+      "limited": "সীমিত",
+      "avoid": "আল্ট্ৰা প্ৰচেছড / এৰাই চলক"
+    },
+    "frequency": {
+      "everyday": "নিয়মীয়াকৈ খাবলৈ উপযুক্ত",
+      "often": "সঘনাই খাব পাৰে",
+      "occasionally": "মাজে-সময়ে উপভোগ কৰক",
+      "rarely": "খুব কমকৈ খাওক"
+    }
+  },
+  "value": {
+    "title": "পইচা প্ৰতি পুষ্টি",
+    "subtitle": "প্ৰতি ₹১০ খৰচত পাওক অধিক প্ৰ'টিন আৰু ফাইবাৰ",
+    "tenRupeesGet": "₹১০ ত আপুনি পায়",
+    "proteinPerRupee": "প্ৰতি ₹১ ত প্ৰ'টিন",
+    "fibrePerRupee": "প্ৰতি ₹১ ত ফাইবাৰ",
+    "costPerGramProtein": "₹ প্ৰতি গ্ৰাম প্ৰ'টিন"
+  },
+  "alternatives": {
+    "title": "ইয়াতকৈ উন্নত বিকল্প",
+    "subtitle": "একে শ্ৰেণীৰ স্বাস্থ্যকৰ পছন্দ যিয়ে পুষ্টি বৃদ্ধি কৰে",
+    "alreadyBest": "ইতিমধ্যে এই শ্ৰেণীৰ অন্যতম শ্ৰেষ্ঠ বিকল্প!",
+    "alreadyBestDesc": "এই সামগ্ৰীবিধ পুষ্টিৰ ক্ষেত্ৰত শীৰ্ষত আছে।",
+    "modes": {
+      "overall": "সামগ্ৰিকভাৱে ভাল",
+      "fbs": "উচ্চ FBS",
+      "sugar": "কম চেনি",
+      "protein": "অধিক প্ৰ'টিন",
+      "sodium": "কম ছডিয়াম",
+      "cheaper": "সুলভ",
+      "value": "শ্ৰেষ্ঠ মূল্য"
+    },
+    "compareWith": "ইয়াৰ সৈতে তুলনা কৰক",
+    "noAlternatives": "এই শ্ৰেণীত এতিয়াও বিকল্প উপলব্ধ নহয়।"
+  },
+  "cart": {
+    "title": "স্মাৰ্ট বাস্কেট",
+    "subtitle": "মুঠ পুষ্টি, বাস্কেট FBS আৰু স্বাস্থ্যকৰ বিকল্প নিৰীক্ষণ কৰক",
+    "emptyTitle": "আপোনাৰ বাস্কেট খালী",
+    "emptySubtitle": "মুঠ পুষ্টি চাবলৈ সামগ্ৰী যোগ কৰক।",
+    "exploreProducts": "সামগ্ৰী চাওক",
+    "itemsInBasket": "বাস্কেটৰ সামগ্ৰী",
+    "basketFBS": "বাস্কেট গড় FBS",
+    "totalSpend": "মুঠ খৰচ",
+    "totalNutrition": "বাস্কেটৰ মুঠ পুষ্টি",
+    "weightedByCalories": "কেলৰিৰ অনুপাতত নিৰ্ধাৰিত",
+    "nutritionPer10": "বাস্কেট পুষ্টি প্ৰতি ₹১০",
+    "macroBreakdown": "মেক্ৰ' বিৱৰণ",
+    "whatDraggingDown": "কোন উপাদানে স্কোৰ হ্ৰাস কৰিছে?",
+    "smartSwapsTitle": "বাস্কেট আৰু উন্নত কৰক",
+    "smartSwapsSubtitle": "স্বাস্থ্যকৰ সালসলনি যিয়ে বাস্কেট FBS বৃদ্ধি কৰে",
+    "applySwap": "বিকল্প প্ৰয়োগ কৰক",
+    "undo": "পূৰ্বৰ অৱস্থালৈ নিয়ক",
+    "swapApplied": "বিকল্প সফলতাৰে প্ৰয়োগ কৰা হ'ল!",
+    "saveBasket": "তালিকা সংৰক্ষণ কৰক",
+    "shareBasket": "বাস্কেট শ্বেয়াৰ কৰক",
+    "clearBasket": "বাস্কেট খালী কৰক"
+  },
+  "favourites": {
+    "title": "মোৰ পছন্দ",
+    "subtitle": "আপোনাৰ সংৰক্ষিত খাদ্যৰ তালিকা",
+    "emptyTitle": "একো সংৰক্ষণ কৰা হোৱা নাই",
+    "emptySubtitle": "দ্ৰুত সন্ধানৰ বাবে হৃদয় চিনত স্পৰ্শ কৰক।",
+    "compareSelected": "নিৰ্বাচিতখিনি তুলনা কৰক",
+    "addAllToCart": "সকলো বাস্কেটত যোগ কৰক",
+    "clearAll": "সকলো মচক",
+    "filterCategory": "সকলো শ্ৰেণী"
+  },
+  "ingredients": {
+    "filterTitle": "উপাদান সন্ধান আৰু ফিল্টাৰ",
+    "naturalMatch": "প্ৰাকৃতিক ভাষা মিলিল",
+    "containsHeading": "থাকিবই লাগিব",
+    "freeFromHeading": "মুক্ত (থাকিব নালাগিব)",
+    "allergenDisclaimer": "সদায় পেকেট পৰীক্ষা কৰক। এলাৰ্জেনৰ সংস্পৰ্শ থাকিব পাৰে।",
+    "unknownListTitle": "উপাদান অজ্ঞাত",
+    "unknownListNotice": "সঠিকতাৰ বাবে অসম্পূৰ্ণ উপাদান থকা সামগ্ৰী বাদ দিয়া হৈছে।"
+  },
+  "scanner": {
+    "title": "স্মাৰ্ট ফুড স্কেনাৰ",
+    "subtitle": "পেকেজিং, পুষ্টি তালিকা বা বাৰকোড স্কেন কৰক",
+    "scanButton": "বাৰকোড বা লেবেল স্কেন কৰক",
+    "manualInput": "বা বাৰকোড লিখক",
+    "manualPlaceholder": "যেনে 8901262010053",
+    "lookup": "সন্ধান",
+    "scanningNotice": "কেমেৰাটো বাৰকোড বা পুষ্টি পেনেললৈ স্থিৰকৈ ৰাখক।"
+  },
+  "ai": {
+    "title": "WiseFoodies সহায়ক",
+    "subtitle": "উপাদান, FBS স্কোৰ বা বিকল্পৰ বিষয়ে সুধক",
+    "placeholder": "সোধক: 'এইটো ৰাতিপুৱাৰ আহাৰৰ বাবে ভালনে?'...",
+    "disclaimer": "AI উত্তৰসমূহ কেৱল পুষ্টি তথ্যৰ বাবে, চিকিৎসা পৰামৰ্শ নহয়।",
+    "quickPrompt1": "₹৩০ ৰ ভিতৰত হাই প্ৰ'টিন জলপান",
+    "quickPrompt2": "মেগীৰ শ্ৰেষ্ঠ বিকল্প",
+    "quickPrompt3": "পাম তেল স্বাস্থ্যৰ বাবে ক্ষতিকাৰকনে?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "পেশীৰ স্বাস্থ্যৰ বাবে উচ্চ প্ৰ'টিন",
+      "goodProtein": "প্ৰ'টিনৰ ভাল উৎস",
+      "fibreRich": "হজমৰ সহায়ক উচ্চ আঁহ",
+      "lowSugar": "কম চেনি",
+      "zeroAddedSugar": "কোনো অতিৰিক্ত চেনি নাই",
+      "wholeGrain": "সম্পূৰ্ণ শস্যৰে তৈয়াৰী",
+      "calciumRich": "কেলচিয়ামৰ ভাল উৎস",
+      "transFatFree": "শূন্য ট্ৰান্স ফেট",
+      "lowSodium": "কম ছডিয়ামযুক্ত প্ৰস্তুতি",
+      "naturalIngredients": "সহজ আৰু স্বাস্থ্যকৰ উপাদান"
+    },
+    "concerns": {
+      "highAddedSugar": "অতিৰিক্ত চেনিৰ মাত্ৰা অধিক",
+      "highSodium": "ছডিয়ামৰ মাত্ৰা অধিক",
+      "containsPalmOil": "পৰিশোধিত পাম তেল আছে",
+      "refinedFlour": "প্ৰধান ভিত্তি ময়দা",
+      "artificialSweeteners": "কৃত্ৰিম মিঠা উপাদান আছে",
+      "syntheticColour": "কৃত্ৰিম খাদ্য ৰং আছে",
+      "highSatFat": "সংপৃক্ত চৰ্বি অধিক",
+      "ultraProcessed": "অতি-প্ৰক্ৰিয়াজাত খাদ্য"
+    }
+  },
+  "language": {
+    "select": "ভাষা",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "উন্নত অনুবাদৰ পৰামৰ্শ দিয়ক"
+  }
+}

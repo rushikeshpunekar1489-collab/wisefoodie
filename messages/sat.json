@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "ᱚᱲᱟᱜ",
+    "explore": "ᱯᱟᱱᱛᱮ",
+    "compare": "ᱛᱩᱞᱟᱹᱡᱚᱠᱷᱟ",
+    "learn": "ᱪᱮᱫᱚᱜ",
+    "scanner": "ᱥᱠᱮᱱ",
+    "favourites": "ᱠᱩᱥᱤᱭᱟᱜ",
+    "cart": "ᱥᱢᱟᱨᱴ ᱴᱩᱠᱤᱡ",
+    "diary": "ᱰᱟᱭᱨᱤ",
+    "search": "ᱥᱮᱸᱫᱽᱨᱟ",
+    "about": "ᱟᱞᱮ ᱵᱟᱵᱚᱛ",
+    "terms": "ᱱᱤᱭᱚᱢ",
+    "privacy": "ᱩᱠᱩ ᱠᱟᱛᱷᱟ"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "ᱟᱢᱟᱜ ᱡᱚᱢᱟᱜ ᱵᱟᱰᱟᱭ ᱢᱮ",
+    "chooseBetter": "ᱵᱷᱟᱹᱜᱤ ᱵᱟᱪᱷᱟᱣ ᱢᱮ",
+    "eatSmarter": "ᱵᱩᱫᱷᱤ ᱛᱮ ᱡᱚᱢ ᱢᱮ",
+    "searchPlaceholder": "ᱵᱤᱥᱠᱩᱴ, ᱚᱴᱥ, ᱱᱩᱰᱚᱞᱥ ᱥᱮ 'ᱦᱟᱭ ᱯᱨᱳᱴᱤᱱ' ᱯᱟᱱᱛᱮ ᱢᱮ...",
+    "sampleData": "ᱱᱟᱢᱩᱱᱟ ᱰᱮᱴᱟ",
+    "notAvailable": "ᱱᱤᱛᱚᱜ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+    "verified": "ᱯᱚᱨᱠᱷᱟᱣ ᱞᱮᱵᱮᱞ",
+    "incomplete": " আধᱩᱨᱟ ᱞᱮᱵᱮᱞ",
+    "per100g": "ᱡᱟᱣ 100g ᱨᱮ",
+    "perPack": "ᱯᱮᱠᱮᱴ ᱯᱤᱪᱷᱤ",
+    "back": "ᱨᱩᱣᱟᱹᱲ",
+    "viewAll": "ᱡᱚᱛᱚ ᱧᱮᱞ ᱢᱮ",
+    "compare": "ᱛᱩᱞᱟᱹᱡᱚᱠᱷᱟ ᱢᱮ",
+    "cancel": "ᱵᱟᱫᱽ",
+    "save": "ᱥᱟᱸᱪᱟᱣ",
+    "close": "ᱵᱚᱸᱫᱽ",
+    "clearAll": "ᱡᱚᱛᱚ ᱜᱤᱰᱤ ᱢᱮ",
+    "share": "ᱦᱟᱹᱴᱤᱧ",
+    "copied": "ᱠᱚᱯᱤ ᱮᱱᱟ!",
+    "copyLink": "ᱞᱤᱝᱠ ᱠᱚᱯᱤ",
+    "whatsApp": "ᱣᱟᱴᱥᱮᱯ",
+    "downloadImage": "PNG ᱰᱟᱣᱩᱱᱞᱳᱰ",
+    "error": "ᱡᱟᱦᱟᱸᱱᱟᱜ ᱵᱟᱹᱲᱤᱡ ᱮᱱᱟ",
+    "loading": "ᱞᱟᱫᱮᱜ ᱠᱟᱱᱟ...",
+    "disclaimerNote": "ᱠᱷᱟᱹᱞᱤ ᱵᱟᱰᱟᱭ ᱞᱟᱹᱜᱤᱫ, ᱰᱟᱠᱛᱚᱨ ᱥᱟᱞᱟᱦ ᱫᱚ ᱵᱟᱝ ᱠᱟᱱᱟ᱾ ᱡᱚᱢ ᱢᱟᱬᱟᱝ ᱨᱮ ᱯᱮᱠ ᱧᱮᱞ ᱢᱮ᱾",
+    "forInfoOnly": "ᱠᱷᱟᱹᱞᱤ ᱵᱟᱰᱟᱭ ᱞᱟᱹᱜᱤᱫ, ᱰᱟᱠᱛᱚᱨ ᱥᱟᱞᱟᱦ ᱫᱚ ᱵᱟᱝ ᱠᱟᱱᱟ᱾",
+    "ingredientsUnknown": "ᱡᱤᱱᱤᱥ ᱵᱟᱰᱟᱭ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+    "contains": "ᱢᱮᱱᱟᱜᱼᱟ",
+    "freeFrom": "ᱵᱟᱹᱱᱩᱜᱼᱟ"
+  },
+  "fbs": {
+    "title": "ᱡᱚᱢᱟᱜ ᱜᱩᱱ ᱥᱠᱳᱨ (FBS)",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS ᱫᱟᱲᱮ ᱠᱮᱯᱥᱩᱞ",
+    "scoreOutOf10": "᱑᱐ ᱠᱷᱚᱱ",
+    "bands": {
+      "good": "ᱵᱷᱟᱹᱜᱤ ᱵᱟᱪᱷᱟᱣ",
+      "moderate": "ᱛᱟᱞᱟᱢᱟᱞᱟ",
+      "limited": "ᱥᱤᱢᱟᱹ ᱨᱮ",
+      "avoid": "ᱵᱟᱹᱲᱛᱤ ᱛᱮᱭᱟᱨᱟᱜ / ᱥᱟᱦᱟ ᱢᱮ"
+    },
+    "frequency": {
+      "everyday": "ᱫᱤᱱᱟᱹᱢ ᱡᱚᱢ ᱞᱟᱹᱜᱤᱫ ᱴᱷᱤᱠ",
+      "often": "ᱵᱟᱹᱲᱛᱤ ᱜᱮ ᱡᱚᱢ ᱜᱟᱱᱚᱜᱼᱟ",
+      "occasionally": "ᱛᱤᱥ ᱪᱚᱝ ᱡᱚᱢ ᱢᱮ",
+      "rarely": "ᱟᱹᱰᱤ ᱠᱚᱢ ᱡᱚᱢ ᱢᱮ"
+    }
+  },
+  "value": {
+    "title": "ᱴᱟᱠᱟ ᱯᱤᱪᱷᱤ ᱯᱩᱥᱴᱤ",
+    "subtitle": "ᱡᱟᱣ ₹᱑᱐ ᱨᱮ ᱧᱟᱢ ᱢᱮ ᱵᱟᱹᱲᱛᱤ ᱯᱨᱳᱴᱤᱱ ᱟᱨ ᱯᱷᱟᱭᱵᱟᱨ",
+    "tenRupeesGet": "₹᱑᱐ ᱨᱮ ᱧᱟᱢᱚᱜᱼᱟ",
+    "proteinPerRupee": "ᱡᱟᱣ ₹᱑ ᱨᱮ ᱯᱨᱳᱴᱤᱱ",
+    "fibrePerRupee": "ᱡᱟᱣ ₹᱑ ᱨᱮ ᱯᱷᱟᱭᱵᱟᱨ",
+    "costPerGramProtein": "₹ ᱡᱟᱣ ᱜᱨᱟᱢ ᱯᱨᱳᱴᱤᱱ"
+  },
+  "alternatives": {
+    "title": "ᱱᱚᱣᱟ ᱠᱷᱚᱱ ᱵᱷᱟᱹᱜᱤ ᱵᱟᱪᱷᱟᱣ",
+    "subtitle": "ᱱᱚᱣᱟ ᱛᱷᱚᱠ ᱨᱮᱱᱟᱜ ᱵᱷᱟᱹᱜᱤ ᱡᱚᱢᱟᱜ",
+    "alreadyBest": "ᱱᱚᱣᱟ ᱛᱷᱚᱠ ᱨᱮ ᱢᱟᱬᱟᱝ ᱠᱷᱚᱱ ᱜᱮ ᱡᱚᱛᱚ ᱠᱷᱚᱱ ᱵᱷᱟᱹᱜᱤ!",
+    "alreadyBestDesc": "ᱱᱚᱣᱟ ᱡᱚᱢᱟᱜ ᱫᱚ ᱯᱩᱥᱴᱤ ᱨᱮ ᱪᱮᱛᱟᱱ ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ᱾",
+    "modes": {
+      "overall": "ᱡᱚᱛᱚ ᱞᱮᱠᱟᱛᱮ ᱵᱷᱟᱹᱜᱤ",
+      "fbs": "ᱪᱮᱛᱟᱱ FBS",
+      "sugar": "ᱠᱚᱢ ᱪᱤᱱᱤ",
+      "protein": "ᱵᱟᱹᱲᱛᱤ ᱯᱨᱳᱴᱤᱱ",
+      "sodium": "ᱠᱚᱢ ᱵᱩᱞᱩᱝ",
+      "cheaper": "ᱥᱚᱥᱛᱟ",
+      "value": "ᱵᱷᱟᱹᱜᱤ ᱫᱟᱢ"
+    },
+    "compareWith": "ᱱᱚᱣᱟ ᱥᱟᱶ ᱛᱩᱞᱟᱹᱡᱚᱠᱷᱟ ᱢᱮ",
+    "noAlternatives": "ᱱᱚᱣᱟ ᱛᱷᱚᱠ ᱨᱮ ᱮᱴᱟᱜ ᱡᱚᱢᱟᱜ ᱵᱟᱹᱱᱩᱜᱼᱟ᱾"
+  },
+  "cart": {
+    "title": "ᱥᱢᱟᱨᱴ ᱴᱩᱠᱤᱡ",
+    "subtitle": "ᱠᱤᱨᱤᱧ ᱢᱟᱬᱟᱝ ᱨᱮ ᱡᱚᱛᱚ ᱯᱩᱥᱴᱤ ᱧᱮᱞ ᱢᱮ",
+    "emptyTitle": "ᱴᱩᱠᱤᱡ ᱠᱷᱟᱹᱞᱤ ᱜᱮᱭᱟ",
+    "emptySubtitle": "ᱯᱩᱥᱴᱤ ᱧᱮᱞ ᱞᱟᱹᱜᱤᱫ ᱡᱚᱢᱟᱜ ᱥᱮᱞᱮᱫ ᱢᱮ᱾",
+    "exploreProducts": "ᱡᱚᱢᱟᱜ ᱧᱮᱞ ᱢᱮ",
+    "itemsInBasket": "ᱴᱩᱠᱤᱡ ᱨᱮ ᱢᱮᱱᱟᱜ ᱡᱤᱱᱤᱥ",
+    "basketFBS": "ᱴᱩᱠᱤᱡ ᱨᱮᱱᱟᱜ ᱮᱵᱷᱨᱮᱡᱽ FBS",
+    "totalSpend": "ᱢᱩᱴᱷ ᱴᱟᱠᱟ",
+    "totalNutrition": "ᱴᱩᱠᱤᱡ ᱨᱮᱱᱟᱜ ᱡᱚᱛᱚ ᱯᱩᱥᱴᱤ",
+    "weightedByCalories": "ᱠᱮᱞᱳᱨᱤ ᱞᱮᱠᱟᱛᱮ ᱦᱤᱥᱟᱹᱵᱽ",
+    "nutritionPer10": "ᱴᱩᱠᱤᱡ ᱯᱩᱥᱴᱤ ₹᱑᱐ ᱨᱮ",
+    "macroBreakdown": "ᱯᱩᱥᱴᱤ ᱦᱟᱹᱴᱤᱧ",
+    "whatDraggingDown": "ᱥᱠᱳᱨ ᱪᱮᱫ ᱠᱷᱟᱹᱛᱤᱨ ᱠᱚᱢᱚᱜ ᱠᱟᱱᱟ?",
+    "smartSwapsTitle": "ᱱᱚᱣᱟ ᱴᱩᱠᱤᱡ ᱟᱨᱦᱚᱸ ᱵᱷᱟᱹᱜᱤ ᱵᱮᱱᱟᱣ ᱢᱮ",
+    "smartSwapsSubtitle": "ᱵᱷᱟᱹᱜᱤ ᱵᱚᱫᱚᱞ ᱡᱟᱦᱟᱸ ᱫᱚ FBS ᱨᱟᱠᱟᱵᱼᱟ",
+    "applySwap": "ᱵᱚᱫᱚᱞ ᱞᱟᱜᱟᱣ ᱢᱮ",
+    "undo": "ᱨᱩᱣᱟᱹᱲ",
+    "swapApplied": "ᱵᱚᱫᱚᱞ ᱞᱟᱜᱟᱣ ᱮᱱᱟ!",
+    "saveBasket": "ᱛᱟᱹᱞᱠᱟᱹ ᱥᱟᱸᱪᱟᱣ ᱢᱮ",
+    "shareBasket": "ᱴᱩᱠᱤᱡ ᱦᱟᱹᱴᱤᱧ ᱢᱮ",
+    "clearBasket": "ᱴᱩᱠᱤᱡ ᱠᱷᱟᱹᱞᱤ ᱢᱮ"
+  },
+  "favourites": {
+    "title": "ᱤᱧᱟᱜ ᱠᱩᱥᱤᱭᱟᱜ",
+    "subtitle": "ᱥᱟᱸᱪᱟᱣ ᱟᱠᱟᱱ ᱡᱚᱢᱟᱜ ᱛᱟᱹᱞᱠᱟᱹ",
+    "emptyTitle": "ᱱᱤᱛᱚᱜ ᱫᱷᱟᱹᱵᱤᱡ ᱪᱮᱫ ᱦᱚᱸ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+    "emptySubtitle": "ᱞᱚᱜᱚᱱ ᱧᱟᱢ ᱞᱟᱹᱜᱤᱫ ᱫᱤᱞ ᱪᱤᱱᱦᱟᱹ ᱨᱮ ᱚᱛᱟᱭ ᱢᱮ᱾",
+    "compareSelected": "ᱵᱟᱪᱷᱟᱣ ᱟᱠᱟᱱᱟᱜ ᱛᱩᱞᱟᱹᱡᱚᱠᱷᱟ ᱢᱮ",
+    "addAllToCart": "ᱡᱚᱛᱚ ᱴᱩᱠᱤᱡ ᱨᱮ ᱥᱮᱞᱮᱫ ᱢᱮ",
+    "clearAll": "ᱡᱚᱛᱚ ᱜᱤᱰᱤ ᱢᱮ",
+    "filterCategory": "ᱡᱚᱛᱚ ᱛᱷᱚᱠ"
+  },
+  "ingredients": {
+    "filterTitle": "ᱡᱤᱱᱤᱥ ᱥᱮᱸᱫᱽᱨᱟ ᱟᱨ ᱪᱷᱟᱹᱱᱤ",
+    "naturalMatch": "ᱯᱟᱹᱨᱥᱤ ᱢᱤᱞᱟᱹᱣ ᱮᱱᱟ",
+    "containsHeading": "ᱛᱟᱦᱮᱸᱱ ᱞᱟᱹᱠᱛᱤ",
+    "freeFromHeading": "ᱵᱟᱹᱱᱩᱜᱼᱟ (ᱵᱟᱝ ᱛᱟᱦᱮᱸᱱ ᱞᱟᱹᱠᱛᱤ)",
+    "allergenDisclaimer": "ᱡᱟᱣᱜᱮ ᱯᱮᱠ ᱧᱮᱞ ᱢᱮ᱾ ᱮᱞᱟᱨᱡᱤ ᱦᱩᱭ ᱫᱟᱲᱮᱭᱟᱜᱼᱟ᱾",
+    "unknownListTitle": "ᱡᱤᱱᱤᱥ ᱵᱟᱰᱟᱭ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+    "unknownListNotice": "ᱥᱟᱹᱨᱤ ᱠᱟᱛᱷᱟ ᱞᱟᱹᱜᱤᱫ ᱵᱟᱝ ᱯᱩᱨᱟᱹᱣ ᱡᱤᱱᱤᱥ ᱚᱪᱚᱜ ᱟᱠᱟᱱᱟ᱾"
+  },
+  "scanner": {
+    "title": "ᱥᱢᱟᱨᱴ ᱡᱚᱢᱟᱜ ᱥᱠᱮᱱᱟᱨ",
+    "subtitle": "ᱯᱮᱠᱮᱴ, ᱯᱩᱥᱴᱤ ᱵᱚᱠᱥ ᱥᱮ ᱵᱟᱨᱠᱳᱰ ᱥᱠᱮᱱ ᱢᱮ",
+    "scanButton": "ᱵᱟᱨᱠᱳᱰ ᱥᱮ ᱞᱮᱵᱮᱞ ᱥᱠᱮᱱ ᱢᱮ",
+    "manualInput": "ᱥᱮ ᱵᱟᱨᱠᱳᱰ ᱚᱞ ᱢᱮ",
+    "manualPlaceholder": "ᱡᱮᱞᱮᱠᱟ 8901262010053",
+    "lookup": "ᱯᱟᱱᱛᱮ",
+    "scanningNotice": "ᱠᱮᱢᱨᱟ ᱵᱟᱨᱠᱳᱰ ᱥᱮᱫ ᱛᱷᱤᱨ ᱫᱚᱦᱚᱭ ᱢᱮ᱾"
+  },
+  "ai": {
+    "title": "WiseFoodies ᱜᱚᱲᱚᱭᱤᱡ",
+    "subtitle": "ᱡᱤᱱᱤᱥ, FBS ᱥᱠᱳᱨ ᱥᱮ ᱵᱚᱫᱚᱞ ᱵᱟᱵᱚᱛ ᱠᱩᱞᱤ ᱢᱮ",
+    "placeholder": "ᱠᱩᱞᱤ ᱢᱮ: 'ᱱᱚᱣᱟ ᱫᱚ ᱥᱮᱛᱟᱜ ᱡᱚᱢ ᱞᱟᱹᱜᱤᱫ ᱴᱷᱤᱠ ᱜᱮᱭᱟ?'...",
+    "disclaimer": "AI ᱛᱮᱞᱟ ᱫᱚ ᱠᱷᱟᱹᱞᱤ ᱯᱩᱥᱴᱤ ᱵᱟᱰᱟᱭ ᱞᱟᱹᱜᱤᱫ, ᱰᱟᱠᱛᱚᱨ ᱥᱟᱞᱟᱦ ᱫᱚ ᱵᱟᱝ ᱠᱟᱱᱟ᱾",
+    "quickPrompt1": "₹᱓᱐ ᱨᱮ ᱦᱟᱭ ᱯᱨᱳᱴᱤᱱ ᱡᱚᱢᱟᱜ",
+    "quickPrompt2": "ᱢᱮᱜᱤ ᱠᱷᱚᱱ ᱵᱷᱟᱹᱜᱤ ᱡᱚᱢᱟᱜ",
+    "quickPrompt3": "ᱪᱮᱫ ᱯᱟᱢ ᱥᱩᱱᱩᱢ ᱦᱚᱲᱢᱚ ᱞᱟᱹᱜᱤᱫ ᱵᱟᱹᱲᱤᱡ ᱜᱮᱭᱟ?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "ᱦᱚᱲᱢᱚ ᱞᱟᱹᱜᱤᱫ ᱵᱟᱹᱲᱛᱤ ᱯᱨᱳᱴᱤᱱ",
+      "goodProtein": "ᱯᱨᱳᱴᱤᱱ ᱨᱮᱱᱟᱜ ᱵᱷᱟᱹᱜᱤ ᱡᱟᱭᱜᱟ",
+      "fibreRich": "ᱦᱚᱡᱚᱢ ᱞᱟᱹᱜᱤᱫ ᱵᱷᱟᱹᱜᱤ ᱯᱷᱟᱭᱵᱟᱨ",
+      "lowSugar": "ᱠᱚᱢ ᱪᱤᱱᱤ",
+      "zeroAddedSugar": "ᱵᱟᱹᱲᱛᱤ ᱪᱤᱱᱤ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+      "wholeGrain": "ᱥᱟᱹᱨᱤ ᱦᱳᱲᱳ ᱛᱮ ᱛᱮᱭᱟᱨ",
+      "calciumRich": "ᱠᱮᱞᱥᱤᱭᱚᱢ ᱨᱮᱱᱟᱜ ᱵᱷᱟᱹᱜᱤ ᱡᱟᱭᱜᱟ",
+      "transFatFree": "ᱴᱨᱟᱱᱥ ᱯᱷᱮᱴ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+      "lowSodium": "ᱠᱚᱢ ᱵᱩᱞᱩᱝ ᱢᱮᱥᱟ",
+      "naturalIngredients": "ᱥᱟᱫᱷᱟᱨᱚᱱ ᱟᱨ ᱵᱷᱟᱹᱜᱤ ᱡᱤᱱᱤᱥ"
+    },
+    "concerns": {
+      "highAddedSugar": "ᱵᱟᱹᱲᱛᱤ ᱪᱤᱱᱤ ᱢᱮᱥᱟ ᱢᱮᱱᱟᱜᱼᱟ",
+      "highSodium": "ᱵᱩᱞᱩᱝ ᱵᱟᱹᱲᱛᱤ ᱢᱮᱱᱟᱜᱼᱟ",
+      "containsPalmOil": "ᱯᱟᱢ ᱥᱩᱱᱩᱢ ᱢᱮᱥᱟ ᱢᱮᱱᱟᱜᱼᱟ",
+      "refinedFlour": "ᱢᱩᱬᱩᱛ ᱡᱤᱱᱤᱥ ᱫᱚ ᱢᱚᱭᱫᱟ ᱠᱟᱱᱟ",
+      "artificialSweeteners": "ᱵᱮᱱᱟᱣᱟᱜ ᱦᱮᱲᱮᱢ ᱢᱮᱥᱟ ᱢᱮᱱᱟᱜᱼᱟ",
+      "syntheticColour": "ᱵᱮᱱᱟᱣᱟᱜ ᱨᱚᱝ ᱢᱮᱥᱟ ᱢᱮᱱᱟᱜᱼᱟ",
+      "highSatFat": "ᱥᱮᱪᱩᱨᱮᱴᱮᱰ ᱯᱷᱮᱴ ᱵᱟᱹᱲᱛᱤ",
+      "ultraProcessed": "ᱵᱟᱹᱲᱛᱤ ᱛᱮᱭᱟᱨ ᱡᱚᱢᱟᱜ"
+    }
+  },
+  "language": {
+    "select": "ᱯᱟᱹᱨᱥᱤ",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "ᱟᱨᱦᱚᱸ ᱵᱷᱟᱹᱜᱤ ᱛᱚᱨᱡᱚᱢᱟ ᱞᱟᱹᱭ ᱢᱮ"
+  }
+}

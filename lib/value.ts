@@ -137,3 +137,21 @@ export function computeNutritionPerPaisa(input: NutritionPerPaisaInput): Nutriti
     isAvailable: true,
   };
 }
+
+export function calculateNutritionPerPaisa(product: any): NutritionPerPaisaResult {
+  const packSizeMatch = typeof product.packSize === 'string'
+    ? product.packSize.match(/(\d+(?:\.\d+)?)\s*(?:g|ml|gm)/i)
+    : null;
+  const packSizeG = product.packSizeG || (packSizeMatch ? parseFloat(packSizeMatch[1]) : 100);
+
+  return computeNutritionPerPaisa({
+    priceINR: product.price ?? null,
+    packSizeG,
+    per100g: {
+      energyKcal: product.per100g?.energyKcal ?? null,
+      proteinG: product.per100g?.proteinG ?? null,
+      fibreG: product.per100g?.fiberG ?? null,
+      micronutrients: product.per100g?.micronutrients,
+    },
+  });
+}

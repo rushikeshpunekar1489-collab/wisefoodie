@@ -30,6 +30,7 @@ export const ProductSchema = z.object({
     })).default([]),
   }),
   ingredients: z.array(z.string()).default([]),
+  ingredientTags: z.array(z.string()).optional().default([]),
   benefits: z.array(z.string()).default([]),
   concerns: z.array(z.string()).default([]),
   fbs: z.object({
@@ -59,3 +60,4 @@ export const ProductSchema = z.object({
 });
 
 export type Product = z.infer<typeof ProductSchema>;
+export type ProductPer100g = Product['per100g'];

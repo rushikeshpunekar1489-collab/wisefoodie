@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "घर",
+    "explore": "अन्वेषण",
+    "compare": "तुलना करात",
+    "learn": "जाणा",
+    "scanner": "स्कॅन",
+    "favourites": "आवडतें",
+    "cart": "स्मार्ट बास्केट",
+    "diary": "डायरी",
+    "search": "सोदात",
+    "about": "आमच्या विशीं",
+    "terms": "अटी",
+    "privacy": "गोपनीयता"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "तुमचें अन्न जाणा",
+    "chooseBetter": "बरें विंचात",
+    "eatSmarter": "हुशारिकायेन खायात",
+    "searchPlaceholder": "बिस्कूट, ओट्स, नूडल्स वा 'हाय प्रोटीन' सोदात...",
+    "sampleData": "नमुनो डेटा",
+    "notAvailable": "अजून उपलब्ध ना",
+    "verified": "तपासिल्लें लेबल",
+    "incomplete": "अपूर्ण लेबल",
+    "per100g": "दर 100g फाटल्यान",
+    "perPack": "दर पाकिटा फाटल्यान",
+    "back": "फाटीं",
+    "viewAll": "सगळें पळयात",
+    "compare": "तुलना करात",
+    "cancel": "रद्द करात",
+    "save": "सांबाळात",
+    "close": "बंद करात",
+    "clearAll": "सगळें पुसात",
+    "share": "शेअर करात",
+    "copied": "कॉपी जालें!",
+    "copyLink": "दुवो कॉपी करात",
+    "whatsApp": "व्हॉट्सॲप",
+    "downloadImage": "PNG डाऊनलोड",
+    "error": "काहींतरी चूक जाली",
+    "loading": "लोड जाता...",
+    "disclaimerNote": "फकत म्हायती खातीर, दोतोरलो सल्लो न्हय. खावचे पयलीं पाकीट तपासात.",
+    "forInfoOnly": "फकत म्हायती खातीर, दोतोरलो सल्लो न्हय.",
+    "ingredientsUnknown": "घटक अज्ञात",
+    "contains": "आसा",
+    "freeFrom": "मुक्त"
+  },
+  "fbs": {
+    "title": "फूड बेनिफिट स्कोर",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS वाइटॅलिटी कॅप्सूल",
+    "scoreOutOf10": "10 तल्यान",
+    "bands": {
+      "good": "बरो पर्याय",
+      "moderate": "मध्यम",
+      "limited": "मर्यादीत",
+      "avoid": "अल्ट्रा प्रोसेस्ड / टाळात"
+    },
+    "frequency": {
+      "everyday": "नियमित खावपाक योग्य",
+      "often": "सतत खावं येता",
+      "occasionally": "केन्ना तरी आस्वाद घेयात",
+      "rarely": "खूब उणें खायात"
+    }
+  },
+  "value": {
+    "title": "पैशा फाटल्यान पोषण",
+    "subtitle": "दर ₹10 क मेळयात चड प्रोटीन आनी फायबर",
+    "tenRupeesGet": "₹10 क मेळटा",
+    "proteinPerRupee": "दर ₹1 क प्रोटीन",
+    "fibrePerRupee": "दर ₹1 क फायबर",
+    "costPerGramProtein": "₹ दर ग्रॅम प्रोटीन फाटल्यान"
+  },
+  "alternatives": {
+    "title": "हाचे परस बरे पर्याय",
+    "subtitle": "त्याच वर्गांतले आरोग्यदायी पर्याय जे पोषण वाडयतात",
+    "alreadyBest": "हे श्रेणींतलो हो पयलींच उत्कृश्ट पर्याय!",
+    "alreadyBestDesc": "हें उत्पादन पोषण मळार अग्रस्थानाचेर आसा.",
+    "modes": {
+      "overall": "सगळ्यांत बरें",
+      "fbs": "चड FBS",
+      "sugar": "उणी साकर",
+      "protein": "चड प्रोटीन",
+      "sodium": "उणें सोडियम",
+      "cheaper": "सोपें",
+      "value": "उत्कृश्ट मोल"
+    },
+    "compareWith": "हाचे कडेन तुलना करात",
+    "noAlternatives": "हे श्रेणींत अजून पर्याय मेळूंक नात."
+  },
+  "cart": {
+    "title": "स्मार्ट बास्केट",
+    "subtitle": "मोल घेवचे पयलीं पुराय पोषण आनी स्मार्ट बदल पळयात",
+    "emptyTitle": "तुमची बास्केट खाली आसा",
+    "emptySubtitle": "पोषण पळोवंक उत्पादनां जोडाத்.",
+    "exploreProducts": "उत्पादनां पळयात",
+    "itemsInBasket": "बास्केटींतलीं वस्तूं",
+    "basketFBS": "बास्केट सरासरी FBS",
+    "totalSpend": "पुराय खर्च",
+    "totalNutrition": "बास्केटीचें पुराय पोषण",
+    "weightedByCalories": "कॅलरी प्रमाणे गणित केल्लें",
+    "nutritionPer10": "बास्केट पोषण दर ₹10 क",
+    "macroBreakdown": "मॅक्रो तपशील",
+    "whatDraggingDown": "स्कोर कित्याक देंवता?",
+    "smartSwapsTitle": "ही बास्केट आनीक बरी करात",
+    "smartSwapsSubtitle": "आरोग्यदायी बदल जे बास्केट FBS वाडयतात",
+    "applySwap": "बदल लागू करात",
+    "undo": "परतून करात",
+    "swapApplied": "बदल यशस्वीपणान लागू जालो!",
+    "saveBasket": "बास्केट वळेरी सांबाळात",
+    "shareBasket": "बास्केट शेअर करात",
+    "clearBasket": "बास्केट खाली करात"
+  },
+  "favourites": {
+    "title": "म्हजें आवडतें",
+    "subtitle": "सांबाळिल्ल्या अन्नाची वळेरी",
+    "emptyTitle": "अजून काहीं सांबाळूंक ना",
+    "emptySubtitle": "वेगान मेळोवंक कांद्याच्या चिन्हाचेर टॅप करात.",
+    "compareSelected": "विंचिल्ली तुलना करात",
+    "addAllToCart": "सगळें बास्केटींत घालात",
+    "clearAll": "सगळें पुसात",
+    "filterCategory": "सगळे वर्ग"
+  },
+  "ingredients": {
+    "filterTitle": "घटक सोद आनी चाळणी",
+    "naturalMatch": "सैमीक भास जुळ्ळी",
+    "containsHeading": "आसच जाय",
+    "freeFromHeading": "मुक्त (आसपाक फावना)",
+    "allergenDisclaimer": "सदांच पाकीट तपासात. ॲलर्जीचे घटक आसूंक शकतात.",
+    "unknownListTitle": "घटक अज्ञात",
+    "unknownListNotice": "नितळ म्हायती खातीर अपूर्ण घटकांचीं उत्पादनां वगळ्ळ्यांत."
+  },
+  "scanner": {
+    "title": "स्मार्ट फूड स्कॅनर",
+    "subtitle": "पॅकेजिंग, पोषण तक्तो वा बारकोड स्कॅन करात",
+    "scanButton": "बारकोड वा लेबल स्कॅन करात",
+    "manualInput": "वा बारकोड हातांनी घालात",
+    "manualPlaceholder": "उदा. 8901262010053",
+    "lookup": "सोदात",
+    "scanningNotice": "कॅमेरा बारकोडा कडेन थीर दवरात."
+  },
+  "ai": {
+    "title": "WiseFoodies सहाय्यक",
+    "subtitle": "घटक, FBS स्कोर वा पर्यायां विशीं विचारात",
+    "placeholder": "विचारात: 'हें सकाळच्या नाश्त्याक बरें आसा काय?'...",
+    "disclaimer": "AI जाप फकत पोषणाचे म्हायती खातीर, दोतोरलो सल्लो न्हय.",
+    "quickPrompt1": "₹30 त चड प्रोटीन आशिल्ले खाज",
+    "quickPrompt2": "मॅगी खातीर बरे पर्याय",
+    "quickPrompt3": "पाम तेल आरोग्याक वायट काय?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "स्नायूंच्या आरोग्या खातीर चड प्रोटीन",
+      "goodProtein": "प्रोटीनाचा बरो स्त्रोत",
+      "fibreRich": "पचनाक बरें अशें फायबर",
+      "lowSugar": "उणी साकर",
+      "zeroAddedSugar": "घातिल्ली साकर शून्य",
+      "wholeGrain": "पुराय धान्यांनी तयार केल्लें",
+      "calciumRich": "कॅल्शियमचो बरो स्त्रोत",
+      "transFatFree": "शून्य ट्रान्स फॅट",
+      "lowSodium": "उणें सोडियम आशिल्लें",
+      "naturalIngredients": "साधे आनी बरे घटक"
+    },
+    "concerns": {
+      "highAddedSugar": "घातिल्ली साकर चड आसा",
+      "highSodium": "सोडियम चड आसा",
+      "containsPalmOil": "पाम तेल आसा",
+      "refinedFlour": "मुखेल घटक मैदो",
+      "artificialSweeteners": "कृत्रिम गोडसाण आसा",
+      "syntheticColour": "कृत्रिम रंग आसात",
+      "highSatFat": "सॅच्युरेटेड फॅट चड आसा",
+      "ultraProcessed": "अल्ट्रा-प्रोसेस्ड उत्पादन"
+    }
+  },
+  "language": {
+    "select": "भास",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "आनीक बरो अणकार सुचय्यात"
+  }
+}

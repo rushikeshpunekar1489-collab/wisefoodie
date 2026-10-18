@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "न'",
+    "explore": "नायगिर",
+    "compare": "रुजुनाय",
+    "learn": "सोलों",
+    "scanner": "स्केन",
+    "favourites": "मोजां मोननाय",
+    "cart": "स्मार्ट थुरि",
+    "diary": "डायरी",
+    "search": "नायगिर",
+    "about": "जोंनि सोमोन्दै",
+    "terms": "नेम-खान्थि",
+    "privacy": "गोपोनियथि"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "नोंनि जामुंखौ मिथि",
+    "chooseBetter": "साबसिन सायख'",
+    "eatSmarter": "गियानजों जा",
+    "searchPlaceholder": "बिस्कुट, ओट्स, नूडल्स एबा 'हाई प्रोटीन' नायगिर...",
+    "sampleData": "नुमुना दाथा",
+    "notAvailable": "मोननो गैथ'आ",
+    "verified": "थार लेबेल",
+    "incomplete": "अपुर्ण लेबेल",
+    "per100g": "मोनफ्रोम 100g आव",
+    "perPack": "पायकेत आव",
+    "back": "उलथाय",
+    "viewAll": "गासैखौ नु",
+    "compare": "रुजुनाय",
+    "cancel": "नेवसि",
+    "save": "दोनथुम",
+    "close": "बन्द खालाम",
+    "clearAll": "गासै हुस्रो",
+    "share": "रानों",
+    "copied": "कपि जाबाय!",
+    "copyLink": "लिंक कपि",
+    "whatsApp": "हवाटसएप",
+    "downloadImage": "PNG डाउनलोड",
+    "error": "माबा गोरोन्थि जादों",
+    "loading": "लोड जाबाय थादों...",
+    "disclaimerNote": "मिथिनि थाखायल', फाहामथाय बिथोन नङा। जाग्रोनायनि सिगां पाकेटखौ नाय।",
+    "forInfoOnly": "मिथिनि थाखायल', फाहामथाय बिथोन नङा।",
+    "ingredientsUnknown": "मुवा मिथियै",
+    "contains": "दं",
+    "freeFrom": "गैयै"
+  },
+  "fbs": {
+    "title": "फूड बेनिफिट स्कोर",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS गोहो कैप्सूल",
+    "scoreOutOf10": "10 नि गेजेराव",
+    "bands": {
+      "good": "मोजां सायख'नाय",
+      "moderate": "गेजेरारि",
+      "limited": "सीमा गोनां",
+      "avoid": "अल्ट्रा प्रोसेस्ड / एंगार"
+    },
+    "frequency": {
+      "everyday": "अरायबो जानो थाखाय मोजां",
+      "often": "सम सम जानो हागौ",
+      "occasionally": "माब्लाबा जा",
+      "rarely": "जोबोद खम जा"
+    }
+  },
+  "value": {
+    "title": "रांखान्थि बादियै सुबिदा",
+    "subtitle": "मोनफ्रोम ₹10 आव मोन बांसिन प्र'टिन आरो फायबार",
+    "tenRupeesGet": "₹10 आव नोंथाङा मोनो",
+    "proteinPerRupee": "₹1 आव प्र'टिन",
+    "fibrePerRupee": "₹1 आव फायबार",
+    "costPerGramProtein": "₹ प्र'टिननि ग्राम बादियै"
+  },
+  "alternatives": {
+    "title": "बेनि साबसिन खाबुफोर",
+    "subtitle": "पुष्टि बांहोग्रा मोजां जामुंफोर",
+    "alreadyBest": "बे थाखोआव गिदिर साबसिन जामुंफोरनि मोनसे!",
+    "alreadyBestDesc": "बे जामुंआ पुष्टि बिथिंआव गजोउआव दं।",
+    "modes": {
+      "overall": "गासै बादियै मोजां",
+      "fbs": "बांसिन FBS",
+      "sugar": "खम सिनि",
+      "protein": "बांसिन प्र'टिन",
+      "sodium": "खम सं",
+      "cheaper": "रेहाय",
+      "value": "साबसिन बेसेन"
+    },
+    "compareWith": "बेजों रुजु",
+    "noAlternatives": "बे थाखोआव जेबो खाबु मोनाखै।"
+  },
+  "cart": {
+    "title": "स्मार्ट थुरि",
+    "subtitle": "बायनायनि सिगां गासै पुष्टि आरो सोलायनायफोरखौ नाय",
+    "emptyTitle": "थुरिया लांदां",
+    "emptySubtitle": "पुष्टि नायनो थाखाय जामुं थिसन।",
+    "exploreProducts": "जामुंफोरखौ नाय",
+    "itemsInBasket": "थुरिनि मुवाफोर",
+    "basketFBS": "थुरिनि गड़ FBS",
+    "totalSpend": "गासै बाहायनाय",
+    "totalNutrition": "थुरिनि गासै पुष्टि",
+    "weightedByCalories": "कैलरी बादियै साननाय",
+    "nutritionPer10": "थुरिनि पुष्टि ₹10 आव",
+    "macroBreakdown": "मैक्रो बिथिं",
+    "whatDraggingDown": "मानि थाखाय स्कोर खम जादों?",
+    "smartSwapsTitle": "थुरिखौ साबसिन खालाम",
+    "smartSwapsSubtitle": "मोजां सोलायनाय जे FBS बांहोयो",
+    "applySwap": "सोलायनायखौ बाहाय",
+    "undo": "उलथाय खालाम",
+    "swapApplied": "सोलायनाया जाफुंबाय!",
+    "saveBasket": "फारिलाइ दोनथुम",
+    "shareBasket": "थुरिखौ रान",
+    "clearBasket": "थुरिखौ लांदां खालाम"
+  },
+  "favourites": {
+    "title": "आंनि मोजां मोननाय",
+    "subtitle": "दोनथुमनाय जामुंफोरनि फारिलाइ",
+    "emptyTitle": "दानिबो जेबो दोनथुमाखै",
+    "emptySubtitle": "गोख्रै मोननो थाखाय बिखा सिम्बोलआव थु।",
+    "compareSelected": "सायख'नायखौ रुजु",
+    "addAllToCart": "गासैखौ थुरियाव थिसन",
+    "clearAll": "गासै हुस्रो",
+    "filterCategory": "गासै थाखो"
+  },
+  "ingredients": {
+    "filterTitle": "मुवा नायगिरनाय आरो सायख'नाय",
+    "naturalMatch": "सैथो राव गोरोबबाय",
+    "containsHeading": "थानो नांगौ",
+    "freeFromHeading": "गैयै (थानो नाङा)",
+    "allergenDisclaimer": "पाकेटखौ सानफ्रोमबो नाय। एलार्जि मुवाफोर थानो हागौ।",
+    "unknownListTitle": "मुवा मिथियै",
+    "unknownListNotice": "थार मिथिनि थाखाय अपूर्ण मुवा गोनां जामुंखौ बख'नाय जादों।"
+  },
+  "scanner": {
+    "title": "स्मार्ट जामुं स्केनार",
+    "subtitle": "पाकेट, पुष्टि फारिलाइ एबा बारकोड स्केन खालाम",
+    "scanButton": "बारकोड एबा लेबेल स्केन खालाम",
+    "manualInput": "एबा बारकोड लिर",
+    "manualPlaceholder": "उदा. 8901262010053",
+    "lookup": "नायगिर",
+    "scanningNotice": "केमेराखौ बारकोड फारसे थारै दोन।"
+  },
+  "ai": {
+    "title": "WiseFoodies हेफाजाबगिरि",
+    "subtitle": "मुवा, FBS स्कोर एबा सोलायनायफोरनि सोमोन्दै सों",
+    "placeholder": "सों: 'बेयो फुंनि जामुंनि थाखाय मोजां ना?'...",
+    "disclaimer": "AI नि फिननाया मिथिनि थाखायल', फाहामथाय बिथोन नङा।",
+    "quickPrompt1": "₹30 नि गेजेराव बांसिन प्र'टिन गोनां जामुं",
+    "quickPrompt2": "मेगिनी साबसिन सोलायनाय",
+    "quickPrompt3": "पाम तेलनि जाहोनाव खहा जायो ना?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "गोहो बांहोनो थाखाय बांसिन प्र'टिन",
+      "goodProtein": "प्र'टिननि मोजां फुंखा",
+      "fibreRich": "हजमनि थाखाय मोजां फायबार",
+      "lowSugar": "खम सिनि",
+      "zeroAddedSugar": "थिसननाय सिनि गैयै",
+      "wholeGrain": "गुबुन मुवा मिसायै दानाजों बानायनाय",
+      "calciumRich": "केलसियमनि मोजां फुंखा",
+      "transFatFree": "ट्रान्स फेट गैयै",
+      "lowSodium": "खम सं गोनां",
+      "naturalIngredients": "गोरलै आरो मोजां मुवा"
+    },
+    "concerns": {
+      "highAddedSugar": "थिसननाय सिनि बांसिन",
+      "highSodium": "सं बांसिन",
+      "containsPalmOil": "पाम तेल दं",
+      "refinedFlour": "मैदाजों बानायनाय",
+      "artificialSweeteners": "गोदै मुवा मिसानाय",
+      "syntheticColour": "रं मिसानाय",
+      "highSatFat": "सेचुरेटेड फेट बांसिन",
+      "ultraProcessed": "अल्ट्रा प्रोसेस्ड जामुं"
+    }
+  },
+  "language": {
+    "select": "राव",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "साबसिन सोदोबनि बिथोन हो"
+  }
+}

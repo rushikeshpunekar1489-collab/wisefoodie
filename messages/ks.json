@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "ہوم",
+    "explore": "ایکسپلور",
+    "compare": "موازنہ کٔرِو",
+    "learn": "زٲنِو",
+    "scanner": "سکین",
+    "favourites": "پسندیدہ",
+    "cart": "سمارٹ ٹوکری",
+    "diary": "ڈائری",
+    "search": "تلاش کٔرِو",
+    "about": "اسہِ متعلق",
+    "terms": "شرائط",
+    "privacy": "رازداری"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "پَنُن کھؠن زٲنِو",
+    "chooseBetter": "بہتر چُھنو",
+    "eatSmarter": "عقلمندی سان کھؠو",
+    "searchPlaceholder": "بسکٹ، اوٹس، نوڈلز یا 'ہائی پروٹین' تلاش کٔرِو...",
+    "sampleData": "نمونہ ڈیٹا",
+    "notAvailable": "فی الحال دٔستیاب چھُ نہٕ",
+    "verified": "تصدیق شدہ لیبل",
+    "incomplete": "نامکمل لیبل",
+    "per100g": "فی 100g",
+    "perPack": "فی پیکٹ",
+    "back": "واپس",
+    "viewAll": "سٲری وُچھِو",
+    "compare": "موازنہ کٔرِو",
+    "cancel": "منسوخ",
+    "save": "محفوظ کٔرِو",
+    "close": "بند کٔرِو",
+    "clearAll": "سٲری صاف کٔرِو",
+    "share": "شیئر کٔرِو",
+    "copied": "کاپی سَپُد!",
+    "copyLink": "لنک کاپی کٔرِو",
+    "whatsApp": "واٹس ایپ",
+    "downloadImage": "PNG ڈاؤن لوڈ",
+    "error": "کانٛہہ غلطی گٔیہِ",
+    "loading": "لوڈ گژھان چھُ...",
+    "disclaimerNote": "صرف معلومات خٲطرٕ، ڈاکٹری صلاح نہٕ। کھؠنہٕ برونٛہہ وُچھِو پیکٹ।",
+    "forInfoOnly": "صرف معلومات خٲطرٕ، ڈاکٹری صلاح نہٕ।",
+    "ingredientsUnknown": "اجزاء نامعلوم",
+    "contains": "شامل چھُ",
+    "freeFrom": "پاک"
+  },
+  "fbs": {
+    "title": "فوڈ بینیفٹ سکور",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS وائٹالٹی کیپسول",
+    "scoreOutOf10": "۱۰ مَنٛز",
+    "bands": {
+      "good": "اصل انتخاب",
+      "moderate": "درمیانہٕ",
+      "limited": "محدود",
+      "avoid": "زیادٕ پروسیس کرنہٕ آمُت / بچِو"
+    },
+    "frequency": {
+      "everyday": "پرؠتھ دۄہ کھؠنس لائق",
+      "often": "اکثر ہؠکِو کھؠتھ",
+      "occasionally": "کُنہِ کُنہِ ساتہٕ کھؠو",
+      "rarely": "واریاہ کم کھؠو"
+    }
+  },
+  "value": {
+    "title": "پۄشَن فی رۄپئے",
+    "subtitle": "پرؠتھ ₹۱۰ مَنٛز حٲصِل کٔرِو زیادٕ پروٹین تہٕ فائبر",
+    "tenRupeesGet": "₹۱۰ مَنٛز چھُ مِلان",
+    "proteinPerRupee": "پروٹین فی ₹۱",
+    "fibrePerRupee": "فائبر فی ₹۱",
+    "costPerGramProtein": "₹ فی گرام پروٹین"
+  },
+  "alternatives": {
+    "title": "امِہ کھۄتہٕ بہتر آپشن",
+    "subtitle": "صحت بخش متبادل یِم پۄشَن وڌاوَن",
+    "alreadyBest": "یتھ زمرس مَنٛز گۄڈے ساروی کھۄتہٕ اصل!",
+    "alreadyBestDesc": "یہِ پروڈکٹ چھُ پَننِس زمرس مَنٛز ساروی کھۄتہٕ برونٛہہ।",
+    "modes": {
+      "overall": "مجموعی طور اصل",
+      "fbs": "زیادٕ FBS",
+      "sugar": "کم کھنٛڈ",
+      "protein": "زیادٕ پروٹین",
+      "sodium": "کم نمک",
+      "cheaper": "سستہٕ",
+      "value": "بہترین قیمت"
+    },
+    "compareWith": "امِہ سۭتۍ موازنہ کٔرِو",
+    "noAlternatives": "فی الحال مِلیو نہٕ کانٛہہ متبادل।"
+  },
+  "cart": {
+    "title": "سمارٹ ٹوکری",
+    "subtitle": "کھؠنہٕ برونٛہہ کُل پۄشَن تہٕ سکور وُچھِو",
+    "emptyTitle": "ٹوکری چھِ خالی",
+    "emptySubtitle": "پۄشَن وُچھنہٕ خٲطرٕ پروڈکٹس کٔرِو شامل।",
+    "exploreProducts": "پروڈکٹس وُچھِو",
+    "itemsInBasket": "ٹوکری مَنٛز چیز",
+    "basketFBS": "ٹوکری اوسط FBS",
+    "totalSpend": "کُل خرچہٕ",
+    "totalNutrition": "ٹوکری کُل پۄشَن",
+    "weightedByCalories": "کیلوریز حِسابہٕ طے کرنہٕ آمُت",
+    "nutritionPer10": "ٹوکری پۄشَن فی ₹۱۰",
+    "macroBreakdown": "میکرو تفصیل",
+    "whatDraggingDown": "سکور کَم کَمۍ کۄر?",
+    "smartSwapsTitle": "یہِ ٹوکری بناوِو مزید اصل",
+    "smartSwapsSubtitle": "صحت بخش تبدیلیاں یِم FBS بَڈਾਵَن",
+    "applySwap": "تبدیلی لاگو کٔرِو",
+    "undo": "واپس کٔرِو",
+    "swapApplied": "تبدیلی گٔیہِ لاگو!",
+    "saveBasket": "لسٹ کٔرِو محفوظ",
+    "shareBasket": "ٹوکری کٔرِو شیئر",
+    "clearBasket": "ٹوکری کٔرِو خالی"
+  },
+  "favourites": {
+    "title": "میانی پسندیدہ",
+    "subtitle": "محفوظ کرنہٕ آمٕژ چیزَن ہٕنٛز لسٹ",
+    "emptyTitle": "کانٛہہ چیز چھُ نہٕ محفوظ",
+    "emptySubtitle": "دلٕکِس نِشانس پؠٹھ کٔرِو کلک۔",
+    "compareSelected": "چُھنمُت موازنہ کٔرِو",
+    "addAllToCart": "سٲری کٔرِو ٹوکری مَنٛز شامل",
+    "clearAll": "سٲری صاف کٔرِو",
+    "filterCategory": "سٲری زمرہ"
+  },
+  "ingredients": {
+    "filterTitle": "اجزاء تلاش تہٕ فلٹرز",
+    "naturalMatch": "قدرتی زبان رَلیو",
+    "containsHeading": "ضرور آسُن پَزی",
+    "freeFromHeading": "پاک (نہٕ آسُن پَزی)",
+    "allergenDisclaimer": "ہمیشہ پیکٹ وُچھِو। الرجی سبب بنن وٲلۍ اجزاء ہؠکن ٲسِتھ।",
+    "unknownListTitle": "اجزاء نامعلوم",
+    "unknownListNotice": "درستگی خٲطرٕ نامکمل اجزاء والہٕ پروڈکٹس چھِ کڈنہٕ آمٕتۍ।"
+  },
+  "scanner": {
+    "title": "سمارٹ فوڈ سکینر",
+    "subtitle": "پیکیجنگ، نیوٹریشن ٹیبل یا بارکوڈ سکین کٔرِو",
+    "scanButton": "بارکوڈ یا لیبل سکین کٔرِو",
+    "manualInput": "یا بارکوڈ پانے لِکھِو",
+    "manualPlaceholder": "مثلاً 8901262010053",
+    "lookup": "تلاش کٔرِو",
+    "scanningNotice": "کیمرہ تھاوِو بارکوڈس کُن سیدھ।"
+  },
+  "ai": {
+    "title": "WiseFoodies مددگار",
+    "subtitle": "اجزاء، FBS سکور یا متبادلن مُتعلق پُرژھِو",
+    "placeholder": "پُਰژھِو: 'کیا یہِ چائے سۭتۍ کھؠنس لائق چھا؟'...",
+    "disclaimer": "AI جوابات چھِ صرف معلوماتی خٲطرٕ، ڈاکٹری صلاح نہٕ।",
+    "quickPrompt1": "₹۳۰ مَنٛز ہائی پروٹین سنیکس",
+    "quickPrompt2": "میگی ہٕنٛدی اصل متبادل",
+    "quickPrompt3": "کیا پام تیل چھا مضرِ صحت?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "پٹھن ہٕنٛز صحت خٲطرٕ ہائی پروٹین",
+      "goodProtein": "پروٹینُک اصل ذریعہٕ",
+      "fibreRich": "ہاضمس مدد دِنہٕ وول ہائی فائبر",
+      "lowSugar": "کم کھنٛڈ",
+      "zeroAddedSugar": "اضافی کھنٛڈ صفر",
+      "wholeGrain": "پورٕ انانہٕ سۭتۍ تیار",
+      "calciumRich": "کیلشیمُک اصل ذریعہٕ",
+      "transFatFree": "ٹرانس فیٹ فری",
+      "lowSodium": "کم نمک فارمولا",
+      "naturalIngredients": "سادہ تہٕ صحت بخش اجزاء"
+    },
+    "concerns": {
+      "highAddedSugar": "زیادٕ کھنٛڈ شامل",
+      "highSodium": "زیادٕ سوڈیم",
+      "containsPalmOil": "پام تیل شامل چھُ",
+      "refinedFlour": "بنیادی جزو چھُ مئدٕ",
+      "artificialSweeteners": "مصنوعی مِٹھاس شامل",
+      "syntheticColour": "مصنوعی رنگ شامل",
+      "highSatFat": "سیچوریٹڈ فیٹ زیادٕ",
+      "ultraProcessed": "الٹرا پروسیس کرنہٕ آمُت"
+    }
+  },
+  "language": {
+    "select": "زبان",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "بہتر ترجمہ تجویز کٔرِو"
+  }
+}

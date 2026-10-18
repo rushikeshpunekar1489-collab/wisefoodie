@@ -1,0 +1,182 @@
+{
+  "nav": {
+    "home": "گھر",
+    "explore": "ڳوليو",
+    "compare": "ڀيٽ ڪريو",
+    "learn": "سکيو",
+    "scanner": "اسڪين",
+    "favourites": "پسنديده",
+    "cart": "اسمارٽ ٽوڪري",
+    "diary": "ڊائري",
+    "search": "تلاش ڪريو",
+    "about": "اسان بابت",
+    "terms": "شرطون",
+    "privacy": "رازداري"
+  },
+  "common": {
+    "brandName": "WiseFoodies",
+    "tagline": "پنهنجي طعام کي ڄاڻو",
+    "chooseBetter": "بهتر چونڊيو",
+    "eatSmarter": "سمجهه سان کائو",
+    "searchPlaceholder": "بسکٽ، اوٽس، نوڊلز يا 'هاءِ پروٽين' ڳوليو...",
+    "sampleData": "نمونو ڊيٽا",
+    "notAvailable": "اڃا دستياب ناهي",
+    "verified": "تصديق ٿيل ليبل",
+    "incomplete": "اڻپورو ليبل",
+    "per100g": "في 100g",
+    "perPack": "في پيڪٽ",
+    "back": "واپس",
+    "viewAll": "سڀ ڏسو",
+    "compare": "ڀيٽ ڪريو",
+    "cancel": "رد ڪريو",
+    "save": "محفوظ ڪريو",
+    "close": "بند ڪريو",
+    "clearAll": "سڀ صاف ڪريو",
+    "share": "شيئر ڪريو",
+    "copied": "ڪاپي ٿي ويو!",
+    "copyLink": "لنڪ ڪاپي ڪريو",
+    "whatsApp": "واٽس ايپ",
+    "downloadImage": "PNG ڊائون لوڊ",
+    "error": "ڪجھ غلط ٿي ويو",
+    "loading": "لوڊ ٿي رهيو آهي...",
+    "disclaimerNote": "صرف ڄاڻ لاءِ، ڊاڪٽري صلاح ناهي. استعمال کان اڳ هميشه پيڪ چيڪ ڪريو.",
+    "forInfoOnly": "صرف ڄاڻ لاءِ، ڊاڪٽري صلاح ناهي.",
+    "ingredientsUnknown": "اجزاء اڻڄاتل",
+    "contains": "شامل آهي",
+    "freeFrom": "کان پاڪ"
+  },
+  "fbs": {
+    "title": "فوڊ بينيفٽ اسڪور",
+    "shortTitle": "FBS",
+    "vitalityCapsule": "FBS وائيٽيلٽي ڪيپسول",
+    "scoreOutOf10": "10 مان",
+    "bands": {
+      "good": "سٺو انتخاب",
+      "moderate": "معتدل",
+      "limited": "محدود",
+      "avoid": "الٽرا پروسيس ٿيل / بچو"
+    },
+    "frequency": {
+      "everyday": "روزانو کائڻ لاءِ موزون",
+      "often": "گهڻو کائي سگهجي ٿو",
+      "occasionally": "ڪڏهن ڪڏهن کائو",
+      "rarely": "تمام گهٽ کائو"
+    }
+  },
+  "value": {
+    "title": "پيسي پٺيان غذائيت",
+    "subtitle": "هر ₹10 جي خرچ تي وڌيڪ پروٽين ۽ فائبر حاصل ڪريو",
+    "tenRupeesGet": "₹10 ۾ اوهان کي ملندو",
+    "proteinPerRupee": "پروٽين في ₹1",
+    "fibrePerRupee": "فائبر في ₹1",
+    "costPerGramProtein": "₹ في گرام پروٽين"
+  },
+  "alternatives": {
+    "title": "هن کان بهتر آپشن",
+    "subtitle": "ساڳي زمري ۾ صحت بخش چونڊون جيڪي غذائيت وڌائين ٿيون",
+    "alreadyBest": "هن درجي ۾ اڳ ۾ ئي بهترين مان هڪ!",
+    "alreadyBestDesc": "هي پيداوار پنهنجي زمري ۾ اول آهي.",
+    "modes": {
+      "overall": "مجموعي طور بهتر",
+      "fbs": "وڌيڪ FBS",
+      "sugar": "گھٽ کنڊ",
+      "protein": "وڌيڪ پروٽين",
+      "sodium": "گھٽ لوڻ",
+      "cheaper": "سستو",
+      "value": "بهترين قيمت"
+    },
+    "compareWith": "هن سان ڀيٽ ڪريو",
+    "noAlternatives": "هن زمري ۾ اڃا ڪو متبادل نه مليو."
+  },
+  "cart": {
+    "title": "اسمارٽ ٽوڪري",
+    "subtitle": "خريداري کان اڳ ڪل غذائيت ۽ اسمارٽ متبادل ڏسو",
+    "emptyTitle": "ٽوڪري خالي آهي",
+    "emptySubtitle": "غذائيت ڏسڻ لاءِ شيون شامل ڪريو.",
+    "exploreProducts": "پراڊڪٽس ڏسو",
+    "itemsInBasket": "ٽوڪري ۾ شيون",
+    "basketFBS": "ٽوڪري جي سراسري FBS",
+    "totalSpend": "ڪل خرچ",
+    "totalNutrition": "ٽوڪري جي ڪل غذائيت",
+    "weightedByCalories": "ڪيلوريز جي حساب سان طئي ٿيل",
+    "nutritionPer10": "ٽوڪري غذائيت في ₹10",
+    "macroBreakdown": "ميڪرو تفصيل",
+    "whatDraggingDown": "اسڪور ڇا گهٽائي رهيو آهي؟",
+    "smartSwapsTitle": "هن ٽوڪري کي وڌيڪ بهتر بڻايو",
+    "smartSwapsSubtitle": "صحت بخش تبديليون جيڪي ٽوڪري FBS وڌائين ٿيون",
+    "applySwap": "تبديلي لاڳو ڪريو",
+    "undo": "پوئتي ڪريو",
+    "swapApplied": "تبديلي ڪاميابي سان لاڳو ٿي!",
+    "saveBasket": "لسٽ محفوظ ڪريو",
+    "shareBasket": "ٽوڪري شيئر ڪريو",
+    "clearBasket": "ٽوڪري خالي ڪريو"
+  },
+  "favourites": {
+    "title": "منهنجا پسنديده",
+    "subtitle": "اوهان جي محفوظ ڪيل طعامن جي لسٽ",
+    "emptyTitle": "اڃا تائين ڪجھ محفوظ ناهي",
+    "emptySubtitle": "جلدي حاصل ڪرڻ لاءِ دل جي نشان تي ٽيپ ڪريو.",
+    "compareSelected": "چونڊيل ڀيٽ ڪريو",
+    "addAllToCart": "سڀ ٽوڪري ۾ وجھو",
+    "clearAll": "سڀ صاف ڪريو",
+    "filterCategory": "سڀ زمرا"
+  },
+  "ingredients": {
+    "filterTitle": "اجزاء ڳولا ۽ فلٽر",
+    "naturalMatch": "قدرتي ٻولي ملي وئي",
+    "containsHeading": "ضرور هجڻ گهرجي",
+    "freeFromHeading": "کان پاڪ (نه هجڻ گهرجي)",
+    "allergenDisclaimer": "هميشه پيڪ چيڪ ڪريو. الرجي وارا جز هوندا.",
+    "unknownListTitle": "اجزاء اڻڄاتل",
+    "unknownListNotice": "درستگي لاءِ نامڪمل اجزاء وارا پراڊڪٽس الڳ ڪيا ويا آهن."
+  },
+  "scanner": {
+    "title": "اسمارٽ فوڊ اسڪينر",
+    "subtitle": "پيڪنگ، غذائي جدول يا بارڪوڊ اسڪين ڪريو",
+    "scanButton": "بارڪوڊ يا ليبل اسڪين ڪريو",
+    "manualInput": "يا بارڪوڊ پاڻ لکو",
+    "manualPlaceholder": "مثال 8901262010053",
+    "lookup": "ڳوليو",
+    "scanningNotice": "ڪئميرا بارڪوڊ ڏانهن سڌو رکو."
+  },
+  "ai": {
+    "title": "WiseFoodies مددگار",
+    "subtitle": "اجزاء، FBS اسڪور يا متبادل بابت پڇو",
+    "placeholder": "پڇو: 'ڇا هي نيرن لاءِ سٺو آهي؟'...",
+    "disclaimer": "AI جواب صرف غذائي معلومات لاءِ آهن، طبي صلاح ناهي.",
+    "quickPrompt1": "₹30 ۾ هاءِ پروٽين سنئڪس",
+    "quickPrompt2": "ميگي جا بهترين متبادل",
+    "quickPrompt3": "ڇا پام آئل نقصانڪار آهي?"
+  },
+  "templates": {
+    "benefits": {
+      "highProtein": "ساهن جي صحت لاءِ هاءِ پروٽين",
+      "goodProtein": "پروٽين جو سٺو ذريعو",
+      "fibreRich": "هاضمي لاءِ مفيد هاءِ فائبر",
+      "lowSugar": "گھٽ کنڊ",
+      "zeroAddedSugar": "اضافي کنڊ ٻڙي",
+      "wholeGrain": "سڄي اناج مان تيار ٿيل",
+      "calciumRich": "ڪئلشيم جو سٺو ذريعو",
+      "transFatFree": "ٽرانس فيٽ کان پاڪ",
+      "lowSodium": "گھٽ لوڻ واري ترڪيب",
+      "naturalIngredients": "سادي ۽ صحت بخش اجزاء"
+    },
+    "concerns": {
+      "highAddedSugar": "کنڊ تمام گهڻي شامل آهي",
+      "highSodium": "لوڻ تمام گهڻو آهي",
+      "containsPalmOil": "پام آئل شامل آهي",
+      "refinedFlour": "بنيادي جزو ميدو آهي",
+      "artificialSweeteners": "مصنوعي مٺاڻ شامل آهي",
+      "syntheticColour": "مصنوعي رنگ شامل آهن",
+      "highSatFat": "سٿريل چرٻي وڌيڪ آهي",
+      "ultraProcessed": "الٽرا پروسيس ٿيل طعام"
+    }
+  },
+  "language": {
+    "select": "ٻولي",
+    "en": "English",
+    "hi": "हिंदी",
+    "mr": "मराठी",
+    "suggestBetter": "بهتر ترجمو تجويز ڪريو"
+  }
+}

@@ -9,7 +9,13 @@
     "start": "next start",
     "lint": "tsc --noEmit",
     "test": "vitest run",
-    "import": "ts-node --esm scripts/import-products.ts"
+    "i18n:check": "npx tsx scripts/check-i18n.ts",
+    "import": "npx tsx scripts/import-products.ts",
+    "kb:check": "npx tsx scripts/kb-check.ts",
+    "ai:index": "npx tsx scripts/ai-index.ts",
+    "ai:coverage": "npx tsx scripts/ai-coverage.ts",
+    "ai:feedback-report": "npx tsx scripts/ai-feedback-report.ts",
+    "ai:eval": "npx tsx scripts/ai-eval.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
