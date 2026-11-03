@@ -7,11 +7,15 @@ const REPORTS_FILE = path.join(process.cwd(), 'data', 'reports.json');
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { productId, productSlug, issueType, details, email } = body;
+    const productId = body.productId || 'general';
+    const productSlug = body.productSlug || null;
+    const issueType = body.issueType || 'general-feedback';
+    const details = body.details || body.description || '';
+    const email = body.email || null;
 
-    if (!productId || !issueType || !details) {
+    if (!details.trim()) {
       return NextResponse.json(
-        { error: 'productId, issueType, and details are required' },
+        { error: 'Issue details or description is required' },
         { status: 400 }
       );
     }

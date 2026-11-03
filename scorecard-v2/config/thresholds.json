@@ -1,0 +1,63 @@
+{
+  "dailyLimits": {
+    "referenceEnergyKcal": 2000,
+    "addedSugarG": {
+      "limit": 50,
+      "source": "WHO 2015 Guideline: Sugars intake for adults and children; ICMR-NIN 2020 Dietary Guidelines for Indians (<10% of total energy)."
+    },
+    "satFatG": {
+      "limit": 22,
+      "source": "WHO 2023 Guideline: Saturated fatty acid intake for adults and children (<10% of total energy in 2000 kcal diet)."
+    },
+    "transFatG": {
+      "limit": 2.2,
+      "source": "FSSAI 2021 Regulation / WHO REPLACE: Trans-fatty acids limited to <1% of total energy (<2.2g per day)."
+    },
+    "sodiumMg": {
+      "limit": 2000,
+      "source": "WHO 2012 Guideline: Sodium intake for adults and children; ICMR-NIN 2020 RDA (<2,000 mg/day equivalent to 5g salt)."
+    },
+    "totalFatG": {
+      "limit": 66.7,
+      "source": "ICMR-NIN 2020 Dietary Guidelines for Indians (20-30% of energy intake)."
+    }
+  },
+  "perServingThresholds": {
+    "highSodiumPerServingMg": 400,
+    "highSugarPerServingG": 10,
+    "highSatFatPerServingG": 4.4,
+    "highTransFatPerServingG": 0.2
+  },
+  "per100gThresholds": {
+    "highSugarG": 12.5,
+    "highSatFatG": 4.0,
+    "highSodiumMg": 600,
+    "source": "FSSAI Draft Front-of-Pack Labelling & Indian Food Composition Tables (IFCT) reference criteria."
+  },
+  "classificationRules": {
+    "Frequent": {
+      "maxSodiumPerServingPct": 15,
+      "maxAddedSugarPerServingPct": 10,
+      "maxSatFatPerServingPct": 15,
+      "minFbs": 7.0,
+      "description": "Balanced nutrient density, modest sodium and sugar burden, suitable as a frequent meal or snack component."
+    },
+    "Moderate": {
+      "maxSodiumPerServingPct": 25,
+      "maxAddedSugarPerServingPct": 20,
+      "maxSatFatPerServingPct": 25,
+      "minFbs": 5.0,
+      "description": "Moderate nutritional load. Enjoyable as part of a varied, wholesome diet."
+    },
+    "Occasional": {
+      "maxSodiumPerServingPct": 40,
+      "maxAddedSugarPerServingPct": 40,
+      "maxSatFatPerServingPct": 40,
+      "minFbs": 3.0,
+      "description": "Elevated level of refined sugars, saturated fats, or sodium. Best reserved for occasional consumption."
+    },
+    "Limit": {
+      "description": "High per-serving concentration of sodium, added sugar, trans fat, or saturated fat, or ultra-processed profile."
+    }
+  }
+}

@@ -233,3 +233,34 @@
   - Frontend components: Untouched (zero UI changes).
   - All test suites passing (`npm test`, `npm run kb:check`, `npm run ai:coverage`, `npm run ai:eval`, `npm run lint`).
 
+---
+
+## Mobile (Phone View) Complete Fix (Phases 1–6)
+
+### Phase 1: Reproduce and Audit [COMPLETED]
+- [x] Dev server verified active on `http://localhost:3000`.
+- [x] Built comprehensive Playwright audit runner in `scripts/mobile-audit.mjs` using local Chromium.
+- [x] Captured 480 test execution screenshots across 24 routes and 20 viewports (320px–1024px in portrait & landscape with touch + DPR 2-3 emulated) saved to `docs/mobile-audit/before/`.
+- [x] Documented all findings in `docs/MOBILE_AUDIT.md`.
+- [x] **Top 10 Worst Root Causes Identified:**
+  1. **Mobile Header Action Overcrowding (Critical):** `Header.tsx` packs 5 chunky buttons (~266px) alongside the 191px logo with 48px header padding, totaling 505px width on 320px–430px viewports (overflowing by 75px–185px across all pages). Search missing on mobile header.
+  2. **Missing Next.js Viewport Export (Critical):** `layout.tsx` lacks `viewport: Viewport` export with `viewportFit: 'cover'`, causing iOS notches/home indicators and dynamic address bars to miscalculate safe areas.
+  3. **FBS Vitality Capsule Hardcoded Width (Critical):** `FBSVitalityCapsule.tsx` and `HomeHeroInteractive.tsx` use fixed 340px widths, spilling off-screen on 320px–360px phones.
+  4. **Bottom Navigation / AI Chat Collision (High):** `ChatWindow.tsx` floating trigger (`bottom-20`) collides directly with bottom nav and the raised scan button (`.nav-scan-btn`). Chat window lacks full-height 100dvh mobile sheet layout.
+  5. **Form Inputs < 16px Font Size (High):** Search and filter inputs use 12px/14px text, triggering involuntary iOS WebKit 125% zoom on focus.
+  6. **Sub-44px Tap Targets (High):** Navigation items (39px), language toggle (28px), breadcrumb links (16px), and checkboxes (13px) fail Apple/Google minimum touch hit guidelines.
+  7. **Display Headline Sizing on 320px–360px (High):** `.t-display-huge` clamps at 40px at 320px viewport without `text-wrap: balance`, causing ugly mid-word wraps.
+  8. **Compare Page Table Overflow (High):** Wide comparison columns overflow small screens without sticky metric headers or mobile card toggle.
+  9. **Missing Responsive Image Sizing & Layout Shifts (CLS) (Medium):** ProductCard lacks strict aspect-ratio containers (`aspect-[4/5]`) and image `sizes` attributes for 2-column mobile grids.
+  10. **Touch Ergonomics & Hover-Only Interactions (Medium):** Reliance on `:hover` styles without `:active` press states and missing `touch-action: manipulation` (causes 300ms double-tap delay).
+
+### Phase 2: Foundation Fixes (Global Root Causes) [COMPLETED]
+- [x] **Viewport & Root Layout:** Exported `viewport: Viewport` in `src/app/layout.tsx` (`viewportFit: 'cover'`, `width: 'device-width'`, `initialScale: 1`, themeColor for light & dark). Enabled `-webkit-text-size-adjust: 100%`, `scroll-padding-top` for sticky headers. Root wrapper set to `overflow-x: clip; min-width: 0`.
+- [x] **Box Model & Media:** Enforced `*, *::before, *::after { box-sizing: border-box; }`, responsive media `img, video, svg, canvas { max-width: 100%; height: auto; }`, and `overflow-wrap: anywhere` across all text elements.
+- [x] **Fluid Typography & Tokens:** Redesigned `.t-display-huge`, `.t-display-lg`, `.t-h2`, `.t-h3`, and `.t-body` with `clamp()` and `text-wrap: balance` so headlines scale down gracefully without mid-word breaks on 320px devices.
+- [x] **Dynamic Viewport & Safe Areas:** Added `.min-h-screen-dvh`, `.h-screen-dvh`, `.max-h-screen-dvh`, `.pb-safe`, and `.pt-safe` utility tokens leveraging `100dvh` and `env(safe-area-inset-*)`.
+- [x] **Touch Ergonomics & iOS Zoom Prevention:** Applied `touch-action: manipulation` to all interactive elements to eliminate the 300ms double-tap delay; enforced `font-size: 16px` on mobile inputs to eliminate involuntary iOS 125% zoom-on-focus; added `:active` press states for buttons and cards; gated hover effects behind `@media (hover: hover)`.
+- [x] **Z-Index System:** Documented and standardized unified scale (`--z-header: 40`, `--z-floating-chat: 45`, `--z-bottom-nav: 50`, `--z-drawer: 60`, `--z-modal: 70`, `--z-toast: 80`).
+- [x] **Product Grid 2-Up Mobile Layout:** Configured mobile-first 2-column layout (`grid-template-columns: repeat(2, minmax(0, 1fr))`) with 12px/8px gutters and 2-line clamped titles (`.pc-name`).
+
+

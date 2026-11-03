@@ -33,8 +33,28 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
+                <Link href="/products" className="hover:text-emerald-400 transition-colors font-bold text-emerald-400">
+                  Indian Food Database (852)
+                </Link>
+              </li>
+              <li>
+                <Link href="/category" className="hover:text-emerald-400 transition-colors">
+                  13 Food Categories
+                </Link>
+              </li>
+              <li>
+                <Link href="/dashboard" className="hover:text-emerald-400 transition-colors">
+                  Nutritional Analytics
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin" className="hover:text-emerald-400 transition-colors">
+                  Database Admin
+                </Link>
+              </li>
+              <li>
                 <Link href="/explore" className="hover:text-emerald-400 transition-colors">
-                  Explore Food Database
+                  Explore Catalog
                 </Link>
               </li>
               <li>

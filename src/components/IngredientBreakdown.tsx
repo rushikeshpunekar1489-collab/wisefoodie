@@ -22,6 +22,7 @@ const glossary = glossaryData as Record<string, GlossaryEntry>;
 
 export default function IngredientBreakdown({ ingredients }: IngredientBreakdownProps) {
   const [selectedIngredient, setSelectedIngredient] = useState<GlossaryEntry | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (!ingredients || ingredients.length === 0) {
     return (
@@ -64,21 +65,35 @@ export default function IngredientBreakdown({ ingredients }: IngredientBreakdown
     }
   };
 
+  const COLLAPSED_LIMIT = 8;
+  const hasMore = ingredients.length > COLLAPSED_LIMIT;
+  const displayedIngredients = isExpanded || !hasMore ? ingredients : ingredients.slice(0, COLLAPSED_LIMIT);
+
   return (
-    <div className="bubble-card">
+    <div className="w-full">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="t-h3 text-[var(--ink)]">Ingredient Analysis</h3>
-        <span className="text-xs opacity-60 font-semibold">{ingredients.length} items</span>
+        <span className="text-xs opacity-70 font-bold">
+          {ingredients.length} declared ingredients
+        </span>
+        {hasMore && (
+          <button
+            type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-xs font-black text-[var(--leaf)] hover:underline"
+          >
+            {isExpanded ? 'Show fewer' : `Show all (${ingredients.length})`}
+          </button>
+        )}
       </div>
-      <p className="t-small opacity-70 mb-4">Tap any ingredient to view its food literacy card.</p>
 
       {/* Ingredient Pills */}
       <div className="flex flex-wrap gap-1.5 my-2">
-        {ingredients.map((ing, idx) => {
+        {displayedIngredients.map((ing, idx) => {
           const entry = lookupEntry(ing);
           return (
             <button
               key={idx}
+              type="button"
               onClick={() => setSelectedIngredient(entry)}
               className={`ingredient-pill ${getPillClass(entry.category)}`}
             >
@@ -88,30 +103,48 @@ export default function IngredientBreakdown({ ingredients }: IngredientBreakdown
         })}
       </div>
 
+      {/* Expand Button for mobile if long list */}
+      {hasMore && !isExpanded && (
+        <button
+          type="button"
+          onClick={() => setIsExpanded(true)}
+          className="btn-chunky py-2 px-4 text-xs w-full mt-2 bg-[var(--surface-alt)] font-black text-[var(--ink)]"
+        >
+          + Show {ingredients.length - COLLAPSED_LIMIT} More Ingredients
+        </button>
+      )}
+
       {/* Legend */}
-      <div className="flex flex-wrap gap-3 mt-6 pt-4 border-t-2 border-[var(--ink)]/15 text-xs font-extrabold">
+      <div className="flex flex-wrap gap-2.5 sm:gap-4 mt-5 pt-3 border-t-2 border-[var(--ink)]/15 text-[11px] sm:text-xs font-black">
         <span className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-full bg-[var(--leaf)] border border-[var(--ink)]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[var(--leaf)] border border-[var(--ink)]" />
           Useful Base
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-full bg-[var(--sky)] border border-[var(--ink)]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[var(--sky)] border border-[var(--ink)]" />
           Functional Additive
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-full bg-[var(--mango)] border border-[var(--ink)]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[var(--mango)] border border-[var(--ink)]" />
           Worth Understanding
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-full bg-[var(--tomato)] border border-[var(--ink)]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[var(--tomato)] border border-[var(--ink)]" />
           Limit / Attention
         </span>
       </div>
 
       {/* Detail Modal Popover */}
       {selectedIngredient && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
-          <div className="bubble-card max-w-md w-full relative bg-[var(--surface)] p-6 animate-in fade-in zoom-in-95 duration-200">
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 backdrop-blur-xs"
+          onClick={() => setSelectedIngredient(null)}
+        >
+          <div
+            className="bubble-card max-w-md w-full relative bg-[var(--surface)] p-5 sm:p-6 max-h-[85dvh] overflow-y-auto pb-safe rounded-b-none sm:rounded-3xl animate-in slide-in-from-bottom-4 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sheet-drag sm:hidden" />
             <button
               onClick={() => setSelectedIngredient(null)}
               className="btn-chunky p-2 rounded-full! border-2! absolute top-4 right-4"
@@ -142,6 +175,7 @@ export default function IngredientBreakdown({ ingredients }: IngredientBreakdown
             </div>
 
             <button
+              type="button"
               onClick={() => setSelectedIngredient(null)}
               className="btn-chunky btn-primary w-full mt-5"
             >

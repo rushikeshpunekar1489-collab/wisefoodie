@@ -11,3 +11,6 @@ tsconfig.tsbuildinfo
 __pycache__/
 *.pyc
 .env
+*.bak
+*.backup
+docs/backups/

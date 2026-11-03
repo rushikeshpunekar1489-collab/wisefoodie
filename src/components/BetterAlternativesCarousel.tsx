@@ -83,9 +83,9 @@ export default function BetterAlternativesCarousel({
         ))}
       </div>
 
-      {/* Carousel Grid */}
+      {/* Carousel Grid / Mobile Snap-Scroll */}
       {result.suggestions.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory gap-3 sm:gap-4 pb-3 sm:pb-0 scrollbar-none sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 -mx-2 px-2 sm:mx-0 sm:px-0">
           {result.suggestions.map((suggestion) => {
             const p = suggestion.product;
             const delta = suggestion.delta;
@@ -107,7 +107,7 @@ export default function BetterAlternativesCarousel({
             return (
               <div
                 key={p.slug}
-                className="bubble-card bg-white p-4 flex flex-col justify-between hover:-translate-y-1 transition-transform relative group border-2 border-[var(--ink)] shadow-[var(--shadow-hard-sm)]"
+                className="w-[78vw] max-w-[270px] sm:w-auto shrink-0 snap-start bubble-card bg-white p-4 flex flex-col justify-between hover:-translate-y-1 transition-transform relative group border-2 border-[var(--ink)] shadow-[var(--shadow-hard-sm)]"
               >
                 {/* Top Badge: Primary Advantage */}
                 <div className="mb-2">

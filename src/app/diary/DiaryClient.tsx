@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import type { Product } from '@/types/product';
 import { useDiary } from '@/hooks/useDiary';
-import { type MealSlot, type SimpleGoal } from '@/lib/diary';
+import { type MealSlot, type SimpleGoal, toSafeDateString } from '@/lib/diary';
 import DayProgressBars from '@/components/DayProgressBars';
 import MealTimeline from '@/components/MealTimeline';
 import WeekTrendChart from '@/components/WeekTrendChart';
@@ -60,9 +60,9 @@ export default function DiaryClient({ allProducts }: DiaryClientProps) {
   };
 
   const changeDateBy = (days: number) => {
-    const d = new Date(selectedDate);
+    const d = new Date(toSafeDateString(selectedDate));
     d.setDate(d.getDate() + days);
-    setSelectedDate(d.toISOString().split('T')[0]);
+    setSelectedDate(toSafeDateString(d));
   };
 
   const handleCopyYesterday = () => {
@@ -75,7 +75,7 @@ export default function DiaryClient({ allProducts }: DiaryClientProps) {
     setTimeout(() => setCopyFeedback(null), 3000);
   };
 
-  const todayStr = new Date().toISOString().split('T')[0];
+  const todayStr = toSafeDateString();
   const isToday = selectedDate === todayStr;
 
   return (

@@ -1,0 +1,204 @@
+{
+  "nutrients": [
+    {
+      "key": "protein",
+      "name": "Protein",
+      "group": "Macros",
+      "targetQty": 1,
+      "targetUnit": "g",
+      "standardUnit": "g",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Protein quality varies by amino acid completeness; dairy, eggs, soy and whey provide complete profiles, while pulses and cereals complement each other."
+    },
+    {
+      "key": "fibre",
+      "name": "Dietary Fibre",
+      "group": "Macros",
+      "targetQty": 1,
+      "targetUnit": "g",
+      "standardUnit": "g",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Natural dietary fibre from whole grains, legumes and seeds promotes satiety and healthy glycemic response."
+    },
+    {
+      "key": "carbs",
+      "name": "Carbohydrates",
+      "group": "Macros",
+      "targetQty": 1,
+      "targetUnit": "g",
+      "standardUnit": "g",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Complex carbohydrates provide steady sustained energy compared to rapid glucose spikes from refined sugars."
+    },
+    {
+      "key": "fat",
+      "name": "Total Fat",
+      "group": "Macros",
+      "targetQty": 1,
+      "targetUnit": "g",
+      "standardUnit": "g",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Dietary lipids support fat-soluble vitamin absorption (A, D, E, K); unsaturated fats are preferable."
+    },
+    {
+      "key": "calcium",
+      "name": "Calcium",
+      "group": "Minerals",
+      "targetQty": 100,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 100,
+      "bioavailabilityNote": "Dairy calcium typically exhibits 30-35% bioavailability, whereas plant phytates/oxalates may modulate absorption."
+    },
+    {
+      "key": "potassium",
+      "name": "Potassium",
+      "group": "Minerals",
+      "targetQty": 100,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 100,
+      "bioavailabilityNote": "Essential intracellular electrolyte assisting in vascular relaxation and counteracting excess sodium."
+    },
+    {
+      "key": "phosphorus",
+      "name": "Phosphorus",
+      "group": "Minerals",
+      "targetQty": 100,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 100,
+      "bioavailabilityNote": "Works synergistically with calcium for skeletal mineralization; abundant in dairy and grain seeds."
+    },
+    {
+      "key": "iron",
+      "name": "Iron",
+      "group": "Minerals",
+      "targetQty": 1,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Non-heme plant iron has lower absorption (5-12%) than heme iron, but co-ingestion of Vitamin C significantly boosts uptake."
+    },
+    {
+      "key": "magnesium",
+      "name": "Magnesium",
+      "group": "Minerals",
+      "targetQty": 1,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Crucial enzyme cofactor for muscle, nerve transmission, and energy metabolism."
+    },
+    {
+      "key": "zinc",
+      "name": "Zinc",
+      "group": "Minerals",
+      "targetQty": 1,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Bioavailability is elevated in fermented/leavened foods where phytates are degraded."
+    },
+    {
+      "key": "vitaminA",
+      "name": "Vitamin A",
+      "group": "Vitamins",
+      "targetQty": 100,
+      "targetUnit": "µg RAE",
+      "standardUnit": "µg",
+      "multiplierFromStandard": 100,
+      "bioavailabilityNote": "Must be declared in µg Retinol Activity Equivalents (RAE); fortification must be declared on package."
+    },
+    {
+      "key": "vitaminB1",
+      "name": "Vitamin B1 (Thiamine)",
+      "group": "Vitamins",
+      "targetQty": 1,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Water-soluble coenzyme in carbohydrate metabolism; heat-sensitive during high-temperature baking."
+    },
+    {
+      "key": "vitaminB2",
+      "name": "Vitamin B2 (Riboflavin)",
+      "group": "Vitamins",
+      "targetQty": 1,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Essential for cellular energy production; naturally gives milk whey its golden-greenish tint."
+    },
+    {
+      "key": "vitaminB3",
+      "name": "Vitamin B3 (Niacin)",
+      "group": "Vitamins",
+      "targetQty": 1,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Stable micronutrient assisting DNA repair and cellular respiration."
+    },
+    {
+      "key": "vitaminB6",
+      "name": "Vitamin B6",
+      "group": "Vitamins",
+      "targetQty": 1,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Facilitates amino acid metabolism, neurotransmitter synthesis, and hemoglobin formation."
+    },
+    {
+      "key": "vitaminE",
+      "name": "Vitamin E",
+      "group": "Vitamins",
+      "targetQty": 1,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Lipid-soluble antioxidant protecting cell membranes; absorption dependent on presence of dietary fats."
+    },
+    {
+      "key": "folate",
+      "name": "Folate (Vitamin B9)",
+      "group": "Vitamins",
+      "targetQty": 100,
+      "targetUnit": "µg",
+      "standardUnit": "µg",
+      "multiplierFromStandard": 100,
+      "bioavailabilityNote": "Vital for red blood cell formation and healthy cellular division; synthetic folic acid has higher bioavailability than food folates."
+    },
+    {
+      "key": "vitaminB12",
+      "name": "Vitamin B12",
+      "group": "Vitamins",
+      "targetQty": 1,
+      "targetUnit": "µg",
+      "standardUnit": "µg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Naturally occurring almost exclusively in animal and dairy foods; crucial for neuro-cognitive health."
+    },
+    {
+      "key": "vitaminD",
+      "name": "Vitamin D",
+      "group": "Vitamins",
+      "targetQty": 1,
+      "targetUnit": "µg",
+      "standardUnit": "µg",
+      "multiplierFromStandard": 1,
+      "bioavailabilityNote": "Fat-soluble vitamin directing intestinal calcium absorption; frequently added via certified milk/oil fortification (+F)."
+    },
+    {
+      "key": "vitaminC",
+      "name": "Vitamin C",
+      "group": "Vitamins",
+      "targetQty": 10,
+      "targetUnit": "mg",
+      "standardUnit": "mg",
+      "multiplierFromStandard": 10,
+      "bioavailabilityNote": "Potent antioxidant and cofactor for collagen synthesis; boosts dietary non-heme iron absorption."
+    }
+  ]
+}

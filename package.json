@@ -11,6 +11,7 @@
     "test": "vitest run",
     "i18n:check": "npx tsx scripts/check-i18n.ts",
     "import": "npx tsx scripts/import-products.ts",
+    "import:products": "npx tsx scripts/import-indian-foods.ts",
     "kb:check": "npx tsx scripts/kb-check.ts",
     "ai:index": "npx tsx scripts/ai-index.ts",
     "ai:coverage": "npx tsx scripts/ai-coverage.ts",

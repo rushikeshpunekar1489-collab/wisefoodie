@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Product } from '@/types/product';
 import FBSVitalityCapsule from '@/components/FBSVitalityCapsule';
+import CompareV2Section from '@/scorecard-v2/ui/CompareV2Section';
 import {
   Scale,
   Plus,
@@ -37,6 +38,15 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
   });
 
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [pickerSearch, setPickerSearch] = useState('');
+
+  const filteredPickerProducts = useMemo(() => {
+    if (!pickerSearch.trim()) return allProducts;
+    const q = pickerSearch.toLowerCase();
+    return allProducts.filter(
+      (p) => p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q)
+    );
+  }, [allProducts, pickerSearch]);
 
   const selectedProducts = useMemo(() => {
     return selectedSlugs
@@ -356,6 +366,9 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
         </div>
       </div>
 
+      {/* SCORECARD V2 COMPARISON UPGRADES (Nutrient Cost & Ingredients) */}
+      <CompareV2Section products={selectedProducts} />
+
       {/* Product Selector Modal */}
       {pickerOpen && (
         <div
@@ -374,8 +387,27 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
               </button>
             </div>
 
-            <div className="overflow-y-auto space-y-2 max-h-[60vh]">
-              {allProducts.map((p) => {
+            <div className="space-y-3 mb-3">
+              <input
+                type="text"
+                value={pickerSearch}
+                onChange={(e) => setPickerSearch(e.target.value)}
+                placeholder="Search food by name or brand..."
+                className="w-full px-3 py-2 text-xs font-bold bg-[var(--surface)] border-2 border-[var(--ink)] rounded-xl"
+              />
+              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 flex items-center justify-between text-xs text-emerald-900">
+                <span className="font-semibold">Comparing Indian Packaged Foods?</span>
+                <Link
+                  href="/products"
+                  className="font-bold text-emerald-800 underline hover:text-emerald-950 shrink-0"
+                >
+                  852 Products Catalog &rarr;
+                </Link>
+              </div>
+            </div>
+
+            <div className="overflow-y-auto space-y-2 max-h-[50vh]">
+              {filteredPickerProducts.map((p) => {
                 const isSelected = selectedSlugs.includes(p.slug);
                 return (
                   <button

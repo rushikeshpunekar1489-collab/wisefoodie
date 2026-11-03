@@ -3,40 +3,38 @@
 import React, { useEffect, useState } from 'react';
 
 interface FBSVitalityCapsuleProps {
-  score: number | null;
+  score: number | null | undefined;
   band?: string | null;
-  orientation?: 'vertical' | 'horizontal';
   size?: 'sm' | 'md' | 'lg';
+  orientation?: 'vertical' | 'horizontal';
   showLabel?: boolean;
   onClick?: () => void;
 }
 
-const BAND_CONFIGS: Record<string, { color: string; label: string }> = {
-  Excellent: { color: 'var(--leaf)', label: 'EXCELLENT CHOICE' },
-  'Very Good': { color: '#10b981', label: 'VERY GOOD CHOICE' },
-  Good: { color: '#84cc16', label: 'GOOD CHOICE' },
-  Moderate: { color: 'var(--mango)', label: 'MODERATE' },
-  Limited: { color: '#f97316', label: 'LIMIT INTAKE' },
-  Poor: { color: 'var(--tomato)', label: 'POOR / TREAT' },
-};
+const BANDS = [
+  { min: 9.0, max: 10.0, color: 'var(--leaf)', label: 'EXCELLENT CHOICE' },
+  { min: 8.0, max: 8.9, color: '#10b981', label: 'VERY GOOD CHOICE' },
+  { min: 7.0, max: 7.9, color: '#84cc16', label: 'GOOD CHOICE' },
+  { min: 5.0, max: 6.9, color: 'var(--mango)', label: 'MODERATE' },
+  { min: 3.0, max: 4.9, color: '#f97316', label: 'LIMITED' },
+  { min: 1.0, max: 2.9, color: 'var(--tomato)', label: 'POOR / TREAT' },
+];
 
 export default function FBSVitalityCapsule({
   score,
-  band,
-  orientation = 'vertical',
   size = 'md',
+  orientation = 'vertical',
   showLabel = true,
   onClick,
 }: FBSVitalityCapsuleProps) {
   const [animatedHeight, setAnimatedHeight] = useState(0);
 
-  const isPending = score === null || score === undefined;
-  const safeScore = score ?? 0;
-  const fillPercentage = Math.min(100, Math.max(12, safeScore * 10));
+  const isPending = score === null || score === undefined || isNaN(score);
+  const safeScore = isPending ? 0 : Math.max(1, Math.min(10, score));
+  const fillPercentage = isPending ? 0 : ((safeScore - 1) / 9) * 100;
 
-  const resolvedBand = band || (safeScore >= 9 ? 'Excellent' : safeScore >= 8 ? 'Very Good' : safeScore >= 7 ? 'Good' : safeScore >= 5 ? 'Moderate' : safeScore >= 3 ? 'Limited' : 'Poor');
   const bandConfig = !isPending
-    ? BAND_CONFIGS[resolvedBand] || BAND_CONFIGS['Moderate']
+    ? BANDS.find((b) => safeScore >= b.min && safeScore <= b.max) || BANDS[BANDS.length - 1]
     : { color: '#94a3b8', label: 'SCORE PENDING' };
 
   useEffect(() => {
@@ -49,11 +47,17 @@ export default function FBSVitalityCapsule({
   if (orientation === 'horizontal') {
     return (
       <div
-        className="fbs-container horizontal items-center cursor-pointer"
+        className="fbs-container horizontal flex-col sm:flex-row items-center gap-3 sm:gap-4 max-w-full cursor-pointer touch-action-manipulation"
         onClick={onClick}
         role={onClick ? 'button' : undefined}
       >
-        <div className="capsule-wrapper" style={{ width: size === 'sm' ? 180 : 340, height: size === 'sm' ? 64 : 96 }}>
+        <div
+          className="capsule-wrapper max-w-full"
+          style={{
+            width: size === 'sm' ? 160 : 'min(300px, 100%)',
+            height: size === 'sm' ? 56 : 76,
+          }}
+        >
           <div className="capsule">
             <div
               className="capsule-liquid"
@@ -62,7 +66,10 @@ export default function FBSVitalityCapsule({
                 width: `${animatedHeight}%`,
               }}
             />
-            <div className="capsule-score" style={{ fontSize: size === 'sm' ? '1.5rem' : '2.2rem' }}>
+            <div
+              className="capsule-score"
+              style={{ fontSize: size === 'sm' ? '1.35rem' : '1.85rem' }}
+            >
               <span>{isPending ? 'Pending' : safeScore.toFixed(1)}</span>
               {!isPending && <small>/ 10</small>}
             </div>
@@ -70,9 +77,9 @@ export default function FBSVitalityCapsule({
         </div>
 
         {showLabel && (
-          <div className="flex flex-col gap-1 items-start">
+          <div className="flex flex-col gap-0.5 items-center sm:items-start text-center sm:text-left max-w-full">
             <span
-              className="fbs-band-label"
+              className="fbs-band-label text-xs sm:text-sm font-extrabold max-w-full truncate"
               style={{
                 background: bandConfig.color,
                 color: safeScore < 5 && !isPending ? 'var(--ink)' : 'white',
@@ -90,12 +97,12 @@ export default function FBSVitalityCapsule({
   }
 
   // Vertical (Signature)
-  const wrapperWidth = size === 'sm' ? 76 : size === 'lg' ? 130 : 100;
-  const wrapperHeight = size === 'sm' ? 180 : size === 'lg' ? 300 : 230;
+  const wrapperWidth = size === 'sm' ? 70 : size === 'lg' ? 116 : 92;
+  const wrapperHeight = size === 'sm' ? 160 : size === 'lg' ? 260 : 210;
 
   return (
     <div
-      className="fbs-container cursor-pointer select-none"
+      className="fbs-container cursor-pointer select-none max-w-full touch-action-manipulation"
       onClick={onClick}
       role={onClick ? 'button' : undefined}
     >
@@ -113,7 +120,7 @@ export default function FBSVitalityCapsule({
           />
           <div
             className="capsule-score"
-            style={{ fontSize: size === 'sm' ? '1.8rem' : size === 'lg' ? '3.2rem' : '2.4rem' }}
+            style={{ fontSize: size === 'sm' ? '1.6rem' : size === 'lg' ? '2.8rem' : '2.2rem' }}
           >
             <span>{isPending ? '—' : safeScore.toFixed(1)}</span>
             {!isPending && <small>/ 10</small>}
@@ -123,7 +130,7 @@ export default function FBSVitalityCapsule({
 
       {showLabel && (
         <div
-          className="fbs-band-label text-center"
+          className="fbs-band-label text-center text-xs sm:text-sm max-w-full"
           style={{
             background: bandConfig.color,
             color: safeScore < 5 && !isPending ? 'var(--ink)' : 'white',

@@ -38,9 +38,9 @@ export default function FavouriteButton({
   };
 
   const buttonClasses = {
-    sm: 'p-1.5 rounded-full border border-[var(--ink)]/15 bg-white/90 backdrop-blur-xs hover:bg-white shadow-xs',
-    md: 'p-2 rounded-full border-2 border-[var(--ink)] bg-white hover:bg-[var(--surface-alt)] shadow-[2px_2px_0px_var(--ink)]',
-    lg: 'py-2.5 px-4 rounded-full border-2 border-[var(--ink)] bg-white hover:bg-[var(--surface-alt)] shadow-[3px_3px_0px_var(--ink)] flex items-center gap-2 font-bold text-sm',
+    sm: 'w-10 h-10 min-w-[40px] min-h-[40px] rounded-full border border-[var(--ink)]/20 bg-white/95 backdrop-blur-xs hover:bg-white shadow-xs touch-action-manipulation',
+    md: 'w-11 h-11 min-w-[44px] min-h-[44px] rounded-full border-2 border-[var(--ink)] bg-white hover:bg-[var(--surface-alt)] shadow-[2px_2px_0px_var(--ink)] touch-action-manipulation',
+    lg: 'py-2.5 px-4 min-h-[44px] rounded-full border-2 border-[var(--ink)] bg-white hover:bg-[var(--surface-alt)] shadow-[3px_3px_0px_var(--ink)] flex items-center gap-2 font-bold text-sm touch-action-manipulation',
   };
 
   return (

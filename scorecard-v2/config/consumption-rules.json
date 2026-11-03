@@ -1,0 +1,148 @@
+{
+  "categoryTemplates": {
+    "Dairy & Frozen": {
+      "defaultServingG": 200,
+      "servingUnit": "ml",
+      "frequencyBaseline": "Regular / Daily",
+      "portionTip": "A standard 200 ml glass or 100g portion provides high-quality protein and bioavailable calcium.",
+      "bestTiming": "Morning with breakfast or post-workout to support muscle recovery and steady satiety.",
+      "preparationTip": "Enjoy warm or chilled; avoid adding refined white sugar.",
+      "combinations": [
+        { "food": "Soaked Almonds or Walnuts", "reason": "Adds healthy omega-3 fatty acids and dietary fibre to standard dairy protein." },
+        { "food": "Rolled Oats or Whole Grain Poha", "reason": "Combines slow-digesting complex carbs with complete dairy proteins for sustained energy." }
+      ],
+      "harmReductionDefaults": [
+        "If monitoring saturated fat intake, opt for standardized or toned variations rather than full-cream."
+      ],
+      "avoidWith": [
+        "Adding excessive syrup, refined sugar, or pairing with heavily salted packaged snacks."
+      ]
+    },
+    "Instant Foods": {
+      "defaultServingG": 70,
+      "servingUnit": "g",
+      "frequencyBaseline": "Occasional / Limit",
+      "portionTip": "Treat one single packet as a full meal rather than an in-between snack, and avoid double packs.",
+      "bestTiming": "As an occasional lunch or dinner, preferably not late at night when sodium clearance slows.",
+      "preparationTip": "Use 50-60% of the included seasoning tastemaker packet to substantially reduce sodium intake.",
+      "combinations": [
+        { "food": "Sauteed Vegetables (Capsicum, Carrots, Peas)", "reason": "Boosts meal volume, potassium, and dietary fibre which slows down carbohydrate absorption." },
+        { "food": "Boiled Egg or Paneer Cubes", "reason": "Adds complete lean protein to balance an otherwise refined-carbohydrate heavy dish." }
+      ],
+      "harmReductionDefaults": [
+        "Discard the starchy boiling water before mixing or dilute the tastemaker with fresh herbs to cut sodium by up to 40%."
+      ],
+      "avoidWith": [
+        "Pairing with sugary sodas or heavily salted chips in the same meal."
+      ]
+    },
+    "Snacks & Savouries": {
+      "defaultServingG": 30,
+      "servingUnit": "g",
+      "frequencyBaseline": "Occasional",
+      "portionTip": "Pour a single 30g portion (approx. 1 small katori) into a bowl rather than eating directly from the pouch.",
+      "bestTiming": "Afternoon snack, ideally alongside a fresh fruit or cup of unflavoured green/black tea.",
+      "preparationTip": "Mix 1 part savoury snack with 1 part roasted murmura (puffed rice) or roasted chana to reduce calorie density.",
+      "combinations": [
+        { "food": "Chopped Cucumber, Tomatoes & Lemon Juice", "reason": "Hydrating, potassium-rich fresh vegetables help balance dietary sodium and add fresh vitamin C." },
+        { "food": "Roasted Chana (Chickpeas)", "reason": "Adds plant protein and prebiotic dietary fibre to lower the glycemic velocity of the snack." }
+      ],
+      "harmReductionDefaults": [
+        "Avoid eating from the main family pack to prevent unconscious overconsumption of saturated fats and sodium."
+      ],
+      "avoidWith": [
+        "Stacking with other high-sodium foods like pickles, papad, or salty processed cheese."
+      ]
+    },
+    "Biscuits & Cookies": {
+      "defaultServingG": 30,
+      "servingUnit": "g",
+      "frequencyBaseline": "Occasional",
+      "portionTip": "Limit to 2-3 biscuits per sitting (approx. 25-30g) to control concentrated refined sugar and shortening fats.",
+      "bestTiming": "Mid-morning or evening tea time; avoid eating right before bed.",
+      "preparationTip": "Pair with a hot beverage without added table sugar.",
+      "combinations": [
+        { "food": "Unsweetened Milk or Black Coffee", "reason": "Provides warmth and liquid fullness without doubling the simple sugar load." },
+        { "food": "A Handful of Roasted Pumpkin Seeds", "reason": "Adds magnesium and healthy lipids to modulate the insulin response to refined flour." }
+      ],
+      "harmReductionDefaults": [
+        "Pair with fibre or protein sources to help balance the meal and avoid post-snack energy crashes."
+      ],
+      "avoidWith": [
+        "Dipping into heavily sweetened milk tea or sweetened condensed milk."
+      ]
+    },
+    "Beverages": {
+      "defaultServingG": 200,
+      "servingUnit": "ml",
+      "frequencyBaseline": "Occasional / Limit",
+      "portionTip": "Limit to a single 150-200 ml glass; avoid supersized bottles or cans in one go.",
+      "bestTiming": "Midday treat, preferably around physical activity rather than sedentary couch time.",
+      "preparationTip": "Dilute 50/50 with sparkling water or plain chilled soda to instantly halve the free sugar concentration.",
+      "combinations": [
+        { "food": "Fresh Lemon Wedge & Mint Leaves", "reason": "Enhances natural refreshing aromatics while keeping sugar concentration dilute." },
+        { "food": "A Handful of Mixed Nuts", "reason": "Dietary fats and plant protein delay gastric emptying, smoothing the liquid sugar spike." }
+      ],
+      "harmReductionDefaults": [
+        "Sip slowly over 15-20 minutes rather than chugging quickly, to prevent sharp insulin spikes."
+      ],
+      "avoidWith": [
+        "Combining with sugary desserts, cakes, or fried snacks in the same sitting."
+      ]
+    },
+    "Chocolates & Confectionery": {
+      "defaultServingG": 20,
+      "servingUnit": "g",
+      "frequencyBaseline": "Occasional Treat",
+      "portionTip": "Enjoy 1-2 small squares (15-20g) mindfully, letting each piece melt slowly.",
+      "bestTiming": "Post-lunch or early evening dessert; mindful sensory consumption enhances satisfaction with smaller quantities.",
+      "preparationTip": "Store in the refrigerator and snap off a single portion before sitting down.",
+      "combinations": [
+        { "food": "Fresh Strawberries or Apple Slices", "reason": "Natural fruit fibre and water content extend satiety while delivering antioxidants." },
+        { "food": "Unsweetened Black Espresso / Roasted Green Tea", "reason": "Bitter, polyphenolic beverages complement chocolate richness without adding simple carbs." }
+      ],
+      "harmReductionDefaults": [
+        "Choose varieties with higher cocoa percentages (55% or higher) where available to maximize polyphenols and minimize added sugar."
+      ],
+      "avoidWith": [
+        "Mindless snacking while working or watching TV directly out of multi-pack boxes."
+      ]
+    },
+    "Health & Nutrition": {
+      "defaultServingG": 30,
+      "servingUnit": "g",
+      "frequencyBaseline": "Regular / Active Routine",
+      "portionTip": "Follow the exact scoop or measured serving (typically 30g) based on your daily dietary protein targets.",
+      "bestTiming": "Within 45-60 minutes after exercise or as a mid-morning high-protein bridge between meals.",
+      "preparationTip": "Shake thoroughly with room temperature or cool water/milk; avoid boiling water which can clump proteins.",
+      "combinations": [
+        { "food": "Ripe Banana or Chia Seeds", "reason": "Replenishes glycogen stores with natural carbohydrates and adds soluble dietary fibre." },
+        { "food": "Unsweetened Almond Milk or Toned Milk", "reason": "Creates a creamy shake texture with minimal extra simple carbohydrates." }
+      ],
+      "harmReductionDefaults": [
+        "Check that your overall daily protein intake remains aligned with your personal physical activity requirements."
+      ],
+      "avoidWith": [
+        "Adding sugary ice creams, commercial syrups, or artificial dessert flavour drops."
+      ]
+    },
+    "Default": {
+      "defaultServingG": 50,
+      "servingUnit": "g",
+      "frequencyBaseline": "Moderate",
+      "portionTip": "Stick to one measured portion and review the per-serving nutritional declaration on the rear panel.",
+      "bestTiming": "Consume as part of scheduled meals rather than erratic grazing.",
+      "preparationTip": "Pair with freshly cooked, minimally processed whole foods.",
+      "combinations": [
+        { "food": "Fresh Seasonal Salad", "reason": "Provides micronutrients and enzymes that promote wholesome digestive balance." },
+        { "food": "A Glass of Water", "reason": "Staying hydrated supports healthy nutrient clearance and aids natural satiety signalling." }
+      ],
+      "harmReductionDefaults": [
+        "Balance your total daily diet by including whole grains, pulses, and fresh seasonal produce."
+      ],
+      "avoidWith": [
+        "Combining multiple high-sodium or ultra-processed packaged items in the same meal."
+      ]
+    }
+  }
+}

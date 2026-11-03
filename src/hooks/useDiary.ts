@@ -14,17 +14,18 @@ import {
   generateInsightNudges,
   calculateStreak,
   exportDiaryToCSV,
+  toSafeDateString,
 } from '@/lib/diary';
 import type { ProductPer100g } from '@/types/product';
 
 export function useDiary() {
-  const [todayStr, setTodayStr] = useState<string>('');
-  const [selectedDate, setSelectedDate] = useState<string>('');
+  const [todayStr, setTodayStr] = useState<string>(toSafeDateString);
+  const [selectedDate, setSelectedDate] = useState<string>(toSafeDateString);
 
   useEffect(() => {
-    const today = new Date().toISOString().split('T')[0];
+    const today = toSafeDateString();
     setTodayStr(today);
-    setSelectedDate((current) => current || today);
+    setSelectedDate((current) => (current && current !== '' ? current : today));
   }, []);
   const [diaryState, setDiaryState] = useState<DiaryState>({
     version: 1,
@@ -145,9 +146,10 @@ export function useDiary() {
 
   const copyPreviousDayMeals = useCallback(
     (targetDate: string): number => {
-      const target = new Date(targetDate);
+      const safeTarget = toSafeDateString(targetDate);
+      const target = new Date(safeTarget);
       target.setDate(target.getDate() - 1);
-      const prevDateStr = target.toISOString().split('T')[0];
+      const prevDateStr = toSafeDateString(target);
 
       const prevEntries = diaryState.entries.filter((e) => e.date === prevDateStr);
       if (prevEntries.length === 0) return 0;

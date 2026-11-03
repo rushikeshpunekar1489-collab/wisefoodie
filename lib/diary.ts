@@ -28,6 +28,30 @@ export interface DiaryState {
 export const DIARY_STORAGE_KEY = 'wf_diary_v1';
 
 /**
+ * Safe local date formatting (YYYY-MM-DD).
+ * Handles null, undefined, empty strings, and invalid dates safely without throwing RangeError.
+ */
+export function toSafeDateString(dateInput?: string | number | Date | null): string {
+  if (!dateInput) {
+    const now = new Date();
+    return formatYMD(now);
+  }
+  const d = dateInput instanceof Date ? dateInput : new Date(dateInput);
+  if (isNaN(d.getTime())) {
+    const now = new Date();
+    return formatYMD(now);
+  }
+  return formatYMD(d);
+}
+
+export function formatYMD(d: Date): string {
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+/**
  * Standard adult reference values based on ICMR-NIN (National Institute of Nutrition, India)
  * Recommended Dietary Allowances (RDA) 2020 guidelines for sedentary-to-moderate Indian adults.
  * Used for informational comparison ("contribution vs reference value"), never medical advice.
@@ -224,7 +248,7 @@ export function aggregateDayNutrients(entries: DiaryEntry[], goal: SimpleGoal = 
   };
 
   return {
-    date: entries[0]?.date || new Date().toISOString().split('T')[0],
+    date: entries[0]?.date || toSafeDateString(),
     itemCount: entries.length,
     totals,
     missingCounts,
@@ -327,13 +351,14 @@ export function calculateStreak(entries: DiaryEntry[], currentDate: string): num
 
   const datesWithLogs = new Set(entries.map((e) => e.date));
   let streak = 0;
-  const current = new Date(currentDate);
+  const safeCurrent = toSafeDateString(currentDate);
+  const current = new Date(safeCurrent);
 
   // Check up to 365 consecutive days back
   for (let i = 0; i < 365; i++) {
     const d = new Date(current);
     d.setDate(d.getDate() - i);
-    const dateStr = d.toISOString().split('T')[0];
+    const dateStr = toSafeDateString(d);
 
     if (datesWithLogs.has(dateStr)) {
       streak++;

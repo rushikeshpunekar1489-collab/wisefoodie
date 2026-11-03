@@ -1,0 +1,22 @@
+[
+  {
+    "id": "rep-1793734264071-ke07w8",
+    "productId": "general",
+    "productSlug": null,
+    "issueType": "nutrition",
+    "details": "Audit test issue report",
+    "email": null,
+    "timestamp": "2026-11-03T19:31:04.071Z",
+    "status": "pending-review"
+  },
+  {
+    "id": "rep-1793734635119-518wnw",
+    "productId": "general",
+    "productSlug": null,
+    "issueType": "nutrition",
+    "details": "Audit test issue report",
+    "email": null,
+    "timestamp": "2026-11-03T19:37:15.119Z",
+    "status": "pending-review"
+  }
+]

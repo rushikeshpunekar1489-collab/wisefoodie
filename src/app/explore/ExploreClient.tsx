@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 import type { Product } from '@/types/product';
 import ProductCard from '@/components/ProductCard';
 import {
@@ -14,6 +15,8 @@ import {
   AlertTriangle,
   HelpCircle,
   Check,
+  Layers,
+  ArrowRight,
 } from 'lucide-react';
 import {
   INGREDIENT_TAGS,
@@ -245,6 +248,27 @@ export default function ExploreClient({
             <span>Include Benchmarks ({sampleProducts.length})</span>
           </label>
         </div>
+      </div>
+
+      {/* Indian Packaged Food Database Banner */}
+      <div className="bg-gradient-to-r from-emerald-800 to-teal-900 text-white rounded-2xl p-5 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1 bg-emerald-700/80 text-emerald-100 text-xs font-bold px-2.5 py-0.5 rounded-full">
+              <Layers className="w-3 h-3" /> 852 Products Dataset
+            </span>
+            <span className="text-xs text-emerald-200">262 Brands &bull; 13 Categories &bull; 25 Fields</span>
+          </div>
+          <p className="text-sm font-medium text-emerald-50">
+            Looking for the full Indian Packaged Food Database? Search, filter, compare, and analyze all 852 Indian products.
+          </p>
+        </div>
+        <Link
+          href="/products"
+          className="inline-flex items-center gap-2 bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all shrink-0 shadow-sm"
+        >
+          Explore 852 Indian Products <ArrowRight className="w-4 h-4" />
+        </Link>
       </div>
 
       {/* Quick Filter Chips (Reference UI Style) */}

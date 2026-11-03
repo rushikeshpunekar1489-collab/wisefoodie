@@ -9,6 +9,7 @@ import FBSVitalityCapsule from '@/components/FBSVitalityCapsule';
 import RDABars from '@/components/RDABars';
 import NutritionPerPaisaCard from '@/components/NutritionPerPaisaCard';
 import IngredientBreakdown from '@/components/IngredientBreakdown';
+import ScorecardV2Container from '@/scorecard-v2/ui/ScorecardV2Container';
 import ProductPageClientExtras from '@/components/ProductPageClientExtras';
 import ReportIssueModal from '@/components/ReportIssueModal';
 import BetterAlternativesCarousel from '@/components/BetterAlternativesCarousel';
@@ -367,22 +368,10 @@ export default async function ProductDetailPage({ params }: Props) {
           </div>
         )}
 
-        {/* 5. NUTRITION PER PAISA (INTERACTIVE COIN STACK) */}
-        <NutritionPerPaisaCard
-          valueData={valueData}
-          priceINR={product.priceINR}
-          packSizeG={product.packSizeG}
-          category={product.category}
-        />
-
-        {/* 6. INGREDIENT INTELLIGENCE */}
-        <div className="bubble-card space-y-4">
-          <div className="flex justify-between items-center flex-wrap gap-2">
-            <h3 className="t-h3">Ingredient Analysis</h3>
-            <span className="text-xs font-bold opacity-60">Tap any ingredient for explanation</span>
-          </div>
-          <IngredientBreakdown ingredients={product.ingredients} />
-        </div>
+        {/* SCORECARD V2 DECISION-SUPPORT MODULES:
+            Order: Smart Consumption -> Nutrition Per Paisa (upgraded in place) -> Ingredients Analysis (upgraded in place)
+        */}
+        <ScorecardV2Container product={product} />
 
         {/* 7. BETTER ALTERNATIVES (ISSE BEHTAR OPTION) */}
         <BetterAlternativesCarousel

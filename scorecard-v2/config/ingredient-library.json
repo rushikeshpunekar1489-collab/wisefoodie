@@ -1,0 +1,332 @@
+{
+  "ingredients": [
+    {
+      "id": "standardized-milk",
+      "aliases": ["standardized fresh milk", "standardized milk", "milk", "toned milk", "double toned milk", "full cream milk", "cow milk", "buffalo milk"],
+      "ins": null,
+      "categoryTags": ["nutritionally-beneficial", "potential-allergen"],
+      "plainExplanation": "Wholesome dairy milk standardized to a consistent ratio of milk fat and solids-not-fat (SNF).",
+      "whyUsed": "Provides core nutrition, protein structure, and natural dairy taste.",
+      "function": "Nutrient Base & Emulsion",
+      "consumerNote": "Naturally rich in bioavailable calcium, riboflavin (B2), and complete proteins containing all essential amino acids.",
+      "fssaiNote": "Complies with FSSAI Food Safety and Standards (Food Products Standards and Food Additives) Regulations 2011, Regulation 2.1.1."
+    },
+    {
+      "id": "sugar",
+      "aliases": ["sugar", "sucrose", "refined sugar", "white sugar", "cane sugar", "table sugar", "granulated sugar", "crystal sugar"],
+      "ins": null,
+      "categoryTags": ["added-sugar"],
+      "plainExplanation": "Refined disaccharide derived from sugarcane or sugar beets.",
+      "whyUsed": "Imparts immediate sweetness, contributes to browning, and acts as a humectant.",
+      "function": "Sweetening & Bulking Agent",
+      "consumerNote": "Rapidly digested simple carbohydrate. ICMR-NIN and WHO recommend limiting total added sugars to under 10% of daily energy (~50g/day).",
+      "fssaiNote": "Regulated under FSSAI Standards for Sugar and Confectionery (Regulation 2.8.1)."
+    },
+    {
+      "id": "liquid-glucose",
+      "aliases": ["liquid glucose", "glucose syrup", "corn syrup", "glucose", "dextrose syrup"],
+      "ins": null,
+      "categoryTags": ["added-sugar"],
+      "plainExplanation": "A thick, viscous syrup manufactured by hydrolyzing starch into glucose molecules.",
+      "whyUsed": "Prevents crystallization in confectionery and provides smooth chewiness and texture.",
+      "function": "Humectant & Anti-crystallization Agent",
+      "consumerNote": "High glycemic index simple sugar that quickly elevates blood glucose levels.",
+      "fssaiNote": "Conforms to FSSAI Regulation 2.8.1 specifications for Liquid Glucose."
+    },
+    {
+      "id": "invert-sugar",
+      "aliases": ["invert sugar", "invert sugar syrup", "invert syrup"],
+      "ins": null,
+      "categoryTags": ["added-sugar"],
+      "plainExplanation": "An equimolar mixture of glucose and fructose produced by splitting sucrose.",
+      "whyUsed": "Sweeter than regular sucrose, retains moisture, and prolongs shelf freshness in baked goods.",
+      "function": "Humectant & Sweetener",
+      "consumerNote": "Counted as an added free sugar source by international health authorities.",
+      "fssaiNote": "Permitted sweetening agent under FSSAI regulations."
+    },
+    {
+      "id": "jaggery",
+      "aliases": ["jaggery", "gur", "shakkar", "cane jaggery"],
+      "ins": null,
+      "categoryTags": ["added-sugar"],
+      "plainExplanation": "Traditional unrefined sugar made from evaporating raw sugarcane juice.",
+      "whyUsed": "Provides caramel-like sweetness and earthy flavour.",
+      "function": "Natural Sweetener",
+      "consumerNote": "Contains trace minerals (iron, potassium) from the cane juice, but remains predominantly sucrose (65-85%) and counts as free sugar.",
+      "fssaiNote": "Specified under FSSAI Standards for Gur/Jaggery (Regulation 2.8.4)."
+    },
+    {
+      "id": "maltodextrin",
+      "aliases": ["maltodextrin"],
+      "ins": null,
+      "categoryTags": ["functional"],
+      "plainExplanation": "A complex carbohydrate powder made by partially breaking down grain or tuber starch.",
+      "whyUsed": "Acts as a carrier for seasonings, improves mouthfeel, and adds bulk without cloying sweetness.",
+      "function": "Bulking Agent, Carrier & Texture Stabilizer",
+      "consumerNote": "Starch-derived carbohydrate. Although not legally classified as a conventional simple sugar on Indian food labels, it possesses a high glycemic index (85-105) and is rapidly absorbed.",
+      "fssaiNote": "Recognized and permitted food additive/bulking agent under FSSAI regulations."
+    },
+    {
+      "id": "palm-oil",
+      "aliases": ["edible vegetable oil (palm)", "edible vegetable oil (palmolein)", "palmolein oil", "palm oil", "palmolein", "fractionated palm oil", "hydrogenated vegetable oil", "palm fat"],
+      "ins": null,
+      "categoryTags": ["fat-source"],
+      "plainExplanation": "Vegetable lipid extracted from the pulp of oil palm fruits.",
+      "whyUsed": "Extremely heat-stable for industrial frying, resists oxidation/rancidity, and is semi-solid at room temperature.",
+      "function": "Cooking Medium & Fat Base",
+      "consumerNote": "Naturally contains approximately 45-50% saturated fatty acids (mainly palmitic acid). Moderation is advised under WHO cardiovascular guidelines.",
+      "fssaiNote": "Complies with FSSAI Standards for Edible Vegetable Oils (Regulation 2.2.1)."
+    },
+    {
+      "id": "wheat-flour-maida",
+      "aliases": ["refined wheat flour", "refined wheat flour (maida)", "maida", "wheat flour", "refined flour"],
+      "ins": null,
+      "categoryTags": ["functional", "potential-allergen"],
+      "plainExplanation": "Endosperm of wheat kernels ground into fine flour after removing the bran and germ layers.",
+      "whyUsed": "Develops a light, elastic gluten network for fluffy bakery textures and crisp snacks.",
+      "function": "Structural Flour Base",
+      "consumerNote": "Refining strips away the bran's dietary fibre and germ micronutrients. Contains gluten.",
+      "fssaiNote": "Meets FSSAI standards under Regulation 2.4.2 (Maida)."
+    },
+    {
+      "id": "whole-wheat-flour",
+      "aliases": ["whole wheat flour", "atta", "whole wheat flour (atta)", "whole grain wheat flour"],
+      "ins": null,
+      "categoryTags": ["nutritionally-beneficial", "potential-allergen"],
+      "plainExplanation": "Coarsely or finely ground whole wheat grain containing intact bran, germ, and starchy endosperm.",
+      "whyUsed": "Wholesome baking and flatbread dough base.",
+      "function": "Whole Grain Base",
+      "consumerNote": "Rich in insoluble dietary fibre, B vitamins, and trace minerals. Contains gluten.",
+      "fssaiNote": "Conforms to FSSAI Atta standards (Regulation 2.4.1)."
+    },
+    {
+      "id": "salt",
+      "aliases": ["salt", "iodised salt", "edible common salt", "sodium chloride", "common salt", "rock salt", "black salt"],
+      "ins": null,
+      "categoryTags": ["sodium-source"],
+      "plainExplanation": "Purified crystalline mineral predominantly composed of sodium chloride.",
+      "whyUsed": "Enhances food flavours, suppresses bitterness, and controls microbial shelf stability.",
+      "function": "Seasoning & Natural Preservative",
+      "consumerNote": "1 gram of salt contains approx. 400 mg of sodium. WHO advises keeping daily sodium below 2,000 mg (<5g salt).",
+      "fssaiNote": "Mandated to be fortified with potassium iodate in India under FSSAI Regulation 2.4.11."
+    },
+    {
+      "id": "ins-322",
+      "aliases": ["ins 322", "ins 322(i)", "ins 322 (i)", "soy lecithin", "lecithin", "e322", "emulsifier (ins 322)"],
+      "ins": "322",
+      "categoryTags": ["emulsifier-stabiliser", "potential-allergen"],
+      "plainExplanation": "A natural mixture of phospholipids extracted from non-GMO soy or sunflower seeds.",
+      "whyUsed": "Allows smooth blending of water and oils in chocolates and dressings without separating.",
+      "function": "Emulsifier",
+      "consumerNote": "A naturally occurring fat component with no adverse health effects in typical food quantities. If derived from soy, sensitive individuals should note potential soy allergenicity.",
+      "fssaiNote": "Permitted food additive under FSSAI Food Additives Regulation (Appendix A, Table 1)."
+    },
+    {
+      "id": "ins-330",
+      "aliases": ["ins 330", "e330", "citric acid", "acidity regulator (ins 330)", "acidity regulator 330"],
+      "ins": "330",
+      "categoryTags": ["functional"],
+      "plainExplanation": "An organic acid naturally present in citrus fruits, commercially fermented from carbohydrate sources.",
+      "whyUsed": "Imparts a clean, tart citrus taste and maintains optimal pH to inhibit spoilage microbes.",
+      "function": "Acidity Regulator & Antioxidant Synergist",
+      "consumerNote": "Naturally metabolized via the human Krebs citric acid cycle. Non-toxic and safe at customary dietary levels.",
+      "fssaiNote": "Permitted as GMP (Good Manufacturing Practice) acidity regulator under FSSAI Appendix A."
+    },
+    {
+      "id": "ins-500ii",
+      "aliases": ["ins 500(ii)", "ins 500 ii", "ins 500", "e500(ii)", "sodium bicarbonate", "baking soda", "raising agent (ins 500(ii))"],
+      "ins": "500(ii)",
+      "categoryTags": ["functional", "sodium-source"],
+      "plainExplanation": "Pure mineral compound that releases carbon dioxide bubbles when heated or combined with acid.",
+      "whyUsed": "Expands batter to produce light, airy textures in biscuits and cakes.",
+      "function": "Raising Agent",
+      "consumerNote": "Contains sodium (approx. 27% by weight), which contributes modestly to total sodium load in baked goods.",
+      "fssaiNote": "Authorized GMP leavening additive under FSSAI regulations."
+    },
+    {
+      "id": "ins-503ii",
+      "aliases": ["ins 503(ii)", "ins 503 ii", "ins 503", "e503(ii)", "ammonium bicarbonate", "raising agent (ins 503(ii))"],
+      "ins": "503(ii)",
+      "categoryTags": ["functional"],
+      "plainExplanation": "A traditional baker's salt that completely decomposes into gaseous ammonia and carbon dioxide during baking.",
+      "whyUsed": "Produces an ultra-crisp, snappy crumb in thin biscuits and crackers without leaving residual saltiness.",
+      "function": "Raising Agent",
+      "consumerNote": "Gases evaporate entirely in the oven; no residual ammonia remains in the finished baked product.",
+      "fssaiNote": "Approved GMP raising agent under FSSAI regulations."
+    },
+    {
+      "id": "ins-621",
+      "aliases": ["ins 621", "e621", "monosodium glutamate", "msg", "flavour enhancer (ins 621)"],
+      "ins": "621",
+      "categoryTags": ["flavour-enhancer", "sodium-source"],
+      "plainExplanation": "The sodium salt of glutamic acid, an amino acid naturally abundant in tomatoes, mushrooms, and aged cheese.",
+      "whyUsed": "Activates the tongue's umami taste receptors to create rich, savory satisfaction.",
+      "function": "Flavour Enhancer",
+      "consumerNote": "Contains approximately one-third the sodium of table salt. Scientific consensus (WHO, US FDA, EFSA) confirms safety for general consumption; individuals with specific sensitivity should heed label declarations.",
+      "fssaiNote": "Permitted under FSSAI regulations with required labelling declaration 'Contains Added Monosodium Glutamate'."
+    },
+    {
+      "id": "ins-627",
+      "aliases": ["ins 627", "e627", "disodium guanylate", "flavour enhancer (ins 627)"],
+      "ins": "627",
+      "categoryTags": ["flavour-enhancer", "sodium-source"],
+      "plainExplanation": "A nucleotide sodium salt derived from yeast or tapioca starch.",
+      "whyUsed": "Acts synergistically with MSG to amplify savory umami sensations by up to eightfold.",
+      "function": "Flavour Enhancer",
+      "consumerNote": "Metabolized into purines; individuals on low-purine diets for gout are advised to monitor intake.",
+      "fssaiNote": "Permitted food additive under FSSAI Food Additives Schedule."
+    },
+    {
+      "id": "ins-631",
+      "aliases": ["ins 631", "e631", "disodium inosinate", "flavour enhancer (ins 631)"],
+      "ins": "631",
+      "categoryTags": ["flavour-enhancer", "sodium-source"],
+      "plainExplanation": "A natural nucleotide salt that works in synergy with MSG and disodium guanylate.",
+      "whyUsed": "Deepens round, savory mouthfeel in soups, noodles, and savory seasoning mixes.",
+      "function": "Flavour Enhancer",
+      "consumerNote": "Typically paired with INS 627 (known as I+G). Safe at customary dietary levels.",
+      "fssaiNote": "Permitted under FSSAI Food Additives Schedule."
+    },
+    {
+      "id": "ins-319",
+      "aliases": ["ins 319", "e319", "tbhq", "tertiary butylhydroquinone", "antioxidant (ins 319)"],
+      "ins": "319",
+      "categoryTags": ["preservative"],
+      "plainExplanation": "A synthetic phenolic antioxidant designed to protect fats from reacting with oxygen.",
+      "whyUsed": "Prevents frying oils and snack fats from turning rancid, extending product shelf life.",
+      "function": "Antioxidant / Lipid Preservative",
+      "consumerNote": "Subject to strict regulatory limits in packaged foods. FSSAI and WHO/JECFA have established an Acceptable Daily Intake (ADI) of 0-0.7 mg/kg body weight.",
+      "fssaiNote": "Permitted in edible vegetable oils and fats up to a maximum limit of 200 ppm under FSSAI regulations."
+    },
+    {
+      "id": "ins-150d",
+      "aliases": ["ins 150d", "e150d", "caramel iv", "caramel iv - sulfite ammonia process", "colour (ins 150d)", "caramel colour"],
+      "ins": "150d",
+      "categoryTags": ["colour"],
+      "plainExplanation": "Water-soluble dark brown food colouring produced by heating carbohydrates in the presence of sulfite and ammonium compounds.",
+      "whyUsed": "Gives colas, sauces, and confectionery their characteristic deep mahogany-brown hue.",
+      "function": "Colouring Agent",
+      "consumerNote": "The most widely used food colour in beverages. Toxicological evaluations by JECFA and EFSA consider it safe within specified ADI limits.",
+      "fssaiNote": "Permitted synthetic food colour under FSSAI Regulation 2.1.2."
+    },
+    {
+      "id": "ins-415",
+      "aliases": ["ins 415", "e415", "xanthan gum", "stabilizer (ins 415)"],
+      "ins": "415",
+      "categoryTags": ["emulsifier-stabiliser"],
+      "plainExplanation": "A polysaccharide gum produced by fermenting simple sugars with Xanthomonas campestris bacteria.",
+      "whyUsed": "Increases viscosity, suspends herbs/spices in dressings, and stabilizes sauce emulsion.",
+      "function": "Thickener & Stabilizer",
+      "consumerNote": "A soluble prebiotic dietary fibre that passes undigested through the upper GI tract. Safe with no ADI limit specified by JECFA.",
+      "fssaiNote": "Approved as GMP stabilizer and thickener under FSSAI regulations."
+    },
+    {
+      "id": "ins-412",
+      "aliases": ["ins 412", "e412", "guar gum", "stabilizer (ins 412)"],
+      "ins": "412",
+      "categoryTags": ["emulsifier-stabiliser"],
+      "plainExplanation": "Natural galactomannan polysaccharide extracted from the seeds of the guar bean plant (cluster bean).",
+      "whyUsed": "Imparts thickness, creaminess, and prevents ice crystallization in frozen desserts.",
+      "function": "Natural Thickening Agent",
+      "consumerNote": "Abundantly grown and milled in India; functions as a soluble dietary fibre.",
+      "fssaiNote": "Recognized GMP natural stabilizer under FSSAI regulations."
+    },
+    {
+      "id": "cocoa-solids",
+      "aliases": ["cocoa solids", "cocoa powder", "fat reduced cocoa powder", "dark cocoa"],
+      "ins": null,
+      "categoryTags": ["nutritionally-beneficial"],
+      "plainExplanation": "Non-fat dry components of fermented, roasted, and crushed cacao beans.",
+      "whyUsed": "Provides authentic chocolate flavour, dark color, and aromatic complexity.",
+      "function": "Flavour & Antioxidant Base",
+      "consumerNote": "Naturally dense in flavanols (polyphenolic antioxidants) which support vascular elasticity.",
+      "fssaiNote": "Specified under FSSAI Cocoa Butter & Chocolate Standards (Regulation 2.7.4)."
+    },
+    {
+      "id": "cocoa-butter",
+      "aliases": ["cocoa butter"],
+      "ins": null,
+      "categoryTags": ["fat-source"],
+      "plainExplanation": "Pure, edible pale-yellow fat naturally extracted from whole cacao beans.",
+      "whyUsed": "Melts cleanly at human body temperature (34-36°C) for that classic smooth melt-in-mouth chocolate experience.",
+      "function": "Confectionery Fat Medium",
+      "consumerNote": "Predominantly composed of stearic, palmitic, and oleic fatty acids. Stearic acid has a neutral impact on LDL blood cholesterol.",
+      "fssaiNote": "Regulated under FSSAI Cocoa Butter Standards (Regulation 2.7.2)."
+    },
+    {
+      "id": "whey-protein",
+      "aliases": ["whey protein concentrate", "whey protein isolate", "whey protein", "milk whey protein"],
+      "ins": null,
+      "categoryTags": ["nutritionally-beneficial", "potential-allergen"],
+      "plainExplanation": "High-purity dairy protein separated from liquid whey during the cheese/paneer curdling process.",
+      "whyUsed": "Delivers concentrated, rapidly absorbed amino acids.",
+      "function": "Protein Fortification",
+      "consumerNote": "One of the highest biological value (BV 104) protein sources known, rich in Branched Chain Amino Acids (BCAA, especially leucine). Contains dairy.",
+      "fssaiNote": "Permitted ingredient under FSSAI Health Supplements and Nutraceuticals Regulations 2022."
+    },
+    {
+      "id": "vitamin-mineral-premix",
+      "aliases": ["vitamin a & d fortification", "vitamin and mineral premix", "vitamins and minerals", "mineral premix"],
+      "ins": null,
+      "categoryTags": ["nutritionally-beneficial"],
+      "plainExplanation": "A standardized blend of micronutrients added according to national food fortification standards.",
+      "whyUsed": "Restores or elevates essential micronutrient density in staple groceries.",
+      "function": "Nutritional Fortification",
+      "consumerNote": "In India, certified fortified foods carry the national blue '+F' logo as regulated by the Food Safety and Standards Authority of India.",
+      "fssaiNote": "Governed by FSSAI (Fortification of Foods) Regulations 2018."
+    }
+  ],
+  "allergenRules": {
+    "declaredAllergens": [
+      { "id": "milk", "keywords": ["milk", "dairy", "whey", "lactose", "butter", "cream", "cheese", "paneer", "ghee", "curd"], "label": "Milk & Dairy" },
+      { "id": "wheat", "keywords": ["wheat", "maida", "atta", "gluten", "semolina", "sooji", "suji", "spelt"], "label": "Wheat / Gluten" },
+      { "id": "soy", "keywords": ["soy", "soya", "soybean", "soy lecithin", "soya protein"], "label": "Soybean" },
+      { "id": "peanut", "keywords": ["peanut", "groundnut", "peanuts", "arachis oil"], "label": "Peanuts" },
+      { "id": "treenut", "keywords": ["almond", "cashew", "walnut", "pistachio", "hazelnut", "badam", "kaju", "tree nut", "tree nuts", "nuts"], "label": "Tree Nuts" },
+      { "id": "egg", "keywords": ["egg", "albumen", "egg powder", "egg yolk"], "label": "Egg" },
+      { "id": "fish", "keywords": ["fish", "fish oil", "gelatin (fish)"], "label": "Fish" },
+      { "id": "crustacean", "keywords": ["crab", "shrimp", "prawn", "lobster"], "label": "Crustaceans" },
+      { "id": "sulphite", "keywords": ["sulphite", "sulfite", "sulfur dioxide", "sodium metabisulphite", "ins 223"], "label": "Sulphites" },
+      { "id": "sesame", "keywords": ["sesame", "til", "sesame seed"], "label": "Sesame" }
+    ],
+    "precautionaryPhrases": [
+      "may contain",
+      "processed in a facility that also processes",
+      "manufactured on equipment that processes",
+      "traces of",
+      "cross contamination",
+      "produced in a factory handling"
+    ]
+  },
+  "sugarAliases": [
+    "sugar", "sucrose", "liquid glucose", "glucose syrup", "corn syrup", "high fructose corn syrup",
+    "fructose", "maltose", "dextrose", "invert sugar", "invert sugar syrup", "invert syrup",
+    "jaggery", "gur", "shakkar", "honey", "cane sugar", "brown sugar", "icing sugar",
+    "golden syrup", "caramelized sugar", "date syrup", "agave nectar", "molasses"
+  ],
+  "maltodextrinAliases": [
+    "maltodextrin", "malto-dextrin"
+  ],
+  "transparencyFlags": [
+    {
+      "trigger": "edible vegetable oil",
+      "issue": "Unspecified Vegetable Oil",
+      "explanation": "Label states 'edible vegetable oil' without specifying the specific plant origin (e.g., palm, sunflower, mustard, or soybean)."
+    },
+    {
+      "trigger": "flavour",
+      "issue": "Generic Flavouring Formulation",
+      "explanation": "Label declares generic 'nature identical' or 'artificial' flavouring substances without chemical specificity."
+    },
+    {
+      "trigger": "spices and condiments",
+      "issue": "Collective Spice Disclosure",
+      "explanation": "Grouped as 'spices and condiments' without detailing individual botanical proportions."
+    },
+    {
+      "trigger": "permitted colours",
+      "issue": "Collective Colour Disclosure",
+      "explanation": "Colourants listed collectively without individual INS/E numbering."
+    }
+  ]
+}

@@ -1,10 +1,21 @@
-import type { Metadata } from 'next';
+import React, { Suspense } from 'react';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MobileNav from '../components/MobileNav';
 import ChatWindow from '../components/ChatWindow';
 import { I18nProvider } from '@/context/I18nContext';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FFFBF2' },
+    { media: '(prefers-color-scheme: dark)', color: '#121413' },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
@@ -19,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full antialiased scroll-smooth" data-theme="light">
+    <html lang="en" dir="ltr" className="h-full antialiased scroll-smooth" data-theme="light" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -45,14 +56,20 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-full flex flex-col font-sans bg-[var(--cream)] text-[var(--ink)] antialiased overflow-x-clip">
         <I18nProvider>
           <a href="#main" className="skip-link">Skip to content</a>
-          <Header />
-          <main id="main" className="flex-1 pb-24 md:pb-8">{children}</main>
+          <Suspense fallback={<div className="h-16 w-full" />}>
+            <Header />
+          </Suspense>
+          <main id="main" className="flex-1 pb-24 md:pb-8 w-full max-w-full min-w-0">{children}</main>
           <Footer />
-          <MobileNav />
-          <ChatWindow />
+          <Suspense fallback={null}>
+            <MobileNav />
+          </Suspense>
+          <Suspense fallback={null}>
+            <ChatWindow />
+          </Suspense>
         </I18nProvider>
       </body>
     </html>

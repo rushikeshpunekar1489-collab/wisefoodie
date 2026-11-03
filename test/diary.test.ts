@@ -7,6 +7,7 @@ import {
   exportDiaryToCSV,
   parseDiaryState,
   serializeDiaryState,
+  toSafeDateString,
   type DiaryEntry,
 } from '../lib/diary';
 
@@ -159,5 +160,14 @@ describe('lib/diary.ts Pure Food Diary Logic', () => {
     const parsed = parseDiaryState(validSerialized);
     expect(parsed.entries.length).toBe(1);
     expect(parsed.goal).toBe('more_protein');
+  });
+
+  it('handles invalid or empty dates in streak and date utilities without throwing', () => {
+    expect(() => calculateStreak([createMockEntry()], '')).not.toThrow();
+    expect(() => calculateStreak([createMockEntry()], 'invalid-date')).not.toThrow();
+    expect(toSafeDateString('')).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(toSafeDateString(null)).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(toSafeDateString('invalid-date')).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(toSafeDateString('2026-11-04')).toBe('2026-11-04');
   });
 });

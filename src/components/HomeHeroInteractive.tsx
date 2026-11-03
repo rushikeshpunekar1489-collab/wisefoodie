@@ -199,14 +199,14 @@ export default function HomeHeroInteractive({ products }: HomeHeroInteractivePro
           </div>
 
           {/* Hero Action Buttons */}
-          <div className="flex gap-4 mt-2 flex-wrap justify-center">
-            <Link href="/scanner" className="btn-chunky btn-primary">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-2 w-full sm:w-auto justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
+            <Link href="/scanner" className="btn-chunky btn-primary w-full sm:w-auto text-center justify-center">
               <Scan className="w-5 h-5" /> Scan a Product
             </Link>
-            <Link href="/explore" className="btn-chunky">
+            <Link href="/explore" className="btn-chunky w-full sm:w-auto text-center justify-center">
               Explore 94+ Foods
             </Link>
-            <Link href="/compare" className="btn-chunky btn-berry">
+            <Link href="/compare" className="btn-chunky btn-berry w-full sm:w-auto text-center justify-center">
               Compare 2 Foods
             </Link>
           </div>
@@ -224,10 +224,11 @@ export default function HomeHeroInteractive({ products }: HomeHeroInteractivePro
             Not just calories. We reward positive nutrition (protein, dietary fibre) and penalize industrial negatives (added sugar, saturated fat, sodium, trans-fat, refined carbs) per 100g to give you one honest, scientific number from 1 to 10.
           </p>
 
-          <div className="fbs-container horizontal justify-center items-center gap-8 bg-white p-8 rounded-3xl border-3 border-[var(--ink)] shadow-[var(--shadow-hard)]">
+          <div className="fbs-container horizontal flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl border-3 border-[var(--ink)] shadow-[var(--shadow-hard)] max-w-full">
             {/* Interactive Capsule */}
             <div
-              className="capsule-wrapper"
+              className="capsule-wrapper max-w-full"
+              style={{ width: 'min(300px, 100%)', height: '80px' }}
               onClick={() => setIsModalOpen(true)}
               title="Click to view full scientific breakdown"
             >
@@ -240,7 +241,7 @@ export default function HomeHeroInteractive({ products }: HomeHeroInteractivePro
                     width: `${sliderVal}%`,
                   }}
                 />
-                <div className="capsule-score">
+                <div className="capsule-score" style={{ fontSize: '1.85rem' }}>
                   <span id="demo-score">{demoScore}</span>
                   <small> / 10</small>
                 </div>
@@ -248,15 +249,15 @@ export default function HomeHeroInteractive({ products }: HomeHeroInteractivePro
             </div>
 
             {/* Slider Controls */}
-            <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col items-center gap-3 w-full sm:w-auto">
               <div
-                className="fbs-band-label"
+                className="fbs-band-label text-xs sm:text-sm"
                 id="demo-band"
                 style={{ background: demoBand.color, color: demoBand.textColor }}
               >
                 {demoBand.label}
               </div>
-              <p className="t-small font-extrabold text-[var(--ink)] opacity-70">
+              <p className="t-small font-extrabold text-[var(--ink)] opacity-70 text-xs sm:text-sm">
                 Drag slider to simulate food quality
               </p>
               <input
@@ -265,13 +266,14 @@ export default function HomeHeroInteractive({ products }: HomeHeroInteractivePro
                 max="100"
                 value={sliderVal}
                 onChange={(e) => setSliderVal(parseInt(e.target.value))}
-                className="w-56 accent-[var(--leaf)] cursor-pointer"
+                className="w-full max-w-[240px] h-8 accent-[var(--leaf)] cursor-pointer touch-action-manipulation"
                 id="demo-slider"
+                aria-label="Simulate Food Benefit Score with slider"
               />
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="btn-chunky py-2 px-4 text-xs mt-1"
+                className="btn-chunky py-2 px-4 text-xs mt-1 min-h-[44px]"
               >
                 <Info className="w-3.5 h-3.5 text-[var(--leaf)]" /> How is this calculated?
               </button>
@@ -283,15 +285,25 @@ export default function HomeHeroInteractive({ products }: HomeHeroInteractivePro
       {/* Breakdown Modal */}
       {isModalOpen && (
         <div
-          className="bottom-sheet-overlay open"
+          className="bottom-sheet-overlay open z-[var(--z-modal,70)]"
           onClick={() => setIsModalOpen(false)}
         >
           <div
-            className="bottom-sheet open max-w-lg mx-auto"
+            className="bottom-sheet open max-w-lg mx-auto max-h-[85dvh] overflow-y-auto pb-safe"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sheet-drag" />
-            <h2 className="t-h2 mb-2">FBS Calculation Formula</h2>
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="t-h2">FBS Calculation Formula</h2>
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="btn-chunky p-1.5 rounded-full! border-2! w-9 h-9 min-w-[36px] min-h-[36px] flex items-center justify-center"
+                aria-label="Close formula breakdown"
+              >
+                ✕
+              </button>
+            </div>
             <p className="text-xs font-semibold opacity-70 mb-4">
               Deterministic, benchmarked against ICMR-NIN 2020 Dietary Guidelines for Indians.
             </p>

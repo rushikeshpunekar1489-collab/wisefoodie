@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send, Bot, User, Loader2, Sparkles, Trash2, ArrowUpRight } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { MessageCircle, X, Send, Bot, Loader2, Sparkles, Trash2, ArrowUpRight } from 'lucide-react';
 import { useI18n } from '@/context/I18nContext';
 import { LOCALES } from '@/lib/i18n';
 import Link from 'next/link';
@@ -14,10 +15,13 @@ interface Message {
 }
 
 export default function ChatWindow() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [viewportBottomOffset, setViewportBottomOffset] = useState(0);
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const { locale, t } = useI18n();
@@ -30,9 +34,44 @@ export default function ChatWindow() {
 
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 100);
+      setTimeout(() => inputRef.current?.focus(), 120);
     }
   }, [isOpen]);
+
+  // Handle ESC key to close
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  // Handle visualViewport for mobile virtual keyboard
+  useEffect(() => {
+    if (!isOpen || typeof window === 'undefined' || !window.visualViewport) return;
+
+    const updateOffset = () => {
+      if (window.visualViewport) {
+        const offset = window.innerHeight - window.visualViewport.height - window.visualViewport.offsetTop;
+        setViewportBottomOffset(Math.max(0, offset));
+      }
+    };
+
+    window.visualViewport.addEventListener('resize', updateOffset);
+    window.visualViewport.addEventListener('scroll', updateOffset);
+    return () => {
+      window.visualViewport?.removeEventListener('resize', updateOffset);
+      window.visualViewport?.removeEventListener('scroll', updateOffset);
+    };
+  }, [isOpen]);
+
+  // Hide on scanner route to keep camera view unobstructed
+  if (pathname === '/scanner') {
+    return null;
+  }
 
   const currentLocaleMeta = LOCALES.find((l) => l.code === locale) || LOCALES[0];
 
@@ -68,21 +107,20 @@ export default function ChatWindow() {
       }
 
       const data = await response.json();
-      setMessages((prev) => [
-        ...prev,
+      setMessages([
+        ...newMessages,
         {
           role: 'assistant',
-          content: data.answer || "I couldn't find an exact answer. Please try searching another product.",
-          source: data.source,
-          matchedProducts: data.matchedProducts,
+          content: data.reply || "Sorry, I couldn't process your request right now.",
+          matchedProducts: data.matchedProducts || [],
         },
       ]);
-    } catch (error) {
-      setMessages((prev) => [
-        ...prev,
+    } catch (err) {
+      setMessages([
+        ...newMessages,
         {
           role: 'assistant',
-          content: "Sorry, I had trouble processing that request. Please try asking again!",
+          content: 'Failed to reach AI service. Please check your internet connection and try again.',
         },
       ]);
     } finally {
@@ -98,52 +136,55 @@ export default function ChatWindow() {
   };
 
   return (
-    <aside
-      aria-label="Ask WiseFoodies Chatbot"
-      className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-40 font-sans"
-    >
+    <aside aria-label="Ask WiseFoodies Chatbot" className="font-sans">
       {!isOpen ? (
-        <button
-          type="button"
-          onClick={() => setIsOpen(true)}
-          aria-label="Open Ask WiseFoodies AI Assistant"
-          title="Ask WiseFoodies AI"
-          className="btn-chunky bg-[var(--leaf)] hover:bg-emerald-600 text-white p-3.5 sm:p-4 rounded-full shadow-[4px_4px_0px_var(--ink)] hover:shadow-[5px_5px_0px_var(--ink)] active:translate-x-[2px] active:translate-y-[2px] transition-all flex items-center justify-center group"
-        >
-          <Bot className="w-6 h-6 stroke-[2.2] group-hover:scale-110 transition-transform" />
-          <span className="sr-only">Ask WiseFoodies</span>
-        </button>
+        <div className="fixed bottom-[calc(76px+env(safe-area-inset-bottom,0px))] md:bottom-6 right-4 sm:right-6 z-[var(--z-floating-chat,45)]">
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open Ask WiseFoodies AI Assistant"
+            title="Ask WiseFoodies AI"
+            className="btn-chunky bg-[var(--leaf)] hover:bg-emerald-600 text-white w-13 h-13 min-w-[52px] min-h-[52px] p-0 rounded-full shadow-[3px_3px_0px_var(--ink)] flex items-center justify-center group touch-action-manipulation"
+          >
+            <Bot className="w-6 h-6 stroke-[2.2] group-hover:scale-110 transition-transform" />
+            <span className="sr-only">Ask WiseFoodies</span>
+          </button>
+        </div>
       ) : (
+        /* Full-screen bottom sheet on mobile, floating card on desktop */
         <div
           role="dialog"
-          aria-modal="false"
+          aria-modal="true"
           aria-label="WiseFoodies AI Chat Assistant"
-          className="bg-[var(--surface)] text-[var(--ink)] w-[92vw] sm:w-[420px] h-[520px] max-h-[80vh] rounded-2xl border-3 border-[var(--ink)] shadow-[6px_6px_0px_var(--ink)] flex flex-col overflow-hidden animate-scale-up"
+          style={{
+            bottom: `${viewportBottomOffset}px`,
+          }}
+          className="fixed inset-0 md:inset-auto md:bottom-6 md:right-6 z-[var(--z-modal,70)] md:w-[420px] md:h-[540px] flex flex-col bg-[var(--surface)] text-[var(--ink)] border-t-3 md:border-3 border-[var(--ink)] md:rounded-2xl shadow-2xl overflow-hidden animate-fade-in"
         >
           {/* Header */}
-          <div className="bg-[var(--leaf)] text-white p-3.5 px-4 flex items-center justify-between border-b-2 border-[var(--ink)]">
+          <div className="bg-[var(--leaf)] text-white p-3.5 px-4 pt-[calc(14px+env(safe-area-inset-top,0px))] md:pt-3.5 flex items-center justify-between border-b-2 border-[var(--ink)] shrink-0">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0">
                 <Bot className="w-5 h-5 text-white" />
               </div>
-              <div>
-                <h3 className="font-black text-sm tracking-wide flex items-center gap-1.5 leading-tight">
+              <div className="min-w-0">
+                <h3 className="font-black text-sm tracking-wide flex items-center gap-1.5 leading-tight truncate">
                   <span>Ask WiseFoodies</span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-white text-[var(--leaf)] font-bold">
+                  <span className="text-[10px] px-1.5 py-0.2 rounded bg-white text-[var(--leaf)] font-bold shrink-0">
                     {currentLocaleMeta.code.toUpperCase()}
                   </span>
                 </h3>
-                <p className="text-[11px] text-white/80">Catalog-Grounded Food Intelligence</p>
+                <p className="text-[11px] text-white/80 truncate">Catalog-Grounded Food Intelligence</p>
               </div>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 shrink-0">
               {messages.length > 0 && (
                 <button
                   type="button"
                   onClick={() => setMessages([])}
                   aria-label="Clear chat"
                   title="Clear chat"
-                  className="p-1.5 rounded-lg hover:bg-white/20 transition-all text-white/80 hover:text-white"
+                  className="p-2 min-w-[40px] min-h-[40px] rounded-lg hover:bg-white/20 transition-all text-white/80 hover:text-white flex items-center justify-center"
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -152,7 +193,7 @@ export default function ChatWindow() {
                 type="button"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close chat"
-                className="p-1.5 rounded-lg hover:bg-white/20 transition-all text-white"
+                className="p-2 min-w-[40px] min-h-[40px] rounded-lg hover:bg-white/20 transition-all text-white flex items-center justify-center"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -160,7 +201,7 @@ export default function ChatWindow() {
           </div>
 
           {/* Messages Area */}
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-3.5 space-y-3 bg-[var(--surface-alt)]">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-3.5 space-y-3 bg-[var(--surface-alt)] overscroll-contain">
             {messages.length === 0 && (
               <div className="py-4 px-2 space-y-4 text-center">
                 <div className="w-12 h-12 rounded-2xl bg-[var(--mint)] border-2 border-[var(--ink)] text-[var(--leaf)] mx-auto flex items-center justify-center shadow-[2px_2px_0px_var(--ink)]">
@@ -185,10 +226,10 @@ export default function ChatWindow() {
                       key={idx}
                       type="button"
                       onClick={() => handleSend(s.prompt)}
-                      className="w-full text-left p-2 px-3 rounded-xl bg-[var(--surface)] hover:bg-[var(--cream)] border border-[var(--ink)]/30 hover:border-[var(--ink)] text-xs font-semibold text-[var(--ink)] transition-all flex items-center justify-between group shadow-xs"
+                      className="w-full text-left p-2.5 px-3 rounded-xl bg-[var(--surface)] hover:bg-[var(--cream)] border border-[var(--ink)]/30 hover:border-[var(--ink)] text-xs font-semibold text-[var(--ink)] transition-all flex items-center justify-between group shadow-xs touch-action-manipulation"
                     >
-                      <span className="truncate">{s.label}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                      <span className="truncate pr-2">{s.label}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
                     </button>
                   ))}
                 </div>
@@ -198,7 +239,7 @@ export default function ChatWindow() {
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
-                  className={`max-w-[88%] p-3 rounded-2xl text-xs sm:text-sm leading-relaxed border-2 border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] ${
+                  className={`max-w-[90%] sm:max-w-[85%] p-3 rounded-2xl text-xs sm:text-sm leading-relaxed border-2 border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] ${
                     m.role === 'user'
                       ? 'bg-[var(--leaf)] text-white rounded-br-xs font-medium'
                       : 'bg-[var(--surface)] text-[var(--ink)] rounded-bl-xs'
@@ -214,12 +255,13 @@ export default function ChatWindow() {
                         {m.matchedProducts.map((p) => (
                           <Link
                             key={p.slug}
-                            href={`/product/${p.slug}`}
-                            className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-[var(--surface-alt)] border border-[var(--ink)] text-[11px] font-bold text-[var(--ink)] hover:bg-[var(--mint)] transition-colors"
+                            href={`/food/${p.slug}`}
+                            onClick={() => setIsOpen(false)}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[var(--surface-alt)] border border-[var(--ink)] text-[11px] font-bold text-[var(--ink)] hover:bg-[var(--mint)] transition-colors"
                           >
-                            <span>{p.name}</span>
-                            <span className="text-[9px] px-1 py-0.2 rounded bg-[var(--ink)] text-white font-mono">
-                              FBS {p.fbs}
+                            <span className="truncate max-w-[160px]">{p.name}</span>
+                            <span className="text-[9px] px-1 py-0.2 rounded bg-[var(--ink)] text-white font-mono shrink-0">
+                              ★ {p.fbs}
                             </span>
                           </Link>
                         ))}
@@ -240,8 +282,8 @@ export default function ChatWindow() {
             )}
           </div>
 
-          {/* Input Box */}
-          <div className="p-3 bg-[var(--surface)] border-t-2 border-[var(--ink)] space-y-2">
+          {/* Input Box with Safe Area Padding */}
+          <div className="p-3 pb-[calc(10px+env(safe-area-inset-bottom,0px))] bg-[var(--surface)] border-t-2 border-[var(--ink)] space-y-1.5 shrink-0">
             <div className="flex items-center gap-2">
               <input
                 ref={inputRef}
@@ -252,14 +294,15 @@ export default function ChatWindow() {
                 placeholder="Ask about any product or ingredient..."
                 aria-label="Ask WiseFoodies AI query"
                 disabled={isLoading}
-                className="flex-1 py-2 px-3 rounded-xl bg-[var(--surface-alt)] border-2 border-[var(--ink)] text-xs sm:text-sm font-semibold text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--leaf)] disabled:opacity-50"
+                style={{ fontSize: '16px' }}
+                className="flex-1 py-2.5 px-3 rounded-xl bg-[var(--surface-alt)] border-2 border-[var(--ink)] font-semibold text-[var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--leaf)] disabled:opacity-50"
               />
               <button
                 type="button"
                 onClick={() => handleSend()}
                 disabled={!input.trim() || isLoading}
                 aria-label="Send message"
-                className="p-2 sm:p-2.5 rounded-xl bg-[var(--leaf)] text-white border-2 border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] hover:shadow-[3px_3px_0px_var(--ink)] active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[var(--leaf)] text-white border-2 border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] hover:shadow-[3px_3px_0px_var(--ink)] active:translate-x-[1px] active:translate-y-[1px] disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center shrink-0"
               >
                 <Send className="w-4 h-4 stroke-[2.5]" />
               </button>

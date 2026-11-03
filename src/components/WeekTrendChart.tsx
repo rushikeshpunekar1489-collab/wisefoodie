@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import type { DiaryEntry, SimpleGoal } from '@/lib/diary';
-import { aggregateDayNutrients, GOAL_TARGETS } from '@/lib/diary';
+import { aggregateDayNutrients, GOAL_TARGETS, toSafeDateString } from '@/lib/diary';
 
 interface WeekTrendChartProps {
   entries: DiaryEntry[];
@@ -26,17 +26,20 @@ export default function WeekTrendChart({
   // Generate 7 days leading up to currentDate
   const weekDays = useMemo(() => {
     const list: { dateStr: string; label: string; daySummary: ReturnType<typeof aggregateDayNutrients> }[] = [];
-    const base = new Date(currentDate);
+    const safeCurrent = toSafeDateString(currentDate);
+    const base = new Date(safeCurrent);
 
     for (let i = 6; i >= 0; i--) {
       const d = new Date(base);
       d.setDate(d.getDate() - i);
-      const dateStr = d.toISOString().split('T')[0];
+      const dateStr = toSafeDateString(d);
       const dayEntries = entries.filter((e) => e.date === dateStr);
       const daySummary = aggregateDayNutrients(dayEntries, goal);
 
       // Short label like "Wed 14"
-      const label = d.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' });
+      const label = !isNaN(d.getTime())
+        ? d.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' })
+        : dateStr;
       list.push({ dateStr, label, daySummary });
     }
     return list;

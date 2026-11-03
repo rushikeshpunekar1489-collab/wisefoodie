@@ -4,7 +4,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import type { Product } from '@/types/product';
+import type { PackagedFoodItem } from '@/types/packaged-food';
 import ProductCard from '@/components/ProductCard';
+import IndianFoodCard from '@/components/IndianFoodCard';
 import ReportIssueModal from '@/components/ReportIssueModal';
 import {
   Scan,
@@ -25,16 +27,20 @@ export default function ScannerClient({ allProducts }: ScannerClientProps) {
   const [activeTab, setActiveTab] = useState<'camera' | 'upload' | 'manual'>('camera');
   const [barcodeInput, setBarcodeInput] = useState('');
   const [matchedProduct, setMatchedProduct] = useState<Product | null>(null);
+  const [matchedIndianProduct, setMatchedIndianProduct] = useState<PackagedFoodItem | null>(null);
+  const [isSearchingDb, setIsSearchingDb] = useState(false);
   const [searched, setSearched] = useState(false);
   const [cameraActive, setCameraActive] = useState(false);
   const [cameraError, setCameraError] = useState('');
   const [isSimulating, setIsSimulating] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleBarcodeSearch = (code: string) => {
+  const handleBarcodeSearch = async (code: string) => {
     const trimmed = code.trim();
     if (!trimmed) return;
     setSearched(true);
+    setMatchedProduct(null);
+    setMatchedIndianProduct(null);
 
     const found = allProducts.find(
       (p) =>
@@ -43,7 +49,23 @@ export default function ScannerClient({ allProducts }: ScannerClientProps) {
         p.name.toLowerCase().includes(trimmed.toLowerCase())
     );
 
-    setMatchedProduct(found || null);
+    if (found) {
+      setMatchedProduct(found);
+      return;
+    }
+
+    try {
+      setIsSearchingDb(true);
+      const res = await fetch(`/api/products/search?q=${encodeURIComponent(trimmed)}&limit=1`);
+      const data = await res.json();
+      if (data.success && data.items && data.items.length > 0) {
+        setMatchedIndianProduct(data.items[0]);
+      }
+    } catch (e) {
+      console.warn('Barcode fallback lookup error:', e);
+    } finally {
+      setIsSearchingDb(false);
+    }
   };
 
   // Camera start / stop logic
@@ -317,16 +339,30 @@ export default function ScannerClient({ allProducts }: ScannerClientProps) {
       {searched && (
         <div className="bubble-card bg-white p-6 space-y-4">
           <h3 className="t-h3">Search Match</h3>
-          {matchedProduct ? (
+          {isSearchingDb ? (
+            <div className="flex items-center justify-center py-6 gap-2 text-emerald-800">
+              <Loader2 className="w-5 h-5 animate-spin" />
+              <span className="text-sm font-semibold">Checking Indian Packaged Food Database...</span>
+            </div>
+          ) : matchedProduct ? (
             <div className="max-w-xs mx-auto">
               <ProductCard product={matchedProduct} />
+            </div>
+          ) : matchedIndianProduct ? (
+            <div className="max-w-sm mx-auto">
+              <IndianFoodCard product={matchedIndianProduct} />
             </div>
           ) : (
             <div className="text-center py-6 space-y-3">
               <p className="text-sm font-bold opacity-70">No exact barcode match found in catalog.</p>
-              <Link href="/explore" className="btn-chunky btn-primary py-2 px-5 text-xs">
-                Browse Full Catalog <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <Link href="/products" className="btn-chunky btn-primary py-2 px-5 text-xs">
+                  Browse 852 Indian Foods <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <Link href="/explore" className="btn-chunky py-2 px-5 text-xs bg-stone-100 hover:bg-stone-200">
+                  Curated Catalog
+                </Link>
+              </div>
             </div>
           )}
         </div>
