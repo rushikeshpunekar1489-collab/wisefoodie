@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
-  ArrowLeft,
   Calendar,
   Database,
   Tag,
@@ -12,9 +12,17 @@ import {
   Sparkles,
   ChevronRight,
   Info,
+  Award,
+  CheckCircle,
+  AlertTriangle,
 } from 'lucide-react';
 import { packagedFoodDb, CATEGORY_ICONS } from '@/lib/db/packagedFoodDb';
+import { getProductBySlug } from '@/lib/products';
 import IndianNutritionFacts from '@/components/IndianNutritionFacts';
+import ScorecardV2Container from '@/scorecard-v2/ui/ScorecardV2Container';
+import FBSVitalityCapsule from '@/components/FBSVitalityCapsule';
+import FavouriteButton from '@/components/FavouriteButton';
+import ShareButton from '@/components/ShareButton';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -22,7 +30,7 @@ interface Props {
 
 export function generateStaticParams() {
   const products = packagedFoodDb.getAll();
-  return products.slice(0, 50).map(p => ({ id: p.id }));
+  return products.slice(0, 50).map((p) => ({ id: p.id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -34,8 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${product.name} by ${product.brand} | Nutrition Facts & Ingredients | WiseFoodies`,
-    description: `Complete label analysis for ${product.name} (${product.brand}). Nutrition facts, calories (${product.caloriesKcal ?? 'N/A'} kcal), protein, sugar, and verified ingredients.`,
+    title: `${product.name} by ${product.brand} | Nutrition Facts & Food Benefit Score | WiseFoodies`,
+    description: `Complete label analysis for ${product.name} (${product.brand}). Nutrition facts, Food Benefit Score (FBS), Smart Consumption, and verified ingredients.`,
   };
 }
 
@@ -47,167 +55,195 @@ export default async function ProductDetailPage({ params }: Props) {
     notFound();
   }
 
+  const fullProduct = getProductBySlug(product.slug);
   const icon = CATEGORY_ICONS[product.category] || '🍽️';
 
-  // Find related products in same category
+  // Related products in same category
   const related = packagedFoodDb
     .getAll()
-    .filter(p => p.category === product.category && p.id !== product.id)
+    .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-      {/* Breadcrumb Navigation */}
+      {/* 1. Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-500 overflow-x-auto whitespace-nowrap">
-        <Link href="/" className="hover:text-[var(--leaf)] transition-colors">
+        <Link href="/" className="hover:text-emerald-700 transition-colors">
           Home
         </Link>
         <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-        <Link href="/products" className="hover:text-[var(--leaf)] transition-colors">
+        <Link href="/products" className="hover:text-emerald-700 transition-colors">
           Packaged Foods
         </Link>
         <ChevronRight className="w-3.5 h-3.5 shrink-0" />
         <Link
           href={`/category/${product.category.toLowerCase().replace(/\s+/g, '-')}`}
-          className="hover:text-[var(--leaf)] transition-colors"
+          className="hover:text-emerald-700 transition-colors"
         >
           {product.category}
         </Link>
         <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-        <span className="text-stone-900 dark:text-stone-100 truncate max-w-xs font-bold">
+        <span className="text-stone-900 truncate max-w-xs font-bold">
           {product.name}
         </span>
       </nav>
 
-      {/* Main Product Hero */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Overview, Ingredients & Metadata (7 cols) */}
-        <div className="lg:col-span-7 space-y-6">
-          <div className="bubble-card p-6 sm:p-8 bg-[var(--surface)] text-[var(--ink)] space-y-6">
-            {/* Header Badges */}
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl" title={product.category}>{icon}</span>
-                <Link
-                  href={`/category/${product.category.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="chip text-xs font-extrabold uppercase bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200 hover:bg-[var(--mint)]/30 transition-colors"
-                >
-                  {product.category}
-                </Link>
-                {product.subCategory && (
-                  <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">
-                    • {product.subCategory}
-                  </span>
-                )}
-              </div>
-
-              {product.priceINR !== null && (
-                <div className="flex items-baseline gap-1 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 px-3.5 py-1 rounded-full border border-emerald-300 dark:border-emerald-800">
-                  <span className="text-xs font-bold">Price:</span>
-                  <span className="font-display font-black text-xl">₹{product.priceINR}</span>
-                </div>
-              )}
-            </div>
-
-            {/* Brand & Name */}
-            <div>
-              <p className="text-sm font-black uppercase tracking-widest text-stone-400 mb-1">
-                {product.brand}
-              </p>
-              <h1 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-stone-900 dark:text-stone-50 tracking-tight leading-tight">
-                {product.name}
-              </h1>
-            </div>
-
-            {/* Key Quick Facts Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-2xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700/60 text-center">
-              <div>
-                <span className="text-xs font-bold text-stone-400 block uppercase">Energy</span>
-                <span className="font-display font-black text-lg text-stone-900 dark:text-stone-100">
-                  {product.caloriesKcal !== null ? `${product.caloriesKcal}` : '—'}
-                </span>
-                <span className="text-[10px] text-stone-400 ml-0.5">kcal</span>
-              </div>
-              <div>
-                <span className="text-xs font-bold text-stone-400 block uppercase">Protein</span>
-                <span className="font-display font-black text-lg text-stone-900 dark:text-stone-100">
-                  {product.proteinG !== null ? `${product.proteinG}` : '—'}
-                </span>
-                <span className="text-[10px] text-stone-400 ml-0.5">g</span>
-              </div>
-              <div>
-                <span className="text-xs font-bold text-stone-400 block uppercase">Total Sugar</span>
-                <span className="font-display font-black text-lg text-stone-900 dark:text-stone-100">
-                  {product.sugarG !== null ? `${product.sugarG}` : '—'}
-                </span>
-                <span className="text-[10px] text-stone-400 ml-0.5">g</span>
-              </div>
-              <div>
-                <span className="text-xs font-bold text-stone-400 block uppercase">Sodium</span>
-                <span className="font-display font-black text-lg text-stone-900 dark:text-stone-100">
-                  {product.sodiumMg !== null ? `${product.sodiumMg}` : '—'}
-                </span>
-                <span className="text-[10px] text-stone-400 ml-0.5">mg</span>
-              </div>
-            </div>
-
-            {/* Ingredients Section */}
-            <div className="space-y-3 pt-2">
-              <div className="flex items-center gap-2">
-                <Tag className="w-4 h-4 text-[var(--leaf)]" />
-                <h3 className="font-display font-black text-lg text-stone-900 dark:text-stone-100">
-                  Ingredients Declaration
-                </h3>
-              </div>
-
-              {product.ingredients ? (
-                <div className="p-4 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-sm font-medium leading-relaxed text-stone-800 dark:text-stone-200">
-                  {product.ingredients}
-                </div>
+      {/* 2. Top Product Header & Image Card */}
+      <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          {/* Product Image Area */}
+          <div className="md:col-span-5 flex flex-col items-center">
+            <div className="w-full h-72 relative rounded-2xl bg-stone-50 border border-stone-200 p-4 flex items-center justify-center overflow-hidden">
+              {fullProduct?.image ? (
+                <Image
+                  src={fullProduct.image}
+                  alt={product.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-contain p-2"
+                  priority
+                />
               ) : (
-                <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 text-xs font-semibold text-amber-800 dark:text-amber-300">
-                  Ingredients list was not declared on the scanned packaging label.
+                <div className="text-center p-6 space-y-2">
+                  <span className="text-6xl">{icon}</span>
+                  <p className="text-xs font-bold text-stone-400 uppercase tracking-widest block">
+                    {product.brand}
+                  </p>
+                  <p className="text-xs text-stone-500 max-w-xs font-medium">
+                    Verified Package Record
+                  </p>
                 </div>
               )}
             </div>
 
-            {/* Dataset Metadata Box */}
-            <div className="pt-4 border-t border-stone-200 dark:border-stone-800 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
-              <div className="flex items-center gap-1.5 text-stone-500">
-                <Database className="w-3.5 h-3.5 text-stone-400" />
-                <span>Source: <strong className="text-stone-700 dark:text-stone-300">{product.sourceOfData || 'Zepto / Retail Label'}</strong></span>
-              </div>
+            <div className="flex items-center gap-2 mt-3">
+              <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Verified FSSAI Label Data
+              </span>
+            </div>
+          </div>
 
-              {product.collectionDate && (
-                <div className="flex items-center gap-1.5 text-stone-500">
-                  <Calendar className="w-3.5 h-3.5 text-stone-400" />
-                  <span>Collected: <strong className="text-stone-700 dark:text-stone-300">{product.collectionDate}</strong></span>
+          {/* Product Details & FBS Score Capsule */}
+          <div className="md:col-span-7 space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="px-3 py-1 rounded-lg text-xs font-black uppercase tracking-wider bg-stone-100 text-stone-800">
+                {product.brand}
+              </span>
+              {product.priceINR !== null && (
+                <div className="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 font-bold text-sm border border-emerald-200">
+                  MRP: <strong className="text-base font-black">₹{product.priceINR}</strong>
                 </div>
               )}
+            </div>
 
-              <div className="flex items-center gap-1.5 text-stone-500">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-                <span>Database ID: <strong className="text-stone-700 dark:text-stone-300">{product.id}</strong></span>
+            <h1 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight font-display">
+              {product.name}
+            </h1>
+
+            <p className="text-xs text-stone-500 font-semibold">
+              Category: <strong className="text-stone-700">{product.category}</strong>
+              {product.subCategory && ` • Subcategory: ${product.subCategory}`}
+              {product.servingSizeG && ` • Serving: ${product.servingSizeG}g`}
+            </p>
+
+            {/* FBS Highlight Box */}
+            {fullProduct?.fbs && (
+              <div className="bg-stone-50 rounded-2xl p-4 border border-stone-200 flex items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="text-xs font-black uppercase text-emerald-800 flex items-center gap-1">
+                    <Award className="w-4 h-4 text-emerald-600" /> Food Benefit Score (FBS)
+                  </div>
+                  <p className="text-xs text-stone-600 max-w-md">
+                    Deterministic score calculated from positive nutrients vs. sugars, sat fat, and sodium.
+                  </p>
+                </div>
+                <div className="shrink-0 flex items-center gap-2">
+                  <div className="w-16 h-16 rounded-2xl bg-emerald-800 text-white flex flex-col items-center justify-center shadow-xs">
+                    <span className="text-2xl font-black leading-none">{fullProduct.fbs.score ?? '—'}</span>
+                    <span className="text-[9px] uppercase font-bold text-emerald-200 mt-0.5">
+                      {fullProduct.fbs.band || 'Rating'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Action Bar */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-2">
+              {fullProduct && (
+                <>
+                  <FavouriteButton slug={fullProduct.slug} productName={fullProduct.name} size="md" showLabel={true} />
+                  <ShareButton product={fullProduct} size="md" showLabel={true} />
+                </>
+              )}
+              <Link
+                href={`/compare?select=${product.slug}`}
+                className="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-colors"
+              >
+                <Scale className="w-3.5 h-3.5 text-stone-600" /> Compare Product
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. NUTRITIONAL FACTS & INGREDIENTS DECLARATION */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left: Ingredients & Dataset Meta (7 cols) */}
+        <div className="lg:col-span-7 space-y-6">
+          <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 space-y-5 shadow-sm">
+            <div className="flex items-center gap-2 border-b border-stone-200 pb-3">
+              <Tag className="w-4 h-4 text-emerald-700" />
+              <h3 className="font-bold text-base text-stone-900">
+                Ingredients Declaration
+              </h3>
+            </div>
+
+            {product.ingredients ? (
+              <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 text-xs sm:text-sm font-medium leading-relaxed text-stone-800 font-mono">
+                {product.ingredients}
+              </div>
+            ) : (
+              <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-800">
+                Ingredients list was not disclosed on packaging.
+              </div>
+            )}
+
+            {/* Dataset Meta */}
+            <div className="pt-3 border-t border-stone-100 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-stone-500">
+              <div className="flex items-center gap-1.5">
+                <Database className="w-3.5 h-3.5 text-stone-400" />
+                <span>Source: <strong className="text-stone-700">{product.sourceOfData || 'Zepto / Label'}</strong></span>
+              </div>
+              {product.collectionDate && (
+                <div className="flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-stone-400" />
+                  <span>Collected: <strong className="text-stone-700">{product.collectionDate}</strong></span>
+                </div>
+              )}
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Item ID: <strong className="text-stone-700">{product.id}</strong></span>
               </div>
             </div>
           </div>
 
-          {/* Related Products from same category */}
+          {/* Related from same category */}
           {related.length > 0 && (
-            <div className="space-y-3">
-              <h3 className="font-display font-extrabold text-lg text-stone-900 dark:text-stone-100">
+            <div className="bg-white rounded-3xl border border-stone-200 p-6 space-y-4 shadow-sm">
+              <h3 className="font-bold text-sm text-stone-900 uppercase tracking-wider">
                 More from {product.category}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {related.map(item => (
+                {related.map((item) => (
                   <Link
                     key={item.id}
                     href={`/products/${item.id}`}
-                    className="p-3.5 rounded-2xl border-2 border-stone-200 dark:border-stone-800 hover:border-[var(--leaf)] hover:shadow-md transition-all bg-[var(--surface)] flex items-center justify-between gap-3 group"
+                    className="p-3.5 rounded-2xl border border-stone-200 hover:border-emerald-600/40 hover:shadow-xs transition-all bg-stone-50 flex items-center justify-between gap-3 group"
                   >
                     <div className="min-w-0">
                       <p className="text-[10px] font-black uppercase text-stone-400">{item.brand}</p>
-                      <h4 className="text-xs font-bold text-stone-900 dark:text-stone-100 truncate group-hover:text-[var(--leaf)]">
+                      <h4 className="text-xs font-bold text-stone-900 truncate group-hover:text-emerald-800">
                         {item.name}
                       </h4>
                       <p className="text-[11px] text-stone-500 mt-0.5">
@@ -222,22 +258,26 @@ export default async function ProductDetailPage({ params }: Props) {
           )}
         </div>
 
-        {/* Right Column: Nutrition Facts Table (5 cols) */}
+        {/* Right: Nutrition Facts Table (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
           <IndianNutritionFacts product={product} />
-
-          {/* Quality Commitment Notice */}
-          <div className="p-4 rounded-2xl bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-xs text-stone-600 dark:text-stone-300 space-y-2">
-            <div className="flex items-center gap-1.5 font-bold text-stone-800 dark:text-stone-100">
-              <Info className="w-4 h-4 text-[var(--leaf)]" />
-              <span>Label Integrity Policy</span>
-            </div>
-            <p className="leading-relaxed">
-              Every nutritional value shown here is extracted verbatim from packaging declarations. If a field was omitted by the manufacturer, it is marked as <em>Not declared</em> rather than assumed to be zero.
-            </p>
-          </div>
         </div>
       </div>
+
+      {/* 4. SCORECARD V2 THREE DEEP INTELLIGENCE MODULES */}
+      {fullProduct && (
+        <div className="space-y-6 pt-4">
+          <div className="text-center max-w-2xl mx-auto space-y-1">
+            <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+              Deep Intelligence Modules
+            </span>
+            <h2 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight">
+              Smart Consumption, Nutrition Per Paisa & Ingredients
+            </h2>
+          </div>
+          <ScorecardV2Container product={fullProduct} />
+        </div>
+      )}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ShieldCheck, Heart, Sparkles, Scale } from 'lucide-react';
 
@@ -10,8 +11,14 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-black text-lg shadow-sm">
-                W
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/10 border border-white/10 flex items-center justify-center p-1">
+                <Image
+                  src="/wisefoodies-logo-mark.png"
+                  alt="WiseFoodies"
+                  width={36}
+                  height={36}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="font-extrabold text-2xl tracking-tight text-white">
                 Wise<span className="text-emerald-400">Foodies</span>

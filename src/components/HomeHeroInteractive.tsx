@@ -106,18 +106,35 @@ export default function HomeHeroInteractive({ products }: HomeHeroInteractivePro
         <div className="sticker" style={{ top: '82%', left: '12%', animationDelay: '2.4s' }}>🍪</div>
 
         <div className="container hero-content max-w-4xl mx-auto px-4 relative z-10 flex flex-col items-center gap-6">
-          <div className="chip">
-            <Sparkles className="w-4 h-4 text-[var(--mango)]" />
-            <span>Independent Food Intelligence for India</span>
+          {/* Official Logo Integration */}
+          <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-2xl border border-stone-200/80 shadow-xs">
+            <div className="w-10 h-10 rounded-xl overflow-hidden bg-white border border-stone-200 flex items-center justify-center p-0.5 shadow-2xs">
+              <Image
+                src="/wisefoodies-logo-mark.png"
+                alt="WiseFoodies Official Logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-contain"
+                priority
+              />
+            </div>
+            <div className="text-left">
+              <span className="font-extrabold text-sm text-stone-900 block leading-tight font-display">
+                Wise<span className="text-emerald-700">Foodies</span>
+              </span>
+              <span className="text-[11px] font-semibold text-emerald-800 flex items-center gap-1">
+                <Sparkles className="w-3 h-3 text-emerald-600" /> Independent Food Intelligence for India
+              </span>
+            </div>
           </div>
 
-          <h1 className="t-display-huge">
+          <h1 className="t-display-huge text-stone-900 leading-tight">
             Know Your Food<br />
-            <span style={{ color: 'var(--leaf)' }}>Before You Buy It.</span>
+            <span className="text-emerald-700">Before You Buy It.</span>
           </h1>
 
-          <p className="t-h3 max-w-xl mx-auto" style={{ opacity: 0.85 }}>
-            Scan the label. See the true Food Benefit Score. Make a cleaner, healthier choice for yourself and your family.
+          <p className="t-h3 max-w-2xl mx-auto text-stone-700 font-semibold leading-relaxed">
+            Scan the label. Calculate the genuine Food Benefit Score. Uncover real value through Nutrition per Paisa™ and make cleaner choices for yourself and your family.
           </p>
 
           {/* Search Pill */}
@@ -201,10 +218,10 @@ export default function HomeHeroInteractive({ products }: HomeHeroInteractivePro
           {/* Hero Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-2 w-full sm:w-auto justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
             <Link href="/scanner" className="btn-chunky btn-primary w-full sm:w-auto text-center justify-center">
-              <Scan className="w-5 h-5" /> Scan a Product
+              <Scan className="w-5 h-5" /> Scan Food Product
             </Link>
-            <Link href="/explore" className="btn-chunky w-full sm:w-auto text-center justify-center">
-              Explore 94+ Foods
+            <Link href="/products" className="btn-chunky w-full sm:w-auto text-center justify-center">
+              Explore 852 Indian Foods
             </Link>
             <Link href="/compare" className="btn-chunky btn-berry w-full sm:w-auto text-center justify-center">
               Compare 2 Foods

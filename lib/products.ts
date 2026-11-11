@@ -2,9 +2,13 @@ import type { Product } from '@/types/product';
 import Fuse from 'fuse.js';
 import productsData from '@/data/products.json';
 import sampleData from '@/data/sample/sample-products.json';
+import goldenData from '@/scorecard-v2/tests/golden-before.json';
+import legacyFallback from '@/data/legacy-fallback.json';
 
 const rawProducts = productsData as unknown as Product[];
 const rawSamples = sampleData as unknown as Product[];
+const rawGolden = goldenData as unknown as Product[];
+const rawLegacy = legacyFallback as unknown as Product[];
 
 export function getAllProducts(): Product[] {
   return rawProducts;
@@ -21,7 +25,13 @@ export function getAllProductsWithSamples(): Product[] {
 export function getProductBySlug(slug: string): Product | null {
   const all = getAllProductsWithSamples();
   const found = all.find(p => p.slug.toLowerCase() === slug.toLowerCase());
-  return found || null;
+  if (found) return found;
+
+  const golden = rawGolden.find(p => p.slug.toLowerCase() === slug.toLowerCase());
+  if (golden) return golden;
+
+  const legacy = rawLegacy.find(p => p.slug.toLowerCase() === slug.toLowerCase());
+  return legacy || null;
 }
 
 export function getProductByBarcode(barcode: string): Product | null {

@@ -1,0 +1,598 @@
+[
+  {
+    "id": "wf-amul-taaza-milk",
+    "slug": "amul-taaza-milk",
+    "name": "Amul Taaza Milk",
+    "brand": "Amul",
+    "category": "Dairy & Frozen",
+    "subcategory": "Milk & Fresh Dairy",
+    "image": "/products/amul-taaza-milk.webp",
+    "servingSizeG": 200,
+    "packSizeG": 500,
+    "priceINR": 28,
+    "per100g": {
+      "energyKcal": 58,
+      "proteinG": 3.1,
+      "carbsG": 4.7,
+      "totalSugarG": 4.7,
+      "addedSugarG": 0,
+      "fatG": 3,
+      "satFatG": 1.9,
+      "transFatG": 0,
+      "fibreG": 0,
+      "sodiumMg": 50,
+      "micronutrients": []
+    },
+    "ingredients": [
+      "Standardized Fresh Milk",
+      "Vitamin A & D Fortification"
+    ],
+    "benefits": [
+      "Pure dairy milk solids naturally rich in bioavailable calcium",
+      "Complete protein profile supplying essential amino acids"
+    ],
+    "concerns": [
+      "Contains naturally occurring milk lactose (sugar)"
+    ],
+    "fbs": {
+      "score": 7.5,
+      "band": "Good",
+      "breakdown": [
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6,
+          "reason": "Standard baseline score for packaged foods"
+        },
+        {
+          "factor": "Protein",
+          "value": "3.1g",
+          "points": 0.31,
+          "reason": "+0.31 pts for 3.1g protein per 100g"
+        },
+        {
+          "factor": "Dietary Fibre",
+          "value": "0.0g",
+          "points": 0,
+          "reason": "+0.0 pts for 0.0g fibre per 100g"
+        },
+        {
+          "factor": "Whole-Food Base",
+          "value": "Wholesome base ingredient",
+          "points": 1,
+          "reason": "Recognizable whole food as 1st/2nd ingredient"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "5.3g / 100kcal",
+          "points": 0.5,
+          "reason": "Protein & fibre per 100 kcal"
+        },
+        {
+          "factor": "Added / Simple Sugars",
+          "value": "0.0g",
+          "points": 0,
+          "reason": "-0.0 pts penalty for refined sugar"
+        },
+        {
+          "factor": "Sodium",
+          "value": "50mg",
+          "points": -0.09,
+          "reason": "-0.09 pts sodium penalty"
+        },
+        {
+          "factor": "Saturated Fat",
+          "value": "1.9g",
+          "points": -0.19,
+          "reason": "-0.19 pts saturated lipid penalty"
+        }
+      ]
+    },
+    "nutritionPerPaisa": {
+      "proteinPerRupee": 0.55,
+      "fibrePerRupee": 0,
+      "tenRupeesGet": [
+        {
+          "nutrient": "Energy",
+          "amount": "104 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "5.5g"
+        },
+        {
+          "nutrient": "Dietary Fibre",
+          "amount": "0.0g"
+        }
+      ]
+    },
+    "barcode": "8900000000029",
+    "aliases": [
+      "Amul Taaza Milk",
+      "Amul Amul Taaza Milk"
+    ],
+    "packSizeText": "500 ml",
+    "lastUpdated": "2026-10-16",
+    "dataSource": "Official Manufacturer Packaging & E-Commerce Catalog Analysis",
+    "verification": "complete",
+    "search_query": "Amul Taaza Milk pouch pack India white background"
+  },
+  {
+    "id": "wf-amul-kool-badam",
+    "slug": "amul-kool-badam",
+    "name": "Amul Kool Badam",
+    "brand": "Amul",
+    "category": "Beverages",
+    "subcategory": "Flavoured Milk & Shakes",
+    "image": "/products/amul-kool-badam.webp",
+    "servingSizeG": 200,
+    "packSizeG": 200,
+    "priceINR": 35,
+    "per100g": {
+      "energyKcal": 88,
+      "proteinG": 3.3,
+      "carbsG": 13.5,
+      "totalSugarG": 13,
+      "addedSugarG": 8.5,
+      "fatG": 2.2,
+      "satFatG": 1.4,
+      "transFatG": 0,
+      "fibreG": 0.2,
+      "sodiumMg": 55,
+      "micronutrients": []
+    },
+    "ingredients": [
+      "Standardized Milk",
+      "Sugar",
+      "Cocoa Solids / Flavor Emulsion",
+      "Stabilizers (INS 407, INS 412)"
+    ],
+    "benefits": [
+      "Contains real milk solids with bioavailable dairy calcium",
+      "Provides quick energy and satiety from complete protein"
+    ],
+    "concerns": [
+      "Contains added sugars; enjoy within daily glycemic limits"
+    ],
+    "fbs": {
+      "score": 6.9,
+      "band": "Moderate",
+      "breakdown": [
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6,
+          "reason": "Standard baseline score for packaged foods"
+        },
+        {
+          "factor": "Protein",
+          "value": "3.3g",
+          "points": 0.33,
+          "reason": "+0.33 pts for 3.3g protein per 100g"
+        },
+        {
+          "factor": "Dietary Fibre",
+          "value": "0.2g",
+          "points": 0.05,
+          "reason": "+0.05 pts for 0.2g fibre per 100g"
+        },
+        {
+          "factor": "Whole-Food Base",
+          "value": "Wholesome base ingredient",
+          "points": 1,
+          "reason": "Recognizable whole food as 1st/2nd ingredient"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "4.0g / 100kcal",
+          "points": 0.4,
+          "reason": "Protein & fibre per 100 kcal"
+        },
+        {
+          "factor": "Added / Simple Sugars",
+          "value": "8.5g",
+          "points": -0.64,
+          "reason": "-0.64 pts penalty for refined sugar"
+        },
+        {
+          "factor": "Sodium",
+          "value": "55mg",
+          "points": -0.1,
+          "reason": "-0.1 pts sodium penalty"
+        },
+        {
+          "factor": "Saturated Fat",
+          "value": "1.4g",
+          "points": -0.14,
+          "reason": "-0.14 pts saturated lipid penalty"
+        }
+      ]
+    },
+    "nutritionPerPaisa": {
+      "proteinPerRupee": 0.19,
+      "fibrePerRupee": 0.01,
+      "tenRupeesGet": [
+        {
+          "nutrient": "Energy",
+          "amount": "50 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "1.9g"
+        },
+        {
+          "nutrient": "Dietary Fibre",
+          "amount": "0.1g"
+        }
+      ]
+    },
+    "barcode": "8900000000609",
+    "aliases": [
+      "Amul Kool Badam",
+      "Amul Amul Kool Badam"
+    ],
+    "packSizeText": "200 ml",
+    "lastUpdated": "2026-10-16",
+    "dataSource": "Official Manufacturer Packaging & E-Commerce Catalog Analysis",
+    "verification": "complete",
+    "search_query": "Amul Kool Badam bottle can pack white background"
+  },
+  {
+    "id": "wf-amul-whole-wheat-bread",
+    "slug": "amul-whole-wheat-bread",
+    "name": "Amul Whole Wheat Bread",
+    "brand": "Amul",
+    "category": "Bakery & Breads",
+    "subcategory": "Breads & Rusks",
+    "image": "/products/amul-whole-wheat-bread.webp",
+    "servingSizeG": 60,
+    "packSizeG": 400,
+    "priceINR": 45,
+    "per100g": {
+      "energyKcal": 255,
+      "proteinG": 9.5,
+      "carbsG": 48,
+      "totalSugarG": 5,
+      "addedSugarG": 4,
+      "fatG": 2.8,
+      "satFatG": 0.8,
+      "transFatG": 0,
+      "fibreG": 6.5,
+      "sodiumMg": 420,
+      "micronutrients": []
+    },
+    "ingredients": [
+      "Whole Wheat Flour (Atta)",
+      "Yeast",
+      "Sugar",
+      "Edible Vegetable Fat",
+      "Iodised Salt",
+      "Class II Preservative (INS 282)"
+    ],
+    "benefits": [
+      "Higher whole grain content providing beneficial cereal fiber",
+      "Better satiety and lower glycemic index than white bread"
+    ],
+    "concerns": [
+      "Moderate sodium content from baking salt and preservatives"
+    ],
+    "fbs": {
+      "score": 8.8,
+      "band": "Very Good",
+      "breakdown": [
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6,
+          "reason": "Standard baseline score for packaged foods"
+        },
+        {
+          "factor": "Protein",
+          "value": "9.5g",
+          "points": 0.95,
+          "reason": "+0.95 pts for 9.5g protein per 100g"
+        },
+        {
+          "factor": "Dietary Fibre",
+          "value": "6.5g",
+          "points": 1.5,
+          "reason": "+1.5 pts for 6.5g fibre per 100g"
+        },
+        {
+          "factor": "Whole-Food Base",
+          "value": "Wholesome base ingredient",
+          "points": 1,
+          "reason": "Recognizable whole food as 1st/2nd ingredient"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "6.3g / 100kcal",
+          "points": 0.5,
+          "reason": "Protein & fibre per 100 kcal"
+        },
+        {
+          "factor": "Added / Simple Sugars",
+          "value": "4.0g",
+          "points": -0.3,
+          "reason": "-0.3 pts penalty for refined sugar"
+        },
+        {
+          "factor": "Sodium",
+          "value": "420mg",
+          "points": -0.79,
+          "reason": "-0.79 pts sodium penalty"
+        },
+        {
+          "factor": "Saturated Fat",
+          "value": "0.8g",
+          "points": -0.08,
+          "reason": "-0.08 pts saturated lipid penalty"
+        }
+      ]
+    },
+    "nutritionPerPaisa": {
+      "proteinPerRupee": 0.84,
+      "fibrePerRupee": 0.58,
+      "tenRupeesGet": [
+        {
+          "nutrient": "Energy",
+          "amount": "227 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "8.4g"
+        },
+        {
+          "nutrient": "Dietary Fibre",
+          "amount": "5.8g"
+        }
+      ]
+    },
+    "barcode": "8900000001439",
+    "aliases": [
+      "Amul Whole Wheat Bread",
+      "Amul Amul Whole Wheat Bread"
+    ],
+    "packSizeText": "400 g",
+    "lastUpdated": "2026-10-16",
+    "dataSource": "Official Manufacturer Packaging & E-Commerce Catalog Analysis",
+    "verification": "complete",
+    "search_query": "Amul Whole Wheat Bread pack white background"
+  },
+  {
+    "id": "wf-amul-burger-patty",
+    "slug": "amul-burger-patty",
+    "name": "Amul Burger Patty",
+    "brand": "Amul",
+    "category": "Frozen Foods",
+    "subcategory": "Frozen Finger Snacks",
+    "image": "/products/amul-burger-patty.webp",
+    "servingSizeG": 100,
+    "packSizeG": 400,
+    "priceINR": 110,
+    "per100g": {
+      "energyKcal": 180,
+      "proteinG": 3.2,
+      "carbsG": 27,
+      "totalSugarG": 1,
+      "addedSugarG": 0,
+      "fatG": 7,
+      "satFatG": 3.2,
+      "transFatG": 0,
+      "fibreG": 2.8,
+      "sodiumMg": 440,
+      "micronutrients": []
+    },
+    "ingredients": [
+      "Potatoes",
+      "Refined Palmolein",
+      "Corn Flour",
+      "Spices and Herbs",
+      "Iodised Salt"
+    ],
+    "benefits": [
+      "Quick snack convenience with authentic savory Indian spice profile",
+      "Can be baked or air-fried for a lower-oil alternative"
+    ],
+    "concerns": [
+      "High carbohydrate starch content paired with palmolein oil"
+    ],
+    "fbs": {
+      "score": 7.2,
+      "band": "Good",
+      "breakdown": [
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6,
+          "reason": "Standard baseline score for packaged foods"
+        },
+        {
+          "factor": "Protein",
+          "value": "3.2g",
+          "points": 0.32,
+          "reason": "+0.32 pts for 3.2g protein per 100g"
+        },
+        {
+          "factor": "Dietary Fibre",
+          "value": "2.8g",
+          "points": 0.7,
+          "reason": "+0.7 pts for 2.8g fibre per 100g"
+        },
+        {
+          "factor": "Whole-Food Base",
+          "value": "Wholesome base ingredient",
+          "points": 1,
+          "reason": "Recognizable whole food as 1st/2nd ingredient"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "3.3g / 100kcal",
+          "points": 0.33,
+          "reason": "Protein & fibre per 100 kcal"
+        },
+        {
+          "factor": "Added / Simple Sugars",
+          "value": "0.0g",
+          "points": 0,
+          "reason": "-0.0 pts penalty for refined sugar"
+        },
+        {
+          "factor": "Sodium",
+          "value": "440mg",
+          "points": -0.83,
+          "reason": "-0.83 pts sodium penalty"
+        },
+        {
+          "factor": "Saturated Fat",
+          "value": "3.2g",
+          "points": -0.32,
+          "reason": "-0.32 pts saturated lipid penalty"
+        }
+      ]
+    },
+    "nutritionPerPaisa": {
+      "proteinPerRupee": 0.12,
+      "fibrePerRupee": 0.1,
+      "tenRupeesGet": [
+        {
+          "nutrient": "Energy",
+          "amount": "65 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "1.2g"
+        },
+        {
+          "nutrient": "Dietary Fibre",
+          "amount": "1.0g"
+        }
+      ]
+    },
+    "barcode": "8900000001651",
+    "aliases": [
+      "Amul Burger Patty",
+      "Amul Amul Burger Patty"
+    ],
+    "packSizeText": "400 g",
+    "lastUpdated": "2026-10-16",
+    "dataSource": "Official Manufacturer Packaging & E-Commerce Catalog Analysis",
+    "verification": "complete",
+    "search_query": "Amul Burger Patty pack white background"
+  },
+  {
+    "id": "wf-amul-instant-mashed-potato",
+    "slug": "amul-instant-mashed-potato",
+    "name": "Amul Instant Mashed Potato",
+    "brand": "Amul",
+    "category": "Instant Foods",
+    "subcategory": "Noodles & Pasta",
+    "image": "/products/amul-instant-mashed-potato.webp",
+    "servingSizeG": 70,
+    "packSizeG": 70,
+    "priceINR": 14,
+    "per100g": {
+      "energyKcal": 427,
+      "proteinG": 8.5,
+      "carbsG": 63,
+      "totalSugarG": 2.5,
+      "addedSugarG": 1.2,
+      "fatG": 15.5,
+      "satFatG": 7.5,
+      "transFatG": 0,
+      "fibreG": 3.5,
+      "sodiumMg": 980,
+      "micronutrients": []
+    },
+    "ingredients": [
+      "Wheat Flour / Atta",
+      "Palm Oil",
+      "Salt",
+      "Wheat Gluten",
+      "Tastemaker Masala (Spices, Hydrolysed Groundnut Protein, Onion Powder)"
+    ],
+    "benefits": [
+      "Quick 2-minute hot meal loved for its distinctive savory spice blend",
+      "Fortified with dietary iron in standard retail formulations"
+    ],
+    "concerns": [
+      "Flash-fried in palm oil and high in seasonings sodium"
+    ],
+    "fbs": {
+      "score": 5.6,
+      "band": "Moderate",
+      "breakdown": [
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6,
+          "reason": "Standard baseline score for packaged foods"
+        },
+        {
+          "factor": "Protein",
+          "value": "8.5g",
+          "points": 0.85,
+          "reason": "+0.85 pts for 8.5g protein per 100g"
+        },
+        {
+          "factor": "Dietary Fibre",
+          "value": "3.5g",
+          "points": 0.88,
+          "reason": "+0.88 pts for 3.5g fibre per 100g"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "2.8g / 100kcal",
+          "points": 0.28,
+          "reason": "Protein & fibre per 100 kcal"
+        },
+        {
+          "factor": "Added / Simple Sugars",
+          "value": "1.2g",
+          "points": -0.09,
+          "reason": "-0.09 pts penalty for refined sugar"
+        },
+        {
+          "factor": "Sodium",
+          "value": "980mg",
+          "points": -1.61,
+          "reason": "-1.61 pts sodium penalty"
+        },
+        {
+          "factor": "Saturated Fat",
+          "value": "7.5g",
+          "points": -0.75,
+          "reason": "-0.75 pts saturated lipid penalty"
+        }
+      ]
+    },
+    "nutritionPerPaisa": {
+      "proteinPerRupee": 0.42,
+      "fibrePerRupee": 0.18,
+      "tenRupeesGet": [
+        {
+          "nutrient": "Energy",
+          "amount": "213 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "4.2g"
+        },
+        {
+          "nutrient": "Dietary Fibre",
+          "amount": "1.8g"
+        }
+      ]
+    },
+    "barcode": "8900000002160",
+    "aliases": [
+      "Amul Instant Mashed Potato",
+      "Amul Amul Instant Mashed Potato"
+    ],
+    "packSizeText": "70 g",
+    "lastUpdated": "2026-10-16",
+    "dataSource": "Official Manufacturer Packaging & E-Commerce Catalog Analysis",
+    "verification": "complete",
+    "search_query": "Amul Instant Mashed Potato pack white background"
+  }
+]

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Search, Scan, Moon, Sun, Leaf, Heart, ShoppingCart, Sparkles, X, Globe, ChevronRight } from 'lucide-react';
@@ -80,12 +81,19 @@ export default function Header() {
     <header className="site-header">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-2 sm:gap-4 min-w-0">
         {/* Logo */}
-        <Link href="/" className="logo shrink-0 flex items-center gap-1.5 sm:gap-2 group">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[var(--leaf)] text-white flex items-center justify-center border-2 border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] group-hover:rotate-6 transition-transform">
-            <Leaf className="w-5 h-5 sm:w-6 sm:h-6 fill-white" />
+        <Link href="/" className="logo shrink-0 flex items-center gap-2 sm:gap-2.5 group">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-white border border-stone-200 shadow-2xs group-hover:scale-105 transition-transform flex items-center justify-center p-0.5">
+            <Image
+              src="/wisefoodies-logo-mark.png"
+              alt="WiseFoodies Logo"
+              width={40}
+              height={40}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
-          <span className="text-xl sm:text-2xl font-extrabold tracking-tight font-display text-[var(--ink)]">
-            Wise<span className="text-[var(--leaf)]">Foodies</span>
+          <span className="text-xl sm:text-2xl font-extrabold tracking-tight font-display text-stone-900">
+            Wise<span className="text-emerald-700">Foodies</span>
           </span>
         </Link>
 
