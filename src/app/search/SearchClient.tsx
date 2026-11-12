@@ -74,29 +74,33 @@ export default function SearchClient() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-16 space-y-8">
       {/* Header & Search Bar */}
       <div className="max-w-3xl mx-auto text-center space-y-4">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+          <Sparkles className="w-3.5 h-3.5 text-primary" />
+          <span>Forensic Search Engine</span>
+        </div>
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-primary tracking-tight">
           Intelligent Food Search
         </h1>
-        <p className="text-sm text-stone-600">
-          Search products, brands, ingredients, or nutritional intents like 'low sugar' or 'high protein'.
+        <p className="text-sm sm:text-base text-on-surface-variant max-w-xl mx-auto font-medium">
+          Search products, brands, ingredients, or nutritional intents like &apos;low sugar&apos; or &apos;high protein&apos;.
         </p>
 
         <form onSubmit={handleSearch} className="pt-2">
-          <div className="relative flex items-center bg-white rounded-2xl shadow-md border border-stone-200/90 p-2 focus-within:ring-2 focus-within:ring-emerald-700/30">
-            <Search className="w-5 h-5 text-stone-400 ml-3 shrink-0" />
+          <div className="relative flex items-center bg-surface-container-lowest rounded-full shadow-md border border-outline-variant/40 p-2 focus-within:ring-2 focus-within:ring-primary/20">
+            <Search className="w-5 h-5 text-outline ml-4 shrink-0" />
             <input
               type="text"
               value={query}
               onChange={e => setQuery(e.target.value)}
               placeholder="e.g. high protein biscuits, low sugar, rolled oats..."
-              className="w-full px-3 py-3 text-sm sm:text-base text-stone-900 placeholder:text-stone-400 focus:outline-hidden"
+              className="w-full px-3 py-2 text-sm sm:text-base text-on-surface placeholder:text-outline bg-transparent focus:outline-none font-medium"
             />
             <button
               type="submit"
-              className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shrink-0"
+              className="bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-semibold text-sm px-6 py-2.5 rounded-full transition-all shrink-0 shadow-sm"
             >
               Search
             </button>
@@ -105,7 +109,7 @@ export default function SearchClient() {
 
         {/* Suggested Query Chips */}
         <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-xs">
-          <span className="text-stone-400">Try searching:</span>
+          <span className="text-outline font-medium">Try searching:</span>
           {sampleQueries.map(sq => (
             <button
               key={sq}
@@ -114,7 +118,7 @@ export default function SearchClient() {
                 router.push(`/search?q=${encodeURIComponent(sq)}`);
                 performSearch(sq);
               }}
-              className="bg-stone-100 hover:bg-stone-200/80 text-stone-700 px-3 py-1 rounded-full border border-stone-200 transition-colors"
+              className="bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface px-3 py-1 rounded-full border border-outline-variant/40 transition-colors font-medium"
             >
               {sq}
             </button>
@@ -125,23 +129,23 @@ export default function SearchClient() {
       {/* Results Section */}
       <div className="space-y-8">
         {isLoading && (
-          <div className="flex items-center justify-center py-12 gap-3 text-emerald-800">
-            <div className="w-5 h-5 border-2 border-emerald-800 border-t-transparent rounded-full animate-spin" />
-            <span className="text-sm font-medium">Searching database...</span>
+          <div className="flex items-center justify-center py-12 gap-3 text-primary">
+            <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+            <span className="text-sm font-medium">Searching forensic database...</span>
           </div>
         )}
 
         {initialQuery && !isLoading && (
-          <div className="flex items-center justify-between pb-3 border-b border-stone-200">
-            <h2 className="text-lg font-bold text-stone-900">
+          <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+            <h2 className="font-serif font-bold text-lg text-primary">
               Results for &ldquo;{initialQuery}&rdquo; ({results.length + indianFoodResults.length} total found)
             </h2>
             <div className="flex items-center gap-3">
-              <Link href="/products" className="text-xs font-semibold text-emerald-800 hover:underline">
+              <Link href="/products" className="text-xs font-semibold text-primary hover:underline">
                 View All 852 Products &rarr;
               </Link>
-              <Link href="/explore" className="text-xs font-semibold text-stone-600 hover:underline">
-                Browse Directory
+              <Link href="/category" className="text-xs font-medium text-outline hover:text-on-surface">
+                Browse Categories
               </Link>
             </div>
           </div>
@@ -152,17 +156,17 @@ export default function SearchClient() {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary font-bold text-xs">
                   {indianFoodResults.length}
                 </span>
-                <h3 className="text-base font-bold text-stone-900">
+                <h3 className="font-serif font-bold text-base text-primary">
                   Indian Packaged Food Database
                 </h3>
-                <span className="text-xs text-stone-500 hidden sm:inline">
+                <span className="text-xs text-outline hidden sm:inline">
                   (852 verified products with 25 data fields)
                 </span>
               </div>
-              <Link href="/products" className="text-xs font-medium text-emerald-700 hover:underline">
+              <Link href="/products" className="text-xs font-semibold text-primary hover:underline">
                 Explore All Products
               </Link>
             </div>
@@ -180,10 +184,10 @@ export default function SearchClient() {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 text-amber-900 font-bold text-xs">
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-secondary/15 text-secondary font-bold text-xs">
                   {results.length}
                 </span>
-                <h3 className="text-base font-bold text-stone-900">
+                <h3 className="font-serif font-bold text-base text-primary">
                   Curated Food Benefit Scorecards
                 </h3>
               </div>
@@ -194,8 +198,8 @@ export default function SearchClient() {
                 <div key={r.product.id} className="space-y-2">
                   <ProductCard product={r.product} />
                   {/* Visible "Why this matched" line */}
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50/80 border border-emerald-200/60 text-xs text-emerald-900">
-                    <Sparkles className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/30 text-xs text-primary font-medium">
+                    <Sparkles className="w-3.5 h-3.5 text-primary shrink-0" />
                     <span className="truncate">
                       <strong>Why it matched:</strong> {r.matchReason}
                     </span>
@@ -208,22 +212,22 @@ export default function SearchClient() {
 
         {/* Empty State */}
         {!isLoading && initialQuery && results.length === 0 && indianFoodResults.length === 0 && (
-          <div className="text-center py-16 px-4 bg-white rounded-2xl border border-dashed border-stone-300 space-y-3 max-w-lg mx-auto">
-            <AlertCircle className="w-10 h-10 text-stone-400 mx-auto" />
-            <h3 className="font-bold text-stone-800 text-base">No direct matches found</h3>
-            <p className="text-xs text-stone-500">
+          <div className="text-center py-16 px-4 bg-surface-container-lowest rounded-2xl border border-outline-variant/40 space-y-3 max-w-lg mx-auto shadow-sm">
+            <AlertCircle className="w-10 h-10 text-outline mx-auto" />
+            <h3 className="font-serif font-bold text-primary text-base">No direct matches found</h3>
+            <p className="text-xs text-on-surface-variant font-medium">
               We couldn&apos;t find an exact match for &ldquo;{initialQuery}&rdquo;. Try browsing our category directory or searching by brand like Amul, Britannia, Nestlé, or Tata.
             </p>
             <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/products"
-                className="bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl inline-flex items-center gap-1.5 hover:bg-emerald-900"
+                className="bg-primary text-on-primary text-xs font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-1.5 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
               >
                 Browse 852 Indian Foods <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
-                href="/explore"
-                className="bg-stone-100 text-stone-700 text-xs font-semibold px-4 py-2.5 rounded-xl inline-flex items-center gap-1.5 hover:bg-stone-200"
+                href="/category"
+                className="bg-surface-container text-on-surface text-xs font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-1.5 hover:bg-surface-container-high transition-colors"
               >
                 Explore Categories
               </Link>

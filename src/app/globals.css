@@ -1,32 +1,106 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   1. TOKENS & THEMING
+   BOTANICAL CONSUMER INTELLIGENCE DESIGN SYSTEM (GOOGLE STITCH SOURCE OF TRUTH)
    ========================================================================== */
+@theme {
+  --color-primary: #002118;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #0b382c;
+  --color-on-primary-container: #77a292;
+  --color-primary-fixed: #bfecda;
+  --color-primary-fixed-dim: #a4d0bf;
+  --color-on-primary-fixed: #002118;
+  --color-on-primary-fixed-variant: #254e41;
+
+  --color-secondary: #914d00;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fc9022;
+  --color-on-secondary-container: #633300;
+  --color-secondary-fixed: #ffdcc3;
+  --color-secondary-fixed-dim: #ffb77d;
+  --color-on-secondary-fixed: #2f1500;
+  --color-on-secondary-fixed-variant: #6e3900;
+
+  --color-tertiary: #002114;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #003925;
+  --color-on-tertiary-container: #32ac7d;
+  --color-tertiary-fixed: #85f8c4;
+  --color-tertiary-fixed-dim: #68dba9;
+  --color-on-tertiary-fixed: #002114;
+  --color-on-tertiary-fixed-variant: #005137;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-background: #f2fcf6;
+  --color-on-background: #141d1b;
+
+  --color-surface: #f2fcf6;
+  --color-on-surface: #141d1b;
+  --color-surface-dim: #d2dcd7;
+  --color-surface-bright: #f2fcf6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #ecf6f1;
+  --color-surface-container: #e6f0eb;
+  --color-surface-container-high: #e0eae5;
+  --color-surface-container-highest: #dbe5e0;
+  --color-surface-variant: #dbe5e0;
+  --color-on-surface-variant: #414845;
+
+  --color-outline: #717975;
+  --color-outline-variant: #c0c8c3;
+  --color-surface-tint: #3d6658;
+  --color-inverse-surface: #29322f;
+  --color-inverse-on-surface: #e9f3ee;
+  --color-inverse-primary: #a4d0bf;
+
+  --spacing-margin: 1rem;
+  --spacing-margin-tablet: 2rem;
+  --spacing-margin-desktop: 3rem;
+  --spacing-gutter: 1rem;
+  --spacing-gutter-desktop: 1.5rem;
+  --spacing-space-2xs: 0.125rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 0.75rem;
+  --spacing-space-base: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2rem;
+  --spacing-space-2xl: 3rem;
+  --spacing-space-3xl: 4.5rem;
+}
+
 :root {
-  --ink: #14211A;
-  --cream: #FFFBF2;
-  --leaf: #16A34A;
-  --mint: #C8F5D8;
-  --mango: #FFB703;
-  --tomato: #FF5A4E;
+  --ink: #141d1b;
+  --cream: #f2fcf6;
+  --leaf: #0b382c;
+  --mint: #bfecda;
+  --mango: #fc9022;
+  --tomato: #ba1a1a;
   --berry: #7C5CFF;
   --sky: #38BDF8;
   --bubblegum: #FF8FB8;
-  --surface: #FFFFFF;
-  --surface-alt: #F3F0E8;
+  --surface: #ffffff;
+  --surface-alt: #ecf6f1;
   
-  --font-display: 'Bricolage Grotesque', 'Noto Sans Devanagari', 'Noto Sans Bengali', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans', sans-serif;
-  --font-body: 'Plus Jakarta Sans', 'Noto Sans Devanagari', 'Noto Sans Bengali', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Gujarati', 'Noto Sans Kannada', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Oriya', 'Noto Sans Arabic', 'Noto Nastaliq Urdu', 'Noto Sans', sans-serif;
+  --font-display: 'Newsreader', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-pill: 999px;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-pill: 9999px;
   
-  --shadow-hard: 0px 4px 0px var(--ink);
-  --shadow-hard-hover: 0px 6px 0px var(--ink);
-  --shadow-hard-press: 0px 0px 0px var(--ink);
+  --shadow-subtle: 0 1px 3px rgba(20, 29, 27, 0.04), 0 4px 12px rgba(20, 29, 27, 0.02);
+  --shadow-raised: 0 8px 24px rgba(11, 56, 44, 0.08);
+  --shadow-hard: 0px 3px 0px rgba(0, 33, 24, 0.15);
+  --shadow-hard-hover: 0px 5px 0px rgba(0, 33, 24, 0.2);
+  --shadow-hard-press: 0px 0px 0px rgba(0, 33, 24, 0.1);
   
   --ease-spring: cubic-bezier(.2,.8,.2,1);
   --motion-fast: 150ms;
@@ -47,15 +121,51 @@
 }
 
 [data-theme="dark"] {
-  --ink: #FFFBF2;
-  --cream: #121413;
-  --surface: #1E2320;
-  --surface-alt: #2A302C;
-  --leaf: #22C55E;
-  --mint: #064E3B;
-  --shadow-hard: 0px 4px 0px #000000;
-  --shadow-hard-hover: 0px 6px 0px #000000;
+  --ink: #f2fcf6;
+  --cream: #141d1b;
+  --surface: #1e2926;
+  --surface-alt: #29322f;
+  --leaf: #bfecda;
+  --mint: #0b382c;
+  --shadow-hard: 0px 3px 0px #000000;
+  --shadow-hard-hover: 0px 5px 0px #000000;
   --shadow-hard-press: 0px 0px 0px #000000;
+}
+
+/* Typography utilities from Stitch */
+.font-display-hero { font-family: 'Newsreader', serif; font-size: 3.5rem; font-weight: 600; line-height: 4rem; letter-spacing: -0.02em; }
+.font-display-hero-mobile { font-family: 'Newsreader', serif; font-size: 2.25rem; font-weight: 600; line-height: 2.75rem; letter-spacing: -0.015em; }
+.font-headline-lg { font-family: 'Newsreader', serif; font-size: 2.25rem; font-weight: 600; line-height: 2.75rem; letter-spacing: -0.015em; }
+.font-headline-lg-mobile { font-family: 'Newsreader', serif; font-size: 1.75rem; font-weight: 600; line-height: 2.25rem; letter-spacing: -0.01em; }
+.font-headline-md { font-family: 'Newsreader', serif; font-size: 1.5rem; font-weight: 500; line-height: 2rem; letter-spacing: -0.01em; }
+.font-headline-sm { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.125rem; font-weight: 700; line-height: 1.625rem; }
+.font-body-lg { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.125rem; font-weight: 400; line-height: 1.75rem; }
+.font-body-md { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9375rem; font-weight: 400; line-height: 1.5rem; }
+.font-body-sm { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.8125rem; font-weight: 400; line-height: 1.25rem; }
+.font-metric-score-lg { font-family: 'Newsreader', serif; font-size: 3rem; font-weight: 700; line-height: 3rem; letter-spacing: -0.03em; }
+.font-metric-score-sm { font-family: 'Newsreader', serif; font-size: 1.5rem; font-weight: 700; line-height: 1.5rem; }
+.font-label-lg { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; line-height: 1.25rem; letter-spacing: 0.01em; }
+.font-label-md { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.75rem; font-weight: 600; line-height: 1rem; letter-spacing: 0.03em; }
+.font-label-caps { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.6875rem; font-weight: 700; line-height: 0.875rem; letter-spacing: 0.08em; }
+
+.pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* Material Symbols Outlined Icon helper */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================

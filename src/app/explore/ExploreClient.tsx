@@ -225,25 +225,25 @@ export default function ExploreClient({
   return (
     <div className="space-y-8 container max-w-7xl mx-auto px-4 py-8">
       {/* Top Banner / Headline */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b-2 border-[var(--ink)]">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-outline-variant/30">
         <div>
-          <div className="chip mb-2 bg-[var(--leaf)] text-white">
-            <Sparkles className="w-3.5 h-3.5" /> Full Food Directory
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-primary" /> Forensic Food Directory
           </div>
-          <h1 className="t-display-lg text-[var(--ink)]">Explore DB</h1>
-          <p className="t-body font-semibold opacity-75 mt-1">
-            Browse all <strong className="text-[var(--ink)]">{filteredProducts.length}</strong> catalog items with verified nutritional facts and Food Benefit Scores.
+          <h1 className="font-serif font-bold text-3xl sm:text-4xl text-primary tracking-tight">Explore Food Intelligence</h1>
+          <p className="text-sm text-on-surface-variant font-medium mt-1">
+            Browse all <strong className="text-primary font-bold">{filteredProducts.length}</strong> catalog items with verified nutritional facts and Food Benefit Scores.
           </p>
         </div>
 
         {/* Sample benchmark toggle */}
         <div className="flex items-center gap-2">
-          <label className="chip cursor-pointer select-none">
+          <label className="text-xs font-semibold text-on-surface bg-surface-container-low px-3 py-1.5 rounded-full border border-outline-variant/30 cursor-pointer select-none flex items-center">
             <input
               type="checkbox"
               checked={includeSamples}
               onChange={(e) => setIncludeSamples(e.target.checked)}
-              className="mr-1.5 accent-[var(--leaf)] cursor-pointer"
+              className="mr-2 accent-primary cursor-pointer rounded"
             />
             <span>Include Benchmarks ({sampleProducts.length})</span>
           </label>

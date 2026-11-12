@@ -23,14 +23,15 @@ export function getAllProductsWithSamples(): Product[] {
 }
 
 export function getProductBySlug(slug: string): Product | null {
+  const normSlug = (slug || '').toLowerCase();
   const all = getAllProductsWithSamples();
-  const found = all.find(p => p.slug.toLowerCase() === slug.toLowerCase());
+  const found = all.find(p => p.slug?.toLowerCase() === normSlug || p.id?.toLowerCase() === normSlug);
   if (found) return found;
 
-  const golden = rawGolden.find(p => p.slug.toLowerCase() === slug.toLowerCase());
+  const golden = rawGolden.find(p => p.slug?.toLowerCase() === normSlug || p.id?.toLowerCase() === normSlug);
   if (golden) return golden;
 
-  const legacy = rawLegacy.find(p => p.slug.toLowerCase() === slug.toLowerCase());
+  const legacy = rawLegacy.find(p => p.slug?.toLowerCase() === normSlug || p.id?.toLowerCase() === normSlug);
   return legacy || null;
 }
 

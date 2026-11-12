@@ -13,6 +13,7 @@ import {
   X,
   Sparkles,
   Check,
+  ShieldAlert,
 } from 'lucide-react';
 
 interface CompareClientProps {
@@ -99,60 +100,64 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
   const verdict = useMemo(() => {
     if (selectedProducts.length < 2) return null;
 
-    const withScore = selectedProducts.filter((p) => p.fbs.score !== null);
-    if (withScore.length === 0) {
+    // Sort by FBS score
+    const sorted = [...selectedProducts].sort(
+      (a, b) => (b.fbs.score ?? 0) - (a.fbs.score ?? 0)
+    );
+    const winner = sorted[0];
+    const runnerUp = sorted[1];
+
+    if (!winner.fbs.score || !runnerUp.fbs.score) return null;
+
+    const diff = winner.fbs.score - runnerUp.fbs.score;
+
+    if (diff < 5) {
       return {
-        winner: selectedProducts[0].name,
-        summary: 'Nutritional comparison pending complete label declarations.',
+        winner,
+        summary: 'Nutritional Tie: Marginal Difference',
+        reason: `${winner.name} and ${runnerUp.name} have nearly identical nutritional quality (FBS difference < 5 pts). Check ingredients list for additives.`,
       };
     }
 
-    const sorted = [...withScore].sort((a, b) => (b.fbs.score ?? 0) - (a.fbs.score ?? 0));
-    const top = sorted[0];
-    const second = sorted[1];
-
-    const isTie = top.fbs.score === second?.fbs.score;
-
     return {
-      winner: top.name,
-      isTie,
-      summary: isTie
-        ? "It's a dead heat tie on the Food Benefit Score!"
-        : `${top.name} is the superior choice overall.`,
-      reason: isTie
-        ? 'Both items exhibit identical overall nutritional balance ratings.'
-        : `Delivers a higher FBS (${top.fbs.score}/10) with cleaner ingredient density.`,
+      winner,
+      summary: `${winner.name} wins on holistic food benefit`,
+      reason: `Scores ${winner.fbs.score.toFixed(1)} vs ${runnerUp.fbs.score.toFixed(1)} (${diff.toFixed(1)} pts higher). Offers better nutrient density per 100g.`,
     };
   }, [selectedProducts]);
 
   return (
-    <div className="space-y-8 container max-w-6xl mx-auto px-4 py-8">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b-2 border-[var(--ink)]">
+    <div className="space-y-8">
+      {/* Page Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant/30 pb-6">
         <div>
-          <div className="chip mb-2 bg-[var(--berry)] text-white">
-            <Scale className="w-3.5 h-3.5" /> Side-by-Side Engine
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2">
+            <Scale className="w-3.5 h-3.5 text-primary" />
+            <span>Forensic Comparison Matrix</span>
           </div>
-          <h1 className="t-display-lg text-[var(--ink)]">Compare Foods</h1>
-          <p className="t-body font-semibold opacity-75 mt-1">
-            Pick 2 to 4 products to compare sugar, protein, sodium, and Food Benefit Scores.
+          <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-primary tracking-tight">
+            Side-by-Side Food Audit
+          </h1>
+          <p className="text-sm sm:text-base text-on-surface-variant max-w-2xl font-medium mt-1">
+            Compare 2 to 4 foods across verified nutritional metrics, sugar content, and ingredient quality.
           </p>
         </div>
 
         {selectedSlugs.length < 4 && (
           <button
             onClick={() => setPickerOpen(true)}
-            className="btn-chunky btn-primary py-2.5 px-5 text-xs self-start sm:self-auto"
+            className="py-2.5 px-5 rounded-full bg-primary text-on-primary text-sm font-semibold flex items-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm self-start md:self-auto"
           >
-            <Plus className="w-4 h-4" /> Add Food ({selectedSlugs.length}/4)
+            <Plus className="w-4 h-4" />
+            <span>Add Food ({selectedSlugs.length}/4)</span>
           </button>
         )}
       </div>
 
       {/* Quick Switch Dropdowns */}
-      <div className="bubble-card bg-[var(--surface-alt)] p-4 flex flex-col md:flex-row items-center gap-4">
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-5 shadow-sm flex flex-col md:flex-row items-center gap-4">
         <div className="w-full md:flex-1">
-          <label className="text-xs font-black uppercase tracking-wider block mb-1 opacity-70">
+          <label className="text-xs font-bold uppercase tracking-wider text-outline block mb-1">
             Product 1
           </label>
           <select
@@ -161,7 +166,7 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
               const val = e.target.value;
               if (val) setSelectedSlugs([val, selectedSlugs[1] || ''].filter(Boolean));
             }}
-            className="w-full p-3 font-bold text-sm bg-white border-2 border-[var(--ink)] rounded-xl"
+            className="w-full p-3 font-semibold text-sm bg-surface-container-low border border-outline-variant/40 rounded-xl text-on-surface focus:outline-none focus:border-primary"
           >
             {allProducts.map((p) => (
               <option key={p.slug} value={p.slug}>
@@ -171,10 +176,10 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
           </select>
         </div>
 
-        <div className="t-h2 text-center shrink-0">VS</div>
+        <div className="font-serif font-bold text-xl text-primary/40 shrink-0 px-2">VS</div>
 
         <div className="w-full md:flex-1">
-          <label className="text-xs font-black uppercase tracking-wider block mb-1 opacity-70">
+          <label className="text-xs font-bold uppercase tracking-wider text-outline block mb-1">
             Product 2
           </label>
           <select
@@ -183,7 +188,7 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
               const val = e.target.value;
               if (val) setSelectedSlugs([selectedSlugs[0] || '', val].filter(Boolean));
             }}
-            className="w-full p-3 font-bold text-sm bg-white border-2 border-[var(--ink)] rounded-xl"
+            className="w-full p-3 font-semibold text-sm bg-surface-container-low border border-outline-variant/40 rounded-xl text-on-surface focus:outline-none focus:border-primary"
           >
             {allProducts.map((p) => (
               <option key={p.slug} value={p.slug}>
@@ -196,50 +201,58 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
 
       {/* WiseFoodies Verdict Banner */}
       {verdict && (
-        <div className="bubble-card bg-[var(--mint)] border-3 border-[var(--ink)] p-6 sm:p-8 text-center space-y-2">
-          <div className="chip bg-white text-[var(--ink)] mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-[var(--leaf)]" /> WiseFoodies Verdict
+        <div className="rounded-2xl bg-primary/5 border border-primary/20 p-6 sm:p-8 text-center space-y-2 shadow-sm">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-primary text-xs font-bold border border-primary/20 shadow-xs mb-1">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span>Botanical Forensic Verdict</span>
           </div>
-          <h2 className="t-h2 text-[var(--ink)]">{verdict.summary}</h2>
-          <p className="text-sm font-bold opacity-80 max-w-xl mx-auto">{verdict.reason}</p>
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-primary">{verdict.summary}</h2>
+          <p className="text-sm font-medium text-on-surface-variant max-w-xl mx-auto">{verdict.reason}</p>
         </div>
       )}
 
       {/* Comparison Table with Winner Cell Crowns */}
-      <div className="bubble-card p-0 overflow-hidden bg-white">
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
-          <table className="compare-table w-full">
-            <thead>
+          <table className="w-full text-left text-sm divide-y divide-outline-variant/20">
+            <thead className="bg-surface-container-low">
               <tr>
-                <th style={{ width: '25%' }}>Metric (per 100g)</th>
+                <th className="p-4 text-xs font-bold uppercase tracking-wider text-outline w-1/4">
+                  Metric (per 100g)
+                </th>
                 {selectedProducts.map((p) => (
                   <th key={p.id} className="text-center p-4">
                     <div className="relative inline-block">
                       {selectedProducts.length > 2 && (
                         <button
                           onClick={() => removeProduct(p.slug)}
-                          className="absolute -top-2 -right-2 bg-red-100 text-red-700 rounded-full p-0.5 border border-red-300"
+                          className="absolute -top-2 -right-2 bg-error text-white rounded-full p-0.5 shadow-sm hover:scale-110 transition-transform"
+                          title="Remove from compare"
                         >
                           <X className="w-3.5 h-3.5" />
                         </button>
                       )}
-                      <div className="w-16 h-16 mx-auto relative rounded-xl bg-white border-2 border-[var(--ink)] p-1 overflow-hidden mb-2">
+                      <div className="w-20 h-20 mx-auto relative rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-1 overflow-hidden mb-2 shadow-xs">
                         {p.image ? (
                           <Image
                             src={p.image}
                             alt={p.name}
                             fill
+                            sizes="80px"
                             className="object-contain p-1"
                           />
                         ) : (
-                          <span className="text-xs font-black">{p.name.charAt(0)}</span>
+                          <div className="w-full h-full flex flex-col items-center justify-center bg-surface-container-low text-primary/60">
+                            <span className="material-symbols-outlined text-xl">verified</span>
+                            <span className="text-[8px] font-bold uppercase">Forensic</span>
+                          </div>
                         )}
                       </div>
                     </div>
-                    <div className="text-[10px] font-black uppercase opacity-60">{p.brand}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-outline">{p.brand}</div>
                     <Link
                       href={`/food/${p.slug}`}
-                      className="font-extrabold text-xs hover:underline block truncate max-w-[150px] mx-auto"
+                      className="font-serif font-bold text-sm text-primary hover:underline block truncate max-w-[150px] mx-auto mt-0.5"
                     >
                       {p.name}
                     </Link>
@@ -247,10 +260,10 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-outline-variant/15">
               {/* FBS Score */}
-              <tr>
-                <td className="font-extrabold">Food Benefit Score</td>
+              <tr className="hover:bg-surface-container-low/50">
+                <td className="p-4 font-semibold text-on-surface">Food Benefit Score</td>
                 {selectedProducts.map((p) => {
                   const isWinner =
                     p.fbs.score !== null &&
@@ -259,10 +272,10 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
                   return (
                     <td
                       key={p.id}
-                      className={`text-center font-black ${isWinner ? 'winner-cell' : ''}`}
+                      className={`text-center p-4 ${isWinner ? 'bg-primary/5 font-bold' : ''}`}
                     >
                       <div className="flex flex-col items-center gap-1">
-                        <span className="t-numbers t-h3">
+                        <span className="font-serif font-bold text-xl text-primary">
                           {p.fbs.score !== null ? p.fbs.score.toFixed(1) : '—'}
                         </span>
                         <FBSVitalityCapsule
@@ -279,8 +292,8 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
               </tr>
 
               {/* Protein */}
-              <tr>
-                <td className="font-extrabold">Protein</td>
+              <tr className="hover:bg-surface-container-low/50">
+                <td className="p-4 font-semibold text-on-surface">Protein</td>
                 {selectedProducts.map((p) => {
                   const isWinner =
                     p.per100g.proteinG !== null &&
@@ -289,17 +302,18 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
                   return (
                     <td
                       key={p.id}
-                      className={`text-center font-bold ${isWinner ? 'winner-cell' : ''}`}
+                      className={`text-center p-4 font-medium ${isWinner ? 'bg-primary/5 font-bold text-primary' : 'text-on-surface'}`}
                     >
                       {p.per100g.proteinG !== null ? `${p.per100g.proteinG}g` : '—'}
+                      {isWinner && <span className="text-[10px] block text-primary font-bold">Highest</span>}
                     </td>
                   );
                 })}
               </tr>
 
               {/* Dietary Fibre */}
-              <tr>
-                <td className="font-extrabold">Dietary Fibre</td>
+              <tr className="hover:bg-surface-container-low/50">
+                <td className="p-4 font-semibold text-on-surface">Dietary Fibre</td>
                 {selectedProducts.map((p) => {
                   const isWinner =
                     p.per100g.fibreG !== null &&
@@ -308,17 +322,18 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
                   return (
                     <td
                       key={p.id}
-                      className={`text-center font-bold ${isWinner ? 'winner-cell' : ''}`}
+                      className={`text-center p-4 font-medium ${isWinner ? 'bg-primary/5 font-bold text-primary' : 'text-on-surface'}`}
                     >
                       {p.per100g.fibreG !== null ? `${p.per100g.fibreG}g` : '—'}
+                      {isWinner && <span className="text-[10px] block text-primary font-bold">Highest</span>}
                     </td>
                   );
                 })}
               </tr>
 
               {/* Added / Total Sugar */}
-              <tr>
-                <td className="font-extrabold">Total Sugar</td>
+              <tr className="hover:bg-surface-container-low/50">
+                <td className="p-4 font-semibold text-on-surface">Total Sugar</td>
                 {selectedProducts.map((p) => {
                   const isWinner =
                     p.per100g.totalSugarG !== null &&
@@ -326,17 +341,18 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
                   return (
                     <td
                       key={p.id}
-                      className={`text-center font-bold ${isWinner ? 'winner-cell' : ''}`}
+                      className={`text-center p-4 font-medium ${isWinner ? 'bg-primary/5 font-bold text-primary' : 'text-on-surface'}`}
                     >
                       {p.per100g.totalSugarG !== null ? `${p.per100g.totalSugarG}g` : '—'}
+                      {isWinner && <span className="text-[10px] block text-primary font-bold">Lowest</span>}
                     </td>
                   );
                 })}
               </tr>
 
               {/* Sodium */}
-              <tr>
-                <td className="font-extrabold">Sodium</td>
+              <tr className="hover:bg-surface-container-low/50">
+                <td className="p-4 font-semibold text-on-surface">Sodium</td>
                 {selectedProducts.map((p) => {
                   const isWinner =
                     p.per100g.sodiumMg !== null &&
@@ -344,19 +360,20 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
                   return (
                     <td
                       key={p.id}
-                      className={`text-center font-bold ${isWinner ? 'winner-cell' : ''}`}
+                      className={`text-center p-4 font-medium ${isWinner ? 'bg-primary/5 font-bold text-primary' : 'text-on-surface'}`}
                     >
                       {p.per100g.sodiumMg !== null ? `${p.per100g.sodiumMg}mg` : '—'}
+                      {isWinner && <span className="text-[10px] block text-primary font-bold">Lowest</span>}
                     </td>
                   );
                 })}
               </tr>
 
               {/* MRP & Pack Size */}
-              <tr>
-                <td className="font-extrabold">MRP / Pack Size</td>
+              <tr className="hover:bg-surface-container-low/50">
+                <td className="p-4 font-semibold text-on-surface">MRP / Pack Size</td>
                 {selectedProducts.map((p) => (
-                  <td key={p.id} className="text-center font-bold">
+                  <td key={p.id} className="text-center p-4 font-medium text-on-surface">
                     {p.priceINR ? `₹${p.priceINR} (${p.packSizeG}g)` : '—'}
                   </td>
                 ))}
@@ -372,41 +389,43 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
       {/* Product Selector Modal */}
       {pickerOpen && (
         <div
-          className="bottom-sheet-overlay open"
+          className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4"
           onClick={() => setPickerOpen(false)}
         >
           <div
-            className="bottom-sheet open max-w-lg mx-auto"
+            className="w-full max-w-lg bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-6 shadow-2xl space-y-4 max-h-[85vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sheet-drag" />
-            <div className="flex items-center justify-between pb-3 border-b-2 border-[var(--ink)]/20 mb-3">
-              <h3 className="t-h3">Select Food to Compare</h3>
-              <button onClick={() => setPickerOpen(false)} className="chip p-1.5">
-                <X className="w-4 h-4" />
+            <div className="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+              <h3 className="font-serif font-bold text-lg text-primary">Select Food to Compare</h3>
+              <button
+                onClick={() => setPickerOpen(false)}
+                className="p-1 rounded-full hover:bg-surface-container text-outline"
+              >
+                <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="space-y-3 mb-3">
+            <div className="space-y-3">
               <input
                 type="text"
                 value={pickerSearch}
                 onChange={(e) => setPickerSearch(e.target.value)}
                 placeholder="Search food by name or brand..."
-                className="w-full px-3 py-2 text-xs font-bold bg-[var(--surface)] border-2 border-[var(--ink)] rounded-xl"
+                className="w-full px-4 py-2.5 text-sm bg-surface-container-low border border-outline-variant/40 rounded-xl text-on-surface focus:outline-none focus:border-primary"
               />
-              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 flex items-center justify-between text-xs text-emerald-900">
-                <span className="font-semibold">Comparing Indian Packaged Foods?</span>
+              <div className="bg-primary/5 border border-primary/20 rounded-xl p-3 flex items-center justify-between text-xs text-primary">
+                <span className="font-medium">Browse Complete Indian Catalog?</span>
                 <Link
                   href="/products"
-                  className="font-bold text-emerald-800 underline hover:text-emerald-950 shrink-0"
+                  className="font-bold underline hover:text-primary-container shrink-0"
                 >
                   852 Products Catalog &rarr;
                 </Link>
               </div>
             </div>
 
-            <div className="overflow-y-auto space-y-2 max-h-[50vh]">
+            <div className="overflow-y-auto space-y-2 pr-1 flex-1">
               {filteredPickerProducts.map((p) => {
                 const isSelected = selectedSlugs.includes(p.slug);
                 return (
@@ -414,31 +433,31 @@ export default function CompareClient({ allProducts }: CompareClientProps) {
                     key={p.id}
                     disabled={isSelected}
                     onClick={() => addProduct(p.slug)}
-                    className={`w-full p-3 rounded-2xl border-2 border-[var(--ink)] text-left flex items-center justify-between transition-transform ${
+                    className={`w-full p-3 rounded-xl border text-left flex items-center justify-between transition-all ${
                       isSelected
-                        ? 'opacity-40 cursor-not-allowed bg-[var(--surface-alt)]'
-                        : 'hover:scale-[1.01] bg-white'
+                        ? 'opacity-40 cursor-not-allowed bg-surface-container-low border-outline-variant/20'
+                        : 'hover:border-primary/50 bg-surface-container-lowest border-outline-variant/30 hover:shadow-xs'
                     }`}
                   >
                     <div>
-                      <span className="text-[10px] uppercase font-black text-[var(--leaf)] block">
+                      <span className="text-[10px] uppercase font-bold text-outline block">
                         {p.brand}
                       </span>
-                      <span className="font-extrabold text-xs block truncate max-w-xs">
+                      <span className="font-semibold text-xs text-on-surface block truncate max-w-xs">
                         {p.name}
                       </span>
                     </div>
 
                     <div className="flex items-center gap-2 shrink-0">
                       {p.fbs.score !== null && (
-                        <span className="chip text-xs py-0.5 px-2 font-black">
+                        <span className="text-xs py-0.5 px-2 rounded-md bg-surface-container-low font-bold text-primary">
                           FBS {p.fbs.score.toFixed(1)}
                         </span>
                       )}
                       {isSelected ? (
-                        <Check className="w-4 h-4 text-[var(--leaf)]" />
+                        <Check className="w-4 h-4 text-primary" />
                       ) : (
-                        <Plus className="w-4 h-4" />
+                        <Plus className="w-4 h-4 text-outline" />
                       )}
                     </div>
                   </button>

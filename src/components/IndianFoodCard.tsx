@@ -1,149 +1,197 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Plus, Check, Flame, Award, Droplets, Zap } from 'lucide-react';
+import Image from 'next/image';
 import type { PackagedFoodItem } from '@/types/packaged-food';
-import { CATEGORY_ICONS } from '@/lib/foodConstants';
+import FavouriteButton from '@/components/FavouriteButton';
+import AddToCartButton from '@/components/AddToCartButton';
+import FBSVitalityCapsule from '@/components/FBSVitalityCapsule';
 
-interface Props {
+interface IndianFoodCardProps {
   product: PackagedFoodItem;
-  isComparing?: boolean;
   onToggleCompare?: (product: PackagedFoodItem) => void;
-  highlightText?: string;
+  isComparing?: boolean;
+  highlightQuery?: string;
 }
 
 export default function IndianFoodCard({
   product,
-  isComparing = false,
   onToggleCompare,
-  highlightText = '',
-}: Props) {
-  const icon = CATEGORY_ICONS[product.category] || '🍽️';
+  isComparing = false,
+  highlightQuery = '',
+}: IndianFoodCardProps) {
+  const [imageError, setImageError] = useState(false);
+
+  // Approximate FBS score from nutrient profile for instant display if not explicitly precomputed
+  const sugarPenalty = (product.sugarG ?? 0) * 0.15;
+  const satFatPenalty = (product.saturatedFatG ?? 0) * 0.2;
+  const sodiumPenalty = ((product.sodiumMg ?? 0) / 1000) * 1.5;
+  const proteinBonus = (product.proteinG ?? 0) * 0.25;
+  const fiberBonus = (product.dietaryFiberG ?? 0) * 0.35;
+  const calculatedScore = Math.max(1.0, Math.min(10.0, 7.5 - sugarPenalty - satFatPenalty - sodiumPenalty + proteinBonus + fiberBonus));
+
+  const isUPF = (product.sugarG ?? 0) > 20 || (product.sodiumMg ?? 0) > 800 || calculatedScore < 4.5;
+  const hasValidImage = product.image && !imageError;
 
   const renderHighlighted = (text: string) => {
-    if (!highlightText || !highlightText.trim()) return text;
-    const q = highlightText.trim().toLowerCase();
-    const idx = text.toLowerCase().indexOf(q);
-    if (idx === -1) return text;
-    return (
-      <>
-        {text.substring(0, idx)}
-        <mark className="bg-[var(--accent)] text-stone-900 rounded px-0.5 font-bold">
-          {text.substring(idx, idx + q.length)}
+    if (!highlightQuery.trim()) return text;
+    const parts = text.split(new RegExp(`(${highlightQuery})`, 'gi'));
+    return parts.map((part, i) =>
+      part.toLowerCase() === highlightQuery.toLowerCase() ? (
+        <mark key={i} className="bg-secondary-fixed text-on-secondary-fixed rounded-xs px-0.5 font-bold">
+          {part}
         </mark>
-        {text.substring(idx + q.length)}
-      </>
+      ) : (
+        part
+      )
     );
   };
 
   return (
-    <div className="bubble-card flex flex-col justify-between h-full group hover:-translate-y-1 hover:shadow-[6px_6px_0px_var(--ink)] transition-all bg-[var(--surface)] text-[var(--ink)]">
-      {/* Top Header */}
-      <div>
-        <div className="flex items-start justify-between gap-2 mb-2">
-          <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-xl" title={product.category}>{icon}</span>
-            <span className="chip text-[11px] font-extrabold uppercase bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300">
-              {product.category}
-            </span>
-            {product.subCategory && (
-              <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">
-                • {product.subCategory}
-              </span>
-            )}
-          </div>
+    <div className="group relative flex flex-col rounded-lg bg-surface-container-lowest border border-outline-variant/40 shadow-xs hover:shadow-md transition-all duration-200 overflow-hidden text-on-surface">
+      {/* Media and Header Area */}
+      <div className="relative w-full aspect-square bg-surface-container-low/40 p-3 flex items-center justify-center overflow-hidden border-b border-outline-variant/20">
+        {/* Verification Status Pill */}
+        <div className="absolute top-2.5 left-2.5 z-10">
+          <span className="font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold tracking-wider uppercase border border-primary/10">
+            {product.category || 'Packaged Food'}
+          </span>
+        </div>
 
-          {product.priceINR !== null && (
-            <span className="font-display font-extrabold text-sm text-[var(--leaf)] bg-[var(--mint)]/20 px-2.5 py-0.5 rounded-full border border-[var(--leaf)]/30 shrink-0">
+        {/* FBS Vitality Capsule */}
+        <div className="absolute top-2.5 right-2.5 z-10">
+          <FBSVitalityCapsule score={calculatedScore} size="xs" />
+        </div>
+
+        {/* Product Image or Forensic Emblem */}
+        <Link href={`/products/${product.id}`} className="relative w-full h-full flex items-center justify-center">
+          {hasValidImage ? (
+            <Image
+              src={product.image!}
+              alt={product.name}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+              onError={() => setImageError(true)}
+              loading="lazy"
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center p-3 text-center bg-gradient-to-br from-surface-container to-surface-container-low rounded-md border border-outline-variant/30">
+              <span className="material-symbols-outlined text-3xl text-primary/40 mb-1">
+                inventory_2
+              </span>
+              <span className="font-label-caps text-xs text-primary font-bold uppercase tracking-wider line-clamp-1">
+                {product.brand}
+              </span>
+              <span className="font-body-sm text-[0.6875rem] text-on-surface-variant/80 mt-0.5 line-clamp-1">
+                {product.subCategory || 'Forensic Dossier'}
+              </span>
+            </div>
+          )}
+        </Link>
+
+        {/* Floating Controls */}
+        <div className="absolute bottom-2 left-2 z-10">
+          <AddToCartButton slug={product.slug || product.id} productName={product.name} size="sm" />
+        </div>
+        <div className="absolute bottom-2 right-2 z-10">
+          <FavouriteButton slug={product.slug || product.id} productName={product.name} size="sm" />
+        </div>
+      </div>
+
+      {/* Content Area */}
+      <div className="flex flex-col flex-1 p-3.5 gap-2">
+        {/* Brand and Price */}
+        <div className="flex items-center justify-between gap-2">
+          <span className="font-label-caps text-xs text-secondary font-bold uppercase tracking-wider truncate">
+            {renderHighlighted(product.brand)}
+          </span>
+          {product.priceINR !== null && product.priceINR !== undefined && (
+            <span className="font-headline-sm text-xs font-bold text-primary tabular-nums">
               ₹{product.priceINR}
             </span>
           )}
         </div>
 
-        {/* Brand */}
-        <p className="text-xs font-black uppercase tracking-wider text-stone-500 mb-0.5">
-          {renderHighlighted(product.brand)}
-        </p>
-
-        {/* Product Name */}
+        {/* Title */}
         <Link
           href={`/products/${product.id}`}
-          className="font-display font-black text-lg text-stone-900 dark:text-stone-100 hover:text-[var(--leaf)] transition-colors line-clamp-2 leading-tight block mb-3"
+          className="font-headline-sm text-sm text-primary group-hover:text-primary-container transition-colors line-clamp-2 leading-snug"
+          title={product.name}
         >
           {renderHighlighted(product.name)}
         </Link>
 
-        {/* Nutrition Badges Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 py-2 px-2.5 rounded-xl bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700/60 mb-4 text-center">
+        {/* Nutrient Matrix (Energy, Protein, Sugar, Sodium) */}
+        <div className="grid grid-cols-4 gap-1 py-1.5 px-2 rounded-md bg-surface-container-low border border-outline-variant/25 text-center text-xs mt-auto">
           <div>
-            <span className="text-[10px] font-bold text-stone-400 block uppercase">Energy</span>
-            <span className="font-display font-black text-xs text-stone-800 dark:text-stone-200">
+            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block">Energy</span>
+            <span className="font-label-lg text-xs font-bold text-primary tabular-nums">
               {product.caloriesKcal !== null ? `${product.caloriesKcal}` : '—'}
             </span>
-            <span className="text-[9px] text-stone-400 ml-0.5">kcal</span>
           </div>
-
           <div>
-            <span className="text-[10px] font-bold text-stone-400 block uppercase">Protein</span>
-            <span className="font-display font-black text-xs text-stone-800 dark:text-stone-200">
-              {product.proteinG !== null ? `${product.proteinG}` : '—'}
+            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block">Protein</span>
+            <span className="font-label-lg text-xs font-bold text-primary tabular-nums">
+              {product.proteinG !== null ? `${product.proteinG}g` : '—'}
             </span>
-            <span className="text-[9px] text-stone-400 ml-0.5">g</span>
           </div>
-
           <div>
-            <span className="text-[10px] font-bold text-stone-400 block uppercase">Sugar</span>
-            <span className="font-display font-black text-xs text-stone-800 dark:text-stone-200">
-              {product.sugarG !== null ? `${product.sugarG}` : '—'}
+            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block">Sugar</span>
+            <span className={`font-label-lg text-xs font-bold tabular-nums ${(product.sugarG ?? 0) > 15 ? 'text-error' : 'text-primary'}`}>
+              {product.sugarG !== null ? `${product.sugarG}g` : '—'}
             </span>
-            <span className="text-[9px] text-stone-400 ml-0.5">g</span>
           </div>
-
           <div>
-            <span className="text-[10px] font-bold text-stone-400 block uppercase">Sodium</span>
-            <span className="font-display font-black text-xs text-stone-800 dark:text-stone-200">
+            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block">Sodium</span>
+            <span className="font-label-lg text-xs font-bold text-primary tabular-nums">
               {product.sodiumMg !== null ? `${product.sodiumMg}` : '—'}
             </span>
-            <span className="text-[9px] text-stone-400 ml-0.5">mg</span>
           </div>
         </div>
-      </div>
 
-      {/* Action Footer */}
-      <div className="flex items-center gap-2 pt-2 border-t border-stone-200 dark:border-stone-800 mt-2">
-        <Link
-          href={`/products/${product.id}`}
-          className="btn-chunky flex-1 text-center text-xs py-2 px-3 bg-[var(--leaf)] text-white hover:opacity-95 flex items-center justify-center gap-1"
-        >
-          <span>View Facts</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </Link>
+        {/* Footer: UPF Warning or Category Tag + Actions */}
+        <div className="flex items-center justify-between pt-2 border-t border-outline-variant/20 gap-2">
+          {isUPF ? (
+            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-sm bg-error-container text-on-error-container border border-error/30 font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-xs">warning</span>
+              UPF Risk
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-bold uppercase tracking-wider">
+              <span className="material-symbols-outlined text-xs">check_circle</span>
+              Audited
+            </span>
+          )}
 
-        {onToggleCompare && (
-          <button
-            type="button"
-            onClick={() => onToggleCompare(product)}
-            className={`btn-chunky py-2 px-3 text-xs flex items-center gap-1 transition-all ${
-              isComparing
-                ? 'bg-[var(--accent)] text-stone-900 font-extrabold border-[var(--ink)]'
-                : 'bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 hover:bg-stone-200 dark:hover:bg-stone-700'
-            }`}
-            title={isComparing ? 'Remove from compare' : 'Add to compare'}
-          >
-            {isComparing ? (
-              <>
-                <Check className="w-3.5 h-3.5 stroke-[3]" />
-                <span className="hidden sm:inline">Added</span>
-              </>
-            ) : (
-              <>
-                <Plus className="w-3.5 h-3.5 stroke-[3]" />
-                <span className="hidden sm:inline">Compare</span>
-              </>
+          <div className="flex items-center gap-1.5 ml-auto">
+            {onToggleCompare && (
+              <button
+                type="button"
+                onClick={() => onToggleCompare(product)}
+                className={`p-1.5 rounded-full text-xs transition-colors ${
+                  isComparing
+                    ? 'bg-primary text-on-primary font-bold'
+                    : 'bg-surface-container text-on-surface-variant hover:text-primary'
+                }`}
+                title={isComparing ? 'Remove from compare' : 'Pin to compare'}
+              >
+                <span className="material-symbols-outlined text-base">
+                  {isComparing ? 'check' : 'balance'}
+                </span>
+              </button>
             )}
-          </button>
-        )}
+
+            <Link
+              href={`/products/${product.id}`}
+              className="p-1 text-on-surface-variant hover:text-primary transition-colors"
+              title="View Forensic Facts"
+            >
+              <span className="material-symbols-outlined text-base">arrow_outward</span>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

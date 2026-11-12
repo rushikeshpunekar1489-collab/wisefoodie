@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import type { Product } from '@/types/product';
 import ScorecardV2Container from '@/scorecard-v2/ui/ScorecardV2Container';
+import { FEATURES } from '@/lib/features';
 import {
   Scan,
   Camera,
@@ -17,6 +18,9 @@ import {
   Edit3,
   ShieldCheck,
   Trash2,
+  Clock,
+  Dumbbell,
+  Search,
 } from 'lucide-react';
 
 interface ScannerClientProps {
@@ -409,6 +413,75 @@ export default function ScannerClient({ allProducts }: ScannerClientProps) {
     );
     setBarcodeMatch(found || null);
   };
+
+  // Feature Flag: Reversible Scanner Coming Soon State
+  if (!FEATURES.ENABLE_SCANNER) {
+    return (
+      <div className="max-w-4xl mx-auto py-8 sm:py-12 px-4 space-y-8 text-center">
+        <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 sm:p-12 space-y-6 relative overflow-hidden shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/15 text-secondary text-xs font-bold uppercase tracking-wider">
+            <Clock className="w-4 h-4 text-secondary" />
+            <span>Forensic Engine Upgrade In Progress</span>
+          </div>
+
+          <div className="w-20 h-20 rounded-2xl bg-surface-container-low border border-outline-variant/40 flex items-center justify-center mx-auto text-primary shadow-xs">
+            <Scan className="w-10 h-10 stroke-[2]" />
+          </div>
+
+          <div className="space-y-3 max-w-xl mx-auto">
+            <h1 className="font-serif font-bold text-3xl sm:text-4xl text-primary">
+              AI Food Label Scanner <br />
+              <span className="text-primary/70">Coming Soon</span>
+            </h1>
+            <p className="text-sm text-on-surface-variant font-medium leading-relaxed">
+              We are enhancing the WiseFoodies OCR and Barcode Scanner engine to support offline on-device processing, multi-lingual Indian label translation, and unified integration with the new Indian Nutrient Databank.
+            </p>
+          </div>
+
+          {/* Highlights */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto pt-4 text-left">
+            <div className="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-low space-y-1">
+              <span className="text-xl">📸</span>
+              <h3 className="font-serif font-bold text-sm text-primary">Zero Camera Calls</h3>
+              <p className="text-xs text-on-surface-variant font-medium">Camera access and permission prompts are completely deactivated while the upgrade is underway.</p>
+            </div>
+            <div className="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-low space-y-1">
+              <span className="text-xl">🥗</span>
+              <h3 className="font-serif font-bold text-sm text-primary">INDB Integration</h3>
+              <p className="text-xs text-on-surface-variant font-medium">Connecting to 1,900+ authentic Indian recipes and raw foods from ICMR-NIN.</p>
+            </div>
+            <div className="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-low space-y-1">
+              <span className="text-xl">⚡</span>
+              <h3 className="font-serif font-bold text-sm text-primary">Instant Reactivation</h3>
+              <p className="text-xs text-on-surface-variant font-medium">All original OCR processors, camera streams, and scorecard algorithms remain preserved.</p>
+            </div>
+          </div>
+
+          {/* Quick Action Navigation */}
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/fitness-calculators"
+              className="py-2.5 px-6 rounded-full bg-primary text-on-primary text-sm font-semibold flex items-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+            >
+              <Dumbbell className="w-4 h-4" /> Explore Fitness & Nutrition Hub
+            </Link>
+            <Link
+              href="/products"
+              className="py-2.5 px-6 rounded-full bg-surface-container text-on-surface text-sm font-semibold flex items-center gap-2 hover:bg-surface-container-high transition-colors"
+            >
+              <Search className="w-4 h-4" /> Browse Packaged Foods
+            </Link>
+            <Link
+              href="/"
+              className="py-2.5 px-6 rounded-full border border-outline-variant/40 bg-surface-container-lowest text-on-surface text-sm font-semibold hover:bg-surface-container transition-colors"
+            >
+              Back to Home
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-5xl mx-auto space-y-8">

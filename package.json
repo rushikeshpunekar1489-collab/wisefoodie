@@ -12,6 +12,7 @@
     "i18n:check": "npx tsx scripts/check-i18n.ts",
     "import": "npx tsx scripts/import-products.ts",
     "import:products": "npx tsx scripts/import-indian-foods.ts",
+    "import:indb": "python scripts/compile_indb.py && python scripts/build_food_aliases.py",
     "kb:check": "npx tsx scripts/kb-check.ts",
     "ai:index": "npx tsx scripts/ai-index.ts",
     "ai:coverage": "npx tsx scripts/ai-coverage.ts",
@@ -19,6 +20,7 @@
     "ai:eval": "npx tsx scripts/ai-eval.ts"
   },
   "dependencies": {
+    "@designcodeio/threeui": "^1.2.0",
     "@google/generative-ai": "^0.24.1",
     "fuse.js": "^7.5.0",
     "lucide-react": "^1.54.0",

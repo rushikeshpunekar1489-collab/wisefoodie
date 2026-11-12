@@ -1,17 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ShieldCheck, Heart, Sparkles, Scale } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-900 text-stone-300 pt-16 pb-24 lg:pb-16 border-t border-stone-800">
+    <footer className="bg-primary text-primary-fixed-dim pt-16 pb-24 lg:pb-16 border-t border-primary-container">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-stone-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-primary-container/80">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/10 border border-white/10 flex items-center justify-center p-1">
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/10 border border-primary-fixed/20 flex items-center justify-center p-1">
                 <Image
                   src="/wisefoodies-logo-mark.png"
                   alt="WiseFoodies"
@@ -20,68 +19,63 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="font-extrabold text-2xl tracking-tight text-white">
-                Wise<span className="text-emerald-400">Foodies</span>
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="font-headline-md text-xl tracking-tight text-white font-serif">
+                  WiseFoodies
+                </span>
+                <span className="font-label-caps text-[0.625rem] bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded-full uppercase font-bold">
+                  Forensic
+                </span>
+              </div>
             </Link>
-            <p className="text-sm text-stone-400 max-w-sm leading-relaxed">
-              India's first independent packaged-food intelligence platform. Decode nutrition labels, verify authentic ingredients, and make truly informed grocery decisions.
+            <p className="font-body-sm text-sm text-primary-fixed-dim/80 max-w-sm leading-relaxed">
+              India&apos;s independent packaged-food forensic intelligence platform. Decoding nutrition declarations, uncovering hidden industrial UPF markers, and auditing 852+ packaged foods and 8,500+ cooked foods.
             </p>
-            <div className="flex items-center gap-2 text-xs text-emerald-400 font-semibold bg-stone-800/80 px-3 py-1.5 rounded-full w-fit">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Scan. Score. Compare. Choose.</span>
+            <div className="flex items-center gap-2 font-label-caps text-xs text-primary-fixed font-semibold bg-primary-container/80 px-3 py-1.5 rounded-full w-fit border border-primary-fixed/20">
+              <span className="material-symbols-outlined text-sm">verified</span>
+              <span>Clean ingredients are a basic human right.</span>
             </div>
           </div>
 
-          {/* Core Tools */}
+          {/* Intelligence Tools */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
-              Intelligence Tools
+            <h4 className="font-label-lg text-xs uppercase tracking-wider text-white mb-4">
+              Intelligence Dossiers
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2.5 font-body-sm text-sm">
               <li>
-                <Link href="/products" className="hover:text-emerald-400 transition-colors font-bold text-emerald-400">
-                  Indian Food Database (852)
+                <Link href="/products" className="hover:text-primary-fixed transition-colors font-bold text-primary-fixed">
+                  Indian Packaged Foods (852)
                 </Link>
               </li>
               <li>
-                <Link href="/category" className="hover:text-emerald-400 transition-colors">
+                <Link href="/fitness-calculators" className="hover:text-secondary-fixed transition-colors font-bold text-secondary-fixed">
+                  Fitness &amp; Macro Calculators
+                </Link>
+              </li>
+              <li>
+                <Link href="/category" className="hover:text-primary-fixed transition-colors">
                   13 Food Categories
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard" className="hover:text-emerald-400 transition-colors">
+                <Link href="/compare" className="hover:text-primary-fixed transition-colors">
+                  Side-by-Side Comparison
+                </Link>
+              </li>
+              <li>
+                <Link href="/scanner" className="hover:text-primary-fixed transition-colors">
+                  In-Store Barcode Scanner
+                </Link>
+              </li>
+              <li>
+                <Link href="/how-fbs-works" className="hover:text-primary-fixed transition-colors">
+                  Food Benefit Score (FBS)
+                </Link>
+              </li>
+              <li>
+                <Link href="/dashboard" className="hover:text-primary-fixed transition-colors">
                   Nutritional Analytics
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin" className="hover:text-emerald-400 transition-colors">
-                  Database Admin
-                </Link>
-              </li>
-              <li>
-                <Link href="/explore" className="hover:text-emerald-400 transition-colors">
-                  Explore Catalog
-                </Link>
-              </li>
-              <li>
-                <Link href="/compare" className="hover:text-emerald-400 transition-colors">
-                  Compare Products
-                </Link>
-              </li>
-              <li>
-                <Link href="/scanner" className="hover:text-emerald-400 transition-colors">
-                  Barcode Scanner
-                </Link>
-              </li>
-              <li>
-                <Link href="/how-fbs-works" className="hover:text-emerald-400 transition-colors">
-                  How FBS Works
-                </Link>
-              </li>
-              <li>
-                <Link href="/search" className="hover:text-emerald-400 transition-colors">
-                  Smart Food Search
                 </Link>
               </li>
             </ul>
@@ -89,33 +83,33 @@ export default function Footer() {
 
           {/* Education & Guides */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
-              Knowledge & Guides
+            <h4 className="font-label-lg text-xs uppercase tracking-wider text-white mb-4">
+              Forensic Guides
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2.5 font-body-sm text-sm">
               <li>
-                <Link href="/learn" className="hover:text-emerald-400 transition-colors">
+                <Link href="/learn" className="hover:text-primary-fixed transition-colors">
                   Food Knowledge Hub
                 </Link>
               </li>
               <li>
-                <Link href="/learn/sugar" className="hover:text-emerald-400 transition-colors">
-                  Decoding Added Sugar
+                <Link href="/learn/sugar" className="hover:text-primary-fixed transition-colors">
+                  Decoding Added Sugars
                 </Link>
               </li>
               <li>
-                <Link href="/learn/protein" className="hover:text-emerald-400 transition-colors">
-                  True Protein Density
+                <Link href="/learn/protein" className="hover:text-primary-fixed transition-colors">
+                  Nutrition Per Paisa (₹10 Test)
                 </Link>
               </li>
               <li>
-                <Link href="/learn/additives" className="hover:text-emerald-400 transition-colors">
-                  Additives & INS Numbers
+                <Link href="/learn/additives" className="hover:text-primary-fixed transition-colors">
+                  Additives &amp; INS Numbers
                 </Link>
               </li>
               <li>
-                <Link href="/learn/palm-oil" className="hover:text-emerald-400 transition-colors">
-                  Palm Oil & Saturated Fat
+                <Link href="/learn/palm-oil" className="hover:text-primary-fixed transition-colors">
+                  Palm Oil &amp; Saturated Fats
                 </Link>
               </li>
             </ul>
@@ -123,49 +117,54 @@ export default function Footer() {
 
           {/* Trust & Legal */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
-              Trust & Transparency
+            <h4 className="font-label-lg text-xs uppercase tracking-wider text-white mb-4">
+              Trust &amp; Transparency
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2.5 font-body-sm text-sm">
               <li>
-                <Link href="/about" className="hover:text-emerald-400 transition-colors">
+                <Link href="/about" className="hover:text-primary-fixed transition-colors">
                   About WiseFoodies
                 </Link>
               </li>
               <li>
-                <Link href="/disclaimer" className="hover:text-emerald-400 transition-colors">
-                  Medical & Food Disclaimer
+                <Link href="/disclaimer" className="hover:text-primary-fixed transition-colors">
+                  Medical &amp; Food Disclaimer
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="hover:text-emerald-400 transition-colors">
+                <Link href="/privacy" className="hover:text-primary-fixed transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-emerald-400 transition-colors">
+                <Link href="/terms" className="hover:text-primary-fixed transition-colors">
                   Terms of Use
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-emerald-400 transition-colors">
-                  Contact & Submit Label
+                <Link href="/contact" className="hover:text-primary-fixed transition-colors">
+                  Report Packaging / Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin" className="hover:text-primary-fixed transition-colors text-xs opacity-60">
+                  Catalog Diagnostics
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Mandatory Regulatory / Health Disclaimer */}
-        <div className="pt-8 text-xs text-stone-400 space-y-3 leading-relaxed">
-          <p className="bg-stone-800/60 p-4 rounded-xl border border-stone-800">
-            <strong>Important Consumer Notice:</strong> The Food Benefit Score (FBS) is an informational evaluation derived deterministically from declared manufacturer label data and ICMR-NIN (National Institute of Nutrition, Hyderabad) nutritional guidelines. It is not medical advice, clinical dietary prescription, or a guarantee of health outcomes. WiseFoodies does not manufacture, sell, or endorse any branded packaged food.
+        {/* Regulatory & Scientific Notice */}
+        <div className="pt-8 text-xs text-primary-fixed-dim/80 space-y-3 leading-relaxed font-body-sm">
+          <p className="bg-primary-container/60 p-4 rounded-xl border border-primary-container">
+            <strong className="text-white">Important Consumer Notice:</strong> The Food Benefit Score (FBS) is an independent, deterministic evaluation derived from manufacturer-declared packaging data and benchmarked against ICMR-NIN (National Institute of Nutrition, Hyderabad) guidelines and FSSAI Labelling Regulations (2020). It does not constitute medical advice or clinical prescription.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-stone-800/60 text-stone-500">
-            <span>© 2026 WiseFoodies. All rights reserved. Made for Indian Consumers.</span>
-            <div className="flex items-center gap-1 text-stone-400">
-              <span>Scientific + Consumer-First Food Intelligence</span>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-primary-container/60 text-primary-fixed-dim/60 font-label-caps">
+            <span>© 2026 WiseFoodies Forensic Intelligence. All rights reserved.</span>
+            <div className="flex items-center gap-1 text-primary-fixed-dim">
+              <span>Scientific + Consumer-First Forensic Standards</span>
             </div>
           </div>
         </div>

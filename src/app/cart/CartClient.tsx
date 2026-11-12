@@ -123,59 +123,65 @@ export default function CartClient({ allProducts }: CartClientProps) {
 
   if (!isReady) {
     return (
-      <div className="py-20 text-center">
-        <div className="inline-block animate-spin rounded-full h-8 w-8 border-3 border-[var(--leaf)] border-t-transparent" />
-        <p className="mt-3 text-xs font-bold opacity-60">Calculating your basket nutrition...</p>
+      <div className="py-20 text-center text-sm text-outline font-medium">
+        Loading your Smart Basket...
       </div>
     );
   }
 
-  // EMPTY STATE
   if (cartItems.length === 0) {
     return (
-      <div className="max-w-xl mx-auto py-16 px-4 text-center">
-        <div className="w-20 h-20 mx-auto rounded-full bg-[var(--surface-alt)] border-3 border-[var(--ink)] flex items-center justify-center shadow-[4px_4px_0px_var(--ink)] mb-6">
-          <ShoppingCart className="w-10 h-10 text-[var(--leaf)] opacity-40 stroke-[2]" />
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-8 sm:p-12 text-center max-w-xl mx-auto shadow-sm space-y-5">
+        <div className="w-20 h-20 rounded-full bg-surface-container-low flex items-center justify-center mx-auto text-primary">
+          <ShoppingCart className="w-10 h-10 stroke-[1.5]" />
         </div>
-        <h1 className="text-3xl font-extrabold text-[var(--ink)]">Your Smart Basket is Empty</h1>
-        <p className="text-sm font-semibold text-[var(--ink)] opacity-70 mt-3 leading-relaxed">
-          Add items from the catalog or search to see your aggregate Food Benefit Score, sugar tracking, and 1-tap smarter swaps.
+        <h2 className="font-serif font-bold text-2xl sm:text-3xl text-primary">
+          Your Smart Basket is Empty
+        </h2>
+        <p className="text-sm text-on-surface-variant leading-relaxed">
+          Add items from the 852 Indian packaged products catalog to analyze your total nutritional footprint, free sugar load, and discover healthier brand swaps.
         </p>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link href="/explore" className="btn-chunky btn-primary py-3 px-6 text-sm flex items-center gap-2">
-            <Sparkles className="w-4 h-4" /> Explore Healthy Foods <ArrowRight className="w-4 h-4" />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+          <Link
+            href="/products"
+            className="w-full sm:w-auto py-2.5 px-6 rounded-full bg-primary text-on-primary text-sm font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+          >
+            Explore 852 Products
           </Link>
-          <Link href="/favourites" className="btn-chunky py-3 px-6 text-sm bg-white hover:bg-[var(--surface-alt)]">
+          <Link
+            href="/favourites"
+            className="w-full sm:w-auto py-2.5 px-6 rounded-full bg-surface-container text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors"
+          >
             View Favourites
           </Link>
         </div>
 
         {/* Saved lists if any */}
         {savedLists.length > 0 && (
-          <div className="mt-12 text-left bg-white p-5 rounded-2xl border-2 border-[var(--ink)] shadow-[3px_3px_0px_var(--ink)]">
-            <h3 className="text-sm font-black uppercase text-[var(--ink)] mb-3 flex items-center gap-2">
-              <Bookmark className="w-4 h-4 text-[var(--leaf)]" /> Your Saved Baskets
+          <div className="mt-8 text-left bg-surface-container-low p-5 rounded-xl border border-outline-variant/30">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-outline mb-3 flex items-center gap-2">
+              <Bookmark className="w-4 h-4 text-primary" /> Your Saved Baskets
             </h3>
             <div className="space-y-2">
               {savedLists.map((list) => (
-                <div key={list.id} className="flex items-center justify-between p-2.5 rounded-xl bg-[var(--surface-alt)] border border-[var(--ink)]/15">
+                <div key={list.id} className="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/30">
                   <div>
-                    <span className="font-extrabold text-sm">{list.name}</span>
-                    <span className="text-xs opacity-60 ml-2">({list.items.reduce((s, i) => s + i.quantity, 0)} packs)</span>
+                    <span className="font-bold text-sm text-on-surface">{list.name}</span>
+                    <span className="text-xs text-outline ml-2">({list.items.reduce((s, i) => s + i.quantity, 0)} packs)</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
                       onClick={() => loadSavedBasket(list.id)}
-                      className="btn-chunky btn-primary py-1 px-3 text-xs"
+                      className="py-1 px-3 rounded-full bg-primary text-on-primary text-xs font-semibold"
                     >
                       Restore
                     </button>
                     <button
                       type="button"
                       onClick={() => deleteSavedBasket(list.id)}
-                      className="p-1 text-red-500 hover:text-red-700"
+                      className="p-1 text-error hover:text-error/80"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -193,15 +199,15 @@ export default function CartClient({ allProducts }: CartClientProps) {
     <div className="space-y-8">
       {/* Undo Banner if swap was applied */}
       {undoSwap && (
-        <div className="p-3 bg-[var(--mint)] border-2 border-[var(--ink)] rounded-2xl shadow-[3px_3px_0px_var(--ink)] flex items-center justify-between gap-3 animate-in fade-in slide-in-from-top-2">
-          <div className="text-xs font-black text-[var(--ink)] flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[var(--leaf)]" />
+        <div className="p-3 bg-primary/10 border border-primary/20 rounded-xl shadow-xs flex items-center justify-between gap-3 animate-in fade-in slide-in-from-top-2">
+          <div className="text-xs font-bold text-primary flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-primary" />
             <span>Swapped for a healthier alternative! Basket FBS elevated.</span>
           </div>
           <button
             type="button"
             onClick={handleUndoSwap}
-            className="btn-chunky py-1 px-3 text-xs bg-white flex items-center gap-1.5"
+            className="py-1 px-3 text-xs bg-surface-container-lowest rounded-lg border border-outline-variant/40 font-semibold text-on-surface flex items-center gap-1.5 shadow-xs"
           >
             <RotateCcw className="w-3.5 h-3.5" /> Undo Swap
           </button>
@@ -209,20 +215,20 @@ export default function CartClient({ allProducts }: CartClientProps) {
       )}
 
       {/* Header & Basket Quick Actions */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b-3 border-[var(--ink)]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-outline-variant/30">
         <div>
-          <div className="flex items-center gap-2">
-            <div className="p-2 rounded-xl bg-[var(--leaf)]/10 text-[var(--leaf)] border-2 border-[var(--leaf)]">
-              <ShoppingCart className="w-6 h-6 stroke-[2.5]" />
+          <div className="flex items-center gap-2.5">
+            <div className="p-2 rounded-xl bg-primary/10 text-primary">
+              <ShoppingCart className="w-6 h-6 stroke-[2]" />
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-[var(--ink)]">
+            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-primary flex items-center gap-2">
               Smart Basket
-              <span className="ml-2.5 text-base py-0.5 px-2.5 rounded-full bg-[var(--ink)] text-white font-black">
+              <span className="text-xs py-0.5 px-2.5 rounded-full bg-primary text-on-primary font-bold">
                 {count} packs
               </span>
             </h1>
           </div>
-          <p className="text-xs sm:text-sm font-semibold opacity-70 mt-1">
+          <p className="text-xs sm:text-sm font-medium text-on-surface-variant mt-1">
             Real-time nutrition balance, calorie-weighted score, and 1-tap swaps.
           </p>
         </div>
@@ -231,17 +237,17 @@ export default function CartClient({ allProducts }: CartClientProps) {
           <button
             type="button"
             onClick={handleShareBasket}
-            className="btn-chunky py-2 px-3 text-xs bg-white hover:bg-[var(--surface-alt)] flex items-center gap-1.5"
+            className="py-2 px-3 rounded-lg border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container text-xs font-semibold text-on-surface flex items-center gap-1.5 shadow-xs transition-colors"
             title="Share basket summary"
           >
             {shareCopied ? (
               <>
-                <Check className="w-4 h-4 text-[var(--leaf)]" />
+                <Check className="w-4 h-4 text-primary" />
                 <span>Copied!</span>
               </>
             ) : (
               <>
-                <Share2 className="w-4 h-4 text-[var(--leaf)]" />
+                <Share2 className="w-4 h-4 text-primary" />
                 <span>Share Basket</span>
               </>
             )}
@@ -250,7 +256,7 @@ export default function CartClient({ allProducts }: CartClientProps) {
           <button
             type="button"
             onClick={clearCart}
-            className="btn-chunky py-2 px-3 text-xs text-[var(--tomato)] hover:bg-red-50 flex items-center gap-1.5"
+            className="py-2 px-3 rounded-lg border border-outline-variant/40 bg-surface-container-lowest hover:bg-error/5 text-xs font-semibold text-error flex items-center gap-1.5 shadow-xs transition-colors"
             title="Empty basket"
           >
             <Trash2 className="w-4 h-4" />
@@ -260,7 +266,7 @@ export default function CartClient({ allProducts }: CartClientProps) {
       </div>
 
       {/* 1. BASKET FBS HERO SCORE CARD */}
-      <div className="bubble-card bg-[var(--surface)] p-6 md:p-8 flex flex-col lg:flex-row items-center gap-8 justify-between">
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 md:p-8 flex flex-col lg:flex-row items-center gap-8 justify-between shadow-sm">
         {/* Left: Vitality Capsule Display */}
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <FBSVitalityCapsule
@@ -272,21 +278,21 @@ export default function CartClient({ allProducts }: CartClientProps) {
           />
 
           <div className="text-center sm:text-left space-y-2">
-            <span className="chip text-[11px] bg-[var(--surface-alt)] font-extrabold">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-outline bg-surface-container-low px-2.5 py-1 rounded-md">
               Basis: Calorie-Weighted Average
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-[var(--ink)]">
+            <h2 className="font-serif font-bold text-2xl sm:text-3xl text-primary">
               Basket Rating:{' '}
               <span style={{ color: bandColor }}>
                 {summary.basketFBS !== null ? `${summary.basketFBS.toFixed(1)}/10` : 'Pending'}
               </span>
             </h2>
-            <p className="text-xs font-semibold opacity-70 max-w-sm">
+            <p className="text-xs font-medium text-on-surface-variant max-w-sm">
               Each food's impact on your score is proportioned to its caloric density and quantity in your basket.
             </p>
             {summary.proteinPer10INR !== null && (
-              <div className="pt-2 text-xs font-black text-[var(--leaf)] flex items-center gap-1.5 justify-center sm:justify-start">
-                <Zap className="w-4 h-4 fill-current" />
+              <div className="pt-2 text-xs font-bold text-primary flex items-center gap-1.5 justify-center sm:justify-start">
+                <Zap className="w-4 h-4 fill-current text-primary" />
                 <span>₹10 gives {summary.proteinPer10INR}g protein & {summary.fibrePer10INR || '0'}g fibre</span>
               </div>
             )}
@@ -295,40 +301,40 @@ export default function CartClient({ allProducts }: CartClientProps) {
 
         {/* Right: Macro Totals Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full lg:max-w-md">
-          <div className="p-3 bg-white rounded-2xl border-2 border-[var(--ink)]/15 text-center shadow-xs">
-            <span className="text-[10px] font-black uppercase text-gray-500">Est. Price</span>
-            <div className="text-xl font-black text-[var(--ink)] mt-0.5">₹{summary.totalPriceINR}</div>
-            <span className="text-[9px] font-bold opacity-50">all {count} packs</span>
+          <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 text-center">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-outline">Est. Price</span>
+            <div className="text-xl font-bold font-serif text-primary mt-0.5">₹{summary.totalPriceINR}</div>
+            <span className="text-[9px] font-medium text-outline">all {count} packs</span>
           </div>
 
-          <div className="p-3 bg-white rounded-2xl border-2 border-[var(--ink)]/15 text-center shadow-xs">
-            <span className="text-[10px] font-black uppercase text-gray-500">Total Calories</span>
-            <div className="text-xl font-black text-[var(--ink)] mt-0.5">{summary.totalCaloriesKcal}</div>
-            <span className="text-[9px] font-bold opacity-50">kcal</span>
+          <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 text-center">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-outline">Total Energy</span>
+            <div className="text-xl font-bold font-serif text-primary mt-0.5">{summary.totalCaloriesKcal}</div>
+            <span className="text-[9px] font-medium text-outline">kcal</span>
           </div>
 
-          <div className="p-3 bg-white rounded-2xl border-2 border-[var(--ink)]/15 text-center shadow-xs">
-            <span className="text-[10px] font-black uppercase text-[var(--leaf)]">Protein</span>
-            <div className="text-xl font-black text-[var(--leaf)] mt-0.5">{summary.totalProteinG}g</div>
-            <span className="text-[9px] font-bold opacity-50">pack total</span>
+          <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 text-center">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Protein</span>
+            <div className="text-xl font-bold font-serif text-primary mt-0.5">{summary.totalProteinG}g</div>
+            <span className="text-[9px] font-medium text-outline">pack total</span>
           </div>
 
-          <div className="p-3 bg-white rounded-2xl border-2 border-[var(--ink)]/15 text-center shadow-xs">
-            <span className="text-[10px] font-black uppercase text-[var(--tomato)]">Added Sugar</span>
-            <div className="text-xl font-black text-[var(--tomato)] mt-0.5">{summary.totalAddedSugarG}g</div>
-            <span className="text-[9px] font-bold opacity-50">free sugars</span>
+          <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 text-center">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-error">Free Sugar</span>
+            <div className="text-xl font-bold font-serif text-error mt-0.5">{summary.totalAddedSugarG}g</div>
+            <span className="text-[9px] font-medium text-outline">free sugars</span>
           </div>
 
-          <div className="p-3 bg-white rounded-2xl border-2 border-[var(--ink)]/15 text-center shadow-xs">
-            <span className="text-[10px] font-black uppercase text-gray-500">Fibre</span>
-            <div className="text-xl font-black text-[var(--ink)] mt-0.5">{summary.totalFibreG}g</div>
-            <span className="text-[9px] font-bold opacity-50">dietary fibre</span>
+          <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 text-center">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-outline">Fibre</span>
+            <div className="text-xl font-bold font-serif text-on-surface mt-0.5">{summary.totalFibreG}g</div>
+            <span className="text-[9px] font-medium text-outline">dietary fibre</span>
           </div>
 
-          <div className="p-3 bg-white rounded-2xl border-2 border-[var(--ink)]/15 text-center shadow-xs">
-            <span className="text-[10px] font-black uppercase text-gray-500">Sodium</span>
-            <div className="text-xl font-black text-[var(--ink)] mt-0.5">{summary.totalSodiumMg}mg</div>
-            <span className="text-[9px] font-bold opacity-50">salt load</span>
+          <div className="p-3 bg-surface-container-low rounded-xl border border-outline-variant/30 text-center">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-outline">Sodium</span>
+            <div className="text-xl font-bold font-serif text-on-surface mt-0.5">{summary.totalSodiumMg}mg</div>
+            <span className="text-[9px] font-medium text-outline">salt load</span>
           </div>
         </div>
       </div>
@@ -338,10 +344,10 @@ export default function CartClient({ allProducts }: CartClientProps) {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-[var(--mango)]" />
-              <h3 className="text-xl font-black text-[var(--ink)]">Make This Basket Better (Smart Swaps)</h3>
+              <Sparkles className="w-5 h-5 text-secondary" />
+              <h3 className="font-serif font-bold text-xl text-primary">Make This Basket Better (Smart Swaps)</h3>
             </div>
-            <span className="chip bg-[var(--mint)] text-xs font-black">
+            <span className="text-xs font-bold px-3 py-1 rounded-full bg-primary/10 text-primary">
               {swapSuggestions.length} swap{swapSuggestions.length > 1 ? 's' : ''} available
             </span>
           </div>
@@ -354,39 +360,39 @@ export default function CartClient({ allProducts }: CartClientProps) {
               return (
                 <div
                   key={`${swap.originalProduct.slug}-${swap.suggestedProduct.slug}`}
-                  className="bubble-card bg-white p-4 space-y-3 border-2 border-[var(--ink)]"
+                  className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-5 space-y-4 shadow-sm"
                 >
-                  <div className="flex items-center justify-between text-xs font-bold text-gray-500">
+                  <div className="flex items-center justify-between text-xs font-medium text-outline">
                     <span>Category: {swap.originalProduct.category}</span>
-                    <span className="text-[var(--leaf)] font-black">
+                    <span className="text-primary font-bold">
                       +{swap.deltaBasketFBS} Basket FBS Boost
                     </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 items-center">
                     {/* Current item */}
-                    <div className="p-2.5 rounded-xl bg-red-50/60 border border-red-200">
-                      <span className="text-[9px] uppercase font-black text-red-500">In Basket</span>
-                      <h5 className="text-xs font-extrabold text-[var(--ink)] truncate mt-0.5">
+                    <div className="p-3 rounded-xl bg-error/5 border border-error/20">
+                      <span className="text-[9px] uppercase font-bold text-error">In Basket</span>
+                      <h5 className="text-xs font-bold text-on-surface truncate mt-0.5">
                         {swap.originalProduct.name}
                       </h5>
-                      <div className="text-xs font-black text-red-600 mt-1">
+                      <div className="text-xs font-bold text-error mt-1">
                         FBS {origScore.toFixed(1)}
-                        <span className="text-[10px] text-gray-500 ml-1 font-normal">
+                        <span className="text-[10px] text-outline ml-1 font-normal">
                           (₹{swap.originalProduct.priceINR || '—'})
                         </span>
                       </div>
                     </div>
 
                     {/* Swap candidate */}
-                    <div className="p-2.5 rounded-xl bg-green-50 border border-green-300">
-                      <span className="text-[9px] uppercase font-black text-green-700">Recommended Swap</span>
-                      <h5 className="text-xs font-extrabold text-[var(--ink)] truncate mt-0.5">
+                    <div className="p-3 rounded-xl bg-primary/5 border border-primary/20">
+                      <span className="text-[9px] uppercase font-bold text-primary">Recommended Swap</span>
+                      <h5 className="text-xs font-bold text-on-surface truncate mt-0.5">
                         {swap.suggestedProduct.name}
                       </h5>
-                      <div className="text-xs font-black text-green-700 mt-1">
+                      <div className="text-xs font-bold text-primary mt-1">
                         FBS {altScore.toFixed(1)}
-                        <span className="text-[10px] text-gray-500 ml-1 font-normal">
+                        <span className="text-[10px] text-outline ml-1 font-normal">
                           (₹{swap.suggestedProduct.priceINR || '—'})
                         </span>
                       </div>
@@ -394,15 +400,15 @@ export default function CartClient({ allProducts }: CartClientProps) {
                   </div>
 
                   {/* Impact preview */}
-                  <div className="p-2 bg-[var(--surface-alt)] rounded-xl text-[11px] font-bold text-[var(--ink)] flex items-center justify-between">
+                  <div className="p-3 bg-surface-container-low rounded-xl text-xs font-medium text-on-surface flex items-center justify-between">
                     <div>
                       Projected Basket:{' '}
-                      <strong className="text-[var(--leaf)]">
+                      <strong className="text-primary font-bold">
                         {swap.currentBasketFBS.toFixed(1)} → {swap.projectedBasketFBS.toFixed(1)}
                       </strong>
                     </div>
-                    <div className="text-gray-600 font-extrabold">
-                      {swap.deltaPriceINR >= 0 ? `+₹${swap.deltaPriceINR}` : `−₹${Math.abs(swap.deltaPriceINR)}`} •{' '}
+                    <div className="text-on-surface-variant font-semibold">
+                      {swap.deltaPriceINR >= 0 ? `+₹${swap.deltaPriceINR}` : `−₹${Math.abs(swap.deltaPriceINR)}`} &middot;{' '}
                       {swap.deltaSugarG <= 0 ? `${swap.deltaSugarG}g sugar` : `+${swap.deltaSugarG}g sugar`}
                     </div>
                   </div>
@@ -410,7 +416,7 @@ export default function CartClient({ allProducts }: CartClientProps) {
                   <button
                     type="button"
                     onClick={() => handleApplySwap(swap)}
-                    className="btn-chunky btn-primary w-full py-2 text-xs flex items-center justify-center gap-1.5"
+                    className="w-full py-2 px-4 rounded-full bg-primary text-on-primary text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
                   >
                     <Sparkles className="w-3.5 h-3.5" /> Apply Swap
                   </button>
@@ -423,28 +429,28 @@ export default function CartClient({ allProducts }: CartClientProps) {
 
       {/* 3. "WHAT'S DRAGGING YOUR SCORE DOWN?" */}
       {summary.draggingDownItems.length > 0 && (
-        <div className="bubble-card bg-amber-50/70 border-2 border-[var(--mango)] p-5 space-y-3">
-          <div className="flex items-center gap-2 text-amber-900">
-            <AlertTriangle className="w-5 h-5 text-[var(--mango)]" />
-            <h3 className="text-lg font-black">What's Dragging Your Basket Score Down?</h3>
+        <div className="rounded-2xl bg-error/5 border border-error/20 p-5 space-y-3 shadow-xs">
+          <div className="flex items-center gap-2 text-error">
+            <AlertTriangle className="w-5 h-5 text-error" />
+            <h3 className="font-serif font-bold text-lg text-on-surface">What's Dragging Your Basket Score Down?</h3>
           </div>
-          <p className="text-xs font-semibold text-amber-800">
+          <p className="text-xs font-medium text-on-surface-variant">
             These foods add heavy free sugar, sodium, or ultra-processing penalties to your basket:
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-2">
             {summary.draggingDownItems.map((drag) => (
-              <div key={drag.product.slug} className="p-3 bg-white rounded-xl border border-amber-300">
+              <div key={drag.product.slug} className="p-3 bg-surface-container-lowest rounded-xl border border-error/20 shadow-xs">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase text-red-500">
+                  <span className="text-[10px] font-bold uppercase text-error">
                     FBS {drag.score.toFixed(1)}
                   </span>
-                  <span className="text-[10px] font-bold text-gray-500">{drag.product.brand}</span>
+                  <span className="text-[10px] font-medium text-outline">{drag.product.brand}</span>
                 </div>
-                <h5 className="text-xs font-extrabold text-[var(--ink)] truncate mt-1">
+                <h5 className="text-xs font-bold text-on-surface truncate mt-1">
                   {drag.product.name}
                 </h5>
-                <p className="text-[11px] font-semibold text-gray-600 mt-1">{drag.reason}</p>
+                <p className="text-[11px] font-medium text-on-surface-variant mt-1">{drag.reason}</p>
               </div>
             ))}
           </div>
@@ -452,19 +458,19 @@ export default function CartClient({ allProducts }: CartClientProps) {
       )}
 
       {/* 4. NUTRIENT CONTRIBUTION BREAKDOWN */}
-      <div className="bubble-card bg-white p-5 space-y-4">
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-5 space-y-4 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Layers className="w-5 h-5 text-[var(--leaf)]" />
-            <h3 className="text-lg font-black text-[var(--ink)]">Where does your nutrition come from?</h3>
+            <Layers className="w-5 h-5 text-primary" />
+            <h3 className="font-serif font-bold text-lg text-primary">Where does your nutrition come from?</h3>
           </div>
 
-          <div className="flex items-center gap-1.5 bg-[var(--surface-alt)] p-1 rounded-xl">
+          <div className="flex items-center gap-1 bg-surface-container-low p-1 rounded-xl">
             <button
               type="button"
               onClick={() => setActiveNutrientTab('sugar')}
-              className={`chip text-[11px] py-1 px-2.5 ${
-                activeNutrientTab === 'sugar' ? 'bg-[var(--tomato)] text-white' : ''
+              className={`text-xs py-1 px-3 rounded-lg font-semibold transition-colors ${
+                activeNutrientTab === 'sugar' ? 'bg-error text-white shadow-xs' : 'text-on-surface-variant hover:text-on-surface'
               }`}
             >
               Sugar
@@ -472,8 +478,8 @@ export default function CartClient({ allProducts }: CartClientProps) {
             <button
               type="button"
               onClick={() => setActiveNutrientTab('protein')}
-              className={`chip text-[11px] py-1 px-2.5 ${
-                activeNutrientTab === 'protein' ? 'bg-[var(--leaf)] text-white' : ''
+              className={`text-xs py-1 px-3 rounded-lg font-semibold transition-colors ${
+                activeNutrientTab === 'protein' ? 'bg-primary text-white shadow-xs' : 'text-on-surface-variant hover:text-on-surface'
               }`}
             >
               Protein
@@ -481,20 +487,20 @@ export default function CartClient({ allProducts }: CartClientProps) {
             <button
               type="button"
               onClick={() => setActiveNutrientTab('calories')}
-              className={`chip text-[11px] py-1 px-2.5 ${
-                activeNutrientTab === 'calories' ? 'bg-[var(--ink)] text-white' : ''
+              className={`text-xs py-1 px-3 rounded-lg font-semibold transition-colors ${
+                activeNutrientTab === 'calories' ? 'bg-on-surface text-white shadow-xs' : 'text-on-surface-variant hover:text-on-surface'
               }`}
             >
-              Calories
+              Energy
             </button>
           </div>
         </div>
 
         {/* Stacked contribution bar */}
         <div className="space-y-3">
-          <div className="w-full h-6 rounded-xl overflow-hidden flex border-2 border-[var(--ink)]">
+          <div className="w-full h-5 rounded-full overflow-hidden flex bg-surface-container-low border border-outline-variant/30">
             {summary.items.map((item, idx) => {
-              const colors = ['#15803d', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6', '#14b8a6', '#64748b'];
+              const colors = ['#059669', '#d97706', '#2563eb', '#db2777', '#7c3aed', '#0d9488', '#4b5563'];
               const itemVal =
                 activeNutrientTab === 'sugar'
                   ? item.itemTotalSugarG
@@ -525,9 +531,9 @@ export default function CartClient({ allProducts }: CartClientProps) {
             })}
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 text-xs font-bold text-gray-600">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-on-surface-variant">
             {summary.items.map((item, idx) => {
-              const colors = ['#15803d', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6', '#14b8a6', '#64748b'];
+              const colors = ['#059669', '#d97706', '#2563eb', '#db2777', '#7c3aed', '#0d9488', '#4b5563'];
               const itemVal =
                 activeNutrientTab === 'sugar'
                   ? item.itemTotalSugarG
@@ -538,11 +544,11 @@ export default function CartClient({ allProducts }: CartClientProps) {
               return (
                 <div key={item.product.slug} className="flex items-center gap-1.5">
                   <div
-                    className="w-3 h-3 rounded-full"
+                    className="w-2.5 h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: colors[idx % colors.length] }}
                   />
-                  <span className="truncate max-w-36">{item.product.name}</span>
-                  <span className="font-black text-[var(--ink)]">
+                  <span className="truncate max-w-36 text-on-surface">{item.product.name}</span>
+                  <span className="font-bold text-primary">
                     {itemVal}
                     {activeNutrientTab === 'calories' ? ' kcal' : 'g'}
                   </span>
@@ -555,7 +561,7 @@ export default function CartClient({ allProducts }: CartClientProps) {
 
       {/* 5. CART ITEMS TABLE */}
       <div className="space-y-4">
-        <h3 className="text-xl font-black text-[var(--ink)]">Basket Items ({summary.uniqueCount} distinct)</h3>
+        <h3 className="font-serif font-bold text-xl text-primary">Basket Items ({summary.uniqueCount} distinct)</h3>
 
         <div className="space-y-3">
           {summary.items.map((item) => {
@@ -565,10 +571,10 @@ export default function CartClient({ allProducts }: CartClientProps) {
             return (
               <div
                 key={item.product.slug}
-                className="bubble-card bg-white p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-2 border-[var(--ink)]"
+                className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm"
               >
                 <div className="flex items-center gap-4 w-full sm:w-auto">
-                  <div className="w-16 h-16 relative bg-[var(--surface-alt)] rounded-xl border border-[var(--ink)]/15 shrink-0 p-1 flex items-center justify-center overflow-hidden">
+                  <div className="w-16 h-16 relative bg-surface-container-low rounded-xl border border-outline-variant/30 shrink-0 p-1 flex items-center justify-center overflow-hidden">
                     {item.product.image ? (
                       <Image
                         src={item.product.image}
@@ -578,27 +584,29 @@ export default function CartClient({ allProducts }: CartClientProps) {
                         className="object-contain"
                       />
                     ) : (
-                      <span className="font-bold text-sm opacity-40">{item.product.name.charAt(0)}</span>
+                      <div className="w-full h-full flex flex-col items-center justify-center text-primary/60">
+                        <span className="material-symbols-outlined text-lg">verified</span>
+                      </div>
                     )}
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <span className="text-[11px] font-bold text-[var(--leaf)] uppercase">
+                    <span className="text-[10px] font-bold text-outline uppercase tracking-wider">
                       {item.product.brand}
                     </span>
-                    <h4 className="text-sm font-black text-[var(--ink)] truncate">
+                    <h4 className="font-serif font-bold text-sm text-primary truncate">
                       <Link href={`/food/${item.product.slug}`} className="hover:underline">
                         {item.product.name}
                       </Link>
                     </h4>
                     <div className="flex items-center gap-2 mt-1">
                       <span
-                        className="chip text-[10px] py-0.2 px-2 font-black"
-                        style={{ borderColor: itemBandColor, color: itemBandColor }}
+                        className="text-[10px] py-0.5 px-2 rounded-md font-bold"
+                        style={{ backgroundColor: `${itemBandColor}15`, color: itemBandColor }}
                       >
                         FBS {score !== null ? score.toFixed(1) : '—'}
                       </span>
-                      <span className="text-xs font-bold opacity-60">
+                      <span className="text-xs font-medium text-outline">
                         ₹{item.product.priceINR || '—'} / {item.packWeightG}g pack
                       </span>
                     </div>
@@ -606,26 +614,26 @@ export default function CartClient({ allProducts }: CartClientProps) {
                 </div>
 
                 {/* Per-item nutrients summary */}
-                <div className="grid grid-cols-3 gap-2 text-center text-xs font-black bg-[var(--surface-alt)] py-1.5 px-3 rounded-xl w-full sm:w-auto">
+                <div className="grid grid-cols-3 gap-2 text-center text-xs bg-surface-container-low py-1.5 px-3 rounded-xl w-full sm:w-auto">
                   <div>
-                    <span className="text-[9px] opacity-60 block uppercase">Protein</span>
-                    <span className="text-[var(--leaf)]">{item.itemTotalProteinG}g</span>
+                    <span className="text-[9px] text-outline block uppercase font-medium">Protein</span>
+                    <span className="text-primary font-bold">{item.itemTotalProteinG}g</span>
                   </div>
                   <div>
-                    <span className="text-[9px] opacity-60 block uppercase">Sugar</span>
-                    <span className="text-[var(--tomato)]">{item.itemTotalSugarG}g</span>
+                    <span className="text-[9px] text-outline block uppercase font-medium">Sugar</span>
+                    <span className="text-error font-bold">{item.itemTotalSugarG}g</span>
                   </div>
                   <div>
-                    <span className="text-[9px] opacity-60 block uppercase">Calories</span>
-                    <span>{item.itemTotalCalories}</span>
+                    <span className="text-[9px] text-outline block uppercase font-medium">Energy</span>
+                    <span className="text-on-surface font-semibold">{item.itemTotalCalories}</span>
                   </div>
                 </div>
 
                 {/* Controls & Price */}
                 <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto">
                   <div className="text-right">
-                    <span className="text-xs opacity-60 block">Item Total</span>
-                    <span className="text-base font-black text-[var(--ink)]">
+                    <span className="text-[10px] text-outline block font-medium">Item Total</span>
+                    <span className="text-base font-bold font-serif text-primary">
                       {item.itemTotalPrice !== null ? `₹${item.itemTotalPrice}` : '—'}
                     </span>
                   </div>
@@ -636,7 +644,7 @@ export default function CartClient({ allProducts }: CartClientProps) {
                     type="button"
                     onClick={() => remove(item.product.slug)}
                     aria-label={`Remove ${item.product.name}`}
-                    className="p-1.5 rounded-full hover:bg-red-50 text-[var(--tomato)] transition-colors"
+                    className="p-1.5 rounded-full hover:bg-error/10 text-error transition-colors"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -648,9 +656,9 @@ export default function CartClient({ allProducts }: CartClientProps) {
       </div>
 
       {/* 6. SAVE BASKET AS LIST */}
-      <div className="bubble-card bg-[var(--surface-alt)] p-5 space-y-3">
-        <h3 className="text-sm font-black uppercase text-[var(--ink)] flex items-center gap-1.5">
-          <Bookmark className="w-4 h-4 text-[var(--leaf)]" /> Save This Basket as a Reusable List
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-low p-5 space-y-3">
+        <h3 className="text-xs font-bold uppercase tracking-wider text-outline flex items-center gap-1.5">
+          <Bookmark className="w-4 h-4 text-primary" /> Save This Basket as a Reusable List
         </h3>
         <form onSubmit={handleSaveList} className="flex gap-2">
           <input
@@ -658,21 +666,24 @@ export default function CartClient({ allProducts }: CartClientProps) {
             value={listNameInput}
             onChange={(e) => setListNameInput(e.target.value)}
             placeholder="e.g. Weekly Breakfast Essentials, College Snack Box..."
-            className="flex-1 py-2 px-3 text-xs font-bold bg-white rounded-xl border border-[var(--ink)]/20 focus:outline-hidden"
+            className="flex-1 py-2 px-3 text-xs bg-surface-container-lowest rounded-xl border border-outline-variant/40 text-on-surface focus:outline-none focus:border-primary"
           />
-          <button type="submit" className="btn-chunky btn-primary py-2 px-4 text-xs shrink-0">
+          <button
+            type="submit"
+            className="py-2 px-4 rounded-xl bg-primary text-on-primary text-xs font-semibold shrink-0 hover:bg-primary-container hover:text-on-primary-container transition-colors"
+          >
             Save List
           </button>
         </form>
         {saveSuccess && (
-          <p className="text-xs font-bold text-[var(--leaf)] flex items-center gap-1">
+          <p className="text-xs font-medium text-primary flex items-center gap-1">
             <Check className="w-3.5 h-3.5" /> Basket saved to your lists!
           </p>
         )}
       </div>
 
       {/* Ground Rules Disclaimer Note */}
-      <p className="text-[11px] text-center font-semibold text-[var(--ink)]/60 pt-4">
+      <p className="text-[11px] text-center font-medium text-outline pt-4">
         Totals are based on pack label declarations. For information only, not medical advice. No checkout or payments.
       </p>
     </div>

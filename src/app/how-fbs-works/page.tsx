@@ -106,7 +106,7 @@ export default function HowFBSWorksPage() {
   ];
 
   const bands = [
-    { range: '9.0 – 10.0', band: 'Excellent', advice: 'Wholesome everyday staples packed with protein, fibre & minerals.', color: '#15803d' },
+    { range: '9.0 – 10.0', band: 'Excellent', advice: 'Wholesome everyday staples packed with protein, fibre & minerals.', color: '#059669' },
     { range: '8.0 – 8.9', band: 'Very Good', advice: 'Nutritious choices with clean, transparent ingredients.', color: '#16a34a' },
     { range: '7.0 – 7.9', band: 'Good', advice: 'Solid balanced foods suitable for frequent meal planning.', color: '#65a30d' },
     { range: '5.0 – 6.9', band: 'Moderate', advice: 'Balanced treats or staples with moderate sugar or sodium.', color: '#d97706' },
@@ -115,40 +115,40 @@ export default function HowFBSWorksPage() {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-16 space-y-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100/80 px-3 py-1 rounded-full">
-          <Sparkles className="w-3.5 h-3.5" /> Full Transparency
+        <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
+          <Sparkles className="w-3.5 h-3.5 text-primary" /> Full Transparency Methodology
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-stone-900 tracking-tight leading-tight">
+        <h1 className="font-serif font-bold text-3xl sm:text-5xl text-primary tracking-tight leading-tight">
           How the Food Benefit Score (FBS) Is Calculated
         </h1>
-        <p className="text-base text-stone-600 leading-relaxed">
+        <p className="text-base text-on-surface-variant font-medium leading-relaxed">
           The Food Benefit Score is a deterministic, explainable, and scientific metric calibrated for Indian packaged foods. No black-boxes, no arbitrary ratings.
         </p>
       </div>
 
       {/* Philosophy Callout */}
-      <div className="wf-card p-6 sm:p-8 bg-gradient-to-r from-emerald-950 to-stone-900 text-white space-y-4">
-        <h2 className="text-xl font-extrabold text-emerald-300">
+      <div className="rounded-2xl p-6 sm:p-8 bg-primary text-white space-y-4 shadow-sm">
+        <h2 className="font-serif font-bold text-xl text-on-primary">
           The Deterministic Principle
         </h2>
-        <p className="text-sm text-stone-300 leading-relaxed max-w-3xl">
+        <p className="text-sm text-stone-200 leading-relaxed max-w-3xl font-medium">
           Every packaged food starts at a baseline of <strong>6.0 / 10.0</strong>. Points are systematically added for whole grains, protein, and dietary fibre, and subtracted for added sugars, high sodium, saturated fats, and industrial ultra-processing. The score is clamped between <strong>1.0 and 10.0</strong> and rounded to 1 decimal place.
         </p>
-        <p className="text-xs text-stone-400 italic pt-2 border-t border-stone-800">
+        <p className="text-xs text-stone-300 italic pt-2 border-t border-white/20">
           * FBS is an informational score based on label data. It is not medical advice or a guarantee of health outcomes.
         </p>
       </div>
 
       {/* The Master Formula Table */}
-      <section className="wf-card p-6 sm:p-8 bg-white space-y-6">
+      <section className="rounded-2xl p-6 sm:p-8 bg-surface-container-lowest border border-outline-variant/40 shadow-sm space-y-6">
         <div>
-          <h2 className="text-2xl font-extrabold text-stone-900 tracking-tight">
+          <h2 className="font-serif font-bold text-2xl text-primary tracking-tight">
             The Exact Scoring Formula Table
           </h2>
-          <p className="text-xs text-stone-500 mt-1">
+          <p className="text-xs text-outline mt-1 font-medium">
             All calculations are executed per 100 g (or 100 ml) declared on official manufacturer nutrition facts.
           </p>
         </div>
@@ -156,36 +156,36 @@ export default function HowFBSWorksPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="border-b-2 border-stone-200 bg-stone-50 text-stone-700">
+              <tr className="border-b border-outline-variant/30 bg-surface-container-low text-on-surface">
                 <th className="p-3 font-bold uppercase tracking-wider">Factor</th>
                 <th className="p-3 font-bold uppercase tracking-wider">Rule (per 100 g)</th>
                 <th className="p-3 font-bold uppercase tracking-wider text-right">Points</th>
                 <th className="p-3 font-bold uppercase tracking-wider">Scientific Rationale</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-stone-100">
+            <tbody className="divide-y divide-outline-variant/15">
               {formulaRows.map((row, idx) => (
-                <tr key={idx} className="hover:bg-stone-50/50">
-                  <td className="p-3 font-bold text-stone-900 whitespace-nowrap">
+                <tr key={idx} className="hover:bg-surface-container-low/50">
+                  <td className="p-3 font-bold text-on-surface whitespace-nowrap">
                     {row.factor}
                   </td>
-                  <td className="p-3 text-stone-700 font-medium">
+                  <td className="p-3 text-on-surface-variant font-medium">
                     {row.rule}
                   </td>
-                  <td className="p-3 text-right font-black whitespace-nowrap">
+                  <td className="p-3 text-right font-bold whitespace-nowrap">
                     <span
                       className={
                         row.type === 'positive'
-                          ? 'text-emerald-700'
+                          ? 'text-primary'
                           : row.type === 'negative'
-                          ? 'text-rose-700'
-                          : 'text-stone-900'
+                          ? 'text-error'
+                          : 'text-on-surface'
                       }
                     >
                       {row.points}
                     </span>
                   </td>
-                  <td className="p-3 text-stone-500 text-[11px] leading-snug">
+                  <td className="p-3 text-outline text-[11px] leading-snug">
                     {row.rationale}
                   </td>
                 </tr>
@@ -196,26 +196,26 @@ export default function HowFBSWorksPage() {
       </section>
 
       {/* Score Bands Spectrum */}
-      <section className="wf-card p-6 sm:p-8 space-y-6">
-        <h2 className="text-2xl font-extrabold text-stone-900 tracking-tight">
-          Score Bands & Consumption Guidance
+      <section className="rounded-2xl p-6 sm:p-8 bg-surface-container-lowest border border-outline-variant/40 shadow-sm space-y-6">
+        <h2 className="font-serif font-bold text-2xl text-primary tracking-tight">
+          Score Bands &amp; Consumption Guidance
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {bands.map(b => (
             <div
               key={b.band}
-              className="p-4 rounded-xl border border-stone-200 bg-stone-50/50 space-y-2"
+              className="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-low space-y-2"
             >
               <div className="flex items-center justify-between">
-                <span className="font-extrabold text-sm" style={{ color: b.color }}>
+                <span className="font-bold text-sm" style={{ color: b.color }}>
                   {b.band}
                 </span>
-                <span className="text-xs font-bold text-stone-600 bg-white px-2 py-0.5 rounded border border-stone-200">
+                <span className="text-xs font-semibold text-on-surface bg-surface-container-lowest px-2 py-0.5 rounded border border-outline-variant/30">
                   {b.range}
                 </span>
               </div>
-              <p className="text-xs text-stone-600 leading-relaxed">
+              <p className="text-xs text-on-surface-variant leading-relaxed font-medium">
                 {b.advice}
               </p>
             </div>
@@ -224,34 +224,34 @@ export default function HowFBSWorksPage() {
       </section>
 
       {/* Calibration Anchors Validation */}
-      <section className="wf-card p-6 sm:p-8 bg-emerald-50/30 border-emerald-200 space-y-4">
-        <div className="flex items-center gap-2 text-emerald-900">
-          <CheckCircle2 className="w-5 h-5 text-emerald-700" />
-          <h2 className="text-lg font-bold">Mathematical Calibration Anchors (Verified in Tests)</h2>
+      <section className="rounded-2xl p-6 sm:p-8 bg-primary/5 border border-primary/20 space-y-4">
+        <div className="flex items-center gap-2 text-primary">
+          <CheckCircle2 className="w-5 h-5 text-primary" />
+          <h2 className="font-serif font-bold text-lg">Mathematical Calibration Anchors (Verified in Tests)</h2>
         </div>
-        <p className="text-xs text-stone-700 leading-relaxed">
-          Every release runs automated unit tests (<code className="bg-emerald-100 text-emerald-900 px-1 py-0.5 rounded font-mono">npm test</code>) against 5 core calibration anchors to prevent algorithmic drift:
+        <p className="text-xs text-on-surface-variant leading-relaxed font-medium">
+          Every release runs automated unit tests (<code className="bg-primary/10 text-primary px-1.5 py-0.5 rounded font-mono">npm test</code>) against 5 core calibration anchors to prevent algorithmic drift:
         </p>
 
-        <ul className="space-y-2 text-xs sm:text-sm text-stone-800">
+        <ul className="space-y-2 text-xs sm:text-sm text-on-surface">
           <li className="flex items-center gap-2">
-            <span className="text-emerald-700 font-bold">✓</span>
+            <span className="text-primary font-bold">✓</span>
             <span><strong>Rolled Whole Oats:</strong> Must score ≥ 7.5 (Current: 9.1 / Excellent)</span>
           </li>
           <li className="flex items-center gap-2">
-            <span className="text-emerald-700 font-bold">✓</span>
+            <span className="text-primary font-bold">✓</span>
             <span><strong>Plain Fresh Curd / Paneer:</strong> Must score ≥ 6.5 (Current: 7.8 / Good)</span>
           </li>
           <li className="flex items-center gap-2">
-            <span className="text-emerald-700 font-bold">✓</span>
+            <span className="text-primary font-bold">✓</span>
             <span><strong>Typical Sweet Glucose Biscuit:</strong> Must score 3.5 – 5.5 (Current: 3.7 / Limited)</span>
           </li>
           <li className="flex items-center gap-2">
-            <span className="text-emerald-700 font-bold">✓</span>
+            <span className="text-primary font-bold">✓</span>
             <span><strong>Instant Masala Noodles:</strong> Must score 3.0 – 5.0 (Current: 4.9 / Limited)</span>
           </li>
           <li className="flex items-center gap-2">
-            <span className="text-emerald-700 font-bold">✓</span>
+            <span className="text-primary font-bold">✓</span>
             <span><strong>Sugary Carbonated Soft Drink:</strong> Must score ≤ 3.0 (Current: 2.7 / Poor)</span>
           </li>
         </ul>
@@ -260,10 +260,10 @@ export default function HowFBSWorksPage() {
       {/* CTA */}
       <div className="text-center pt-4">
         <Link
-          href="/explore"
-          className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm px-6 py-3 rounded-xl inline-flex items-center gap-2"
+          href="/products"
+          className="bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-semibold text-sm px-6 py-3 rounded-full inline-flex items-center gap-2 shadow-sm transition-colors"
         >
-          Explore All Food Scores <ArrowRight className="w-4 h-4" />
+          Explore All 852 Products <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>

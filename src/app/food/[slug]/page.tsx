@@ -11,23 +11,10 @@ import NutritionPerPaisaCard from '@/components/NutritionPerPaisaCard';
 import IngredientBreakdown from '@/components/IngredientBreakdown';
 import ScorecardV2Container from '@/scorecard-v2/ui/ScorecardV2Container';
 import ProductPageClientExtras from '@/components/ProductPageClientExtras';
-import ReportIssueModal from '@/components/ReportIssueModal';
 import BetterAlternativesCarousel from '@/components/BetterAlternativesCarousel';
 import FavouriteButton from '@/components/FavouriteButton';
 import ShareButton from '@/components/ShareButton';
 import AddToCartButton from '@/components/AddToCartButton';
-import {
-  ShieldCheck,
-  AlertCircle,
-  Sparkles,
-  Scale,
-  Calendar,
-  Database,
-  CheckCircle,
-  AlertTriangle,
-  Info,
-  ChevronRight,
-} from 'lucide-react';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -59,17 +46,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.name} (FBS: ${product.fbs.score ?? '—'}/10)`,
-      description: `Decoded label report for ${product.name} by ${product.brand}`,
+      title: `${product.name} — WiseFoodies`,
+      description: `FBS Rating: ${product.fbs.score ?? '—'}/10 • ${product.brand}`,
       images: [ogImageUrl],
     },
   };
 }
 
-export async function generateStaticParams() {
-  const products = getAllProductsWithSamples();
-  // Pre-render the top 40 most popular products at build time; all others render on demand
-  return products.slice(0, 40).map((p) => ({ slug: p.slug }));
+export function generateStaticParams() {
+  const all = getAllProductsWithSamples();
+  return all.slice(0, 50).map((p) => ({
+    slug: p.slug,
+  }));
 }
 
 export default async function ProductDetailPage({ params }: Props) {
@@ -80,334 +68,269 @@ export default async function ProductDetailPage({ params }: Props) {
     notFound();
   }
 
-  const allProducts = getAllProductsWithSamples();
+  const isSample = product.verification === 'sample';
+  const score = product.fbs.score;
 
+  // Compute Nutrition Per Paisa
   const valueData = computeNutritionPerPaisa({
     priceINR: product.priceINR,
     packSizeG: product.packSizeG,
     per100g: product.per100g,
   });
 
-  const isSample = product.verification === 'sample';
-  const isIncomplete = product.verification === 'incomplete';
-  const score = product.fbs.score;
+  // Better alternatives in the same category
+  const allProds = getAllProductsWithSamples();
+  const alternatives = allProds
+    .filter(
+      (p) =>
+        p.id !== product.id &&
+        p.category === product.category &&
+        (p.fbs.score ?? 0) > (score ?? 0)
+    )
+    .sort((a, b) => (b.fbs.score ?? 0) - (a.fbs.score ?? 0))
+    .slice(0, 4);
 
-  // Header wash color matching reference design
-  const heroColor =
-    score === null
-      ? 'var(--surface-alt)'
-      : score >= 8
-      ? 'var(--mint)'
-      : score >= 6
-      ? 'var(--sky)'
-      : score >= 4
-      ? 'var(--mango)'
-      : 'var(--tomato)';
-
-  // Frequency guideline derived deterministically from FBS score
-  const getFrequencyVerdict = (s: number | null) => {
-    if (s === null) {
-      return {
-        frequency: 'Evaluation Pending',
-        text: 'Nutritional disclosure is currently pending label verification.',
-      };
-    }
-    if (s >= 8.0) {
-      return {
-        frequency: 'Regular / Everyday Balanced Choice',
-        text: 'High nutrient density with minimal ultra-processing makes this suitable as an everyday healthy staple.',
-      };
-    }
-    if (s >= 7.0) {
-      return {
-        frequency: 'Frequent Choice',
-        text: 'Wholesome composition with good nutritional balance for frequent meal inclusion.',
-      };
-    }
-    if (s >= 5.0) {
-      return {
-        frequency: 'Occasional / Balanced Treat',
-        text: 'Moderate nutritional profile. Enjoy mindfully alongside balanced whole-food meals.',
-      };
-    }
-    if (s >= 3.0) {
-      return {
-        frequency: 'Limit / Occasional Snacking',
-        text: 'High in refined carbohydrates, saturated fats, or sodium. Best limited to occasional indulgence.',
-      };
-    }
-    return {
-      frequency: 'Rarely / Special Occasion Treat',
-      text: 'Ultra-processed food with negligible micronutrients and excessive sugar or refined oil load.',
-    };
-  };
-
-  const freq = getFrequencyVerdict(product.fbs.score);
+  const isUPF = (score !== null && score !== undefined && score < 4.5) ||
+    product.concerns?.some((c) => c.toLowerCase().includes('palm oil') || c.toLowerCase().includes('additive'));
 
   return (
-    <>
-      {/* 1. HERO COLOR WASH (Reference UI Style) */}
-      <div
-        className="w-full relative flex items-center justify-center border-b-3 border-[var(--ink)] overflow-hidden"
-        style={{
-          background: heroColor,
-          height: '24vh',
-          minHeight: 180,
-        }}
-      >
-        <div
-          className="t-display-huge select-none opacity-25 font-black uppercase"
-          style={{ color: 'var(--ink)' }}
-        >
-          {product.category || product.name.charAt(0)}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-16 space-y-8 bg-surface text-on-surface">
+      {/* 1. Breadcrumb Navigation */}
+      <nav className="flex items-center gap-2 text-xs font-label-caps text-on-surface-variant overflow-x-auto whitespace-nowrap">
+        <Link href="/" className="hover:text-primary transition-colors">
+          Home
+        </Link>
+        <span className="material-symbols-outlined text-xs">chevron_right</span>
+        <Link href="/products" className="hover:text-primary transition-colors">
+          Packaged Foods
+        </Link>
+        {product.category && (
+          <>
+            <span className="material-symbols-outlined text-xs">chevron_right</span>
+            <Link
+              href={`/category/${product.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+              className="hover:text-primary transition-colors"
+            >
+              {product.category}
+            </Link>
+          </>
+        )}
+        <span className="material-symbols-outlined text-xs">chevron_right</span>
+        <span className="text-primary truncate max-w-xs font-bold">
+          {product.name}
+        </span>
+      </nav>
+
+      {/* 2. Top Header: Packaged Food Dossier Title */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant/30 pb-4">
+        <div>
+          <span className="font-label-caps text-xs text-primary font-bold uppercase tracking-wider block mb-1">
+            Forensic Food Intelligence Dossier
+          </span>
+          <h1 className="font-headline-lg-mobile sm:font-headline-lg text-primary font-serif">
+            Packaged Food Dossier
+          </h1>
+        </div>
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-xs uppercase font-bold border border-primary/10">
+            <span className="material-symbols-outlined text-sm">verified</span>
+            <span>Forensic Audit Complete</span>
+          </span>
+          {isSample && (
+            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-xs uppercase font-bold border border-secondary/20">
+              <span>Sample Benchmark</span>
+            </span>
+          )}
         </div>
       </div>
 
-      <div className="container max-w-5xl mx-auto px-4 -mt-16 sm:-mt-20 relative z-10 pb-16 space-y-8">
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs font-bold text-[var(--ink)] mb-2">
-          <Link href="/" className="hover:underline opacity-70">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-          <Link href="/explore" className="hover:underline opacity-70">Explore</Link>
-          {product.category && (
-            <>
-              <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-              <Link
-                href={`/explore/${product.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                className="hover:underline opacity-70"
-              >
-                {product.category}
-              </Link>
-            </>
-          )}
-          <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-          <span className="truncate max-w-xs">{product.name}</span>
-        </nav>
-
-        {/* 2. MAIN PRODUCT HEADER BUBBLE CARD */}
-        <div className="bubble-card flex flex-col md:flex-row gap-8 items-center bg-[var(--surface)]">
-          {/* Image Area */}
-          <div className="w-full md:w-5/12 flex flex-col items-center">
-            <div className="w-full h-64 relative rounded-2xl bg-white border-2 border-[var(--ink)] p-4 flex items-center justify-center overflow-hidden shadow-[var(--shadow-hard)]">
+      {/* 3. Hero Product Showcase Card (Stitch 2 Dossier Showcase) */}
+      <div className="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-6 sm:p-8 shadow-xs">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          {/* Packaging Image Showcase */}
+          <div className="md:col-span-5 flex flex-col items-center">
+            <div className="w-full aspect-square relative rounded-xl bg-surface-container-low border border-outline-variant/30 p-4 flex items-center justify-center overflow-hidden">
               {product.image ? (
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  className="object-contain p-3"
                   priority
                 />
               ) : (
-                <div className="text-center p-6 text-[var(--ink)] opacity-40 font-display font-black text-6xl">
-                  {product.name.charAt(0)}
+                <div className="text-center p-6 space-y-2">
+                  <span className="material-symbols-outlined text-6xl text-primary/30">
+                    inventory_2
+                  </span>
+                  <p className="font-label-caps text-xs font-bold text-primary uppercase tracking-widest block">
+                    {product.brand}
+                  </p>
+                  <p className="font-body-sm text-xs text-on-surface-variant max-w-xs">
+                    Commercial packaging image undergoing laboratory validation
+                  </p>
                 </div>
               )}
             </div>
 
-            {/* Badges Under Image */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
-              {isSample ? (
-                <span className="chip bg-[var(--mango)] text-[var(--ink)] text-xs">
-                  <Sparkles className="w-3.5 h-3.5" /> Sample Benchmark
-                </span>
-              ) : isIncomplete ? (
-                <span className="chip bg-[var(--surface-alt)] text-[var(--ink)] text-xs">
-                  <AlertCircle className="w-3.5 h-3.5 text-[var(--mango)]" /> Catalog Record
-                </span>
-              ) : (
-                <span className="chip bg-[var(--mint)] text-[var(--ink)] text-xs">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[var(--leaf)]" /> Verified Label
-                </span>
-              )}
+            <div className="flex items-center gap-2 mt-3">
+              <span className="px-3 py-1 rounded-full text-xs font-label-caps font-bold bg-primary-fixed text-on-primary-fixed border border-primary/20 flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-sm">health_and_safety</span>
+                <span>Verified Independent Inspection</span>
+              </span>
             </div>
           </div>
 
-          {/* Product Details & Vitality Capsule */}
-          <div className="w-full md:w-7/12 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-            <span className="chip text-xs bg-[var(--surface-alt)]">
-              {product.brand}
-            </span>
-            <h1 className="t-h2 text-[var(--ink)] leading-tight">
-              {product.name}
-            </h1>
-            {product.category && (
-              <p className="text-xs font-bold opacity-60">
-                Aisle: {product.category} {product.subcategory ? `• ${product.subcategory}` : ''}
-              </p>
-            )}
-
-            {/* Vitality Capsule Showcase */}
-            <div className="w-full py-4 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
-              <FBSVitalityCapsule
-                score={product.fbs.score}
-                band={product.fbs.band}
-                orientation="vertical"
-                size="md"
-                showLabel={true}
-              />
-
-              <div className="space-y-3 flex flex-col items-center sm:items-start">
-                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
-                  <ProductPageClientExtras product={product} />
-                  <FavouriteButton
-                    slug={product.slug}
-                    productName={product.name}
-                    size="md"
-                    showLabel={true}
-                  />
-                  <AddToCartButton
-                    slug={product.slug}
-                    productName={product.name}
-                    size="md"
-                  />
-                  <ShareButton product={product} size="md" showLabel={true} />
+          {/* Product Details & Score Pillar */}
+          <div className="md:col-span-7 space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="px-3 py-1 rounded-full text-xs font-label-caps uppercase tracking-wider bg-surface-container text-secondary font-bold">
+                {product.brand}
+              </span>
+              {product.priceINR !== null && product.priceINR !== undefined && (
+                <div className="px-3.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold text-sm border border-secondary/20 tabular-nums">
+                  MRP: <strong className="text-base font-bold">₹{product.priceINR}</strong>
                 </div>
-                <p className="text-xs font-bold opacity-60 max-w-xs text-center sm:text-left">
-                  Algorithmically grounded per 100g on Indian Dietary Guidelines (ICMR-NIN).
+              )}
+            </div>
+
+            <h2 className="font-headline-lg-mobile sm:font-headline-lg text-primary font-serif leading-tight">
+              {product.name}
+            </h2>
+
+            <p className="font-body-sm text-xs text-on-surface-variant font-medium">
+              Category: <strong className="text-primary">{product.category}</strong>
+              {product.subcategory && ` • Subcategory: ${product.subcategory}`}
+              {product.servingSizeG && ` • Serving: ${product.servingSizeG}g`}
+            </p>
+
+            {/* Signature FBS Vitality Capsule */}
+            <div className="rounded-xl bg-surface-container-low p-4 border border-outline-variant/30 flex items-center justify-between gap-4">
+              <div className="space-y-1">
+                <div className="font-label-caps text-xs uppercase text-primary font-bold flex items-center gap-1">
+                  <span className="material-symbols-outlined text-base">award_star</span>
+                  <span>Food Benefit Score (FBS)</span>
+                </div>
+                <p className="font-body-sm text-xs text-on-surface-variant max-w-md">
+                  Algorithmic evaluation calibrated from intact protein &amp; fibre against free sugars, sodium &amp; industrial UPF markers.
                 </p>
               </div>
-            </div>
-
-            {/* Price & Pack Size */}
-            <div className="flex flex-wrap justify-center md:justify-start items-center gap-3 pt-3 border-t-2 border-[var(--ink)]/15 w-full">
-              <span className="chip text-xs font-black">
-                MRP: {product.priceINR ? `₹${product.priceINR}` : 'N/A'}
-              </span>
-              <span className="chip text-xs font-black">
-                Pack: {product.packSizeG ? `${product.packSizeG}g` : 'N/A'}
-              </span>
-              <span className="chip text-xs font-black">
-                Serving: {product.servingSizeG ? `${product.servingSizeG}g` : '100g'}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. THE VERDICT (Reference UI Style) */}
-        <div className="bubble-card space-y-4">
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <h3 className="t-h3">The Verdict</h3>
-            <span className="chip bg-[var(--surface-alt)] text-xs">
-              Guideline: {freq.frequency}
-            </span>
-          </div>
-          <p className="t-body font-semibold opacity-85 leading-relaxed">
-            {freq.text}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t-2 border-[var(--ink)]/10">
-            {/* Benefits */}
-            <div className="space-y-3">
-              <div className="t-small text-[var(--leaf)] flex items-center gap-1.5 uppercase font-black">
-                <CheckCircle className="w-4 h-4" /> Benefits & Highlights
-              </div>
-              {product.benefits.length > 0 ? (
-                <ul className="space-y-1.5 text-sm font-bold opacity-80 list-disc ml-5">
-                  {product.benefits.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-xs font-semibold opacity-60 italic">No notable positive highlights</p>
-              )}
-            </div>
-
-            {/* Concerns */}
-            <div className="space-y-3">
-              <div className="t-small text-[var(--tomato)] flex items-center gap-1.5 uppercase font-black">
-                <AlertTriangle className="w-4 h-4" /> Things to consider
-              </div>
-              {product.concerns.length > 0 ? (
-                <ul className="space-y-1.5 text-sm font-bold opacity-80 list-disc ml-5">
-                  {product.concerns.map((c, i) => (
-                    <li key={i}>{c}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-xs font-semibold opacity-60 italic">Clean nutritional profile</p>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* 4. NUTRITION FACTS (PER 100G) & RDA BARS */}
-        {product.per100g.energyKcal !== null && (
-          <div className="bubble-card space-y-6">
-            <div className="flex justify-between items-center flex-wrap gap-2">
-              <h3 className="t-h3">
-                Nutrition <span className="opacity-50 text-sm font-normal">(per 100g)</span>
-              </h3>
-              <span className="chip text-xs bg-[var(--surface-alt)]">
-                ICMR-NIN RDA Reference
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-              <div className="p-3 rounded-2xl bg-[var(--surface-alt)] border-2 border-[var(--ink)]">
-                <span className="text-[10px] font-black uppercase opacity-60 block">Energy</span>
-                <span className="text-xl font-black text-[var(--ink)]">{product.per100g.energyKcal} kcal</span>
-              </div>
-              <div className="p-3 rounded-2xl bg-[var(--mint)] border-2 border-[var(--ink)]">
-                <span className="text-[10px] font-black uppercase opacity-60 block">Protein</span>
-                <span className="text-xl font-black text-[var(--leaf)]">{product.per100g.proteinG} g</span>
-              </div>
-              <div className="p-3 rounded-2xl bg-[var(--surface-alt)] border-2 border-[var(--ink)]">
-                <span className="text-[10px] font-black uppercase opacity-60 block">Added Sugar</span>
-                <span className="text-xl font-black text-[var(--tomato)]">{product.per100g.addedSugarG ?? product.per100g.totalSugarG ?? 0} g</span>
-              </div>
-              <div className="p-3 rounded-2xl bg-[var(--surface-alt)] border-2 border-[var(--ink)]">
-                <span className="text-[10px] font-black uppercase opacity-60 block">Sodium</span>
-                <span className="text-xl font-black text-[var(--ink)]">{product.per100g.sodiumMg ?? 0} mg</span>
+              <div className="shrink-0">
+                <FBSVitalityCapsule score={score} size="sm" orientation="horizontal" />
               </div>
             </div>
 
-            <div className="pt-2">
-              <RDABars servingSizeG={product.servingSizeG} per100g={product.per100g} />
+            {/* UPF Risk Alert */}
+            {isUPF && (
+              <div className="p-3 rounded-lg bg-error-container text-on-error-container border border-error/30 flex items-center gap-2 text-xs font-label-caps">
+                <span className="material-symbols-outlined text-base text-error">warning</span>
+                <span>Contains Ultra-Processed Additives or High Sugar/Sodium Ratio. Consume with caution.</span>
+              </div>
+            )}
+
+            {/* Action Bar */}
+            <div className="flex flex-wrap items-center gap-3 pt-3">
+              <AddToCartButton slug={product.slug} productName={product.name} size="md" />
+              <FavouriteButton slug={product.slug} productName={product.name} size="md" showLabel={true} />
+              <ShareButton product={product} size="md" showLabel={true} />
+              <Link
+                href={`/compare?select=${product.slug}`}
+                className="px-4 py-2.5 rounded-full border border-outline-variant/40 bg-surface-container text-on-surface font-label-caps text-xs uppercase font-bold hover:bg-surface-container-high transition-colors inline-flex items-center gap-1.5"
+              >
+                <span className="material-symbols-outlined text-base">balance</span>
+                <span>Pin to Compare</span>
+              </Link>
             </div>
-          </div>
-        )}
-
-        {/* SCORECARD V2 DECISION-SUPPORT MODULES:
-            Order: Smart Consumption -> Nutrition Per Paisa (upgraded in place) -> Ingredients Analysis (upgraded in place)
-        */}
-        <ScorecardV2Container product={product} />
-
-        {/* 7. BETTER ALTERNATIVES (ISSE BEHTAR OPTION) */}
-        <BetterAlternativesCarousel
-          targetProduct={product}
-          allProducts={allProducts}
-        />
-
-        {/* 8. COMPARISON ACTION BANNER */}
-        <div className="bubble-card bg-[var(--berry)] text-white p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="t-h3 text-white">Compare Against Similar Grocery Items</h3>
-            <p className="text-xs sm:text-sm font-semibold opacity-90">
-              Run a side-by-side test to see which option gives you higher protein and less sugar.
-            </p>
-          </div>
-          <Link
-            href={`/compare?select=${product.slug}`}
-            className="btn-chunky bg-white text-[var(--ink)] shrink-0 py-3 px-6 text-xs"
-          >
-            <Scale className="w-4 h-4 text-[var(--berry)]" /> Compare This Product
-          </Link>
-        </div>
-
-        {/* METADATA & REPORT ISSUE FOOTER */}
-        <div className="text-center opacity-70 space-y-2 pt-4 t-small">
-          <div>Verified Catalog Record • Last Updated: {product.lastUpdated} • Source: {product.dataSource}</div>
-          <div className="italic">Not medical advice. Formulated based on publicly disclosed packaging data.</div>
-          <div className="pt-2">
-            <ReportIssueModal
-              productId={product.id}
-              productSlug={product.slug}
-              productName={product.name}
-            />
           </div>
         </div>
       </div>
-    </>
+
+      {/* 4. MACRO FACTS & NUTRITION PER PAISA */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        {/* Nutrition Per Paisa Card */}
+        {valueData && (
+          <NutritionPerPaisaCard
+            valueData={valueData}
+            priceINR={product.priceINR}
+            packSizeG={product.packSizeG}
+            category={product.category}
+          />
+        )}
+
+        {/* RDA Reference Bars */}
+        <div className="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-6 shadow-xs space-y-4">
+          <div className="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+            <h3 className="font-headline-sm text-base text-primary">
+              RDA Reference Daily Allowances
+            </h3>
+            <span className="font-label-caps text-xs text-on-surface-variant font-bold">
+              ICMR-NIN 2024
+            </span>
+          </div>
+          <RDABars per100g={product.per100g} servingSizeG={product.servingSizeG} />
+        </div>
+      </div>
+
+      {/* 5. FORENSIC INGREDIENT BREAKDOWN */}
+      <div className="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-6 sm:p-8 space-y-4 shadow-xs">
+        <div className="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-primary text-xl">biotech</span>
+            <h3 className="font-headline-sm text-base text-primary">
+              Forensic Ingredient Breakdown
+            </h3>
+          </div>
+          <span className="font-label-caps text-xs px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface">
+            {product.ingredients?.length ?? 0} Declared Ingredients
+          </span>
+        </div>
+        <IngredientBreakdown
+          ingredients={product.ingredients}
+        />
+      </div>
+
+      {/* 6. SCORECARD V2 DEEP INTELLIGENCE MODULES */}
+      <div className="space-y-6 pt-4 border-t border-outline-variant/30">
+        <div className="text-center max-w-2xl mx-auto space-y-1">
+          <span className="font-label-caps text-xs uppercase tracking-wider text-primary bg-primary-fixed px-3 py-1 rounded-full border border-primary/20 font-bold">
+            Deep Intelligence Modules
+          </span>
+          <h2 className="font-headline-md text-2xl text-primary font-serif">
+            Smart Consumption &amp; Additives Analysis
+          </h2>
+        </div>
+        <ScorecardV2Container product={product} />
+      </div>
+
+      {/* 7. BETTER ALTERNATIVES CAROUSEL */}
+      {alternatives.length > 0 && (
+        <div className="space-y-4 pt-4 border-t border-outline-variant/30">
+          <div className="flex items-center justify-between">
+            <div className="space-y-0.5">
+              <span className="font-label-caps text-xs text-emerald-800 uppercase font-bold">
+                Healthy Swaps
+              </span>
+              <h3 className="font-headline-sm text-lg text-primary">
+                Better Alternatives in {product.category}
+              </h3>
+            </div>
+            <Link
+              href={`/category/${product.category?.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+              className="font-label-caps text-xs text-primary font-bold hover:underline"
+            >
+              View Category &rarr;
+            </Link>
+          </div>
+          <BetterAlternativesCarousel
+            targetProduct={product}
+            allProducts={allProds}
+          />
+        </div>
+      )}
+
+      {/* 8. CLIENT EXTRAS (Report Issue, Feedback) */}
+      <ProductPageClientExtras product={product} />
+    </div>
   );
 }

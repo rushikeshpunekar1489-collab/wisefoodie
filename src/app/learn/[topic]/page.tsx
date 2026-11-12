@@ -33,38 +33,38 @@ export default async function TopicDetailPage({ params }: Props) {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-16 space-y-8">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-xs text-stone-500">
-        <Link href="/" className="hover:text-emerald-800">Home</Link>
-        <ChevronRight className="w-3 h-3 text-stone-400" />
-        <Link href="/learn" className="hover:text-emerald-800">Food Knowledge</Link>
-        <ChevronRight className="w-3 h-3 text-stone-400" />
-        <span className="text-stone-900 font-semibold truncate">{item.title}</span>
+      <nav className="flex items-center gap-2 text-xs text-outline font-medium">
+        <Link href="/" className="hover:text-primary">Home</Link>
+        <ChevronRight className="w-3 h-3 text-outline" />
+        <Link href="/learn" className="hover:text-primary">Food Knowledge</Link>
+        <ChevronRight className="w-3 h-3 text-outline" />
+        <span className="text-primary font-bold truncate">{item.title}</span>
       </nav>
 
       {/* Header */}
-      <div className="wf-card p-6 sm:p-10 bg-white space-y-4">
+      <div className="rounded-2xl border border-outline-variant/40 p-6 sm:p-10 bg-surface-container-lowest shadow-sm space-y-4">
         <div className="flex items-center justify-between">
           <span className="text-4xl">{item.icon}</span>
-          <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
+          <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
             {item.category}
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl text-primary tracking-tight leading-tight">
           {item.title}
         </h1>
 
-        <p className="text-base text-stone-600 leading-relaxed max-w-2xl">
+        <p className="text-base text-on-surface-variant font-medium leading-relaxed max-w-2xl">
           {item.summary}
         </p>
 
         {/* Highlight Card */}
-        <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-sm font-semibold flex items-start gap-3 mt-4">
-          <Lightbulb className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
+        <div className="p-4 rounded-xl bg-primary/5 border border-primary/20 text-on-surface text-sm font-medium flex items-start gap-3 mt-4">
+          <Lightbulb className="w-5 h-5 text-secondary shrink-0 mt-0.5" />
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 block">
+            <span className="text-xs font-bold uppercase tracking-wider text-primary block mb-0.5">
               Core Takeaway
             </span>
             <span>{item.keyTakeaway}</span>
@@ -73,34 +73,34 @@ export default async function TopicDetailPage({ params }: Props) {
       </div>
 
       {/* Detailed Analysis Points */}
-      <div className="wf-card p-6 sm:p-8 space-y-6">
-        <h2 className="text-xl font-extrabold text-stone-900 tracking-tight">
+      <div className="rounded-2xl border border-outline-variant/40 p-6 sm:p-8 bg-surface-container-lowest shadow-sm space-y-6">
+        <h2 className="font-serif font-bold text-xl text-primary tracking-tight">
           What the Science Says
         </h2>
 
-        <div className="space-y-4 text-sm text-stone-700 leading-relaxed">
+        <div className="space-y-4 text-sm text-on-surface-variant leading-relaxed">
           {item.details.map((point, idx) => (
-            <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-stone-50 border border-stone-200/80">
-              <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+            <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30">
+              <span className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
                 {idx + 1}
               </span>
-              <p className="text-stone-800">{point}</p>
+              <p className="text-on-surface font-medium">{point}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Practical Supermarket Tips */}
-      <div className="wf-card p-6 sm:p-8 bg-amber-50/40 border-amber-200/80 space-y-4">
-        <div className="flex items-center gap-2 text-amber-900">
-          <CheckCircle2 className="w-5 h-5 text-amber-700" />
-          <h2 className="text-lg font-bold">Actionable Supermarket Rules</h2>
+      <div className="rounded-2xl border border-secondary/30 p-6 sm:p-8 bg-secondary/5 space-y-4">
+        <div className="flex items-center gap-2 text-secondary">
+          <CheckCircle2 className="w-5 h-5 text-secondary" />
+          <h2 className="font-serif font-bold text-lg text-primary">Actionable Supermarket Rules</h2>
         </div>
 
-        <ul className="space-y-2.5 text-sm text-stone-800">
+        <ul className="space-y-2.5 text-sm text-on-surface font-medium">
           {item.tips.map((tip, idx) => (
             <li key={idx} className="flex items-start gap-2.5">
-              <span className="text-amber-700 font-bold">•</span>
+              <span className="text-primary font-bold text-base">&bull;</span>
               <span>{tip}</span>
             </li>
           ))}
@@ -108,12 +108,12 @@ export default async function TopicDetailPage({ params }: Props) {
       </div>
 
       {/* Back button */}
-      <div className="pt-4 flex justify-between items-center text-xs font-bold text-stone-600">
-        <Link href="/learn" className="inline-flex items-center gap-1.5 hover:text-emerald-800">
-          <ArrowLeft className="w-4 h-4" /> Back to All Food Topics
-        </Link>
-        <Link href="/explore" className="inline-flex items-center gap-1.5 hover:text-emerald-800">
-          Test These Rules in the Food Catalog <ChevronRight className="w-4 h-4" />
+      <div className="pt-2">
+        <Link
+          href="/learn"
+          className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back to All Guides
         </Link>
       </div>
     </div>

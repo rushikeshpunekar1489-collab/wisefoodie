@@ -68,7 +68,6 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
         return prev.filter((s) => s !== slug);
       }
       if (prev.length >= 4) {
-        // Max 4 for comparison
         return prev;
       }
       return [...prev, slug];
@@ -82,7 +81,6 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
   };
 
   const handleAddAllToCart = () => {
-    // Stage all items for cart store (in Phase 3 this links to full cart)
     try {
       if (typeof window !== 'undefined' && window.localStorage) {
         const rawCart = window.localStorage.getItem('wf_cart_v1');
@@ -108,35 +106,40 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
 
   if (!isReady) {
     return (
-      <div className="py-20 text-center">
-        <div className="inline-block animate-spin rounded-full h-8 w-8 border-3 border-[var(--leaf)] border-t-transparent" />
-        <p className="mt-3 text-xs font-bold opacity-60">Loading your pantry watchlist...</p>
+      <div className="py-20 text-center text-sm text-outline font-medium">
+        Loading your pantry watchlist...
       </div>
     );
   }
 
-  // 1. EMPTY STATE (No favourites saved at all)
+  // 1. EMPTY STATE
   if (count === 0) {
     return (
       <div className="max-w-xl mx-auto py-16 px-4 text-center">
-        <div className="w-20 h-20 mx-auto rounded-full bg-[var(--surface-alt)] border-3 border-[var(--ink)] flex items-center justify-center shadow-[4px_4px_0px_var(--ink)] mb-6">
-          <Heart className="w-10 h-10 text-[var(--tomato)] opacity-40 stroke-[2]" />
+        <div className="w-20 h-20 mx-auto rounded-full bg-surface-container-low flex items-center justify-center mb-6 text-primary">
+          <Heart className="w-10 h-10 stroke-[1.5]" />
         </div>
-        <h1 className="text-3xl font-extrabold text-[var(--ink)]">Your Watchlist is Empty</h1>
-        <p className="text-sm font-semibold text-[var(--ink)] opacity-70 mt-3 leading-relaxed">
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl text-primary">Your Watchlist is Empty</h1>
+        <p className="text-sm font-medium text-on-surface-variant mt-3 leading-relaxed">
           Tap the heart button on any product card or report to save healthy alternatives, track nutrition, and plan smarter grocery choices.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link href="/explore" className="btn-chunky btn-primary py-3 px-6 text-sm flex items-center gap-2">
-            <Sparkles className="w-4 h-4" /> Explore Top Products <ArrowRight className="w-4 h-4" />
+          <Link
+            href="/products"
+            className="py-3 px-6 rounded-full bg-primary text-on-primary text-sm font-semibold flex items-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+          >
+            <Sparkles className="w-4 h-4" /> Explore 852 Products <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link href="/compare" className="btn-chunky py-3 px-6 text-sm bg-white hover:bg-[var(--surface-alt)]">
+          <Link
+            href="/compare"
+            className="py-3 px-6 rounded-full bg-surface-container text-on-surface text-sm font-semibold hover:bg-surface-container-high transition-colors"
+          >
             Compare Foods
           </Link>
         </div>
 
-        <div className="mt-12 p-4 rounded-2xl bg-[var(--surface-alt)] border border-[var(--ink)]/10 text-xs font-semibold text-[var(--ink)] opacity-70">
+        <div className="mt-12 p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 text-xs font-medium text-on-surface-variant">
           🔒 <strong>100% Local & Private:</strong> Your saved pantry items stay on this browser. No account required, no tracking.
         </div>
       </div>
@@ -147,27 +150,27 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
     <div className="space-y-6">
       {/* Toast Notification */}
       {cartToast && (
-        <div className="fixed top-20 right-4 z-50 bg-[var(--leaf)] text-white font-bold py-3 px-5 rounded-2xl border-2 border-[var(--ink)] shadow-[4px_4px_0px_var(--ink)] flex items-center gap-2 animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="fixed top-24 right-4 z-50 bg-primary text-on-primary font-semibold py-3 px-5 rounded-2xl shadow-xl flex items-center gap-2 animate-in fade-in slide-in-from-top-4 duration-200">
           <ShoppingCart className="w-5 h-5" />
           <span>Added all favourites to your Cart!</span>
         </div>
       )}
 
       {/* Header & Bulk Actions */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b-3 border-[var(--ink)]">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-outline-variant/30">
         <div>
-          <div className="flex items-center gap-2">
-            <div className="p-2 rounded-xl bg-[var(--tomato)]/10 text-[var(--tomato)] border-2 border-[var(--tomato)]">
+          <div className="flex items-center gap-2.5">
+            <div className="p-2 rounded-xl bg-primary/10 text-primary">
               <Heart className="w-6 h-6 fill-current" />
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-[var(--ink)]">
+            <h1 className="font-serif font-bold text-2xl sm:text-3xl text-primary flex items-center gap-2">
               My Favourites
-              <span className="ml-2.5 text-base py-0.5 px-2.5 rounded-full bg-[var(--ink)] text-white font-black">
+              <span className="text-xs py-0.5 px-2.5 rounded-full bg-primary text-on-primary font-bold">
                 {count}
               </span>
             </h1>
           </div>
-          <p className="text-xs sm:text-sm font-semibold opacity-70 mt-1">
+          <p className="text-xs sm:text-sm font-medium text-on-surface-variant mt-1">
             Your curated food watchlist. Stored safely on this device.
           </p>
         </div>
@@ -180,8 +183,10 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
               setIsSelectMode(!isSelectMode);
               if (isSelectMode) setSelectedSlugs([]);
             }}
-            className={`btn-chunky py-2 px-3 text-xs flex items-center gap-1.5 ${
-              isSelectMode ? 'btn-primary' : 'bg-white hover:bg-[var(--surface-alt)]'
+            className={`py-2 px-3.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-xs ${
+              isSelectMode
+                ? 'bg-primary text-on-primary'
+                : 'border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container text-on-surface'
             }`}
           >
             <Scale className="w-4 h-4" />
@@ -191,17 +196,17 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
           <button
             type="button"
             onClick={handleAddAllToCart}
-            className="btn-chunky py-2 px-3 text-xs bg-white hover:bg-[var(--surface-alt)] flex items-center gap-1.5"
+            className="py-2 px-3.5 rounded-lg border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container text-xs font-semibold text-on-surface flex items-center gap-1.5 shadow-xs transition-colors"
             title="Stage all favourited items in cart"
           >
-            <ShoppingCart className="w-4 h-4 text-[var(--leaf)]" />
+            <ShoppingCart className="w-4 h-4 text-primary" />
             <span>Add All to Cart</span>
           </button>
 
           <button
             type="button"
             onClick={() => setShowClearConfirm(true)}
-            className="btn-chunky py-2 px-2.5 text-xs text-[var(--tomato)] hover:bg-red-50"
+            className="py-2 px-3 rounded-lg border border-outline-variant/40 bg-surface-container-lowest hover:bg-error/5 text-xs font-semibold text-error transition-colors shadow-xs"
             title="Clear all favourites"
             aria-label="Clear all favourites"
           >
@@ -212,8 +217,8 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
 
       {/* Confirmation Dialog for Clear All */}
       {showClearConfirm && (
-        <div className="p-4 bg-red-50 border-2 border-[var(--tomato)] rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-xs font-bold text-[var(--tomato)]">
+        <div className="p-4 bg-error/5 border border-error/20 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xs">
+          <div className="flex items-center gap-2 text-xs font-semibold text-error">
             <AlertCircle className="w-4 h-4 shrink-0" />
             <span>Are you sure you want to remove all {count} items from favourites?</span>
           </div>
@@ -224,14 +229,14 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
                 clearAll();
                 setShowClearConfirm(false);
               }}
-              className="btn-chunky py-1.5 px-3 text-xs bg-[var(--tomato)] text-white"
+              className="py-1.5 px-3 rounded-lg text-xs bg-error text-white font-semibold"
             >
               Yes, Clear All
             </button>
             <button
               type="button"
               onClick={() => setShowClearConfirm(false)}
-              className="btn-chunky py-1.5 px-3 text-xs bg-white"
+              className="py-1.5 px-3 rounded-lg text-xs border border-outline-variant/40 bg-surface-container-lowest text-on-surface font-semibold"
             >
               Cancel
             </button>
@@ -240,21 +245,21 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
       )}
 
       {/* Filters & Sorting Bar */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-[var(--surface-alt)] p-3 rounded-2xl border-2 border-[var(--ink)]/15">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/40 shadow-sm">
         {/* Search within favourites */}
         <div className="relative flex-1 max-w-sm">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--ink)] opacity-50" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-outline" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search saved foods or brands..."
-            className="w-full pl-9 pr-3 py-1.5 text-xs font-bold bg-white rounded-xl border border-[var(--ink)]/20 focus:outline-hidden focus:border-[var(--leaf)]"
+            className="w-full pl-9 pr-3 py-1.5 text-xs font-medium bg-surface-container-low rounded-lg border border-outline-variant/40 text-on-surface focus:outline-none focus:border-primary"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 opacity-50 hover:opacity-100"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -263,11 +268,11 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
 
         {/* Sort Dropdown */}
         <div className="flex items-center gap-2 shrink-0">
-          <span className="text-xs font-extrabold opacity-70">Sort:</span>
+          <span className="text-xs font-semibold text-outline">Sort:</span>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as FavouritesSortOption)}
-            className="py-1.5 px-3 text-xs font-bold bg-white rounded-xl border border-[var(--ink)]/20 focus:outline-hidden cursor-pointer"
+            className="py-1.5 px-3 text-xs font-medium bg-surface-container-low rounded-lg border border-outline-variant/40 text-on-surface focus:outline-none focus:border-primary cursor-pointer"
           >
             <option value="recent">Recently Added</option>
             <option value="fbs-desc">Highest Score (FBS)</option>
@@ -280,14 +285,14 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
 
       {/* Category Pills */}
       {availableCategories.length > 1 && (
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
           <button
             type="button"
             onClick={() => setSelectedCategory('all')}
-            className={`chip text-xs py-1 px-3 whitespace-nowrap cursor-pointer ${
+            className={`text-xs py-1 px-3 rounded-full font-medium whitespace-nowrap transition-colors ${
               selectedCategory === 'all'
-                ? 'bg-[var(--ink)] text-white'
-                : 'bg-white hover:bg-[var(--surface-alt)]'
+                ? 'bg-primary text-on-primary'
+                : 'bg-surface-container-low text-on-surface hover:bg-surface-container'
             }`}
           >
             All Categories ({count})
@@ -297,10 +302,10 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
               key={cat}
               type="button"
               onClick={() => setSelectedCategory(cat)}
-              className={`chip text-xs py-1 px-3 whitespace-nowrap cursor-pointer ${
+              className={`text-xs py-1 px-3 rounded-full font-medium whitespace-nowrap transition-colors ${
                 selectedCategory === cat
-                  ? 'bg-[var(--leaf)] text-white'
-                  : 'bg-white hover:bg-[var(--surface-alt)]'
+                  ? 'bg-primary text-on-primary'
+                  : 'bg-surface-container-low text-on-surface hover:bg-surface-container'
               }`}
             >
               {cat}
@@ -311,15 +316,15 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
 
       {/* No Results from filters */}
       {favouritedProducts.length === 0 && (
-        <div className="py-12 text-center bg-white rounded-2xl border-2 border-dashed border-[var(--ink)]/20 p-6">
-          <p className="text-sm font-bold opacity-70">No saved foods match your current search or category filter.</p>
+        <div className="py-12 text-center bg-surface-container-lowest rounded-2xl border border-outline-variant/40 p-6 shadow-sm">
+          <p className="text-sm font-medium text-on-surface-variant">No saved foods match your current search or category filter.</p>
           <button
             type="button"
             onClick={() => {
               setSearchQuery('');
               setSelectedCategory('all');
             }}
-            className="btn-chunky py-2 px-4 text-xs mt-3 bg-[var(--surface-alt)]"
+            className="py-2 px-4 text-xs font-semibold mt-3 rounded-lg bg-surface-container text-on-surface"
           >
             Reset Filters
           </button>
@@ -338,12 +343,12 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
                 <button
                   type="button"
                   onClick={() => toggleSelect(product.slug)}
-                  className={`absolute top-2 right-2 z-20 p-1.5 rounded-xl border-2 border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)] transition-transform active:scale-95 ${
-                    isSelected ? 'bg-[var(--leaf)] text-white' : 'bg-white text-[var(--ink)]'
+                  className={`absolute top-2 right-2 z-20 p-1.5 rounded-lg border transition-all shadow-sm ${
+                    isSelected ? 'bg-primary text-white border-primary' : 'bg-surface-container-lowest text-outline border-outline-variant/40'
                   }`}
                   aria-label={isSelected ? 'Deselect for compare' : 'Select for compare'}
                 >
-                  {isSelected ? <CheckSquare className="w-5 h-5" /> : <Square className="w-5 h-5 opacity-40" />}
+                  {isSelected ? <CheckSquare className="w-4 h-4" /> : <Square className="w-4 h-4 opacity-60" />}
                 </button>
               )}
 
@@ -355,11 +360,11 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
 
       {/* Sticky Bottom Comparison Floating Bar when items are selected */}
       {isSelectMode && (
-        <div className="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 z-40 w-11/12 max-w-lg bg-[var(--surface)] border-3 border-[var(--ink)] rounded-2xl shadow-[6px_6px_0px_var(--ink)] p-3 flex items-center justify-between gap-3 animate-in slide-in-from-bottom-6">
-          <div className="text-xs font-black">
-            <span>{selectedSlugs.length} / 4 Selected</span>
+        <div className="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 z-40 w-11/12 max-w-lg bg-surface-container-lowest border border-outline-variant/40 rounded-2xl shadow-2xl p-3.5 flex items-center justify-between gap-3 animate-in slide-in-from-bottom-6">
+          <div className="text-xs">
+            <span className="font-bold text-primary">{selectedSlugs.length} / 4 Selected</span>
             {selectedSlugs.length < 2 && (
-              <span className="block text-[10px] font-bold text-[var(--mango)]">Pick at least 2</span>
+              <span className="block text-[10px] font-medium text-outline">Pick at least 2</span>
             )}
           </div>
 
@@ -367,7 +372,7 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
             <button
               type="button"
               onClick={() => setSelectedSlugs([])}
-              className="chip text-[11px] py-1 px-2.5 bg-white"
+              className="text-xs py-1.5 px-3 rounded-lg bg-surface-container-low text-on-surface font-medium hover:bg-surface-container"
             >
               Clear
             </button>
@@ -375,8 +380,10 @@ export default function FavouritesClient({ allProducts }: FavouritesClientProps)
               type="button"
               onClick={handleCompareSelected}
               disabled={selectedSlugs.length < 2}
-              className={`btn-chunky py-1.5 px-4 text-xs flex items-center gap-1.5 ${
-                selectedSlugs.length >= 2 ? 'btn-primary' : 'opacity-40 cursor-not-allowed bg-gray-200'
+              className={`py-1.5 px-4 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-colors ${
+                selectedSlugs.length >= 2
+                  ? 'bg-primary text-on-primary shadow-sm hover:bg-primary-container hover:text-on-primary-container'
+                  : 'opacity-40 cursor-not-allowed bg-surface-container text-outline'
               }`}
             >
               <Scale className="w-4 h-4" /> Compare Now

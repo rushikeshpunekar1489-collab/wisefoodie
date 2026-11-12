@@ -79,18 +79,18 @@ export default function DiaryClient({ allProducts }: DiaryClientProps) {
   const isToday = selectedDate === todayStr;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
+    <div className="max-w-5xl mx-auto px-4 pt-28 md:pt-32 pb-16 space-y-8">
       {/* Top Header & Streak */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b-3 border-[var(--ink)] pb-6">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-outline-variant/30 pb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--leaf)]/15 text-[var(--leaf)] text-xs font-black mb-2 border border-[var(--leaf)]/30">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-2">
             <span>🥗</span>
-            <span>Aaj maine kya khaya</span>
+            <span>Aaj maine kya khaya &middot; Food Journal</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold font-display tracking-tight text-[var(--ink)]">
+          <h1 className="font-serif font-bold text-3xl md:text-4xl text-primary tracking-tight">
             Food Diary & Nutrition Tracker
           </h1>
-          <p className="text-sm text-[var(--ink)] opacity-75 max-w-xl mt-1">
+          <p className="text-sm text-on-surface-variant font-medium max-w-xl mt-1">
             Track daily contributions against ICMR-NIN Indian reference values. Stored 100% locally on your device.
           </p>
         </div>
@@ -98,13 +98,13 @@ export default function DiaryClient({ allProducts }: DiaryClientProps) {
         {/* Streak Counter Badge */}
         <div className="flex items-center gap-3">
           {streak > 0 && (
-            <div className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[var(--mango)]/25 border-2 border-[var(--ink)] shadow-[3px_3px_0px_var(--ink)]">
-              <Flame className="w-5 h-5 text-[var(--mango)] fill-current animate-pulse" />
+            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-secondary/15 border border-secondary/30 text-secondary">
+              <Flame className="w-5 h-5 fill-current animate-pulse" />
               <div>
-                <span className="text-xs font-extrabold block leading-tight">
+                <span className="text-xs font-bold block leading-tight text-on-surface">
                   {streak} Day Streak
                 </span>
-                <span className="text-[10px] opacity-80">Consistent logging</span>
+                <span className="text-[10px] text-outline">Consistent logging</span>
               </div>
             </div>
           )}
@@ -112,15 +112,15 @@ export default function DiaryClient({ allProducts }: DiaryClientProps) {
           <button
             type="button"
             onClick={() => handleOpenAdd('breakfast')}
-            className="btn-chunky btn-primary py-2.5 px-4 text-xs flex items-center gap-1.5"
+            className="py-2.5 px-5 rounded-full bg-primary text-on-primary text-xs font-semibold flex items-center gap-1.5 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
           >
-            <Plus className="w-4 h-4 stroke-[3]" /> Add Food
+            <Plus className="w-4 h-4 stroke-[2.5]" /> Add Food
           </button>
         </div>
       </div>
 
       {/* Date Navigator Bar & Goals Switcher */}
-      <div className="card-chunky p-4 bg-[var(--surface-alt)] flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Date Selector */}
         <div className="flex items-center gap-2 w-full md:w-auto justify-between md:justify-start">
           <button

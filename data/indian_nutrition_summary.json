@@ -1,0 +1,12 @@
+{
+  "totalRecords": 1911,
+  "cookedDishes": 1014,
+  "rawFoods": 897,
+  "recipesWithOilData": 712,
+  "sources": {
+    "asc_manual": 490,
+    "bfp_manual": 376,
+    "open_source_recipes": 148,
+    "icmr_nin_ifct": 897
+  }
+}

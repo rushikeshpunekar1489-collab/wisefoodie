@@ -37,17 +37,17 @@ export default function DashboardClient({ stats }: Props) {
   return (
     <div className="space-y-8">
       {/* Dashboard Hero Header */}
-      <div className="bubble-card bg-gradient-to-br from-[var(--surface)] to-[var(--mint)]/20 p-6 md:p-8">
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 md:p-8 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--leaf)] text-white text-xs font-black uppercase tracking-wider mb-3">
-              <BarChart3 className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+              <BarChart3 className="w-3.5 h-3.5 text-primary" />
               <span>Dataset Intelligence Hub</span>
             </div>
-            <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-stone-900 dark:text-stone-50 tracking-tight leading-none mb-2">
+            <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-primary tracking-tight leading-tight mb-2">
               Indian Packaged Food Analytics
             </h1>
-            <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 max-w-2xl font-medium leading-relaxed">
+            <p className="text-sm sm:text-base text-on-surface-variant max-w-2xl font-medium leading-relaxed">
               Macro and micro trends across {stats.totalProducts} packaged foods, {stats.totalBrands} brands, and {stats.totalCategories} food categories in India.
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function DashboardClient({ stats }: Props) {
           <div className="flex items-center gap-2">
             <Link
               href="/products"
-              className="btn-chunky py-2.5 px-4 bg-[var(--leaf)] text-white text-xs font-black flex items-center gap-1.5"
+              className="py-2.5 px-5 rounded-full bg-primary text-on-primary text-xs font-semibold flex items-center gap-1.5 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
             >
               <span>Explore Products</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -67,111 +67,111 @@ export default function DashboardClient({ stats }: Props) {
       {/* 7 Summary Statistics Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
         {/* Total Products */}
-        <div className="bubble-card p-4 bg-[var(--surface)] text-[var(--ink)] flex flex-col justify-between">
-          <div className="flex items-center justify-between text-stone-400 mb-2">
-            <span className="text-[11px] font-black uppercase tracking-wider">Products</span>
-            <Layers className="w-4 h-4 text-emerald-500" />
+        <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 flex flex-col justify-between shadow-sm">
+          <div className="flex items-center justify-between text-outline mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Products</span>
+            <Layers className="w-4 h-4 text-primary" />
           </div>
           <div>
-            <span className="font-display font-black text-2xl lg:text-3xl text-stone-900 dark:text-stone-50">
+            <span className="font-serif font-bold text-2xl lg:text-3xl text-primary">
               {stats.totalProducts}
             </span>
-            <span className="text-[10px] text-stone-400 block mt-0.5">Verified items</span>
+            <span className="text-[10px] text-outline block mt-0.5">Verified items</span>
           </div>
         </div>
 
         {/* Total Brands */}
-        <div className="bubble-card p-4 bg-[var(--surface)] text-[var(--ink)] flex flex-col justify-between">
-          <div className="flex items-center justify-between text-stone-400 mb-2">
-            <span className="text-[11px] font-black uppercase tracking-wider">Brands</span>
-            <Tag className="w-4 h-4 text-sky-500" />
+        <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 flex flex-col justify-between shadow-sm">
+          <div className="flex items-center justify-between text-outline mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Brands</span>
+            <Tag className="w-4 h-4 text-secondary" />
           </div>
           <div>
-            <span className="font-display font-black text-2xl lg:text-3xl text-stone-900 dark:text-stone-50">
+            <span className="font-serif font-bold text-2xl lg:text-3xl text-primary">
               {stats.totalBrands}
             </span>
-            <span className="text-[10px] text-stone-400 block mt-0.5">Indian & Global</span>
+            <span className="text-[10px] text-outline block mt-0.5">Indian & Global</span>
           </div>
         </div>
 
         {/* Total Categories */}
-        <div className="bubble-card p-4 bg-[var(--surface)] text-[var(--ink)] flex flex-col justify-between">
-          <div className="flex items-center justify-between text-stone-400 mb-2">
-            <span className="text-[11px] font-black uppercase tracking-wider">Categories</span>
-            <PieChart className="w-4 h-4 text-amber-500" />
+        <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 flex flex-col justify-between shadow-sm">
+          <div className="flex items-center justify-between text-outline mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Categories</span>
+            <PieChart className="w-4 h-4 text-primary" />
           </div>
           <div>
-            <span className="font-display font-black text-2xl lg:text-3xl text-stone-900 dark:text-stone-50">
+            <span className="font-serif font-bold text-2xl lg:text-3xl text-primary">
               {stats.totalCategories}
             </span>
-            <span className="text-[10px] text-stone-400 block mt-0.5">Food classes</span>
+            <span className="text-[10px] text-outline block mt-0.5">Distinct segments</span>
           </div>
         </div>
 
         {/* Avg Calories */}
-        <div className="bubble-card p-4 bg-[var(--surface)] text-[var(--ink)] flex flex-col justify-between">
-          <div className="flex items-center justify-between text-stone-400 mb-2">
-            <span className="text-[11px] font-black uppercase tracking-wider">Avg Calories</span>
-            <Flame className="w-4 h-4 text-rose-500" />
+        <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 flex flex-col justify-between shadow-sm">
+          <div className="flex items-center justify-between text-outline mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Avg Energy</span>
+            <Flame className="w-4 h-4 text-secondary" />
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="font-display font-black text-2xl lg:text-3xl text-stone-900 dark:text-stone-50">
+              <span className="font-serif font-bold text-2xl lg:text-3xl text-primary">
                 {stats.avgCalories}
               </span>
-              <span className="text-xs font-bold text-stone-400">kcal</span>
+              <span className="text-xs font-semibold text-outline">kcal</span>
             </div>
-            <span className="text-[10px] text-stone-400 block mt-0.5">Per 100g / serv</span>
+            <span className="text-[10px] text-outline block mt-0.5">per 100g</span>
           </div>
         </div>
 
         {/* Avg Protein */}
-        <div className="bubble-card p-4 bg-[var(--surface)] text-[var(--ink)] flex flex-col justify-between">
-          <div className="flex items-center justify-between text-stone-400 mb-2">
-            <span className="text-[11px] font-black uppercase tracking-wider">Avg Protein</span>
-            <Award className="w-4 h-4 text-emerald-600" />
+        <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 flex flex-col justify-between shadow-sm">
+          <div className="flex items-center justify-between text-outline mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Avg Protein</span>
+            <Award className="w-4 h-4 text-primary" />
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="font-display font-black text-2xl lg:text-3xl text-stone-900 dark:text-stone-50">
+              <span className="font-serif font-bold text-2xl lg:text-3xl text-primary">
                 {stats.avgProtein}
               </span>
-              <span className="text-xs font-bold text-stone-400">g</span>
+              <span className="text-xs font-semibold text-outline">g</span>
             </div>
-            <span className="text-[10px] text-stone-400 block mt-0.5">Macro strength</span>
+            <span className="text-[10px] text-outline block mt-0.5">per 100g</span>
           </div>
         </div>
 
         {/* Avg Sugar */}
-        <div className="bubble-card p-4 bg-[var(--surface)] text-[var(--ink)] flex flex-col justify-between">
-          <div className="flex items-center justify-between text-stone-400 mb-2">
-            <span className="text-[11px] font-black uppercase tracking-wider">Avg Sugar</span>
-            <Droplets className="w-4 h-4 text-rose-500" />
+        <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 flex flex-col justify-between shadow-sm">
+          <div className="flex items-center justify-between text-outline mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Avg Sugar</span>
+            <Droplets className="w-4 h-4 text-error" />
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="font-display font-black text-2xl lg:text-3xl text-stone-900 dark:text-stone-50">
+              <span className="font-serif font-bold text-2xl lg:text-3xl text-error">
                 {stats.avgSugar}
               </span>
-              <span className="text-xs font-bold text-stone-400">g</span>
+              <span className="text-xs font-semibold text-outline">g</span>
             </div>
-            <span className="text-[10px] text-stone-400 block mt-0.5">Total sugar</span>
+            <span className="text-[10px] text-outline block mt-0.5">Total sugar</span>
           </div>
         </div>
 
         {/* Avg Price */}
-        <div className="bubble-card p-4 bg-[var(--surface)] text-[var(--ink)] flex flex-col justify-between">
-          <div className="flex items-center justify-between text-stone-400 mb-2">
-            <span className="text-[11px] font-black uppercase tracking-wider">Avg Price</span>
-            <CircleDollarSign className="w-4 h-4 text-emerald-500" />
+        <div className="rounded-xl border border-outline-variant/30 bg-surface-container-lowest p-4 flex flex-col justify-between shadow-sm">
+          <div className="flex items-center justify-between text-outline mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider">Avg Price</span>
+            <CircleDollarSign className="w-4 h-4 text-primary" />
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="font-display font-black text-2xl lg:text-3xl text-stone-900 dark:text-stone-50">
+              <span className="font-serif font-bold text-2xl lg:text-3xl text-primary">
                 ₹{stats.avgPrice}
               </span>
             </div>
-            <span className="text-[10px] text-stone-400 block mt-0.5">Retail declared</span>
+            <span className="text-[10px] text-outline block mt-0.5">Retail declared</span>
           </div>
         </div>
       </div>
@@ -179,15 +179,15 @@ export default function DashboardClient({ stats }: Props) {
       {/* 6 Visual Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Chart 1: Products by Category */}
-        <div className="bubble-card p-6 bg-[var(--surface)] text-[var(--ink)] space-y-4">
-          <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
+        <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
             <div>
-              <h2 className="font-display font-black text-lg text-stone-900 dark:text-stone-50">
+              <h2 className="font-serif font-bold text-lg text-primary">
                 1. Products by Category
               </h2>
-              <p className="text-xs text-stone-500">Distribution of all 852 products across 13 categories</p>
+              <p className="text-xs text-on-surface-variant">Distribution of all 852 products across 13 categories</p>
             </div>
-            <Layers className="w-5 h-5 text-[var(--leaf)]" />
+            <Layers className="w-5 h-5 text-primary" />
           </div>
 
           <div className="space-y-2.5 pt-2">
@@ -196,16 +196,16 @@ export default function DashboardClient({ stats }: Props) {
               const icon = CATEGORY_ICONS[cat.category] || '🍽️';
               return (
                 <div key={cat.category} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-bold">
-                    <span className="flex items-center gap-1.5 truncate">
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="flex items-center gap-1.5 truncate text-on-surface">
                       <span>{icon}</span>
                       <span className="truncate">{cat.category}</span>
                     </span>
-                    <span className="font-mono text-stone-500 shrink-0">{cat.count} products</span>
+                    <span className="font-mono text-outline shrink-0">{cat.count} products</span>
                   </div>
-                  <div className="w-full h-3 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-emerald-500 to-[var(--leaf)] rounded-full transition-all duration-500"
+                      className="h-full bg-primary rounded-full transition-all duration-500"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -216,15 +216,15 @@ export default function DashboardClient({ stats }: Props) {
         </div>
 
         {/* Chart 2: Top Brands by Catalog Size */}
-        <div className="bubble-card p-6 bg-[var(--surface)] text-[var(--ink)] space-y-4">
-          <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
+        <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
             <div>
-              <h2 className="font-display font-black text-lg text-stone-900 dark:text-stone-50">
+              <h2 className="font-serif font-bold text-lg text-primary">
                 2. Products by Brand (Top 15)
               </h2>
-              <p className="text-xs text-stone-500">Highest product count brand representation</p>
+              <p className="text-xs text-on-surface-variant">Highest product count brand representation</p>
             </div>
-            <Tag className="w-5 h-5 text-sky-500" />
+            <Tag className="w-5 h-5 text-secondary" />
           </div>
 
           <div className="space-y-2.5 pt-2">
@@ -232,16 +232,16 @@ export default function DashboardClient({ stats }: Props) {
               const pct = Math.round((b.count / maxBrandCount) * 100);
               return (
                 <div key={b.brand} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-bold">
-                    <span className="truncate">
-                      <span className="text-stone-400 font-mono mr-2">#{idx + 1}</span>
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="truncate text-on-surface">
+                      <span className="text-outline font-mono mr-2">#{idx + 1}</span>
                       {b.brand}
                     </span>
-                    <span className="font-mono text-stone-500 shrink-0">{b.count} products</span>
+                    <span className="font-mono text-outline shrink-0">{b.count} products</span>
                   </div>
-                  <div className="w-full h-3 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-sky-500 to-indigo-600 rounded-full transition-all duration-500"
+                      className="h-full bg-secondary rounded-full transition-all duration-500"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -252,15 +252,15 @@ export default function DashboardClient({ stats }: Props) {
         </div>
 
         {/* Chart 3: Average Calories by Category */}
-        <div className="bubble-card p-6 bg-[var(--surface)] text-[var(--ink)] space-y-4">
-          <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
+        <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
             <div>
-              <h2 className="font-display font-black text-lg text-stone-900 dark:text-stone-50">
+              <h2 className="font-serif font-bold text-lg text-primary">
                 3. Average Calories by Category
               </h2>
-              <p className="text-xs text-stone-500">Mean energy density (kcal / 100g)</p>
+              <p className="text-xs text-on-surface-variant">Mean energy density (kcal / 100g)</p>
             </div>
-            <Flame className="w-5 h-5 text-rose-500" />
+            <Flame className="w-5 h-5 text-secondary" />
           </div>
 
           <div className="space-y-2.5 pt-2">
@@ -269,16 +269,16 @@ export default function DashboardClient({ stats }: Props) {
               const icon = CATEGORY_ICONS[cat.category] || '🍽️';
               return (
                 <div key={cat.category} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-bold">
-                    <span className="flex items-center gap-1.5 truncate">
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="flex items-center gap-1.5 truncate text-on-surface">
                       <span>{icon}</span>
                       <span className="truncate">{cat.category}</span>
                     </span>
-                    <span className="font-mono text-stone-500 shrink-0">{cat.avgCalories} kcal</span>
+                    <span className="font-mono text-outline shrink-0">{cat.avgCalories} kcal</span>
                   </div>
-                  <div className="w-full h-3 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-amber-400 to-rose-500 rounded-full transition-all duration-500"
+                      className="h-full bg-secondary rounded-full transition-all duration-500"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -289,15 +289,15 @@ export default function DashboardClient({ stats }: Props) {
         </div>
 
         {/* Chart 4: Average Protein by Category */}
-        <div className="bubble-card p-6 bg-[var(--surface)] text-[var(--ink)] space-y-4">
-          <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
+        <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
             <div>
-              <h2 className="font-display font-black text-lg text-stone-900 dark:text-stone-50">
+              <h2 className="font-serif font-bold text-lg text-primary">
                 4. Average Protein by Category
               </h2>
-              <p className="text-xs text-stone-500">Mean protein concentration (g / 100g)</p>
+              <p className="text-xs text-on-surface-variant">Mean protein concentration (g / 100g)</p>
             </div>
-            <Award className="w-5 h-5 text-emerald-600" />
+            <Award className="w-5 h-5 text-primary" />
           </div>
 
           <div className="space-y-2.5 pt-2">
@@ -306,16 +306,16 @@ export default function DashboardClient({ stats }: Props) {
               const icon = CATEGORY_ICONS[cat.category] || '🍽️';
               return (
                 <div key={cat.category} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-bold">
-                    <span className="flex items-center gap-1.5 truncate">
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="flex items-center gap-1.5 truncate text-on-surface">
                       <span>{icon}</span>
                       <span className="truncate">{cat.category}</span>
                     </span>
-                    <span className="font-mono text-stone-500 shrink-0">{cat.avgProtein} g</span>
+                    <span className="font-mono text-outline shrink-0">{cat.avgProtein} g</span>
                   </div>
-                  <div className="w-full h-3 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-teal-400 to-emerald-600 rounded-full transition-all duration-500"
+                      className="h-full bg-primary rounded-full transition-all duration-500"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -326,15 +326,15 @@ export default function DashboardClient({ stats }: Props) {
         </div>
 
         {/* Chart 5: Average Sugar by Category */}
-        <div className="bubble-card p-6 bg-[var(--surface)] text-[var(--ink)] space-y-4">
-          <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
+        <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
             <div>
-              <h2 className="font-display font-black text-lg text-stone-900 dark:text-stone-50">
+              <h2 className="font-serif font-bold text-lg text-primary">
                 5. Average Sugar by Category
               </h2>
-              <p className="text-xs text-stone-500">Sugar concentration ranking (g / 100g)</p>
+              <p className="text-xs text-on-surface-variant">Sugar concentration ranking (g / 100g)</p>
             </div>
-            <Droplets className="w-5 h-5 text-rose-500" />
+            <Droplets className="w-5 h-5 text-error" />
           </div>
 
           <div className="space-y-2.5 pt-2">
@@ -343,16 +343,16 @@ export default function DashboardClient({ stats }: Props) {
               const icon = CATEGORY_ICONS[cat.category] || '🍽️';
               return (
                 <div key={cat.category} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-bold">
-                    <span className="flex items-center gap-1.5 truncate">
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="flex items-center gap-1.5 truncate text-on-surface">
                       <span>{icon}</span>
                       <span className="truncate">{cat.category}</span>
                     </span>
-                    <span className="font-mono text-stone-500 shrink-0">{cat.avgSugar} g</span>
+                    <span className="font-mono text-outline shrink-0">{cat.avgSugar} g</span>
                   </div>
-                  <div className="w-full h-3 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-rose-400 to-red-600 rounded-full transition-all duration-500"
+                      className="h-full bg-error/70 rounded-full transition-all duration-500"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -363,15 +363,15 @@ export default function DashboardClient({ stats }: Props) {
         </div>
 
         {/* Chart 6: Price Distribution */}
-        <div className="bubble-card p-6 bg-[var(--surface)] text-[var(--ink)] space-y-4">
-          <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
+        <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 space-y-4 shadow-sm">
+          <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
             <div>
-              <h2 className="font-display font-black text-lg text-stone-900 dark:text-stone-50">
+              <h2 className="font-serif font-bold text-lg text-primary">
                 6. Price Distribution
               </h2>
-              <p className="text-xs text-stone-500">Retail price tier segmentation across dataset</p>
+              <p className="text-xs text-on-surface-variant">Retail price tier segmentation across dataset</p>
             </div>
-            <CircleDollarSign className="w-5 h-5 text-emerald-500" />
+            <CircleDollarSign className="w-5 h-5 text-primary" />
           </div>
 
           <div className="space-y-3 pt-2">
@@ -379,13 +379,13 @@ export default function DashboardClient({ stats }: Props) {
               const pct = Math.round((bucket.count / maxPriceBucket) * 100);
               return (
                 <div key={bucket.range} className="space-y-1">
-                  <div className="flex items-center justify-between text-xs font-bold">
-                    <span className="text-stone-800 dark:text-stone-200">{bucket.range}</span>
-                    <span className="font-mono text-stone-500 shrink-0">{bucket.count} products</span>
+                  <div className="flex items-center justify-between text-xs font-semibold">
+                    <span className="text-on-surface">{bucket.range}</span>
+                    <span className="font-mono text-outline shrink-0">{bucket.count} products</span>
                   </div>
-                  <div className="w-full h-3 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-purple-400 to-indigo-600 rounded-full transition-all duration-500"
+                      className="h-full bg-primary-container rounded-full transition-all duration-500"
                       style={{ width: `${pct}%` }}
                     />
                   </div>

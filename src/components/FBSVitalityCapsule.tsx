@@ -5,89 +5,141 @@ import React, { useEffect, useState } from 'react';
 interface FBSVitalityCapsuleProps {
   score: number | null | undefined;
   band?: string | null;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
   orientation?: 'vertical' | 'horizontal';
   showLabel?: boolean;
   onClick?: () => void;
 }
 
-const BANDS = [
-  { min: 9.0, max: 10.0, color: 'var(--leaf)', label: 'EXCELLENT CHOICE' },
-  { min: 8.0, max: 8.9, color: '#10b981', label: 'VERY GOOD CHOICE' },
-  { min: 7.0, max: 7.9, color: '#84cc16', label: 'GOOD CHOICE' },
-  { min: 5.0, max: 6.9, color: 'var(--mango)', label: 'MODERATE' },
-  { min: 3.0, max: 4.9, color: '#f97316', label: 'LIMITED' },
-  { min: 1.0, max: 2.9, color: 'var(--tomato)', label: 'POOR / TREAT' },
+interface TierConfig {
+  min: number;
+  max: number;
+  color: string;
+  containerTint: string;
+  textColor: string;
+  tierName: string;
+}
+
+const TIERS: TierConfig[] = [
+  { min: 8.0, max: 10.0, color: '#059669', containerTint: '#ECFDF5', textColor: '#065F46', tierName: 'EXEMPLARY' },
+  { min: 6.5, max: 7.9, color: '#16A34A', containerTint: '#F0FDF4', textColor: '#14532D', tierName: 'GOOD' },
+  { min: 4.5, max: 6.4, color: '#D97706', containerTint: '#FFFBEB', textColor: '#78350F', tierName: 'MODERATE' },
+  { min: 2.5, max: 4.4, color: '#EA580C', containerTint: '#FFF7ED', textColor: '#7C2D12', tierName: 'CAUTION' },
+  { min: 0.0, max: 2.4, color: '#DC2626', containerTint: '#FEF2F2', textColor: '#7F1D1D', tierName: 'AVOID / UPF' },
 ];
 
 export default function FBSVitalityCapsule({
   score,
   size = 'md',
-  orientation = 'vertical',
+  orientation = 'horizontal',
   showLabel = true,
   onClick,
 }: FBSVitalityCapsuleProps) {
-  const [animatedHeight, setAnimatedHeight] = useState(0);
+  const [animatedProgress, setAnimatedProgress] = useState(0);
 
   const isPending = score === null || score === undefined || isNaN(score);
-  const safeScore = isPending ? 0 : Math.max(1, Math.min(10, score));
-  const fillPercentage = isPending ? 0 : ((safeScore - 1) / 9) * 100;
+  const safeScore = isPending ? 0 : Math.max(0, Math.min(10, score));
+  const progressPercent = isPending ? 0 : (safeScore / 10) * 100;
 
-  const bandConfig = !isPending
-    ? BANDS.find((b) => safeScore >= b.min && safeScore <= b.max) || BANDS[BANDS.length - 1]
-    : { color: '#94a3b8', label: 'SCORE PENDING' };
+  const tier = !isPending
+    ? TIERS.find((t) => safeScore >= t.min && safeScore <= t.max) || TIERS[TIERS.length - 1]
+    : { color: '#717975', containerTint: '#e6f0eb', textColor: '#414845', tierName: 'PENDING' };
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setAnimatedHeight(isPending ? 20 : fillPercentage);
-    }, 120);
+      setAnimatedProgress(progressPercent);
+    }, 100);
     return () => clearTimeout(timer);
-  }, [fillPercentage, isPending]);
+  }, [progressPercent]);
 
+  // Micro / Compact badge (for cards)
+  if (size === 'xs') {
+    return (
+      <div
+        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border shadow-2xs font-sans select-none"
+        style={{
+          backgroundColor: tier.containerTint,
+          borderColor: `${tier.color}40`,
+        }}
+        onClick={onClick}
+        title={`Food Benefit Score: ${safeScore.toFixed(1)}/10 (${tier.tierName})`}
+      >
+        <span
+          className="w-2 h-2 rounded-full flex-shrink-0 animate-pulse"
+          style={{ backgroundColor: tier.color }}
+        />
+        <span
+          className="font-display font-bold text-sm tabular-nums leading-none"
+          style={{ color: tier.textColor }}
+        >
+          {isPending ? '—' : safeScore.toFixed(1)}
+        </span>
+        {showLabel && (
+          <span
+            className="font-label-caps text-[0.625rem] tracking-wider uppercase font-bold"
+            style={{ color: tier.textColor }}
+          >
+            {tier.tierName}
+          </span>
+        )}
+      </div>
+    );
+  }
+
+  // Horizontal Capsule
   if (orientation === 'horizontal') {
     return (
       <div
-        className="fbs-container horizontal flex-col sm:flex-row items-center gap-3 sm:gap-4 max-w-full cursor-pointer touch-action-manipulation"
+        className={`flex items-center gap-3 p-2.5 rounded-2xl border shadow-xs transition-all ${
+          onClick ? 'cursor-pointer hover:shadow-sm active:scale-[0.99]' : ''
+        }`}
+        style={{
+          backgroundColor: tier.containerTint,
+          borderColor: `${tier.color}33`,
+        }}
         onClick={onClick}
-        role={onClick ? 'button' : undefined}
       >
+        {/* Metric capsule track */}
         <div
-          className="capsule-wrapper max-w-full"
+          className="relative overflow-hidden rounded-full border flex-shrink-0"
           style={{
-            width: size === 'sm' ? 160 : 'min(300px, 100%)',
-            height: size === 'sm' ? 56 : 76,
+            width: size === 'sm' ? 84 : 112,
+            height: size === 'sm' ? 32 : 40,
+            backgroundColor: 'rgba(255,255,255,0.7)',
+            borderColor: `${tier.color}40`,
           }}
         >
-          <div className="capsule">
-            <div
-              className="capsule-liquid"
+          <div
+            className="h-full rounded-full transition-all duration-700 ease-out"
+            style={{
+              width: `${animatedProgress}%`,
+              backgroundColor: tier.color,
+              opacity: 0.85,
+            }}
+          />
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <span
+              className="font-display font-bold tabular-nums text-primary text-base drop-shadow-xs"
               style={{
-                ['--band-color' as any]: bandConfig.color,
-                width: `${animatedHeight}%`,
+                fontSize: size === 'sm' ? '1rem' : '1.25rem',
               }}
-            />
-            <div
-              className="capsule-score"
-              style={{ fontSize: size === 'sm' ? '1.35rem' : '1.85rem' }}
             >
-              <span>{isPending ? 'Pending' : safeScore.toFixed(1)}</span>
-              {!isPending && <small>/ 10</small>}
-            </div>
+              {isPending ? '—' : safeScore.toFixed(1)}
+              <span className="text-[0.65rem] opacity-70 font-sans ml-0.5">/10</span>
+            </span>
           </div>
         </div>
 
+        {/* Labels */}
         {showLabel && (
-          <div className="flex flex-col gap-0.5 items-center sm:items-start text-center sm:text-left max-w-full">
+          <div className="flex flex-col min-w-0">
             <span
-              className="fbs-band-label text-xs sm:text-sm font-extrabold max-w-full truncate"
-              style={{
-                background: bandConfig.color,
-                color: safeScore < 5 && !isPending ? 'var(--ink)' : 'white',
-              }}
+              className="font-label-caps text-xs tracking-wider uppercase font-bold truncate"
+              style={{ color: tier.textColor }}
             >
-              {bandConfig.label}
+              {tier.tierName}
             </span>
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--ink)] opacity-60">
+            <span className="font-label-caps text-[0.65rem] text-on-surface-variant uppercase tracking-wider">
               Food Benefit Score
             </span>
           </div>
@@ -96,48 +148,66 @@ export default function FBSVitalityCapsule({
     );
   }
 
-  // Vertical (Signature)
-  const wrapperWidth = size === 'sm' ? 70 : size === 'lg' ? 116 : 92;
-  const wrapperHeight = size === 'sm' ? 160 : size === 'lg' ? 260 : 210;
+  // Vertical (Signature Dossier Pillar)
+  const width = size === 'sm' ? 68 : size === 'lg' ? 96 : 80;
+  const height = size === 'sm' ? 140 : size === 'lg' ? 220 : 180;
 
   return (
     <div
-      className="fbs-container cursor-pointer select-none max-w-full touch-action-manipulation"
+      className={`flex flex-col items-center gap-2 p-3 rounded-2xl border shadow-sm ${
+        onClick ? 'cursor-pointer hover:shadow-md' : ''
+      }`}
+      style={{
+        backgroundColor: tier.containerTint,
+        borderColor: `${tier.color}33`,
+      }}
       onClick={onClick}
-      role={onClick ? 'button' : undefined}
     >
       <div
-        className="capsule-wrapper"
-        style={{ width: wrapperWidth, height: wrapperHeight }}
+        className="relative overflow-hidden rounded-full border p-1"
+        style={{
+          width,
+          height,
+          backgroundColor: 'rgba(255, 255, 255, 0.75)',
+          borderColor: `${tier.color}40`,
+        }}
       >
-        <div className="capsule">
-          <div
-            className="capsule-liquid"
+        {/* Dynamic liquid fill meniscus level */}
+        <div
+          className="w-full absolute bottom-0 left-0 right-0 rounded-b-full transition-all duration-1000 ease-out"
+          style={{
+            height: `${animatedProgress}%`,
+            backgroundColor: tier.color,
+            opacity: 0.88,
+          }}
+        />
+
+        {/* Floating Readout */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+          <span
+            className="font-display font-bold tabular-nums text-primary drop-shadow-xs"
             style={{
-              ['--band-color' as any]: bandConfig.color,
-              height: `${animatedHeight}%`,
+              fontSize: size === 'sm' ? '1.5rem' : size === 'lg' ? '2.5rem' : '2rem',
             }}
-          />
-          <div
-            className="capsule-score"
-            style={{ fontSize: size === 'sm' ? '1.6rem' : size === 'lg' ? '2.8rem' : '2.2rem' }}
           >
-            <span>{isPending ? '—' : safeScore.toFixed(1)}</span>
-            {!isPending && <small>/ 10</small>}
-          </div>
+            {isPending ? '—' : safeScore.toFixed(1)}
+          </span>
+          <span className="font-sans text-[0.7rem] uppercase font-bold text-primary/70">
+            / 10
+          </span>
         </div>
       </div>
 
       {showLabel && (
-        <div
-          className="fbs-band-label text-center text-xs sm:text-sm max-w-full"
+        <span
+          className="font-label-caps text-xs px-2.5 py-1 rounded-full text-center font-bold tracking-wider"
           style={{
-            background: bandConfig.color,
-            color: safeScore < 5 && !isPending ? 'var(--ink)' : 'white',
+            backgroundColor: tier.color,
+            color: '#FFFFFF',
           }}
         >
-          {bandConfig.label}
-        </div>
+          {tier.tierName}
+        </span>
       )}
     </div>
   );

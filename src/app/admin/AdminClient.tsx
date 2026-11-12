@@ -221,15 +221,15 @@ export default function AdminClient({ initialProducts, categories, brands }: Pro
   // Passcode gate view
   if (!isAuthenticated) {
     return (
-      <div className="max-w-md mx-auto my-16 p-8 bubble-card bg-[var(--surface)] text-[var(--ink)] text-center space-y-6">
-        <div className="w-16 h-16 rounded-2xl bg-amber-100 dark:bg-amber-950/50 text-amber-700 dark:text-amber-400 flex items-center justify-center mx-auto border-2 border-[var(--ink)] shadow-[3px_3px_0px_var(--ink)]">
+      <div className="max-w-md mx-auto my-16 p-8 rounded-2xl border border-outline-variant/40 bg-surface-container-lowest text-on-surface text-center space-y-6 shadow-sm">
+        <div className="w-16 h-16 rounded-2xl bg-surface-container-low text-primary flex items-center justify-center mx-auto border border-outline-variant/30">
           <Lock className="w-8 h-8" />
         </div>
         <div>
-          <h1 className="font-display font-black text-2xl text-stone-900 dark:text-stone-50">
+          <h1 className="font-serif font-bold text-2xl text-primary">
             Admin Authentication
           </h1>
-          <p className="text-xs text-stone-500 mt-1">
+          <p className="text-xs text-on-surface-variant mt-1 font-medium">
             Protected area for dataset management and bulk operations.
           </p>
         </div>
@@ -241,24 +241,24 @@ export default function AdminClient({ initialProducts, categories, brands }: Pro
               placeholder="Enter admin passcode (admin123)"
               value={passcode}
               onChange={e => setPasscode(e.target.value)}
-              className="w-full text-center text-sm p-3 rounded-xl border-2 border-[var(--ink)] bg-white dark:bg-stone-900 shadow-[3px_3px_0px_var(--ink)] font-bold"
+              className="w-full text-center text-sm p-3 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface font-semibold focus:outline-none focus:border-primary"
             />
             {authError && (
-              <p className="text-xs text-[var(--tomato)] font-bold mt-2">{authError}</p>
+              <p className="text-xs text-error font-bold mt-2">{authError}</p>
             )}
           </div>
 
           <button
             type="submit"
-            className="w-full btn-chunky py-3 bg-[var(--leaf)] text-white text-sm font-black flex items-center justify-center gap-2"
+            className="w-full py-3 rounded-full bg-primary text-on-primary text-sm font-semibold flex items-center justify-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
           >
             <Unlock className="w-4 h-4" />
             <span>Access Control Panel</span>
           </button>
         </form>
 
-        <p className="text-[11px] text-stone-400">
-          Demo passcode: <code className="bg-stone-100 dark:bg-stone-800 px-1 py-0.5 rounded font-mono font-bold">admin123</code>
+        <p className="text-[11px] text-outline font-medium">
+          Demo passcode: <code className="bg-surface-container-low px-1.5 py-0.5 rounded font-mono font-bold text-on-surface">admin123</code>
         </p>
       </div>
     );
@@ -267,16 +267,16 @@ export default function AdminClient({ initialProducts, categories, brands }: Pro
   return (
     <div className="space-y-8">
       {/* Admin Header */}
-      <div className="bubble-card bg-[var(--surface)] p-6 md:p-8 flex flex-wrap items-center justify-between gap-4">
+      <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-6 md:p-8 flex flex-wrap items-center justify-between gap-4 shadow-sm">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-black uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2">
             <CheckCircle className="w-3.5 h-3.5" />
             <span>Authenticated Session</span>
           </div>
-          <h1 className="font-display font-black text-3xl sm:text-4xl text-stone-900 dark:text-stone-50">
+          <h1 className="font-serif font-bold text-3xl sm:text-4xl text-primary">
             Packaged Food Database Admin
           </h1>
-          <p className="text-xs sm:text-sm text-stone-500 font-medium">
+          <p className="text-xs sm:text-sm text-on-surface-variant font-medium">
             Manage all 852 Indian packaged food records, perform live CRUD operations, and bulk sync.
           </p>
         </div>

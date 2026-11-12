@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import type { NutritionPerPaisaResult } from '@/lib/value';
-import { Coins, Sparkles, HelpCircle } from 'lucide-react';
 
 interface NutritionPerPaisaCardProps {
   valueData: NutritionPerPaisaResult;
@@ -15,7 +14,6 @@ export default function NutritionPerPaisaCard({
   valueData,
   priceINR,
   packSizeG,
-  category,
 }: NutritionPerPaisaCardProps) {
   const [spentCount, setSpentCount] = useState(0);
 
@@ -23,18 +21,18 @@ export default function NutritionPerPaisaCard({
     if (typeof navigator !== 'undefined' && navigator.vibrate) {
       navigator.vibrate(12);
     }
-    setSpentCount(prev => (prev < 5 ? prev + 1 : 0));
+    setSpentCount((prev) => (prev < 5 ? prev + 1 : 0));
   };
 
   if (!valueData.isAvailable || !priceINR || !packSizeG) {
     return (
-      <div className="bubble-card border-dashed bg-[var(--surface-alt)] opacity-80">
+      <div className="p-4 rounded-xl border border-dashed border-outline-variant/60 bg-surface-container-low/60 text-on-surface-variant">
         <div className="flex items-center gap-3">
-          <Coins className="w-6 h-6 text-[var(--mango)]" />
+          <span className="material-symbols-outlined text-secondary text-2xl">currency_rupee</span>
           <div>
-            <h4 className="font-extrabold text-base">Nutrition Per Paisa</h4>
-            <p className="text-xs opacity-70 mt-0.5">
-              Price or pack weight not yet verified. Value ratio unlocks once pack metrics are confirmed.
+            <h4 className="font-headline-sm text-sm text-primary">The ₹10 Test (Nutrition Per Paisa)</h4>
+            <p className="font-body-sm text-xs opacity-70 mt-0.5">
+              Price or pack weight pending verification. Value ratio unlocks once commercial pack metrics are confirmed.
             </p>
           </div>
         </div>
@@ -44,31 +42,34 @@ export default function NutritionPerPaisaCard({
 
   const proteinRatio = valueData.proteinPerRupee ?? 0;
   const fibreRatio = valueData.fibrePerRupee ?? 0;
+  const proteinPer10 = (proteinRatio * 10).toFixed(1);
+  const fibrePer10 = (fibreRatio * 10).toFixed(1);
 
   return (
-    <div className="bubble-card bg-[var(--surface-alt)]">
-      <div className="flex items-center justify-between pb-3 border-b-2 border-[var(--ink)]/15">
+    <div className="p-4 rounded-xl border-2 border-secondary/40 bg-[#FFFBEB] dark:bg-surface-container shadow-xs">
+      {/* Header */}
+      <div className="flex items-center justify-between pb-2.5 border-b border-secondary/20">
         <div className="flex items-center gap-2">
-          <Coins className="w-6 h-6 text-[var(--mango)] fill-[var(--mango)]" />
-          <h3 className="t-h3 text-[var(--ink)]">Nutrition Per Paisa</h3>
+          <span className="material-symbols-outlined text-secondary text-xl">payments</span>
+          <h3 className="font-headline-sm text-sm text-primary">The ₹10 Value Ratio</h3>
         </div>
-        <span className="chip text-xs py-0.5 px-2 bg-[var(--surface)]">
-          MRP ₹{priceINR} / {packSizeG}g
+        <span className="font-label-caps text-xs py-0.5 px-2 rounded-full bg-surface-container-lowest text-on-surface border border-secondary/30 tabular-nums font-bold">
+          ₹{priceINR} / {packSizeG}g
         </span>
       </div>
 
-      <p className="t-small opacity-75 my-3">
-        What real nutrients do you get for <strong>₹10</strong> of this food? Tap the coins below:
+      <p className="font-body-sm text-xs text-on-surface-variant my-2.5">
+        Forensic nutrient extraction test: What vital macronutrients do you actually receive per <strong>₹10 spent</strong>?
       </p>
 
-      {/* Coin Stack + Big Stat */}
-      <div className="flex items-center gap-6 my-4 p-4 rounded-2xl bg-[var(--surface)] border-2 border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)]">
+      {/* Main Stat Card */}
+      <div className="flex items-center gap-4 my-3 p-3.5 rounded-lg bg-surface-container-lowest border border-secondary/30 shadow-2xs">
         <div
-          className="coin-stack select-none shrink-0"
+          className="coin-stack select-none shrink-0 cursor-pointer"
           onClick={handleCoinClick}
-          title="Click to spend / drop coins"
+          title="Tap to simulate spending ₹10 coins"
         >
-          {[0, 1, 2, 3, 4].map(idx => (
+          {[0, 1, 2, 3, 4].map((idx) => (
             <div
               key={idx}
               className={`coin ${idx < spentCount ? 'spent' : ''}`}
@@ -77,27 +78,31 @@ export default function NutritionPerPaisaCard({
         </div>
 
         <div>
-          <div className="t-display-lg text-[var(--mango)] leading-none">
-            {proteinRatio > 0 ? `${(proteinRatio * 10).toFixed(1)}g` : '0g'}
+          <div className="font-display text-3xl font-bold text-secondary tabular-nums leading-none">
+            {proteinRatio > 0 ? `${proteinPer10}g` : '0g'}
           </div>
-          <div className="font-extrabold text-sm text-[var(--ink)] mt-1">
-            Protein per ₹10
+          <div className="font-label-lg text-xs text-primary font-bold mt-1">
+            Protein Extracted / ₹10
           </div>
-          <div className="text-xs opacity-60 font-semibold">
+          <div className="font-label-caps text-[0.65rem] text-on-surface-variant">
             {spentCount > 0 ? `(${5 - spentCount} coins active)` : 'Tap coins to interact'}
           </div>
         </div>
       </div>
 
-      {/* Ten Rupees Get Items */}
-      <div className="grid grid-cols-3 gap-2 mt-4 text-center">
-        {valueData.tenRupeesGet.map(item => (
+      {/* Breakdown chips */}
+      <div className="grid grid-cols-3 gap-2 mt-3 text-center">
+        {valueData.tenRupeesGet.map((item) => (
           <div
             key={item.nutrient}
-            className="p-2.5 rounded-xl bg-[var(--surface)] border-2 border-[var(--ink)] text-xs shadow-[2px_2px_0px_rgba(20,33,26,0.1)]"
+            className="p-2 rounded-md bg-surface-container-lowest border border-outline-variant/30 text-xs shadow-2xs"
           >
-            <div className="opacity-60 text-[10px] uppercase font-bold">{item.nutrient}</div>
-            <div className="font-extrabold text-sm text-[var(--ink)] mt-0.5">{item.amount}</div>
+            <div className="font-label-caps text-[0.65rem] uppercase text-on-surface-variant font-bold">
+              {item.nutrient}
+            </div>
+            <div className="font-headline-sm text-xs font-bold text-primary mt-0.5 tabular-nums">
+              {item.amount}
+            </div>
           </div>
         ))}
       </div>

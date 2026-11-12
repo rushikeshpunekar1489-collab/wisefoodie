@@ -10,55 +10,55 @@ export const metadata: Metadata = {
 
 export default function DisclaimerPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-16 space-y-8">
       <div className="space-y-3">
-        <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-3 py-1 rounded-full">
-          Regulatory Notice
+        <span className="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/15 px-3 py-1 rounded-full">
+          Regulatory Notice &middot; FSSAI &amp; ICMR-NIN Compliance
         </span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
-          Medical & Food Disclaimer
+        <h1 className="font-serif font-bold text-3xl sm:text-4xl text-primary tracking-tight">
+          Medical &amp; Food Disclaimer
         </h1>
-        <p className="text-sm text-stone-500">
-          Last updated: October 2026
+        <p className="text-sm text-outline font-medium">
+          Last updated: October 2026 &middot; Botanical Consumer Intelligence Protocol
         </p>
       </div>
 
-      <div className="wf-card p-6 sm:p-8 bg-amber-50/50 border-amber-200/80 space-y-4">
-        <div className="flex items-center gap-2 text-amber-900">
-          <ShieldAlert className="w-5 h-5 text-amber-700" />
-          <h2 className="text-lg font-bold">Important Notice For All Users</h2>
+      <div className="rounded-2xl border border-secondary/30 p-6 sm:p-8 bg-secondary/5 space-y-4 shadow-sm">
+        <div className="flex items-center gap-2 text-secondary">
+          <ShieldAlert className="w-5 h-5 text-secondary" />
+          <h2 className="font-serif font-bold text-lg text-primary">Important Notice For All Consumers</h2>
         </div>
-        <p className="text-sm text-stone-800 leading-relaxed font-semibold">
+        <p className="text-sm text-on-surface leading-relaxed font-semibold">
           The Food Benefit Score (FBS) is an informational evaluation derived deterministically from declared manufacturer label data and standard nutritional guidelines. It is not medical advice, clinical dietary prescription, or a guarantee of health outcomes.
         </p>
       </div>
 
-      <div className="wf-card p-6 sm:p-8 space-y-6 bg-white text-sm text-stone-700 leading-relaxed">
+      <div className="rounded-2xl border border-outline-variant/40 p-6 sm:p-8 space-y-6 bg-surface-container-lowest text-sm text-on-surface-variant leading-relaxed shadow-sm font-medium">
         <section className="space-y-2">
-          <h3 className="font-extrabold text-stone-900 text-base">1. Not Medical or Clinical Advice</h3>
+          <h3 className="font-serif font-bold text-primary text-base">1. Not Medical or Clinical Advice</h3>
           <p>
             The content, scores, and comparisons on WiseFoodies are provided strictly for general consumer educational purposes. WiseFoodies does not make disease prevention, treatment, cure, or detoxification claims. If you have medical conditions such as diabetes, cardiovascular disease, kidney conditions, hypertension, or food allergies, consult a qualified medical professional or registered clinical dietitian.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h3 className="font-extrabold text-stone-900 text-base">2. Label Data Dependence & Disclaimers</h3>
+          <h3 className="font-serif font-bold text-primary text-base">2. Label Data Dependence &amp; Disclaimers</h3>
           <p>
             All evaluations rely upon information printed on packaging or declared by manufacturers according to Food Safety and Standards Authority of India (FSSAI) guidelines. Formulations, ingredients, and nutritional declarations may change without prior notice. While we endeavor to keep our database accurate, WiseFoodies cannot guarantee that manufacturer label statements are free of printing errors or formulation alterations.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h3 className="font-extrabold text-stone-900 text-base">3. Allergen Notice</h3>
+          <h3 className="font-serif font-bold text-primary text-base">3. Allergen Notice</h3>
           <p>
             Always examine the physical package label for allergen warnings (e.g., presence of gluten, nuts, soy, dairy, or sulfites) prior to consumption. Do not rely solely on digital platforms for severe allergen safety.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h3 className="font-extrabold text-stone-900 text-base">4. Independent Platform</h3>
+          <h3 className="font-serif font-bold text-primary text-base">4. Independent Platform</h3>
           <p>
-            WiseFoodies is an independent platform and is not affiliated with, sponsored by, or endorsed by any food or beverage manufacturer. Trademarks, brand names, and logos are the property of their respective owners and are referenced strictly for identification, consumer information, and fair use.
+            WiseFoodies operates independently of all consumer goods companies, advertisers, and supermarket retail chains. Mention of brand names, products, or packaging is done for consumer education, comparative evaluation, and public health awareness under applicable fair dealing laws.
           </p>
         </section>
       </div>

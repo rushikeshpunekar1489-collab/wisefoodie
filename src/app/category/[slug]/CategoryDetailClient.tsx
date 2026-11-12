@@ -128,31 +128,31 @@ export default function CategoryDetailClient({ category, products }: Props) {
   return (
     <div className="space-y-6">
       {/* Category Header */}
-      <div className="bubble-card bg-gradient-to-br from-[var(--surface)] to-[var(--mint)]/20 p-6 md:p-8">
+      <div className="rounded-2xl bg-surface-container-lowest border border-outline-variant/40 p-6 md:p-8 shadow-sm">
         <div className="flex flex-wrap items-center gap-4 mb-4">
-          <div className="w-16 h-16 rounded-2xl bg-white dark:bg-stone-900 border-2 border-[var(--ink)] shadow-[3px_3px_0px_var(--ink)] flex items-center justify-center text-4xl">
+          <div className="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant/40 flex items-center justify-center text-4xl shadow-sm">
             {category.icon}
           </div>
           <div>
-            <div className="text-xs font-black uppercase tracking-wider text-[var(--leaf)]">
-              Category Focus
+            <div className="text-xs font-bold uppercase tracking-wider text-primary">
+              Category Intelligence Focus
             </div>
-            <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-stone-900 dark:text-stone-50">
+            <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-primary">
               {category.name}
             </h1>
           </div>
         </div>
 
-        <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 max-w-3xl leading-relaxed mb-6 font-medium">
+        <p className="text-sm sm:text-base text-on-surface-variant max-w-3xl leading-relaxed mb-6 font-medium">
           Showing {category.productCount} products across {category.brands.length} distinct Indian brands. Filter by brand or nutrient ranges to discover the healthiest options.
         </p>
 
         {/* Brand quick filter chips */}
         <div className="space-y-2">
-          <span className="text-xs font-black uppercase text-stone-400 tracking-wider">
+          <span className="text-xs font-bold uppercase text-outline tracking-wider">
             Available Brands ({category.brands.length}):
           </span>
-          <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto">
+          <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto pt-1">
             {category.brands.map(brand => {
               const active = selectedBrands.includes(brand);
               return (
@@ -160,10 +160,10 @@ export default function CategoryDetailClient({ category, products }: Props) {
                   key={brand}
                   type="button"
                   onClick={() => toggleBrand(brand)}
-                  className={`text-xs font-bold py-1 px-3 rounded-full border transition-all ${
+                  className={`text-xs font-medium py-1 px-3 rounded-full border transition-all ${
                     active
-                      ? 'bg-[var(--leaf)] text-white border-[var(--ink)] shadow-[2px_2px_0px_var(--ink)]'
-                      : 'bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border-stone-300 dark:border-stone-700 hover:bg-stone-100'
+                      ? 'bg-primary text-on-primary border-primary shadow-sm'
+                      : 'bg-surface-container-low text-on-surface border-outline-variant/40 hover:bg-surface-container'
                   }`}
                 >
                   {brand}
@@ -177,10 +177,10 @@ export default function CategoryDetailClient({ category, products }: Props) {
       {/* Main Grid: Filters & Products */}
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
         {/* Sidebar Filters */}
-        <aside className="bubble-card p-5 bg-[var(--surface)] text-[var(--ink)] space-y-5">
-          <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
-            <div className="flex items-center gap-2 font-display font-black text-sm">
-              <Filter className="w-4 h-4 text-[var(--leaf)]" />
+        <aside className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-5 space-y-5 shadow-sm">
+          <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+            <div className="flex items-center gap-2 font-serif font-bold text-sm text-primary">
+              <Filter className="w-4 h-4 text-primary" />
               <span>Filter {category.name}</span>
             </div>
             {(selectedBrands.length > 0 || search || minCalories || maxCalories || minProtein || maxSugar) && (
@@ -194,7 +194,7 @@ export default function CategoryDetailClient({ category, products }: Props) {
                   setMinProtein('');
                   setMaxSugar('');
                 }}
-                className="text-xs text-[var(--tomato)] font-bold hover:underline"
+                className="text-xs text-error font-bold hover:underline"
               >
                 Reset
               </button>
@@ -203,9 +203,9 @@ export default function CategoryDetailClient({ category, products }: Props) {
 
           {/* Search within category */}
           <div>
-            <label className="text-xs font-bold block mb-1">Search within category</label>
+            <label className="text-xs font-semibold block mb-1 text-on-surface">Search within category</label>
             <div className="relative">
-              <Search className="w-3.5 h-3.5 absolute left-3 top-3 text-stone-400" />
+              <Search className="w-3.5 h-3.5 absolute left-3 top-3 text-outline" />
               <input
                 type="text"
                 placeholder="Product or ingredient..."
@@ -214,24 +214,24 @@ export default function CategoryDetailClient({ category, products }: Props) {
                   setSearch(e.target.value);
                   setPage(1);
                 }}
-                className="w-full text-xs pl-8 pr-3 py-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                className="w-full text-xs pl-8 pr-3 py-2 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface focus:outline-none focus:border-primary"
               />
             </div>
           </div>
 
           {/* Brand Search */}
           <div>
-            <label className="text-xs font-bold block mb-1">Filter Brand</label>
+            <label className="text-xs font-semibold block mb-1 text-on-surface">Filter Brand</label>
             <input
               type="text"
               placeholder="Search brand..."
               value={brandSearch}
               onChange={e => setBrandSearch(e.target.value)}
-              className="w-full text-xs p-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 mb-2"
+              className="w-full text-xs p-2 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface mb-2 focus:outline-none focus:border-primary"
             />
             <div className="space-y-1 max-h-40 overflow-y-auto pr-1">
               {visibleBrands.map(b => (
-                <label key={b} className="flex items-center gap-2 text-xs font-medium cursor-pointer p-1 rounded hover:bg-stone-100 dark:hover:bg-stone-800">
+                <label key={b} className="flex items-center gap-2 text-xs font-medium cursor-pointer p-1 rounded hover:bg-surface-container-low">
                   <input
                     type="checkbox"
                     checked={selectedBrands.includes(b)}
@@ -239,18 +239,18 @@ export default function CategoryDetailClient({ category, products }: Props) {
                       toggleBrand(b);
                       setPage(1);
                     }}
-                    className="rounded text-[var(--leaf)]"
+                    className="rounded border-outline-variant text-primary focus:ring-primary"
                   />
-                  <span className="truncate">{b}</span>
+                  <span className="truncate text-on-surface">{b}</span>
                 </label>
               ))}
             </div>
           </div>
 
           {/* Quick Nutritional Filters */}
-          <div className="border-t border-stone-200 dark:border-stone-800 pt-3 space-y-3">
+          <div className="border-t border-outline-variant/20 pt-3 space-y-3">
             <div>
-              <label className="text-xs font-bold block mb-1">Max Sugar (g)</label>
+              <label className="text-xs font-semibold block mb-1 text-on-surface">Max Sugar (g)</label>
               <input
                 type="number"
                 placeholder="e.g. 15"
@@ -259,12 +259,12 @@ export default function CategoryDetailClient({ category, products }: Props) {
                   setMaxSugar(e.target.value);
                   setPage(1);
                 }}
-                className="w-full text-xs p-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                className="w-full text-xs p-2 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold block mb-1">Min Protein (g)</label>
+              <label className="text-xs font-semibold block mb-1 text-on-surface">Min Protein (g)</label>
               <input
                 type="number"
                 placeholder="e.g. 5"
@@ -273,12 +273,12 @@ export default function CategoryDetailClient({ category, products }: Props) {
                   setMinProtein(e.target.value);
                   setPage(1);
                 }}
-                className="w-full text-xs p-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                className="w-full text-xs p-2 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface"
               />
             </div>
 
             <div>
-              <label className="text-xs font-bold block mb-1">Calories (kcal)</label>
+              <label className="text-xs font-semibold block mb-1 text-on-surface">Calories (kcal)</label>
               <div className="grid grid-cols-2 gap-2">
                 <input
                   type="number"
@@ -288,7 +288,7 @@ export default function CategoryDetailClient({ category, products }: Props) {
                     setMinCalories(e.target.value);
                     setPage(1);
                   }}
-                  className="w-full text-xs p-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                  className="w-full text-xs p-2 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface"
                 />
                 <input
                   type="number"
@@ -298,7 +298,7 @@ export default function CategoryDetailClient({ category, products }: Props) {
                     setMaxCalories(e.target.value);
                     setPage(1);
                   }}
-                  className="w-full text-xs p-2 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                  className="w-full text-xs p-2 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface"
                 />
               </div>
             </div>
@@ -308,18 +308,18 @@ export default function CategoryDetailClient({ category, products }: Props) {
         {/* Products Listing */}
         <div className="lg:col-span-3 space-y-4">
           {/* Controls Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 bg-[var(--surface)] p-4 rounded-2xl border-2 border-stone-200 dark:border-stone-800">
-            <div className="text-xs sm:text-sm font-bold text-stone-600 dark:text-stone-300">
-              Showing <span className="font-extrabold text-stone-900 dark:text-stone-50">{filtered.length}</span> of {category.productCount} products in {category.name}
+          <div className="flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm">
+            <div className="text-xs sm:text-sm font-medium text-on-surface-variant">
+              Showing <span className="font-bold text-primary">{filtered.length}</span> of {category.productCount} products in {category.name}
             </div>
 
             {/* Sort */}
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-stone-500">Sort:</span>
+              <span className="text-xs font-semibold text-outline">Sort:</span>
               <select
                 value={sortBy}
                 onChange={e => setSortBy(e.target.value as any)}
-                className="text-xs font-semibold py-1.5 px-3 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200"
+                className="text-xs font-medium py-1.5 px-3 rounded-lg border border-outline-variant/40 bg-surface-container-low text-on-surface focus:outline-none focus:border-primary"
               >
                 <option value="sno">Default (S.No)</option>
                 <option value="name">Product Name (A-Z)</option>
@@ -333,9 +333,9 @@ export default function CategoryDetailClient({ category, products }: Props) {
               <button
                 type="button"
                 onClick={() => setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'))}
-                className="p-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                className="p-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low text-on-surface-variant hover:bg-surface-container"
               >
-                <ArrowUpDown className="w-4 h-4 text-stone-600 dark:text-stone-300" />
+                <ArrowUpDown className="w-4 h-4 text-on-surface-variant" />
               </button>
             </div>
           </div>
@@ -347,22 +347,22 @@ export default function CategoryDetailClient({ category, products }: Props) {
                 <IndianFoodCard
                   key={p.id}
                   product={p}
-                  highlightText={search}
+                  highlightQuery={search}
                   isComparing={comparing.some(x => x.id === p.id)}
                   onToggleCompare={toggleCompare}
                 />
               ))}
             </div>
           ) : (
-            <div className="bubble-card p-12 text-center bg-[var(--surface)] text-[var(--ink)] space-y-4">
-              <h3 className="font-display font-black text-xl">No products match your filters</h3>
-              <p className="text-sm text-stone-500">Try loosening your search or brand filters.</p>
+            <div className="rounded-2xl p-12 text-center bg-surface-container-lowest border border-outline-variant/40 shadow-sm space-y-4">
+              <h3 className="font-serif font-bold text-xl text-on-surface">No products match your filters</h3>
+              <p className="text-sm text-on-surface-variant">Try loosening your search or brand filters.</p>
             </div>
           )}
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-between p-4 bg-[var(--surface)] rounded-2xl border-2 border-stone-200 dark:border-stone-800">
+            <div className="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm">
               <button
                 type="button"
                 disabled={page <= 1}
@@ -370,12 +370,12 @@ export default function CategoryDetailClient({ category, products }: Props) {
                   setPage(p => Math.max(1, p - 1));
                   window.scrollTo({ top: 300, behavior: 'smooth' });
                 }}
-                className="btn-chunky py-2 px-4 text-xs bg-stone-100 dark:bg-stone-800 disabled:opacity-40"
+                className="py-2 px-4 text-xs rounded-lg bg-surface-container text-on-surface disabled:opacity-40 disabled:cursor-not-allowed font-semibold"
               >
                 Previous
               </button>
-              <div className="text-xs font-black">
-                Page {page} of {totalPages}
+              <div className="text-xs font-medium text-on-surface-variant">
+                Page <span className="font-bold text-primary">{page}</span> of {totalPages}
               </div>
               <button
                 type="button"
@@ -384,7 +384,7 @@ export default function CategoryDetailClient({ category, products }: Props) {
                   setPage(p => Math.min(totalPages, p + 1));
                   window.scrollTo({ top: 300, behavior: 'smooth' });
                 }}
-                className="btn-chunky py-2 px-4 text-xs bg-stone-100 dark:bg-stone-800 disabled:opacity-40"
+                className="py-2 px-4 text-xs rounded-lg bg-surface-container text-on-surface disabled:opacity-40 disabled:cursor-not-allowed font-semibold"
               >
                 Next
               </button>

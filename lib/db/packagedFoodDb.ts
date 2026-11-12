@@ -25,6 +25,7 @@ class PackagedFoodDatabase {
   private bySubcategory = new Map<string, PackagedFoodItem[]>();
   private initialized = false;
   private filePath = path.join(process.cwd(), 'data', 'packaged_foods_india.json');
+  private imageMap = new Map<string, string>();
 
   constructor() {
     this.init();
@@ -34,6 +35,23 @@ class PackagedFoodDatabase {
     if (this.initialized && !forceReload) return;
 
     try {
+      // Load verified image associations from products.json
+      const prodPath = path.join(process.cwd(), 'data', 'products.json');
+      if (fs.existsSync(prodPath)) {
+        try {
+          const prods = JSON.parse(fs.readFileSync(prodPath, 'utf8'));
+          if (Array.isArray(prods)) {
+            for (const p of prods) {
+              if (p && p.id && p.image) {
+                this.imageMap.set(p.id, p.image);
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('[PackagedFoodDatabase] Failed to load image map:', e);
+        }
+      }
+
       if (fs.existsSync(this.filePath)) {
         const rawContent = fs.readFileSync(this.filePath, 'utf8');
         const rawRecords: RawPackagedFoodRecord[] = JSON.parse(rawContent);
@@ -85,7 +103,7 @@ class PackagedFoodDatabase {
       collectionDate: raw['Collection_Date'] !== null && raw['Collection_Date'] !== undefined ? String(raw['Collection_Date']).trim() : null,
       collectedBy: raw['Collected_By'] !== null && raw['Collected_By'] !== undefined ? String(raw['Collected_By']).trim() : null,
       remarks: raw['Remarks'] !== null && raw['Remarks'] !== undefined ? String(raw['Remarks']).trim() : null,
-      image: null,
+      image: this.imageMap.get(id) || null,
     };
   }
 

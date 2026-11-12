@@ -377,23 +377,23 @@ export default function ProductsClient({
   return (
     <div className="space-y-6">
       {/* Top Banner & Search Bar */}
-      <div className="bubble-card bg-gradient-to-br from-[var(--surface)] to-[var(--mint)]/10 p-6 md:p-8">
+      <div className="rounded-2xl bg-surface-container-lowest border border-outline-variant/40 p-6 md:p-8 shadow-sm">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--leaf)] text-white text-xs font-black uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Complete Indian Packaged Food Intelligence</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span>Forensic Database &middot; 852 Indian Packaged Products</span>
           </div>
-          <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-stone-900 dark:text-stone-50 tracking-tight leading-none mb-3">
-            Search 852 Packaged Foods
+          <h1 className="font-serif font-bold text-3xl sm:text-4xl lg:text-5xl text-primary tracking-tight leading-tight mb-3">
+            Search Packaged Food Intelligence
           </h1>
-          <p className="text-sm sm:text-base text-stone-600 dark:text-stone-300 font-medium leading-relaxed mb-6">
+          <p className="text-sm sm:text-base text-on-surface-variant font-medium leading-relaxed mb-6">
             Explore authentic packaged foods across 262 brands and 13 categories. Instant multi-attribute search, strict nutritional filters, and verified label transparency.
           </p>
 
           {/* Search Box with instant suggestions */}
           <div ref={searchContainerRef} className="relative">
             <div className="relative flex items-center">
-              <Search className="absolute left-4 w-5 h-5 text-stone-400" />
+              <Search className="absolute left-4 w-5 h-5 text-outline" />
               <input
                 type="text"
                 value={searchQuery}
@@ -403,13 +403,13 @@ export default function ProductsClient({
                 }}
                 onFocus={() => setShowSuggestions(true)}
                 placeholder="Search by product name, brand (Parle, Amul), category, or ingredients..."
-                className="w-full pl-12 pr-10 py-3.5 text-sm sm:text-base bg-white dark:bg-stone-900 border-2 border-[var(--ink)] rounded-2xl shadow-[4px_4px_0px_var(--ink)] focus:outline-none focus:ring-2 focus:ring-[var(--leaf)] font-medium text-stone-900 dark:text-stone-100 placeholder:text-stone-400"
+                className="w-full pl-12 pr-10 py-3.5 text-sm sm:text-base bg-surface-container-low border border-outline-variant/50 rounded-full shadow-sm focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 font-medium text-on-surface placeholder:text-outline"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3.5 p-1 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-400"
+                  className="absolute right-3.5 p-1 rounded-full hover:bg-surface-container text-outline"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -418,8 +418,8 @@ export default function ProductsClient({
 
             {/* Suggestions Dropdown */}
             {showSuggestions && suggestions.length > 0 && (
-              <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-stone-900 border-2 border-[var(--ink)] rounded-2xl shadow-[6px_6px_0px_var(--ink)] z-30 overflow-hidden divide-y divide-stone-100 dark:divide-stone-800">
-                <div className="px-3.5 py-2 text-[11px] font-black uppercase text-stone-400 tracking-wider bg-stone-50 dark:bg-stone-800/50">
+              <div className="absolute left-0 right-0 top-full mt-2 bg-surface-container-lowest border border-outline-variant/40 rounded-2xl shadow-xl z-30 overflow-hidden divide-y divide-outline-variant/20">
+                <div className="px-3.5 py-2 text-[11px] font-bold uppercase text-outline tracking-wider bg-surface-container-low">
                   Instant Suggestions
                 </div>
                 {suggestions.map((s, idx) => (
@@ -430,7 +430,7 @@ export default function ProductsClient({
                       setSearchQuery(s);
                       setShowSuggestions(false);
                     }}
-                    className="w-full text-left px-4 py-2.5 text-sm font-semibold hover:bg-[var(--mint)]/20 hover:text-[var(--leaf)] transition-colors flex items-center justify-between"
+                    className="w-full text-left px-4 py-2.5 text-sm font-semibold hover:bg-surface-container-high hover:text-primary transition-colors flex items-center justify-between"
                   >
                     <span>{s}</span>
                     <Search className="w-3.5 h-3.5 opacity-40" />
@@ -446,17 +446,17 @@ export default function ProductsClient({
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
         {/* Desktop Sidebar Filters */}
         <aside className="hidden lg:block space-y-6">
-          <div className="bubble-card p-5 bg-[var(--surface)] text-[var(--ink)] space-y-6">
-            <div className="flex items-center justify-between border-b border-stone-200 dark:border-stone-800 pb-3">
-              <div className="flex items-center gap-2 font-display font-black text-base text-stone-900 dark:text-stone-50">
-                <Filter className="w-4 h-4 text-[var(--leaf)]" />
+          <div className="rounded-2xl border border-outline-variant/40 bg-surface-container-lowest p-5 space-y-6 shadow-sm">
+            <div className="flex items-center justify-between border-b border-outline-variant/20 pb-3">
+              <div className="flex items-center gap-2 font-serif font-bold text-base text-primary">
+                <Filter className="w-4 h-4 text-primary" />
                 <span>Filters</span>
               </div>
               {activeFilters.length > 0 && (
                 <button
                   type="button"
                   onClick={clearAllFilters}
-                  className="text-xs font-bold text-[var(--tomato)] hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-error hover:underline flex items-center gap-1"
                 >
                   <RotateCcw className="w-3 h-3" />
                   <span>Reset All</span>
@@ -466,28 +466,28 @@ export default function ProductsClient({
 
             {/* Categories */}
             <div>
-              <h3 className="text-xs font-black uppercase tracking-wider text-stone-400 mb-2.5">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-outline mb-2.5">
                 Categories ({categories.length})
               </h3>
-              <div className="space-y-1.5 max-h-56 overflow-y-auto pr-1">
+              <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
                 {categories.map(cat => {
                   const isChecked = selectedCategories.includes(cat.name);
                   return (
                     <label
                       key={cat.slug}
-                      className="flex items-center justify-between text-xs font-semibold p-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer transition-colors"
+                      className="flex items-center justify-between text-xs font-medium p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors"
                     >
                       <div className="flex items-center gap-2">
                         <input
                           type="checkbox"
                           checked={isChecked}
                           onChange={() => toggleCategory(cat.name)}
-                          className="rounded text-[var(--leaf)] focus:ring-[var(--leaf)]"
+                          className="rounded border-outline-variant text-primary focus:ring-primary"
                         />
                         <span>{cat.icon}</span>
-                        <span className="text-stone-800 dark:text-stone-200">{cat.name}</span>
+                        <span className="text-on-surface">{cat.name}</span>
                       </div>
-                      <span className="text-[10px] text-stone-400 font-bold bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded">
+                      <span className="text-[10px] text-outline font-bold bg-surface-container-low px-1.5 py-0.5 rounded">
                         {cat.productCount}
                       </span>
                     </label>
@@ -497,9 +497,9 @@ export default function ProductsClient({
             </div>
 
             {/* Brands (Searchable) */}
-            <div className="border-t border-stone-200 dark:border-stone-800 pt-4">
+            <div className="border-t border-outline-variant/20 pt-4">
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-xs font-black uppercase tracking-wider text-stone-400">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-outline">
                   Brands ({brands.length})
                 </h3>
               </div>
@@ -508,7 +508,7 @@ export default function ProductsClient({
                 placeholder="Search brand..."
                 value={brandSearch}
                 onChange={e => setBrandSearch(e.target.value)}
-                className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 mb-2"
+                className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low mb-2 focus:outline-none focus:border-primary"
               />
               <div className="space-y-1 max-h-48 overflow-y-auto pr-1">
                 {visibleBrands.map(b => {
@@ -516,18 +516,18 @@ export default function ProductsClient({
                   return (
                     <label
                       key={b.name}
-                      className="flex items-center justify-between text-xs font-semibold p-1 rounded-md hover:bg-stone-100 dark:hover:bg-stone-800 cursor-pointer"
+                      className="flex items-center justify-between text-xs font-medium p-1 rounded-md hover:bg-surface-container-low cursor-pointer"
                     >
                       <div className="flex items-center gap-2 truncate pr-2">
                         <input
                           type="checkbox"
                           checked={isChecked}
                           onChange={() => toggleBrand(b.name)}
-                          className="rounded text-[var(--leaf)] focus:ring-[var(--leaf)]"
+                          className="rounded border-outline-variant text-primary focus:ring-primary"
                         />
-                        <span className="truncate text-stone-800 dark:text-stone-200">{b.name}</span>
+                        <span className="truncate text-on-surface">{b.name}</span>
                       </div>
-                      <span className="text-[10px] text-stone-400 font-bold">
+                      <span className="text-[10px] text-outline font-bold">
                         {b.productCount}
                       </span>
                     </label>
@@ -537,112 +537,112 @@ export default function ProductsClient({
             </div>
 
             {/* Nutritional Filters */}
-            <div className="border-t border-stone-200 dark:border-stone-800 pt-4 space-y-4">
-              <h3 className="text-xs font-black uppercase tracking-wider text-stone-400">
+            <div className="border-t border-outline-variant/20 pt-4 space-y-4">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-outline">
                 Nutritional Ranges
               </h3>
 
               {/* Calories */}
               <div>
-                <label className="text-xs font-bold block mb-1">Calories (kcal)</label>
+                <label className="text-xs font-semibold block mb-1 text-on-surface">Calories (kcal)</label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="number"
                     placeholder="Min"
                     value={minCalories}
                     onChange={e => setMinCalories(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                   <input
                     type="number"
                     placeholder="Max"
                     value={maxCalories}
                     onChange={e => setMaxCalories(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                 </div>
               </div>
 
               {/* Protein */}
               <div>
-                <label className="text-xs font-bold block mb-1">Protein (g)</label>
+                <label className="text-xs font-semibold block mb-1 text-on-surface">Protein (g)</label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="number"
                     placeholder="Min"
                     value={minProtein}
                     onChange={e => setMinProtein(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                   <input
                     type="number"
                     placeholder="Max"
                     value={maxProtein}
                     onChange={e => setMaxProtein(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                 </div>
               </div>
 
               {/* Sugar */}
               <div>
-                <label className="text-xs font-bold block mb-1">Total Sugar (g)</label>
+                <label className="text-xs font-semibold block mb-1 text-on-surface">Total Sugar (g)</label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="number"
                     placeholder="Min"
                     value={minSugar}
                     onChange={e => setMinSugar(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                   <input
                     type="number"
                     placeholder="Max"
                     value={maxSugar}
                     onChange={e => setMaxSugar(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                 </div>
               </div>
 
               {/* Sodium */}
               <div>
-                <label className="text-xs font-bold block mb-1">Sodium (mg)</label>
+                <label className="text-xs font-semibold block mb-1 text-on-surface">Sodium (mg)</label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="number"
                     placeholder="Min"
                     value={minSodium}
                     onChange={e => setMinSodium(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                   <input
                     type="number"
                     placeholder="Max"
                     value={maxSodium}
                     onChange={e => setMaxSodium(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                 </div>
               </div>
 
               {/* Price */}
               <div>
-                <label className="text-xs font-bold block mb-1">Price (₹ INR)</label>
+                <label className="text-xs font-semibold block mb-1 text-on-surface">Price (₹ INR)</label>
                 <div className="grid grid-cols-2 gap-2">
                   <input
                     type="number"
                     placeholder="Min"
                     value={minPrice}
                     onChange={e => setMinPrice(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                   <input
                     type="number"
                     placeholder="Max"
                     value={maxPrice}
                     onChange={e => setMaxPrice(e.target.value)}
-                    className="w-full text-xs p-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900"
+                    className="w-full text-xs p-2 rounded-lg border border-outline-variant/40 bg-surface-container-low"
                   />
                 </div>
               </div>
@@ -652,30 +652,30 @@ export default function ProductsClient({
 
         {/* Products Results Section */}
         <div className="lg:col-span-3 space-y-4">
-          {/* Controls Bar: Mobile filter trigger, Count, Sort dropdown */}
-          <div className="flex flex-wrap items-center justify-between gap-3 bg-[var(--surface)] p-4 rounded-2xl border-2 border-stone-200 dark:border-stone-800">
+          {/* Controls Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 shadow-sm">
             <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={() => setIsMobileFilterOpen(true)}
-                className="lg:hidden btn-chunky text-xs py-2 px-3 bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200 flex items-center gap-1.5"
+                className="lg:hidden text-xs py-2 px-3 rounded-lg bg-surface-container text-on-surface border border-outline-variant/40 flex items-center gap-1.5 font-bold"
               >
                 <SlidersHorizontal className="w-4 h-4" />
                 <span>Filters {activeFilters.length > 0 && `(${activeFilters.length})`}</span>
               </button>
 
-              <div className="text-xs sm:text-sm font-bold text-stone-600 dark:text-stone-300">
-                Showing <span className="font-extrabold text-stone-900 dark:text-stone-50">{filteredProducts.length}</span> of {totalProducts} products
+              <div className="text-xs sm:text-sm font-medium text-on-surface-variant">
+                Showing <span className="font-bold text-primary">{filteredProducts.length}</span> of {totalProducts} products
               </div>
             </div>
 
             {/* Sort Options */}
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-stone-500 hidden sm:inline">Sort:</span>
+              <span className="text-xs font-semibold text-outline hidden sm:inline">Sort:</span>
               <select
                 value={sortBy}
                 onChange={e => setSortBy(e.target.value as any)}
-                className="text-xs font-semibold py-1.5 px-3 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200"
+                className="text-xs font-medium py-1.5 px-3 rounded-lg border border-outline-variant/40 bg-surface-container-low text-on-surface focus:outline-none focus:border-primary"
               >
                 <option value="sno">Default (S.No)</option>
                 <option value="name">Product Name (A-Z)</option>
@@ -689,7 +689,7 @@ export default function ProductsClient({
               <button
                 type="button"
                 onClick={() => setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'))}
-                className="p-1.5 rounded-xl border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-300 hover:bg-stone-100"
+                className="p-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low text-on-surface-variant hover:bg-surface-container"
                 title={`Order: ${sortOrder.toUpperCase()}`}
               >
                 <ArrowUpDown className="w-4 h-4" />
@@ -700,17 +700,17 @@ export default function ProductsClient({
           {/* Active Filter Pills */}
           {activeFilters.length > 0 && (
             <div className="flex flex-wrap items-center gap-2 pt-1">
-              <span className="text-xs font-bold text-stone-400">Active Filters:</span>
+              <span className="text-xs font-medium text-outline">Active Filters:</span>
               {activeFilters.map(filter => (
                 <span
                   key={filter.key}
-                  className="chip text-xs py-1 px-2.5 rounded-full bg-[var(--mint)]/30 text-stone-900 dark:text-stone-100 border border-[var(--leaf)]/40 flex items-center gap-1.5 font-bold"
+                  className="text-xs py-1 px-3 rounded-full bg-primary/10 text-primary border border-primary/20 flex items-center gap-1.5 font-medium"
                 >
                   <span>{filter.label}</span>
                   <button
                     type="button"
                     onClick={filter.clear}
-                    className="hover:text-[var(--tomato)]"
+                    className="hover:text-error"
                   >
                     <X className="w-3 h-3 stroke-[3]" />
                   </button>
@@ -719,7 +719,7 @@ export default function ProductsClient({
               <button
                 type="button"
                 onClick={clearAllFilters}
-                className="text-xs font-bold text-[var(--tomato)] hover:underline ml-2"
+                className="text-xs font-semibold text-error hover:underline ml-2"
               >
                 Clear all
               </button>
@@ -733,27 +733,27 @@ export default function ProductsClient({
                 <IndianFoodCard
                   key={product.id}
                   product={product}
-                  highlightText={debouncedQuery}
+                  highlightQuery={debouncedQuery}
                   isComparing={comparingProducts.some(p => p.id === product.id)}
                   onToggleCompare={toggleCompare}
                 />
               ))}
             </div>
           ) : (
-            <div className="bubble-card p-12 text-center bg-[var(--surface)] text-[var(--ink)] space-y-4">
-              <div className="w-16 h-16 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center mx-auto text-3xl">
+            <div className="rounded-2xl p-12 text-center bg-surface-container-lowest border border-outline-variant/40 shadow-sm space-y-4">
+              <div className="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center mx-auto text-3xl">
                 🔍
               </div>
-              <h3 className="font-display font-black text-xl text-stone-900 dark:text-stone-50">
+              <h3 className="font-serif font-bold text-xl text-on-surface">
                 No matching packaged foods found
               </h3>
-              <p className="text-sm text-stone-500 max-w-md mx-auto">
-                No products match your current search and filter combination. Try clearing some filters or searching for popular categories like Chocolate, Biscuits, or Snacks.
+              <p className="text-sm text-on-surface-variant max-w-md mx-auto">
+                No products match your current search and filter combination. Try clearing some filters or searching for popular categories like Biscuits, Dairy, or Snacks.
               </p>
               <button
                 type="button"
                 onClick={clearAllFilters}
-                className="btn-chunky py-2.5 px-6 bg-[var(--leaf)] text-white text-sm font-bold inline-flex items-center gap-2"
+                className="py-2.5 px-6 rounded-full bg-primary text-on-primary text-sm font-semibold inline-flex items-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-colors"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset All Filters</span>
@@ -763,7 +763,7 @@ export default function ProductsClient({
 
           {/* Pagination Controls */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-between p-4 bg-[var(--surface)] rounded-2xl border-2 border-stone-200 dark:border-stone-800">
+            <div className="flex items-center justify-between p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/40 shadow-sm">
               <button
                 type="button"
                 disabled={page <= 1}
@@ -771,14 +771,14 @@ export default function ProductsClient({
                   setPage(p => Math.max(1, p - 1));
                   window.scrollTo({ top: 300, behavior: 'smooth' });
                 }}
-                className="btn-chunky py-2 px-4 text-xs bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 font-bold"
+                className="py-2 px-4 text-xs rounded-lg bg-surface-container text-on-surface disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 font-semibold"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Previous</span>
               </button>
 
-              <div className="text-xs sm:text-sm font-extrabold text-stone-700 dark:text-stone-300">
-                Page <span className="text-[var(--leaf)] font-black">{page}</span> of {totalPages}
+              <div className="text-xs sm:text-sm font-medium text-on-surface-variant">
+                Page <span className="text-primary font-bold">{page}</span> of {totalPages}
               </div>
 
               <button
@@ -788,7 +788,7 @@ export default function ProductsClient({
                   setPage(p => Math.min(totalPages, p + 1));
                   window.scrollTo({ top: 300, behavior: 'smooth' });
                 }}
-                className="btn-chunky py-2 px-4 text-xs bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 font-bold"
+                className="py-2 px-4 text-xs rounded-lg bg-surface-container text-on-surface disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5 font-semibold"
               >
                 <span>Next</span>
                 <ChevronRight className="w-4 h-4" />

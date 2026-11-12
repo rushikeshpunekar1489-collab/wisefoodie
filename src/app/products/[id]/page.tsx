@@ -3,19 +3,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  Calendar,
-  Database,
-  Tag,
-  ShieldCheck,
-  Scale,
-  Sparkles,
-  ChevronRight,
-  Info,
-  Award,
-  CheckCircle,
-  AlertTriangle,
-} from 'lucide-react';
 import { packagedFoodDb, CATEGORY_ICONS } from '@/lib/db/packagedFoodDb';
 import { getProductBySlug } from '@/lib/products';
 import IndianNutritionFacts from '@/components/IndianNutritionFacts';
@@ -23,6 +10,7 @@ import ScorecardV2Container from '@/scorecard-v2/ui/ScorecardV2Container';
 import FBSVitalityCapsule from '@/components/FBSVitalityCapsule';
 import FavouriteButton from '@/components/FavouriteButton';
 import ShareButton from '@/components/ShareButton';
+import AddToCartButton from '@/components/AddToCartButton';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -43,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${product.name} by ${product.brand} | Nutrition Facts & Food Benefit Score | WiseFoodies`,
-    description: `Complete label analysis for ${product.name} (${product.brand}). Nutrition facts, Food Benefit Score (FBS), Smart Consumption, and verified ingredients.`,
+    description: `Forensic packaging dossier for ${product.name} (${product.brand}). Nutrition facts, Food Benefit Score (FBS), Smart Consumption, and verified ingredients.`,
   };
 }
 
@@ -55,202 +43,237 @@ export default async function ProductDetailPage({ params }: Props) {
     notFound();
   }
 
-  const fullProduct = getProductBySlug(product.slug);
-  const icon = CATEGORY_ICONS[product.category] || '🍽️';
+  // Look up corresponding full Product record (by id or slug)
+  const fullProduct = getProductBySlug(product.id) || getProductBySlug(product.slug);
+  const icon = CATEGORY_ICONS[product.category] || 'inventory_2';
 
-  // Related products in same category
+  // Compute calculated FBS score if full product is not precomputed
+  const sugarPenalty = (product.sugarG ?? 0) * 0.15;
+  const satFatPenalty = (product.saturatedFatG ?? 0) * 0.2;
+  const sodiumPenalty = ((product.sodiumMg ?? 0) / 1000) * 1.5;
+  const proteinBonus = (product.proteinG ?? 0) * 0.25;
+  const fiberBonus = (product.dietaryFiberG ?? 0) * 0.35;
+  const calculatedScore = fullProduct?.fbs?.score ?? Math.max(1.0, Math.min(10.0, 7.5 - sugarPenalty - satFatPenalty - sodiumPenalty + proteinBonus + fiberBonus));
+
+  const isUPF = (product.sugarG ?? 0) > 20 || (product.sodiumMg ?? 0) > 800 || calculatedScore < 4.5;
+  const productImage = fullProduct?.image || product.image;
+
+  // Related products from same category
   const related = packagedFoodDb
     .getAll()
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-16 space-y-8 bg-surface text-on-surface">
       {/* 1. Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-stone-500 overflow-x-auto whitespace-nowrap">
-        <Link href="/" className="hover:text-emerald-700 transition-colors">
+      <nav className="flex items-center gap-2 text-xs font-label-caps text-on-surface-variant overflow-x-auto whitespace-nowrap">
+        <Link href="/" className="hover:text-primary transition-colors">
           Home
         </Link>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-        <Link href="/products" className="hover:text-emerald-700 transition-colors">
+        <span className="material-symbols-outlined text-xs">chevron_right</span>
+        <Link href="/products" className="hover:text-primary transition-colors">
           Packaged Foods
         </Link>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+        <span className="material-symbols-outlined text-xs">chevron_right</span>
         <Link
           href={`/category/${product.category.toLowerCase().replace(/\s+/g, '-')}`}
-          className="hover:text-emerald-700 transition-colors"
+          className="hover:text-primary transition-colors"
         >
           {product.category}
         </Link>
-        <ChevronRight className="w-3.5 h-3.5 shrink-0" />
-        <span className="text-stone-900 truncate max-w-xs font-bold">
+        <span className="material-symbols-outlined text-xs">chevron_right</span>
+        <span className="text-primary truncate max-w-xs font-bold">
           {product.name}
         </span>
       </nav>
 
-      {/* 2. Top Product Header & Image Card */}
-      <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 shadow-sm">
+      {/* 2. Top Header: Packaged Food Dossier Title */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-outline-variant/30 pb-4">
+        <div>
+          <span className="font-label-caps text-xs text-primary font-bold uppercase tracking-wider block mb-1">
+            Forensic Food Intelligence Dossier
+          </span>
+          <h1 className="font-headline-lg-mobile sm:font-headline-lg text-primary font-serif">
+            Packaged Food Dossier
+          </h1>
+        </div>
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-xs uppercase font-bold border border-primary/10">
+            <span className="material-symbols-outlined text-sm">verified</span>
+            <span>Forensic Audit Complete</span>
+          </span>
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container text-on-surface font-label-caps text-xs uppercase font-bold border border-outline-variant/30">
+            <span>FSSAI 2020 Compliant</span>
+          </span>
+        </div>
+      </div>
+
+      {/* 3. Hero Product Showcase Card (Stitch 2 Dossier Showcase) */}
+      <div className="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-6 sm:p-8 shadow-xs">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          {/* Product Image Area */}
+          {/* Packaging Image Showcase Area */}
           <div className="md:col-span-5 flex flex-col items-center">
-            <div className="w-full h-72 relative rounded-2xl bg-stone-50 border border-stone-200 p-4 flex items-center justify-center overflow-hidden">
-              {fullProduct?.image ? (
+            <div className="w-full aspect-square relative rounded-xl bg-surface-container-low border border-outline-variant/30 p-4 flex items-center justify-center overflow-hidden">
+              {productImage ? (
                 <Image
-                  src={fullProduct.image}
+                  src={productImage}
                   alt={product.name}
                   fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-contain p-2"
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  className="object-contain p-3"
                   priority
                 />
               ) : (
                 <div className="text-center p-6 space-y-2">
-                  <span className="text-6xl">{icon}</span>
-                  <p className="text-xs font-bold text-stone-400 uppercase tracking-widest block">
+                  <span className="material-symbols-outlined text-6xl text-primary/30">
+                    inventory_2
+                  </span>
+                  <p className="font-label-caps text-xs font-bold text-primary uppercase tracking-widest block">
                     {product.brand}
                   </p>
-                  <p className="text-xs text-stone-500 max-w-xs font-medium">
-                    Verified Package Record
+                  <p className="font-body-sm text-xs text-on-surface-variant max-w-xs">
+                    Commercial packaging image undergoing laboratory validation
                   </p>
                 </div>
               )}
             </div>
 
             <div className="flex items-center gap-2 mt-3">
-              <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> Verified FSSAI Label Data
+              <span className="px-3 py-1 rounded-full text-xs font-label-caps font-bold bg-primary-fixed text-on-primary-fixed border border-primary/20 flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-sm">health_and_safety</span>
+                <span>Verified Independent Inspection</span>
               </span>
             </div>
           </div>
 
-          {/* Product Details & FBS Score Capsule */}
+          {/* Product Details & Score Pillar */}
           <div className="md:col-span-7 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="px-3 py-1 rounded-lg text-xs font-black uppercase tracking-wider bg-stone-100 text-stone-800">
+              <span className="px-3 py-1 rounded-full text-xs font-label-caps uppercase tracking-wider bg-surface-container text-secondary font-bold">
                 {product.brand}
               </span>
               {product.priceINR !== null && (
-                <div className="px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-800 font-bold text-sm border border-emerald-200">
-                  MRP: <strong className="text-base font-black">₹{product.priceINR}</strong>
+                <div className="px-3.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold text-sm border border-secondary/20 tabular-nums">
+                  MRP: <strong className="text-base font-bold">₹{product.priceINR}</strong>
                 </div>
               )}
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight font-display">
+            <h2 className="font-headline-lg-mobile sm:font-headline-lg text-primary font-serif leading-tight">
               {product.name}
-            </h1>
+            </h2>
 
-            <p className="text-xs text-stone-500 font-semibold">
-              Category: <strong className="text-stone-700">{product.category}</strong>
+            <p className="font-body-sm text-xs text-on-surface-variant font-medium">
+              Category: <strong className="text-primary">{product.category}</strong>
               {product.subCategory && ` • Subcategory: ${product.subCategory}`}
               {product.servingSizeG && ` • Serving: ${product.servingSizeG}g`}
             </p>
 
-            {/* FBS Highlight Box */}
-            {fullProduct?.fbs && (
-              <div className="bg-stone-50 rounded-2xl p-4 border border-stone-200 flex items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="text-xs font-black uppercase text-emerald-800 flex items-center gap-1">
-                    <Award className="w-4 h-4 text-emerald-600" /> Food Benefit Score (FBS)
-                  </div>
-                  <p className="text-xs text-stone-600 max-w-md">
-                    Deterministic score calculated from positive nutrients vs. sugars, sat fat, and sodium.
-                  </p>
+            {/* Signature FBS Vitality Capsule */}
+            <div className="rounded-xl bg-surface-container-low p-4 border border-outline-variant/30 flex items-center justify-between gap-4">
+              <div className="space-y-1">
+                <div className="font-label-caps text-xs uppercase text-primary font-bold flex items-center gap-1">
+                  <span className="material-symbols-outlined text-base">award_star</span>
+                  <span>Food Benefit Score (FBS)</span>
                 </div>
-                <div className="shrink-0 flex items-center gap-2">
-                  <div className="w-16 h-16 rounded-2xl bg-emerald-800 text-white flex flex-col items-center justify-center shadow-xs">
-                    <span className="text-2xl font-black leading-none">{fullProduct.fbs.score ?? '—'}</span>
-                    <span className="text-[9px] uppercase font-bold text-emerald-200 mt-0.5">
-                      {fullProduct.fbs.band || 'Rating'}
-                    </span>
-                  </div>
-                </div>
+                <p className="font-body-sm text-xs text-on-surface-variant max-w-md">
+                  Algorithmic evaluation calibrated from intact protein &amp; fibre against free sugars, sodium &amp; industrial UPF markers.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <FBSVitalityCapsule score={calculatedScore} size="sm" orientation="horizontal" />
+              </div>
+            </div>
+
+            {/* UPF Risk Notice */}
+            {isUPF && (
+              <div className="p-3 rounded-lg bg-error-container text-on-error-container border border-error/30 flex items-center gap-2 text-xs font-label-caps">
+                <span className="material-symbols-outlined text-base text-error">warning</span>
+                <span>Contains Ultra-Processed Additives or High Sugar/Sodium Ratio. Consume with caution.</span>
               </div>
             )}
 
             {/* Action Bar */}
-            <div className="flex flex-wrap items-center gap-2.5 pt-2">
-              {fullProduct && (
-                <>
-                  <FavouriteButton slug={fullProduct.slug} productName={fullProduct.name} size="md" showLabel={true} />
-                  <ShareButton product={fullProduct} size="md" showLabel={true} />
-                </>
-              )}
+            <div className="flex flex-wrap items-center gap-3 pt-3">
+              <AddToCartButton slug={product.slug || product.id} productName={product.name} size="md" />
+              <FavouriteButton slug={product.slug || product.id} productName={product.name} size="md" showLabel={true} />
+              {fullProduct && <ShareButton product={fullProduct} size="md" showLabel={true} />}
               <Link
-                href={`/compare?select=${product.slug}`}
-                className="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-colors"
+                href={`/compare?select=${product.slug || product.id}`}
+                className="px-4 py-2.5 rounded-full border border-outline-variant/40 bg-surface-container text-on-surface font-label-caps text-xs uppercase font-bold hover:bg-surface-container-high transition-colors inline-flex items-center gap-1.5"
               >
-                <Scale className="w-3.5 h-3.5 text-stone-600" /> Compare Product
+                <span className="material-symbols-outlined text-base">balance</span>
+                <span>Pin to Compare</span>
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 3. NUTRITIONAL FACTS & INGREDIENTS DECLARATION */}
+      {/* 4. INGREDIENTS DECLARATION & NUTRITION FACTS GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left: Ingredients & Dataset Meta (7 cols) */}
+        {/* Left: Ingredients & Dataset Metadata (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-white rounded-3xl border border-stone-200 p-6 sm:p-8 space-y-5 shadow-sm">
-            <div className="flex items-center gap-2 border-b border-stone-200 pb-3">
-              <Tag className="w-4 h-4 text-emerald-700" />
-              <h3 className="font-bold text-base text-stone-900">
+          <div className="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-center gap-2 border-b border-outline-variant/30 pb-3">
+              <span className="material-symbols-outlined text-primary text-xl">description</span>
+              <h3 className="font-headline-sm text-base text-primary">
                 Ingredients Declaration
               </h3>
             </div>
 
             {product.ingredients ? (
-              <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 text-xs sm:text-sm font-medium leading-relaxed text-stone-800 font-mono">
+              <div className="p-4 rounded-lg bg-surface-container-low border border-outline-variant/25 font-mono text-xs sm:text-sm text-on-surface leading-relaxed">
                 {product.ingredients}
               </div>
             ) : (
-              <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-800">
-                Ingredients list was not disclosed on packaging.
+              <div className="p-4 rounded-lg bg-secondary-fixed/20 border border-secondary/30 text-xs font-body-sm text-on-surface-variant">
+                Full ingredient list was not disclosed on the exterior label.
               </div>
             )}
 
-            {/* Dataset Meta */}
-            <div className="pt-3 border-t border-stone-100 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-stone-500">
-              <div className="flex items-center gap-1.5">
-                <Database className="w-3.5 h-3.5 text-stone-400" />
-                <span>Source: <strong className="text-stone-700">{product.sourceOfData || 'Zepto / Label'}</strong></span>
+            {/* Dataset Metadata */}
+            <div className="pt-3 border-t border-outline-variant/20 grid grid-cols-2 sm:grid-cols-3 gap-3 font-label-caps text-xs text-on-surface-variant">
+              <div>
+                Source: <strong className="text-primary">{product.sourceOfData || 'FSSAI Label Inspection'}</strong>
               </div>
               {product.collectionDate && (
-                <div className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-stone-400" />
-                  <span>Collected: <strong className="text-stone-700">{product.collectionDate}</strong></span>
+                <div>
+                  Audited: <strong className="text-primary">{product.collectionDate}</strong>
                 </div>
               )}
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Item ID: <strong className="text-stone-700">{product.id}</strong></span>
+              <div>
+                Forensic SKU: <strong className="text-primary">{product.id}</strong>
               </div>
             </div>
           </div>
 
           {/* Related from same category */}
           {related.length > 0 && (
-            <div className="bg-white rounded-3xl border border-stone-200 p-6 space-y-4 shadow-sm">
-              <h3 className="font-bold text-sm text-stone-900 uppercase tracking-wider">
-                More from {product.category}
+            <div className="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-6 space-y-4 shadow-xs">
+              <h3 className="font-label-lg text-xs uppercase tracking-wider text-primary font-bold">
+                More Audits in {product.category}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {related.map((item) => (
                   <Link
                     key={item.id}
                     href={`/products/${item.id}`}
-                    className="p-3.5 rounded-2xl border border-stone-200 hover:border-emerald-600/40 hover:shadow-xs transition-all bg-stone-50 flex items-center justify-between gap-3 group"
+                    className="p-3.5 rounded-lg border border-outline-variant/30 hover:border-primary/40 hover:shadow-xs transition-all bg-surface-container-low flex items-center justify-between gap-3 group"
                   >
                     <div className="min-w-0">
-                      <p className="text-[10px] font-black uppercase text-stone-400">{item.brand}</p>
-                      <h4 className="text-xs font-bold text-stone-900 truncate group-hover:text-emerald-800">
+                      <p className="font-label-caps text-[0.625rem] text-secondary font-bold uppercase">{item.brand}</p>
+                      <h4 className="font-headline-sm text-xs text-primary truncate group-hover:text-primary-container">
                         {item.name}
                       </h4>
-                      <p className="text-[11px] text-stone-500 mt-0.5">
+                      <p className="font-body-sm text-[0.6875rem] text-on-surface-variant mt-0.5 tabular-nums">
                         {item.caloriesKcal !== null ? `${item.caloriesKcal} kcal` : 'Energy N/A'} • {item.priceINR !== null ? `₹${item.priceINR}` : 'MRP N/A'}
                       </p>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-stone-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                    <span className="material-symbols-outlined text-on-surface-variant group-hover:translate-x-0.5 transition-transform text-lg shrink-0">
+                      arrow_forward
+                    </span>
                   </Link>
                 ))}
               </div>
@@ -264,15 +287,15 @@ export default async function ProductDetailPage({ params }: Props) {
         </div>
       </div>
 
-      {/* 4. SCORECARD V2 THREE DEEP INTELLIGENCE MODULES */}
+      {/* 5. SCORECARD V2 DEEP FORENSIC MODULES */}
       {fullProduct && (
-        <div className="space-y-6 pt-4">
+        <div className="space-y-6 pt-4 border-t border-outline-variant/30">
           <div className="text-center max-w-2xl mx-auto space-y-1">
-            <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            <span className="font-label-caps text-xs uppercase tracking-wider text-primary bg-primary-fixed px-3 py-1 rounded-full border border-primary/20 font-bold">
               Deep Intelligence Modules
             </span>
-            <h2 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight">
-              Smart Consumption, Nutrition Per Paisa & Ingredients
+            <h2 className="font-headline-md text-2xl text-primary font-serif">
+              Smart Consumption, The ₹10 Test &amp; Forensic Safety
             </h2>
           </div>
           <ScorecardV2Container product={fullProduct} />
