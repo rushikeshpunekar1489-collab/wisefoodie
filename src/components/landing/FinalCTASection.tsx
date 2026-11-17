@@ -95,7 +95,7 @@ export default function FinalCTASection() {
 
           <Link
             href="/scanner"
-            className="px-6 py-4 rounded-full bg-white text-[#14211A] font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-[#FFFBF2] transition-all shadow-lg active:scale-95"
+            className="px-6 py-4 rounded-full bg-white dark:bg-[#16A34A] text-[#14211A] dark:text-white font-bold text-xs uppercase tracking-wider inline-flex items-center gap-2 hover:bg-[#FFFBF2] dark:hover:bg-[#22C55E] transition-all shadow-lg active:scale-95"
           >
             <ScanLine className="w-4 h-4 text-[#16A34A]" />
             <span>Launch Food Scanner</span>

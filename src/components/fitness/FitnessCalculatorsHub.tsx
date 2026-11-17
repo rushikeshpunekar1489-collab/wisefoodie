@@ -32,11 +32,11 @@ export default function FitnessCalculatorsHub() {
               className={`p-3 sm:p-4 rounded-2xl border-2 text-left transition-all flex flex-col justify-between gap-2 ${
                 isActive
                   ? 'border-[var(--ink)] bg-[var(--surface)] shadow-[4px_4px_0px_var(--ink)] -translate-y-0.5'
-                  : 'border-stone-200 bg-[var(--surface-alt)] hover:bg-stone-100 text-stone-600'
+                  : 'border-stone-200 dark:border-white/10 bg-[var(--surface-alt)] hover:bg-stone-100 dark:hover:bg-white/5 text-stone-600 dark:text-stone-300'
               }`}
             >
               <div className="flex items-center justify-between w-full">
-                <span className={`p-2 rounded-xl border border-[var(--ink)]/20 ${isActive ? 'bg-[var(--mint)] text-emerald-950' : 'bg-stone-200 text-stone-700'}`}>
+                <span className={`p-2 rounded-xl border border-[var(--ink)]/20 ${isActive ? 'bg-[var(--mint)] text-emerald-950' : 'bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300'}`}>
                   <Icon className="w-5 h-5 stroke-[2.2]" />
                 </span>
                 {isActive && (
@@ -46,10 +46,10 @@ export default function FitnessCalculatorsHub() {
                 )}
               </div>
               <div>
-                <h3 className={`font-black text-sm sm:text-base ${isActive ? 'text-[var(--ink)]' : 'text-stone-800'}`}>
+                <h3 className={`font-black text-sm sm:text-base ${isActive ? 'text-[var(--ink)]' : 'text-stone-800 dark:text-stone-100'}`}>
                   {tab.label}
                 </h3>
-                <p className="text-[11px] text-stone-500 line-clamp-1 mt-0.5">
+                <p className="text-[11px] text-stone-500 dark:text-stone-400 line-clamp-1 mt-0.5">
                   {tab.description}
                 </p>
               </div>

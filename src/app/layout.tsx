@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import MobileNav from '../components/MobileNav';
 import ChatWindow from '../components/ChatWindow';
 import { I18nProvider } from '@/context/I18nContext';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -13,7 +14,7 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#FFFBF2' },
-    { media: '(prefers-color-scheme: dark)', color: '#121413' },
+    { media: '(prefers-color-scheme: dark)', color: '#0D1511' },
   ],
 };
 
@@ -46,8 +47,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                const theme = localStorage.getItem('wf_theme') || 'light';
+                const saved = localStorage.getItem('wf_theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = (!saved || saved === 'system') ? (prefersDark ? 'dark' : 'light') : saved;
                 document.documentElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
                 const locale = localStorage.getItem('wf_locale') || 'en';
                 document.documentElement.setAttribute('lang', locale);
                 if (locale === 'ur' || locale === 'ks' || locale === 'sd') {
@@ -61,20 +69,22 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-[var(--cream)] text-[var(--ink)] antialiased overflow-x-clip">
-        <I18nProvider>
-          <a href="#main" className="skip-link">Skip to content</a>
-          <Suspense fallback={<div className="h-16 w-full" />}>
-            <Header />
-          </Suspense>
-          <main id="main" className="flex-1 pb-24 md:pb-8 w-full max-w-full min-w-0">{children}</main>
-          <Footer />
-          <Suspense fallback={null}>
-            <MobileNav />
-          </Suspense>
-          <Suspense fallback={null}>
-            <ChatWindow />
-          </Suspense>
-        </I18nProvider>
+        <ThemeProvider>
+          <I18nProvider>
+            <a href="#main" className="skip-link">Skip to content</a>
+            <Suspense fallback={<div className="h-16 w-full" />}>
+              <Header />
+            </Suspense>
+            <main id="main" className="flex-1 pb-24 md:pb-8 w-full max-w-full min-w-0">{children}</main>
+            <Footer />
+            <Suspense fallback={null}>
+              <MobileNav />
+            </Suspense>
+            <Suspense fallback={null}>
+              <ChatWindow />
+            </Suspense>
+          </I18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

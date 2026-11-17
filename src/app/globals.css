@@ -120,17 +120,238 @@
   --z-toast: 80;
 }
 
-[data-theme="dark"] {
-  --ink: #f2fcf6;
-  --cream: #141d1b;
-  --surface: #1e2926;
-  --surface-alt: #29322f;
-  --leaf: #bfecda;
-  --mint: #0b382c;
-  --shadow-hard: 0px 3px 0px #000000;
-  --shadow-hard-hover: 0px 5px 0px #000000;
-  --shadow-hard-press: 0px 0px 0px #000000;
+[data-theme="dark"],
+.dark {
+  color-scheme: dark;
+
+  --ink: #eaf5ee;
+  --cream: #0d1511;
+  --surface: #141f1a;
+  --surface-alt: #1b2823;
+  --leaf: #34d399;
+  --mint: #064e3b;
+  --mango: #fbbf24;
+  --tomato: #f87171;
+  --berry: #a78bfa;
+  --sky: #38bdf8;
+  --bubblegum: #f472b6;
+
+  --border-subtle: rgba(234, 245, 238, 0.12);
+  --border-strong: rgba(234, 245, 238, 0.22);
+
+  --color-primary: #34d399;
+  --color-on-primary: #003825;
+  --color-primary-container: #064e3b;
+  --color-on-primary-container: #a7f3d0;
+  --color-primary-fixed: #132e24;
+  --color-primary-fixed-dim: #0b221a;
+  --color-on-primary-fixed: #6ee7b7;
+  --color-on-primary-fixed-variant: #a7f3d0;
+
+  --color-secondary: #f59e0b;
+  --color-on-secondary: #451a03;
+  --color-secondary-container: #78350f;
+  --color-on-secondary-container: #fde68a;
+  --color-secondary-fixed: #2f1500;
+  --color-secondary-fixed-dim: #6e3900;
+  --color-on-secondary-fixed: #ffdcc3;
+  --color-on-secondary-fixed-variant: #ffb77d;
+
+  --color-tertiary: #6ee7b7;
+  --color-on-tertiary: #003825;
+  --color-tertiary-container: #065f46;
+  --color-on-tertiary-container: #a7f3d0;
+
+  --color-error: #f87171;
+  --color-on-error: #450a0a;
+  --color-error-container: #7f1d1d;
+  --color-on-error-container: #fecaca;
+
+  --color-background: #0d1511;
+  --color-on-background: #eaf5ee;
+
+  --color-surface: #141f1a;
+  --color-on-surface: #eaf5ee;
+  --color-surface-dim: #090e0c;
+  --color-surface-bright: #1c2722;
+  --color-surface-container-lowest: #0e1612;
+  --color-surface-container-low: #15201b;
+  --color-surface-container: #1b2823;
+  --color-surface-container-high: #22322c;
+  --color-surface-container-highest: #2a3d36;
+  --color-surface-variant: #22322c;
+  --color-on-surface-variant: #a2b4aa;
+
+  --color-outline: #7e9187;
+  --color-outline-variant: #283931;
+  --color-surface-tint: #34d399;
+  --color-inverse-surface: #eaf5ee;
+  --color-inverse-on-surface: #141d1b;
+  --color-inverse-primary: #004d36;
+
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-raised: 0 8px 24px rgba(0, 0, 0, 0.7);
+  --shadow-hard: 0px 3px 0px rgba(0, 0, 0, 0.85);
+  --shadow-hard-hover: 0px 5px 0px rgba(0, 0, 0, 0.95);
+  --shadow-hard-press: 0px 0px 0px rgba(0, 0, 0, 0.85);
 }
+
+/* ==========================================================================
+   GLOBAL DARK MODE ADAPTATIONS FOR HARDCODED UTILITY CLASSES
+   Ensures 100% legibility and zero contrast breakdown across all pages.
+   ========================================================================== */
+[data-theme="dark"] .bg-\[\#FFFBF2\],
+.dark .bg-\[\#FFFBF2\] {
+  background-color: var(--cream) !important;
+}
+
+[data-theme="dark"] .hover\:bg-\[\#FFFBF2\]:hover,
+.dark .hover\:bg-\[\#FFFBF2\]:hover {
+  background-color: var(--surface-alt) !important;
+}
+
+[data-theme="dark"] .text-\[\#14211A\],
+.dark .text-\[\#14211A\] {
+  color: var(--ink) !important;
+}
+
+[data-theme="dark"] .text-\[\#14211A\]\/40,
+.dark .text-\[\#14211A\]\/40 {
+  color: rgba(234, 245, 238, 0.45) !important;
+}
+
+[data-theme="dark"] .text-\[\#14211A\]\/50,
+.dark .text-\[\#14211A\]\/50 {
+  color: rgba(234, 245, 238, 0.55) !important;
+}
+
+[data-theme="dark"] .text-\[\#14211A\]\/60,
+.dark .text-\[\#14211A\]\/60 {
+  color: rgba(234, 245, 238, 0.68) !important;
+}
+
+[data-theme="dark"] .text-\[\#14211A\]\/70,
+.dark .text-\[\#14211A\]\/70 {
+  color: rgba(234, 245, 238, 0.78) !important;
+}
+
+[data-theme="dark"] .text-\[\#14211A\]\/75,
+.dark .text-\[\#14211A\]\/75 {
+  color: rgba(234, 245, 238, 0.82) !important;
+}
+
+[data-theme="dark"] .text-\[\#14211A\]\/80,
+.dark .text-\[\#14211A\]\/80 {
+  color: rgba(234, 245, 238, 0.90) !important;
+}
+
+[data-theme="dark"] .bg-\[\#14211A\]\/5,
+.dark .bg-\[\#14211A\]\/5 {
+  background-color: rgba(234, 245, 238, 0.06) !important;
+}
+
+[data-theme="dark"] .bg-\[\#14211A\]\/8,
+.dark .bg-\[\#14211A\]\/8 {
+  background-color: rgba(234, 245, 238, 0.08) !important;
+}
+
+[data-theme="dark"] .bg-\[\#14211A\]\/10,
+.dark .bg-\[\#14211A\]\/10 {
+  background-color: rgba(234, 245, 238, 0.12) !important;
+}
+
+[data-theme="dark"] .border-\[\#14211A\]\/8,
+.dark .border-\[\#14211A\]\/8 {
+  border-color: rgba(234, 245, 238, 0.08) !important;
+}
+
+[data-theme="dark"] .border-\[\#14211A\]\/10,
+.dark .border-\[\#14211A\]\/10 {
+  border-color: rgba(234, 245, 238, 0.12) !important;
+}
+
+[data-theme="dark"] .border-\[\#14211A\]\/12,
+.dark .border-\[\#14211A\]\/12 {
+  border-color: rgba(234, 245, 238, 0.15) !important;
+}
+
+[data-theme="dark"] .border-\[\#14211A\]\/15,
+.dark .border-\[\#14211A\]\/15 {
+  border-color: rgba(234, 245, 238, 0.18) !important;
+}
+
+[data-theme="dark"] .border-\[\#14211A\]\/20,
+.dark .border-\[\#14211A\]\/20 {
+  border-color: rgba(234, 245, 238, 0.24) !important;
+}
+
+[data-theme="dark"] .border-\[\#14211A\]\/30,
+.dark .border-\[\#14211A\]\/30 {
+  border-color: rgba(234, 245, 238, 0.32) !important;
+}
+
+[data-theme="dark"] .divide-\[\#14211A\]\/5 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-\[\#14211A\]\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(234, 245, 238, 0.08) !important;
+}
+
+/* Card surfaces that were white in light mode */
+[data-theme="dark"] .bg-white:not(.btn-keep-white):not([data-keep-white="true"]),
+.dark .bg-white:not(.btn-keep-white):not([data-keep-white="true"]) {
+  background-color: var(--surface) !important;
+  color: var(--ink);
+}
+
+[data-theme="dark"] .hover\:bg-white:hover,
+.dark .hover\:bg-white:hover {
+  background-color: var(--surface-alt) !important;
+}
+
+/* Form inputs & textareas */
+[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+.dark input:not([type="checkbox"]):not([type="radio"]),
+[data-theme="dark"] textarea,
+.dark textarea,
+[data-theme="dark"] select,
+.dark select {
+  background-color: var(--surface);
+  color: var(--ink);
+  border-color: rgba(234, 245, 238, 0.18);
+}
+
+[data-theme="dark"] input::placeholder,
+.dark input::placeholder,
+[data-theme="dark"] textarea::placeholder,
+.dark textarea::placeholder {
+  color: rgba(234, 245, 238, 0.45);
+}
+
+/* Keyboard badge */
+[data-theme="dark"] kbd,
+.dark kbd {
+  background-color: var(--surface-alt) !important;
+  color: var(--ink) !important;
+  border-color: rgba(234, 245, 238, 0.2) !important;
+}
+
+/* Stone & Neutral utilities dark adaptation */
+[data-theme="dark"] .text-stone-400, .dark .text-stone-400 { color: rgba(234, 245, 238, 0.45) !important; }
+[data-theme="dark"] .text-stone-500, .dark .text-stone-500 { color: rgba(234, 245, 238, 0.58) !important; }
+[data-theme="dark"] .text-stone-600, .dark .text-stone-600 { color: rgba(234, 245, 238, 0.70) !important; }
+[data-theme="dark"] .text-stone-700, .dark .text-stone-700 { color: rgba(234, 245, 238, 0.82) !important; }
+[data-theme="dark"] .text-stone-800, .dark .text-stone-800 { color: rgba(234, 245, 238, 0.92) !important; }
+[data-theme="dark"] .text-stone-900, .dark .text-stone-900 { color: #ffffff !important; }
+
+[data-theme="dark"] .bg-stone-50, .dark .bg-stone-50 { background-color: var(--surface) !important; }
+[data-theme="dark"] .bg-stone-100, .dark .bg-stone-100 { background-color: var(--surface-alt) !important; }
+[data-theme="dark"] .bg-stone-200, .dark .bg-stone-200 { background-color: rgba(234, 245, 238, 0.10) !important; }
+
+[data-theme="dark"] .border-stone-200, .dark .border-stone-200 { border-color: rgba(234, 245, 238, 0.12) !important; }
+[data-theme="dark"] .border-stone-300, .dark .border-stone-300 { border-color: rgba(234, 245, 238, 0.18) !important; }
+
+[data-theme="dark"] .text-gray-400, .dark .text-gray-400 { color: rgba(234, 245, 238, 0.45) !important; }
+[data-theme="dark"] .text-gray-500, .dark .text-gray-500 { color: rgba(234, 245, 238, 0.58) !important; }
+[data-theme="dark"] .bg-gray-50, .dark .bg-gray-50 { background-color: var(--surface-alt) !important; }
 
 /* Typography utilities from Stitch */
 .font-display-hero { font-family: 'Newsreader', serif; font-size: 3.5rem; font-weight: 600; line-height: 4rem; letter-spacing: -0.02em; }

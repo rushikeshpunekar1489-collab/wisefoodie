@@ -170,12 +170,9 @@ export default function FBSVitalityLiquidCapsule({
 
         {/* Outer Capsule Shell with Glass Bevel */}
         <div
-          className="relative w-full h-full rounded-full border-2 overflow-hidden shadow-xl"
+          className="relative w-full h-full rounded-full border-2 overflow-hidden shadow-xl bg-white/70 dark:bg-[#141F1A]/80 backdrop-blur-md"
           style={{
-            borderColor: `${tier.color}45`,
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(245,248,246,0.55) 100%)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
+            borderColor: `${tier.color}55`,
           }}
         >
           {/* SVG Animated Liquid Container */}
@@ -303,20 +300,17 @@ export default function FBSVitalityLiquidCapsule({
 
           {/* Center Floating Readout Typography */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10 px-2">
-            <span className="font-label-caps text-[9px] uppercase tracking-widest text-[#14211A]/80 font-extrabold mb-0.5">
+            <span className="font-label-caps text-[9px] uppercase tracking-widest text-[#14211A]/80 dark:text-[#EAF5EE]/90 font-extrabold mb-0.5">
               FBS
             </span>
             <div className="flex items-baseline">
               <span
-                className={`font-black tracking-tight tabular-nums drop-shadow-sm ${dimensions.numSize}`}
-                style={{
-                  color: currentScore > 4.5 ? '#14211A' : '#14211A',
-                }}
+                className={`font-black tracking-tight tabular-nums drop-shadow-sm text-[#14211A] dark:text-[#EAF5EE] ${dimensions.numSize}`}
               >
                 {isPending ? '—' : displayScore.toFixed(1)}
               </span>
             </div>
-            <span className="font-bold text-[11px] tracking-wider text-[#14211A]/70 uppercase">
+            <span className="font-bold text-[11px] tracking-wider text-[#14211A]/70 dark:text-[#EAF5EE]/80 uppercase">
               / 10
             </span>
           </div>
@@ -346,7 +340,7 @@ export default function FBSVitalityLiquidCapsule({
           >
             {tier.name}
           </span>
-          <span className="mt-1 text-[11px] font-bold text-[#14211A]/70 tracking-wide uppercase">
+          <span className="mt-1 text-[11px] font-bold text-[#14211A]/70 dark:text-[#EAF5EE]/70 tracking-wide uppercase">
             Food Benefit Score
           </span>
         </div>

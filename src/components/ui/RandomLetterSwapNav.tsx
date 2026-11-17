@@ -163,8 +163,8 @@ export function RandomLetterSwapItem({
       onMouseLeave={handleMouseLeave}
       className={`group relative inline-flex items-center gap-1.5 py-1 text-xs sm:text-[13px] font-bold tracking-wider uppercase transition-colors select-none ${
         isActive
-          ? 'text-[#14211A] font-extrabold'
-          : 'text-[#14211A]/70 hover:text-[#16A34A]'
+          ? 'text-[#14211A] dark:text-[#EAF5EE] font-extrabold'
+          : 'text-[#14211A]/70 dark:text-[#EAF5EE]/70 hover:text-[#16A34A] dark:hover:text-[#34D399]'
       } ${className}`}
       aria-current={isActive ? 'page' : undefined}
     >
@@ -189,7 +189,7 @@ export function RandomLetterSwapItem({
               ref={(el) => {
                 btmCharsRef.current[i] = el;
               }}
-              className="absolute left-0 top-0 inline-block will-change-transform text-[#16A34A]"
+              className="absolute left-0 top-0 inline-block will-change-transform text-[#16A34A] dark:text-[#34D399]"
               style={{ transform: reverse ? 'translateY(-100%)' : 'translateY(100%)' }}
               aria-hidden="true"
             >
@@ -202,7 +202,7 @@ export function RandomLetterSwapItem({
       {/* Active underline indicator */}
       {isActive && (
         <span
-          className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#16A34A] rounded-full"
+          className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#16A34A] dark:bg-[#34D399] rounded-full"
           aria-hidden="true"
         />
       )}

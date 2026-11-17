@@ -9,6 +9,7 @@ import { useFavourites } from '@/hooks/useFavourites';
 import { useI18n } from '@/context/I18nContext';
 import LanguageSelectorModal from '@/components/LanguageSelectorModal';
 import RandomLetterSwapNav from '@/components/ui/RandomLetterSwapNav';
+import { InkSpillThemeSwitch } from '@/components/ui/ink-spill-theme-switch';
 
 export default function Header() {
   const pathname = usePathname();
@@ -77,6 +78,9 @@ export default function Header() {
                 <span className="material-symbols-outlined text-lg">language</span>
                 <span className="font-label-caps text-label-caps uppercase">{locale || 'EN'}</span>
               </button>
+
+              {/* Ink Spill Theme Switch */}
+              <InkSpillThemeSwitch />
 
               {/* Favourites Shortcut */}
               <Link

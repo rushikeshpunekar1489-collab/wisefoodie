@@ -109,19 +109,19 @@ export default function NutritionAnalysisSection() {
   const activeProfile = SAMPLE_PROFILES[selectedProfileIndex];
 
   return (
-    <section className="relative overflow-hidden bg-[#FFFBF2] text-[#14211A] py-16 sm:py-24 border-b border-[#14211A]/10 font-sans">
+    <section className="relative overflow-hidden bg-[#FFFBF2] dark:bg-[#0D1511] text-[#14211A] dark:text-[#EAF5EE] py-16 sm:py-24 border-b border-[#14211A]/10 dark:border-white/10 font-sans transition-colors duration-300">
       <div className="container max-w-6xl mx-auto px-4 sm:px-6 relative z-10 space-y-12">
         {/* Section Top Eyebrow & Title */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-[#14211A]/10 pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-[#14211A]/10 dark:border-white/10 pb-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16A34A]/10 text-[#14532D] text-xs font-bold uppercase tracking-wider border border-[#16A34A]/20">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16A34A]/10 text-[#14532D] dark:text-[#68DBA9] text-xs font-bold uppercase tracking-wider border border-[#16A34A]/20">
               <BarChart3 className="w-3.5 h-3.5 text-[#16A34A]" />
               <span>ICMR-NIN 2024 NUTRITION BENCHMARK</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-serif text-[#14211A] tracking-tight leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-serif text-[#14211A] dark:text-[#EAF5EE] tracking-tight leading-tight">
               Nutrition Analysis &amp; Reference Graphs
             </h2>
-            <p className="font-body-md text-sm sm:text-base text-[#14211A]/75 leading-relaxed">
+            <p className="font-body-md text-sm sm:text-base text-[#14211A]/75 dark:text-[#EAF5EE]/75 leading-relaxed">
               Understand the actual nutritional contribution of packaged food. Every nutrient is benchmarked against the official Indian Council of Medical Research (ICMR-NIN) Recommended Dietary Allowances for adult health.
             </p>
           </div>
@@ -135,8 +135,8 @@ export default function NutritionAnalysisSection() {
                 onClick={() => setSelectedProfileIndex(idx)}
                 className={`px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                   selectedProfileIndex === idx
-                    ? 'bg-[#14211A] text-white shadow-xs'
-                    : 'bg-white border border-[#14211A]/12 text-[#14211A]/80 hover:bg-white/90'
+                    ? 'bg-[#14211A] dark:bg-[#16A34A] text-white shadow-xs'
+                    : 'bg-white dark:bg-[#1B2823] border border-[#14211A]/12 dark:border-white/10 text-[#14211A]/80 dark:text-[#EAF5EE]/80 hover:bg-white/90 dark:hover:bg-[#22322C]'
                 }`}
               >
                 {p.brand} ({p.name.split(' ')[0]})
@@ -146,17 +146,17 @@ export default function NutritionAnalysisSection() {
         </div>
 
         {/* 9 HORIZONTAL NUTRITIONAL REFERENCE GRAPHS */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#14211A]/10 shadow-[0_8px_30px_rgba(20,33,26,0.06)] space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#14211A]/8">
+        <div className="bg-white dark:bg-[#141F1A] rounded-3xl p-6 sm:p-10 border border-[#14211A]/10 dark:border-white/10 shadow-[0_8px_30px_rgba(20,33,26,0.06)] space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#14211A]/8 dark:border-white/10">
             <div>
-              <h3 className="font-bold text-lg text-[#14211A]">
-                {activeProfile.name} • <span className="text-[#16A34A]">{activeProfile.brand}</span>
+              <h3 className="font-bold text-lg text-[#14211A] dark:text-[#EAF5EE]">
+                {activeProfile.name} • <span className="text-[#16A34A] dark:text-[#34D399]">{activeProfile.brand}</span>
               </h3>
-              <p className="text-xs text-[#14211A]/60">{activeProfile.servingDesc} vs Official Daily RDA Ceiling</p>
+              <p className="text-xs text-[#14211A]/60 dark:text-[#EAF5EE]/60">{activeProfile.servingDesc} vs Official Daily RDA Ceiling</p>
             </div>
 
             <div className="flex items-center gap-4 text-xs font-semibold">
-              <div className="flex items-center gap-1.5 text-emerald-800">
+              <div className="flex items-center gap-1.5 text-emerald-800 dark:text-emerald-400">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A]" />
                 <span>Beneficial Nutrient</span>
               </div>
@@ -197,7 +197,7 @@ export default function NutritionAnalysisSection() {
                   </div>
 
                   {/* Horizontal Bar Track */}
-                  <div className="relative w-full h-3.5 bg-[#FFFBF2] rounded-full overflow-hidden border border-[#14211A]/10">
+                  <div className="relative w-full h-3.5 bg-[#FFFBF2] dark:bg-[#1C2A24] rounded-full overflow-hidden border border-[#14211A]/10 dark:border-white/10">
                     <div
                       className="h-full rounded-full transition-all duration-1000 ease-out"
                       style={{
@@ -211,7 +211,7 @@ export default function NutritionAnalysisSection() {
                     />
                   </div>
 
-                  <p className="text-[10px] text-[#14211A]/60 leading-tight">
+                  <p className="text-[10px] text-[#14211A]/60 dark:text-[#EAF5EE]/60 leading-tight">
                     {metric.scientificContext}
                   </p>
                 </div>
@@ -221,7 +221,7 @@ export default function NutritionAnalysisSection() {
         </div>
 
         {/* NUTRITION PER PAISA VALUE INTELLIGENCE (THE ₹10 VALUE TEST) */}
-        <div className="bg-[#14211A] text-white rounded-3xl p-6 sm:p-10 border border-[#14211A] shadow-xl space-y-8">
+        <div className="bg-[#14211A] dark:bg-[#141F1A] text-white rounded-3xl p-6 sm:p-10 border border-[#14211A] dark:border-white/15 shadow-xl space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FFB703] text-[#14211A]">

@@ -572,7 +572,7 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
   return (
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-[#FFFBF2] text-[#14211A] pt-4 pb-16 sm:pt-6 sm:pb-24 border-b border-[#14211A]/10 font-sans selection:bg-[#16A34A] selection:text-white"
+      className="relative w-full overflow-hidden bg-[#FFFBF2] dark:bg-[#0D1511] text-[#14211A] dark:text-[#EAF5EE] pt-4 pb-16 sm:pt-6 sm:pb-24 border-b border-[#14211A]/10 dark:border-white/10 font-sans selection:bg-[#16A34A] selection:text-white transition-colors duration-300"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       aria-label="WiseFoodies Hero Product Orbit Showcase"
@@ -589,7 +589,7 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
 
         {/* Subtle Graphic Grid Texture */}
         <div
-          className="absolute inset-0 opacity-[0.035]"
+          className="absolute inset-0 opacity-[0.035] dark:opacity-[0.06]"
           style={{
             backgroundImage:
               'radial-gradient(#14211A 1px, transparent 1px), radial-gradient(#14211A 1px, #FFFBF2 1px)',
@@ -605,15 +605,15 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
         <div className="space-y-4 pt-2">
           {/* Top Trust Eyebrows */}
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#14211A]/5 border border-[#14211A]/10 font-bold tracking-widest text-[#14211A] uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#14211A]/5 dark:bg-white/5 border border-[#14211A]/10 dark:border-white/10 font-bold tracking-widest text-[#14211A] dark:text-[#EAF5EE] uppercase">
               <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
               <span>WISEFOODIES • INDEPENDENT FOOD INTELLIGENCE</span>
             </div>
 
-            <div className="flex items-center gap-4 font-semibold text-[#14211A]/70">
+            <div className="flex items-center gap-4 font-semibold text-[#14211A]/70 dark:text-[#EAF5EE]/70">
               <span className="hidden sm:inline">852 Indian Packaged Foods Audited</span>
-              <div className="inline-flex items-center gap-1.5 text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <div className="inline-flex items-center gap-1.5 text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800/40">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span className="text-[11px] font-bold">Zero Brand Bias</span>
               </div>
             </div>
@@ -622,7 +622,7 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
           {/* Interactive Fast Search Input Bar */}
           <div ref={searchContainerRef} className="relative w-full max-w-3xl mx-auto">
             <form onSubmit={handleSearchSubmit} className="relative flex items-center">
-              <div className="absolute left-4 text-[#14211A]/40 pointer-events-none">
+              <div className="absolute left-4 text-[#14211A]/40 dark:text-[#EAF5EE]/40 pointer-events-none">
                 <Search className="w-5 h-5" />
               </div>
               <input
@@ -634,16 +634,16 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                   if (query.trim().length >= 2) setIsSearchOpen(true);
                 }}
                 placeholder="Search 852 Indian packaged products, brands or ingredients..."
-                className="w-full pl-12 pr-32 py-3 sm:py-3.5 rounded-2xl bg-white border border-[#14211A]/15 shadow-[0_4px_20px_-4px_rgba(20,33,26,0.06)] text-[#14211A] placeholder:text-[#14211A]/40 text-sm sm:text-base focus:outline-hidden focus:ring-2 focus:ring-[#16A34A] focus:border-transparent transition-all"
+                className="w-full pl-12 pr-32 py-3 sm:py-3.5 rounded-2xl bg-white dark:bg-[#141F1A] border border-[#14211A]/15 dark:border-white/15 shadow-[0_4px_20px_-4px_rgba(20,33,26,0.06)] text-[#14211A] dark:text-[#EAF5EE] placeholder:text-[#14211A]/40 dark:placeholder:text-[#EAF5EE]/40 text-sm sm:text-base focus:outline-hidden focus:ring-2 focus:ring-[#16A34A] focus:border-transparent transition-all"
                 aria-label="Search food database"
               />
               <div className="absolute right-3 flex items-center gap-2">
-                <kbd className="hidden md:inline-block px-2 py-1 rounded bg-[#FFFBF2] border border-[#14211A]/15 text-[11px] font-mono text-[#14211A]/60 shadow-2xs">
+                <kbd className="hidden md:inline-block px-2 py-1 rounded bg-[#FFFBF2] dark:bg-[#1C2A24] border border-[#14211A]/15 dark:border-white/15 text-[11px] font-mono text-[#14211A]/60 dark:text-[#EAF5EE]/60 shadow-2xs">
                   /
                 </kbd>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-xl bg-[#14211A] text-white hover:bg-[#16A34A] text-xs font-bold tracking-wider uppercase transition-colors inline-flex items-center gap-1 shadow-xs"
+                  className="px-4 py-2 rounded-xl bg-[#14211A] dark:bg-[#16A34A] text-white hover:bg-[#16A34A] dark:hover:bg-[#22C55E] text-xs font-bold tracking-wider uppercase transition-colors inline-flex items-center gap-1 shadow-xs"
                 >
                   <span>Search</span>
                   <ArrowRight className="w-3 h-3" />
@@ -653,12 +653,12 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
 
             {/* Live Autocomplete Dropdown */}
             {isSearchOpen && searchResults.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-[#14211A]/10 shadow-[0_20px_40px_-15px_rgba(20,33,26,0.18)] z-50 overflow-hidden divide-y divide-[#14211A]/5">
-                <div className="p-2.5 bg-[#FFFBF2] text-[11px] font-bold text-[#14211A]/60 uppercase tracking-wider flex items-center justify-between">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-[#141F1A] rounded-2xl border border-[#14211A]/10 dark:border-white/10 shadow-[0_20px_40px_-15px_rgba(20,33,26,0.18)] z-50 overflow-hidden divide-y divide-[#14211A]/5 dark:divide-white/10">
+                <div className="p-2.5 bg-[#FFFBF2] dark:bg-[#1C2A24] text-[11px] font-bold text-[#14211A]/60 dark:text-[#EAF5EE]/60 uppercase tracking-wider flex items-center justify-between">
                   <span>Direct Match Products</span>
                   <Link
                     href={`/search?q=${encodeURIComponent(query)}`}
-                    className="text-[#16A34A] hover:underline"
+                    className="text-[#16A34A] dark:text-[#34D399] hover:underline"
                   >
                     View all results →
                   </Link>
@@ -668,7 +668,7 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                     key={p.slug}
                     href={`/food/${p.slug}`}
                     onClick={() => setIsSearchOpen(false)}
-                    className="flex items-center justify-between p-3 hover:bg-[#FFFBF2] transition-colors group"
+                    className="flex items-center justify-between p-3 hover:bg-[#FFFBF2] dark:hover:bg-[#1C2A24] transition-colors group"
                   >
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-lg bg-gray-50 border border-[#14211A]/8 flex items-center justify-center p-1 shrink-0">
@@ -842,7 +842,7 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                   aria-label={prod.name}
                   onClick={() => goTo(i)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    i === index ? 'w-8 bg-[#14211A]' : 'w-2.5 bg-[#14211A]/25 hover:bg-[#14211A]/50'
+                    i === index ? 'w-8 bg-[#14211A] dark:bg-[#34D399]' : 'w-2.5 bg-[#14211A]/25 dark:bg-white/20 hover:bg-[#14211A]/50 dark:hover:bg-white/40'
                   }`}
                 />
               ))}
@@ -858,12 +858,12 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                   ref={(el) => {
                     cardRefs.current[i] = el;
                   }}
-                  className="absolute inset-0 bg-white rounded-3xl p-6 sm:p-7 border border-[#14211A]/10 shadow-[0_12px_36px_-10px_rgba(20,33,26,0.12)] flex flex-col justify-between"
+                  className="absolute inset-0 bg-white dark:bg-[#141F1A] rounded-3xl p-6 sm:p-7 border border-[#14211A]/10 dark:border-white/10 shadow-[0_12px_36px_-10px_rgba(20,33,26,0.12)] flex flex-col justify-between"
                   style={{ visibility: i === index ? 'visible' : 'hidden' }}
                   aria-hidden={i !== index}
                 >
                   {/* Card Header: Liquid Capsule + Classification Badge */}
-                  <div className="flex items-center justify-between pb-4 border-b border-[#14211A]/8">
+                  <div className="flex items-center justify-between pb-4 border-b border-[#14211A]/8 dark:border-white/10">
                     <div className="flex items-center gap-3">
                       {/* Embedded Mini FBS Vitality Liquid Capsule */}
                       <FBSVitalityLiquidCapsule
@@ -881,13 +881,13 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                             FBS {prod.fbsScore.toFixed(1)}
                           </span>
                         </div>
-                        <div className="text-[11px] font-bold text-[#14211A]/70 uppercase mt-0.5">
+                        <div className="text-[11px] font-bold text-[#14211A]/70 dark:text-[#EAF5EE]/70 uppercase mt-0.5">
                           {prod.fbsLabel}
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md text-[11px] font-semibold border border-emerald-200">
+                    <div className="flex items-center gap-1 text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-md text-[11px] font-semibold border border-emerald-200 dark:border-emerald-800/40">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>Audited</span>
                     </div>
@@ -895,17 +895,17 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
 
                   {/* Product Title & Brand */}
                   <div className="mt-3 space-y-1">
-                    <span className="text-[11px] font-bold text-[#14211A]/60 uppercase tracking-widest block">
+                    <span className="text-[11px] font-bold text-[#14211A]/60 dark:text-[#EAF5EE]/60 uppercase tracking-widest block">
                       {prod.brand}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#14211A] leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#14211A] dark:text-[#EAF5EE] leading-snug">
                       {prod.name}
                     </h3>
-                    <p className="text-xs text-[#14211A]/70 leading-relaxed pt-1">{prod.tagline}</p>
+                    <p className="text-xs text-[#14211A]/70 dark:text-[#EAF5EE]/70 leading-relaxed pt-1">{prod.tagline}</p>
                   </div>
 
                   {/* Social Audits Activity */}
-                  <div className="flex items-center gap-4 py-2.5 my-1.5 border-y border-[#14211A]/8 text-xs text-[#14211A]/75 font-medium">
+                  <div className="flex items-center gap-4 py-2.5 my-1.5 border-y border-[#14211A]/8 dark:border-white/10 text-xs text-[#14211A]/75 dark:text-[#EAF5EE]/75 font-medium">
                     <button
                       type="button"
                       onClick={() =>
@@ -916,13 +916,13 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                     >
                       <Heart
                         className={`w-4 h-4 ${
-                          liked[prod.id] ? 'fill-red-500 text-red-500' : 'text-[#14211A]/50'
+                          liked[prod.id] ? 'fill-red-500 text-red-500' : 'text-[#14211A]/50 dark:text-[#EAF5EE]/50'
                         }`}
                       />
                       <span>{(prod.likes + (liked[prod.id] ? 1 : 0)).toLocaleString()} likes</span>
                     </button>
 
-                    <div className="inline-flex items-center gap-1.5 text-[#14211A]/60">
+                    <div className="inline-flex items-center gap-1.5 text-[#14211A]/60 dark:text-[#EAF5EE]/60">
                       <MessageSquare className="w-4 h-4" />
                       <span>{prod.comments} audits</span>
                     </div>
@@ -931,7 +931,7 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                   {/* Interactive Tabs: Overview | Nutrition | Ingredients */}
                   <div className="space-y-3">
                     <div
-                      className="flex items-center gap-4 border-b border-[#14211A]/8 text-xs font-bold uppercase tracking-wider"
+                      className="flex items-center gap-4 border-b border-[#14211A]/8 dark:border-white/10 text-xs font-bold uppercase tracking-wider"
                       role="tablist"
                     >
                       {(['overview', 'nutrition', 'ingredients'] as const).map((t) => (
@@ -943,8 +943,8 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                           onClick={() => setTab(t)}
                           className={`pb-2 border-b-2 transition-colors ${
                             tab === t
-                              ? 'border-[#14211A] text-[#14211A]'
-                              : 'border-transparent text-[#14211A]/40 hover:text-[#14211A]/70'
+                              ? 'border-[#14211A] dark:border-[#34D399] text-[#14211A] dark:text-[#EAF5EE]'
+                              : 'border-transparent text-[#14211A]/40 dark:text-[#EAF5EE]/40 hover:text-[#14211A]/70 dark:hover:text-[#EAF5EE]/70'
                           }`}
                         >
                           {t}
@@ -955,7 +955,7 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                     {/* Tab Content */}
                     <div className="min-h-[105px] text-xs">
                       {tab === 'overview' && (
-                        <p className="text-[#14211A]/80 leading-relaxed">{prod.overview}</p>
+                        <p className="text-[#14211A]/80 dark:text-[#EAF5EE]/80 leading-relaxed">{prod.overview}</p>
                       )}
 
                       {tab === 'nutrition' && (
@@ -963,16 +963,16 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                           {prod.keyNutrients.map((n) => (
                             <div
                               key={n.label}
-                              className="p-2 rounded-lg bg-[#FFFBF2] border border-[#14211A]/8 flex items-center justify-between"
+                              className="p-2 rounded-lg bg-[#FFFBF2] dark:bg-[#1C2A24] border border-[#14211A]/8 dark:border-white/10 flex items-center justify-between"
                             >
-                              <span className="text-[#14211A]/60 text-[11px]">{n.label}</span>
+                              <span className="text-[#14211A]/60 dark:text-[#EAF5EE]/60 text-[11px]">{n.label}</span>
                               <span
                                 className={`font-bold tabular-nums ${
                                   n.isGood === true
-                                    ? 'text-emerald-700'
+                                    ? 'text-emerald-700 dark:text-emerald-400'
                                     : n.isGood === false
-                                    ? 'text-rose-600'
-                                    : 'text-[#14211A]'
+                                    ? 'text-rose-600 dark:text-rose-400'
+                                    : 'text-[#14211A] dark:text-[#EAF5EE]'
                                 }`}
                               >
                                 {n.val}
@@ -984,14 +984,14 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
 
                       {tab === 'ingredients' && (
                         <div className="space-y-1.5 max-h-[105px] overflow-y-auto pr-1">
-                          <p className="text-[11px] text-[#14211A]/60 font-semibold uppercase">
+                          <p className="text-[11px] text-[#14211A]/60 dark:text-[#EAF5EE]/60 font-semibold uppercase">
                             Disclosed Ingredients:
                           </p>
                           <div className="flex flex-wrap gap-1">
                             {prod.ingredients.map((ing) => (
                               <span
                                 key={ing}
-                                className="px-2 py-0.5 rounded-full bg-[#FFFBF2] border border-[#14211A]/10 text-[10px] text-[#14211A]"
+                                className="px-2 py-0.5 rounded-full bg-[#FFFBF2] dark:bg-[#1C2A24] border border-[#14211A]/10 dark:border-white/10 text-[10px] text-[#14211A] dark:text-[#EAF5EE]"
                               >
                                 {ing}
                               </span>
@@ -1003,10 +1003,10 @@ export default function PackagedFoodOrbitCarousel({ products = [] }: PackagedFoo
                   </div>
 
                   {/* Card Bottom: Audit Deep Dive Link */}
-                  <div className="pt-3 border-t border-[#14211A]/8 flex items-center justify-between">
+                  <div className="pt-3 border-t border-[#14211A]/8 dark:border-white/10 flex items-center justify-between">
                     <Link
                       href={`/food/${prod.slug}`}
-                      className="w-full py-2.5 rounded-xl bg-[#14211A] text-white hover:bg-[#16A34A] transition-colors text-center text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-1.5 shadow-xs"
+                      className="w-full py-2.5 rounded-xl bg-[#14211A] dark:bg-[#16A34A] text-white hover:bg-[#16A34A] dark:hover:bg-[#22C55E] transition-colors text-center text-xs font-bold uppercase tracking-wider inline-flex items-center justify-center gap-1.5 shadow-xs"
                     >
                       <span>View Forensic Audit</span>
                       <ExternalLink className="w-3.5 h-3.5" />

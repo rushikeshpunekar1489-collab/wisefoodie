@@ -80,21 +80,21 @@ export default function FoodIntelligenceFBSSection() {
         {/* Section Top Eyebrow & Title */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-[#14211A]/10 pb-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16A34A]/10 text-[#14532D] text-xs font-bold uppercase tracking-wider border border-[#16A34A]/20">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#16A34A]/10 text-[#14532D] dark:text-[#68DBA9] text-xs font-bold uppercase tracking-wider border border-[#16A34A]/20">
               <Sparkles className="w-3.5 h-3.5 text-[#16A34A]" />
               <span>THE SCIENTIFIC RATING ENGINE</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-serif text-[#14211A] tracking-tight leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-serif text-[#14211A] dark:text-[#EAF5EE] tracking-tight leading-tight">
               Food Benefit Score (FBS)
             </h2>
-            <p className="font-body-md text-sm sm:text-base text-[#14211A]/75 leading-relaxed">
+            <p className="font-body-md text-sm sm:text-base text-[#14211A]/75 dark:text-[#EAF5EE]/75 leading-relaxed">
               WiseFoodies does not rely on marketing buzzwords. Our proprietary FBS algorithm evaluates packaged food on an impartial 0.0 to 10.0 scale, rewarding natural protein, fibre, and whole ingredients while strictly penalizing added sugars, extreme sodium, and ultra-processed additives.
             </p>
           </div>
 
           <Link
             href="/how-fbs-works"
-            className="px-5 py-2.5 rounded-full border border-[#14211A]/20 bg-[#FFFBF2] text-[#14211A] text-xs font-bold uppercase tracking-wider hover:bg-[#14211A] hover:text-white transition-all inline-flex items-center gap-1.5 self-start sm:self-auto shadow-2xs"
+            className="px-5 py-2.5 rounded-full border border-[#14211A]/20 dark:border-white/20 bg-[#FFFBF2] dark:bg-[#141F1A] text-[#14211A] dark:text-[#EAF5EE] text-xs font-bold uppercase tracking-wider hover:bg-[#14211A] dark:hover:bg-[#16A34A] hover:text-white transition-all inline-flex items-center gap-1.5 self-start sm:self-auto shadow-2xs"
           >
             <span>Read 11 Algorithm Factors</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -102,10 +102,10 @@ export default function FoodIntelligenceFBSSection() {
         </div>
 
         {/* The Signature Liquid Capsule & Interactive Simulator Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FFFBF2] rounded-3xl p-6 sm:p-10 border border-[#14211A]/10 shadow-[0_8px_30px_rgba(20,33,26,0.06)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FFFBF2] dark:bg-[#141F1A] rounded-3xl p-6 sm:p-10 border border-[#14211A]/10 dark:border-white/10 shadow-[0_8px_30px_rgba(20,33,26,0.06)]">
           {/* Left Column: Signature Animated FBS Vitality Liquid Capsule */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center p-4 sm:p-6 bg-white/70 rounded-2xl border border-[#14211A]/8 backdrop-blur-sm shadow-xs">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[#14211A]/60 mb-4">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center p-4 sm:p-6 bg-white/70 dark:bg-[#1B2823]/70 rounded-2xl border border-[#14211A]/8 dark:border-white/10 backdrop-blur-sm shadow-xs">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-[#14211A]/60 dark:text-[#EAF5EE]/60 mb-4">
               SIGNATURE FBS VITALITY CAPSULE
             </span>
 
@@ -160,8 +160,8 @@ export default function FoodIntelligenceFBSSection() {
                       }}
                       className={`px-3 py-2 rounded-xl text-xs font-bold transition-all text-left flex items-center gap-2 ${
                         isSelected
-                          ? 'bg-[#14211A] text-white shadow-sm scale-[1.02]'
-                          : 'bg-white border border-[#14211A]/12 text-[#14211A]/80 hover:bg-white/90'
+                          ? 'bg-[#14211A] dark:bg-[#16A34A] text-white shadow-sm scale-[1.02]'
+                          : 'bg-white dark:bg-[#1B2823] border border-[#14211A]/12 dark:border-white/10 text-[#14211A]/80 dark:text-[#EAF5EE]/80 hover:bg-white/90 dark:hover:bg-[#22322C]'
                       }`}
                     >
                       <span
@@ -176,11 +176,11 @@ export default function FoodIntelligenceFBSSection() {
             </div>
 
             {/* Forensic Deductions & Boosts for current item */}
-            <div className="bg-white rounded-2xl p-5 border border-[#14211A]/10 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-[#14211A]/8">
+            <div className="bg-white dark:bg-[#1B2823] rounded-2xl p-5 border border-[#14211A]/10 dark:border-white/10 shadow-2xs space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-[#14211A]/8 dark:border-white/10">
                 <div>
-                  <h3 className="font-bold text-base text-[#14211A]">{activeArchetype.name}</h3>
-                  <span className="text-xs text-[#14211A]/60 uppercase tracking-wider">
+                  <h3 className="font-bold text-base text-[#14211A] dark:text-[#EAF5EE]">{activeArchetype.name}</h3>
+                  <span className="text-xs text-[#14211A]/60 dark:text-[#EAF5EE]/60 uppercase tracking-wider">
                     {activeArchetype.category}
                   </span>
                 </div>
@@ -194,11 +194,11 @@ export default function FoodIntelligenceFBSSection() {
 
               {/* Nutritional Positive Boosts */}
               <div className="space-y-1.5">
-                <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span className="text-xs font-bold text-emerald-800 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Scientific Positive Boosts:</span>
                 </span>
-                <ul className="space-y-1 pl-5 list-disc text-xs text-[#14211A]/80">
+                <ul className="space-y-1 pl-5 list-disc text-xs text-[#14211A]/80 dark:text-[#EAF5EE]/80">
                   {activeArchetype.positives.map((p, i) => (
                     <li key={i}>{p}</li>
                   ))}
@@ -206,12 +206,12 @@ export default function FoodIntelligenceFBSSection() {
               </div>
 
               {/* Nutritional Negative Deductions */}
-              <div className="space-y-1.5 pt-2 border-t border-[#14211A]/8">
-                <span className="text-xs font-bold text-rose-800 uppercase tracking-wider flex items-center gap-1.5">
-                  <AlertTriangle className="w-3.5 h-3.5 text-rose-600" />
+              <div className="space-y-1.5 pt-2 border-t border-[#14211A]/8 dark:border-white/10">
+                <span className="text-xs font-bold text-rose-800 dark:text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <AlertTriangle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400" />
                   <span>Penalties &amp; Processing Deductions:</span>
                 </span>
-                <ul className="space-y-1 pl-5 list-disc text-xs text-[#14211A]/80">
+                <ul className="space-y-1 pl-5 list-disc text-xs text-[#14211A]/80 dark:text-[#EAF5EE]/80">
                   {activeArchetype.negatives.map((n, i) => (
                     <li key={i}>{n}</li>
                   ))}
@@ -220,8 +220,8 @@ export default function FoodIntelligenceFBSSection() {
             </div>
 
             {/* Scientific Summary Statement */}
-            <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 text-xs text-emerald-900 leading-relaxed flex items-start gap-3">
-              <Info className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
+            <div className="p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 text-xs text-emerald-900 dark:text-emerald-200 leading-relaxed flex items-start gap-3">
+              <Info className="w-4 h-4 text-emerald-700 dark:text-emerald-400 shrink-0 mt-0.5" />
               <div>
                 <strong className="font-bold">{activeTier.name} Food Standard:</strong> {activeTier.summary}
               </div>
@@ -231,14 +231,14 @@ export default function FoodIntelligenceFBSSection() {
 
         {/* 5 Distinct FBS Category Tiers Reference Table */}
         <div className="space-y-4">
-          <h3 className="font-bold text-sm text-[#14211A] uppercase tracking-wider">
+          <h3 className="font-bold text-sm text-[#14211A] dark:text-[#EAF5EE] uppercase tracking-wider">
             Official FBS Classification Spectrum
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
             {FBS_TIERS.map((tier) => (
               <div
                 key={tier.name}
-                className="p-4 rounded-2xl bg-[#FFFBF2] border border-[#14211A]/10 space-y-2 hover:bg-white hover:shadow-sm transition-all"
+                className="p-4 rounded-2xl bg-[#FFFBF2] dark:bg-[#141F1A] border border-[#14211A]/10 dark:border-white/10 space-y-2 hover:bg-white dark:hover:bg-[#1B2823] hover:shadow-sm transition-all"
               >
                 <div className="flex items-center justify-between">
                   <span

@@ -28,7 +28,7 @@ export default async function HomePage() {
   }));
 
   return (
-    <div className="min-h-screen bg-[#FFFBF2] text-[#14211A] pt-24 md:pt-28 font-sans selection:bg-[#16A34A] selection:text-white">
+    <div className="min-h-screen bg-[#FFFBF2] dark:bg-[#0D1511] text-[#14211A] dark:text-[#EAF5EE] pt-24 md:pt-28 font-sans selection:bg-[#16A34A] selection:text-white transition-colors duration-300">
       {/* 1. HERO — PACKAGED FOOD DISH ORBIT CAROUSEL WITH SEARCH & INTELLIGENCE */}
       <section id="hero-orbit" className="w-full">
         <PackagedFoodOrbitCarousel products={searchableProducts} />
@@ -47,7 +47,7 @@ export default async function HomePage() {
       <ProductComparisonSection />
 
       {/* 6. CONSUMER HEALTH TRANSPARENCY FAQ */}
-      <div className="bg-white py-12 sm:py-16 border-b border-[#14211A]/10">
+      <div className="bg-white dark:bg-[#141F1A] py-12 sm:py-16 border-b border-[#14211A]/10 dark:border-white/10 transition-colors">
         <ConsumerFaq />
       </div>
 
