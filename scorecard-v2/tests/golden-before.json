@@ -103,7 +103,8 @@
           "amount": "0.0g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-gold-milk.webp"
   },
   {
     "id": "wf-amul-kool-koko",
@@ -211,7 +212,8 @@
           "amount": "0.1g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-kool-koko.webp"
   },
   {
     "id": "wf-amul-whey-protein",
@@ -317,7 +319,8 @@
           "amount": "0.0g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-high-protein-milk.webp"
   },
   {
     "id": "wf-amul-dark-chocolate",
@@ -425,7 +428,8 @@
           "amount": "0.9g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-dark-chocolate.webp"
   },
   {
     "id": "wf-amul-butter-cookies",
@@ -535,7 +539,8 @@
           "amount": "0.8g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-butter-cookies.webp"
   },
   {
     "id": "wf-amul-sandwich-bread",
@@ -639,7 +644,8 @@
           "amount": "1.8g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-brown-bread.webp"
   },
   {
     "id": "wf-amul-french-fries",
@@ -746,7 +752,8 @@
           "amount": "0.9g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-french-fries.webp"
   },
   {
     "id": "wf-amul-gulab-jamun",
@@ -855,7 +862,8 @@
           "amount": "0.3g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-gulab-jamun.webp"
   },
   {
     "id": "wf-amul-organic-whole-wheat-atta",
@@ -960,7 +968,8 @@
           "amount": "17.7g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-high-protein-wheat-flour.webp"
   },
   {
     "id": "wf-itc-yippee-magic-masala-noodles",
@@ -1063,7 +1072,8 @@
           "amount": "1.8g"
         }
       ]
-    }
+    },
+    "image": "/products/itc-yippee-magic-masala-noodles.webp"
   },
   {
     "id": "wf-parle-melody-chocolaty-toffee",
@@ -1164,7 +1174,8 @@
           "amount": "1.0g"
         }
       ]
-    }
+    },
+    "image": "/products/parle-melody.webp"
   },
   {
     "id": "wf-amul-adrak-chai-instant-tea-mix",
@@ -1268,6 +1279,7 @@
           "amount": "1.1g"
         }
       ]
-    }
+    },
+    "image": "/products/amul-adrak-chai-instant-tea-mix.webp"
   }
 ]

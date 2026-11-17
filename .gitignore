@@ -18,3 +18,4 @@ data/indb_repo/
 test-results/
 scripts/stitch*.html
 docs/backups/
+.cursor/

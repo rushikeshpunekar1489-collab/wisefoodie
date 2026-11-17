@@ -53,14 +53,14 @@ export default function IndianFoodCard({
       {/* Media and Header Area */}
       <div className="relative w-full aspect-square bg-surface-container-low/40 p-3 flex items-center justify-center overflow-hidden border-b border-outline-variant/20">
         {/* Verification Status Pill */}
-        <div className="absolute top-2.5 left-2.5 z-10">
-          <span className="font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold tracking-wider uppercase border border-primary/10">
+        <div className="absolute top-2.5 left-2.5 z-10 max-w-[55%]">
+          <span className="font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold tracking-wider uppercase border border-primary/10 block truncate">
             {product.category || 'Packaged Food'}
           </span>
         </div>
 
         {/* FBS Vitality Capsule */}
-        <div className="absolute top-2.5 right-2.5 z-10">
+        <div className="absolute top-2.5 right-2.5 z-10 shrink-0">
           <FBSVitalityCapsule score={calculatedScore} size="xs" />
         </div>
 
@@ -103,12 +103,12 @@ export default function IndianFoodCard({
       {/* Content Area */}
       <div className="flex flex-col flex-1 p-3.5 gap-2">
         {/* Brand and Price */}
-        <div className="flex items-center justify-between gap-2">
-          <span className="font-label-caps text-xs text-secondary font-bold uppercase tracking-wider truncate">
+        <div className="flex items-center justify-between gap-2 min-w-0">
+          <span className="font-label-caps text-xs text-secondary font-bold uppercase tracking-wider truncate min-w-0">
             {renderHighlighted(product.brand)}
           </span>
           {product.priceINR !== null && product.priceINR !== undefined && (
-            <span className="font-headline-sm text-xs font-bold text-primary tabular-nums">
+            <span className="font-headline-sm text-xs font-bold text-primary tabular-nums shrink-0">
               ₹{product.priceINR}
             </span>
           )}
@@ -117,7 +117,7 @@ export default function IndianFoodCard({
         {/* Title */}
         <Link
           href={`/products/${product.id}`}
-          className="font-headline-sm text-sm text-primary group-hover:text-primary-container transition-colors line-clamp-2 leading-snug"
+          className="font-headline-sm text-sm text-primary group-hover:text-primary-container transition-colors line-clamp-2 leading-snug break-words"
           title={product.name}
         >
           {renderHighlighted(product.name)}
@@ -125,43 +125,43 @@ export default function IndianFoodCard({
 
         {/* Nutrient Matrix (Energy, Protein, Sugar, Sodium) */}
         <div className="grid grid-cols-4 gap-1 py-1.5 px-2 rounded-md bg-surface-container-low border border-outline-variant/25 text-center text-xs mt-auto">
-          <div>
-            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block">Energy</span>
-            <span className="font-label-lg text-xs font-bold text-primary tabular-nums">
+          <div className="min-w-0">
+            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block truncate">Energy</span>
+            <span className="font-label-lg text-xs font-bold text-primary tabular-nums block truncate">
               {product.caloriesKcal !== null ? `${product.caloriesKcal}` : '—'}
             </span>
           </div>
-          <div>
-            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block">Protein</span>
-            <span className="font-label-lg text-xs font-bold text-primary tabular-nums">
+          <div className="min-w-0">
+            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block truncate">Protein</span>
+            <span className="font-label-lg text-xs font-bold text-primary tabular-nums block truncate">
               {product.proteinG !== null ? `${product.proteinG}g` : '—'}
             </span>
           </div>
-          <div>
-            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block">Sugar</span>
-            <span className={`font-label-lg text-xs font-bold tabular-nums ${(product.sugarG ?? 0) > 15 ? 'text-error' : 'text-primary'}`}>
+          <div className="min-w-0">
+            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block truncate">Sugar</span>
+            <span className={`font-label-lg text-xs font-bold tabular-nums block truncate ${(product.sugarG ?? 0) > 15 ? 'text-error' : 'text-primary'}`}>
               {product.sugarG !== null ? `${product.sugarG}g` : '—'}
             </span>
           </div>
-          <div>
-            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block">Sodium</span>
-            <span className="font-label-lg text-xs font-bold text-primary tabular-nums">
+          <div className="min-w-0">
+            <span className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase block truncate">Sodium</span>
+            <span className="font-label-lg text-xs font-bold text-primary tabular-nums block truncate">
               {product.sodiumMg !== null ? `${product.sodiumMg}` : '—'}
             </span>
           </div>
         </div>
 
         {/* Footer: UPF Warning or Category Tag + Actions */}
-        <div className="flex items-center justify-between pt-2 border-t border-outline-variant/20 gap-2">
+        <div className="flex items-center justify-between pt-2 border-t border-outline-variant/20 gap-2 min-w-0">
           {isUPF ? (
-            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-sm bg-error-container text-on-error-container border border-error/30 font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-xs">warning</span>
-              UPF Risk
+            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-sm bg-error-container text-on-error-container border border-error/30 font-bold uppercase tracking-wider truncate min-w-0">
+              <span className="material-symbols-outlined text-xs shrink-0">warning</span>
+              <span className="truncate">UPF Risk</span>
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-xs">check_circle</span>
-              Audited
+            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-bold uppercase tracking-wider truncate min-w-0">
+              <span className="material-symbols-outlined text-xs shrink-0">check_circle</span>
+              <span className="truncate">Audited</span>
             </span>
           )}
 

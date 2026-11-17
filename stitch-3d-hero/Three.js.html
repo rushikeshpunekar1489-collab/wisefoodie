@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_12 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_12" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_12');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Interactive Three.js 3D Food Investigation Museum for WiseFoodies
+// Container provided in scope by Stitch
+const container = document.getElementById('threejs-container') || document.body;
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+scene.background = null; // Transparent to blend seamlessly with warm cream layout (#FDF9F0)
+scene.fog = new THREE.FogExp2(0xFDF9F0, 0.012);
+
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+camera.position.set(1.5, 1.2, 13.0);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.setSize(width, height);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.25;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+// Palette matching Botanical Telemetry & Brand
+const PALETTE = {
+  ink: 0x14211A,
+  cream: 0xFDF9F0,
+  leaf: 0x16A34A,
+  mint: 0xC8F5D8,
+  mango: 0xFFB703,
+  tomato: 0xFF5A4E,
+  berry: 0x7C5CFF,
+  sky: 0x38BDF8,
+  goldWarm: 0xF59E0B
+};
+
+// Studio Lights
+const ambientLight = new THREE.AmbientLight(0xFDF9F0, 1.6);
+scene.add(ambientLight);
+
+const mainSpot = new THREE.SpotLight(0xffffff, 4.5);
+mainSpot.position.set(10, 16, 12);
+mainSpot.angle = Math.PI / 3.5;
+mainSpot.penumbra = 0.8;
+mainSpot.castShadow = true;
+scene.add(mainSpot);
+
+const fillRimLight = new THREE.DirectionalLight(0xC8F5D8, 2.4);
+fillRimLight.position.set(-12, -4, -6);
+scene.add(fillRimLight);
+
+const warmPoint = new THREE.PointLight(0xFFB703, 2.2, 35);
+warmPoint.position.set(6, -2, 6);
+scene.add(warmPoint);
+
+const museumWorld = new THREE.Group();
+scene.add(museumWorld);
+
+// ==========================================
+// 1. THE HERO: TRANSPARENT NUTRITIONAL CORE
+// ==========================================
+const coreGroup = new THREE.Group();
+coreGroup.position.set(3.2, 0.2, 0); // Positioned in the negative space right of the typography
+museumWorld.add(coreGroup);
+
+// Glass Materials
+const outerGlassMat = new THREE.MeshPhysicalMaterial({
+  color: 0xffffff,
+  transmission: 0.92,
+  opacity: 0.95,
+  transparent: true,
+  roughness: 0.12,
+  ior: 1.5,
+  thickness: 1.2,
+  specularIntensity: 1.0,
+  clearcoat: 1.0,
+  clearcoatRoughness: 0.1
+});
+
+const innerGlowMat = new THREE.MeshPhysicalMaterial({
+  color: 0xC8F5D8,
+  emissive: 0x16A34A,
+  emissiveIntensity: 0.35,
+  transmission: 0.8,
+  transparent: true,
+  roughness: 0.25,
+  thickness: 0.8
+});
+
+const outerGeo = new THREE.IcosahedronGeometry(2.1, 3);
+const outerCore = new THREE.Mesh(outerGeo, outerGlassMat);
+outerCore.castShadow = true;
+coreGroup.add(outerCore);
+
+const wireGeo = new THREE.IcosahedronGeometry(2.14, 2);
+const wireMat = new THREE.MeshBasicMaterial({
+  color: 0x16A34A,
+  wireframe: true,
+  transparent: true,
+  opacity: 0.25
+});
+const wireMesh = new THREE.Mesh(wireGeo, wireMat);
+coreGroup.add(wireMesh);
+
+const innerGeo = new THREE.SphereGeometry(1.15, 32, 32);
+const innerCore = new THREE.Mesh(innerGeo, innerGlowMat);
+coreGroup.add(innerCore);
+
+// Internal suspended micro-ingredients & particles
+const particleCount = 220;
+const pGeom = new THREE.BufferGeometry();
+const pPositions = new Float32Array(particleCount * 3);
+const pColors = new Float32Array(particleCount * 3);
+const accentColors = [
+  new THREE.Color(PALETTE.mango),
+  new THREE.Color(PALETTE.tomato),
+  new THREE.Color(PALETTE.leaf),
+  new THREE.Color(PALETTE.berry),
+  new THREE.Color(PALETTE.sky)
+];
+
+for (let i = 0; i < particleCount; i++) {
+  const r = 0.25 + Math.random() * 1.55;
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos((Math.random() * 2) - 1);
+  pPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+  pPositions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+  pPositions[i * 3 + 2] = r * Math.cos(phi);
+
+  const col = accentColors[Math.floor(Math.random() * accentColors.length)];
+  pColors[i * 3] = col.r;
+  pColors[i * 3 + 1] = col.g;
+  pColors[i * 3 + 2] = col.b;
+}
+pGeom.setAttribute('position', new THREE.BufferAttribute(pPositions, 3));
+pGeom.setAttribute('color', new THREE.BufferAttribute(pColors, 3));
+
+const pMat = new THREE.PointsMaterial({
+  size: 0.12,
+  vertexColors: true,
+  transparent: true,
+  opacity: 0.95
+});
+const coreParticles = new THREE.Points(pGeom, pMat);
+coreGroup.add(coreParticles);
+
+// Elegant Orbital Rings
+const rings = [];
+const ringSpecs = [
+  { radius: 2.7, tube: 0.024, rotX: 1.2, rotY: 0.3, color: PALETTE.mango, speed: 0.008 },
+  { radius: 3.2, tube: 0.026, rotX: -0.7, rotY: 0.9, color: PALETTE.leaf, speed: -0.006 },
+  { radius: 3.7, tube: 0.022, rotX: 0.4, rotY: -1.3, color: PALETTE.berry, speed: 0.010 },
+  { radius: 4.1, tube: 0.020, rotX: 1.7, rotY: 0.2, color: PALETTE.sky, speed: -0.007 }
+];
+
+ringSpecs.forEach((spec) => {
+  const rGroup = new THREE.Group();
+  rGroup.rotation.x = spec.rotX;
+  rGroup.rotation.y = spec.rotY;
+
+  const rGeo = new THREE.TorusGeometry(spec.radius, spec.tube, 16, 120);
+  const rMat = new THREE.MeshStandardMaterial({
+    color: spec.color,
+    roughness: 0.25,
+    metalness: 0.7,
+    transparent: true,
+    opacity: 0.85
+  });
+  const rMesh = new THREE.Mesh(rGeo, rMat);
+  rGroup.add(rMesh);
+
+  // Sensor node
+  const nodeGeo = new THREE.SphereGeometry(0.12, 16, 16);
+  const nodeMat = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    emissive: spec.color,
+    emissiveIntensity: 0.9,
+    metalness: 0.9,
+    roughness: 0.2
+  });
+  const node = new THREE.Mesh(nodeGeo, nodeMat);
+  node.position.x = spec.radius;
+  rGroup.add(node);
+
+  coreGroup.add(rGroup);
+  rings.push({ group: rGroup, speed: spec.speed });
+});
+
+// ==========================================
+// 2. DISSECTION STATIONS (Packaged Products)
+// ==========================================
+const inspectionItems = [];
+const chamberGlassMat = new THREE.MeshPhysicalMaterial({
+  color: 0xffffff,
+  transmission: 0.95,
+  opacity: 0.88,
+  transparent: true,
+  roughness: 0.05,
+  thickness: 0.7
+});
+
+const standMat = new THREE.MeshStandardMaterial({
+  color: PALETTE.ink,
+  roughness: 0.2,
+  metalness: 0.85
+});
+
+function createInspectionChamber(x, y, z, productType, title, specKey) {
+  const chamberGroup = new THREE.Group();
+  chamberGroup.position.set(x, y, z);
+  chamberGroup.userData = {
+    title: title,
+    type: productType,
+    specKey: specKey,
+    isOpen: false,
+    baseY: y
+  };
+
+  const baseGeo = new THREE.CylinderGeometry(0.85, 0.95, 0.15, 32);
+  const baseMesh = new THREE.Mesh(baseGeo, standMat);
+  baseMesh.position.y = -1.7;
+  chamberGroup.add(baseMesh);
+
+  const jarGeo = new THREE.CylinderGeometry(0.8, 0.8, 2.5, 32, 1, true);
+  const jarMesh = new THREE.Mesh(jarGeo, chamberGlassMat);
+  chamberGroup.add(jarMesh);
+
+  const capGeo = new THREE.SphereGeometry(0.8, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2);
+  const capMesh = new THREE.Mesh(capGeo, chamberGlassMat);
+  capMesh.position.y = 1.25;
+  chamberGroup.add(capMesh);
+
+  const productContainer = new THREE.Group();
+  chamberGroup.add(productContainer);
+
+  const leftFlap = new THREE.Group();
+  const rightFlap = new THREE.Group();
+  const dissectedParts = new THREE.Group();
+  productContainer.add(leftFlap);
+  productContainer.add(rightFlap);
+  productContainer.add(dissectedParts);
+
+  if (productType === 'biscuit') {
+    const foilMat = new THREE.MeshStandardMaterial({ color: 0xD97706, roughness: 0.35, metalness: 0.8 });
+    const packL = new THREE.Mesh(new THREE.BoxGeometry(0.38, 1.1, 0.38), foilMat);
+    packL.position.x = -0.19;
+    leftFlap.add(packL);
+
+    const packR = new THREE.Mesh(new THREE.BoxGeometry(0.38, 1.1, 0.38), foilMat);
+    packR.position.x = 0.19;
+    rightFlap.add(packR);
+
+    const biscuitMat = new THREE.MeshStandardMaterial({ color: 0xD4A373, roughness: 0.85 });
+    for (let b = 0; b < 3; b++) {
+      const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.08, 24), biscuitMat);
+      disc.rotation.x = Math.PI / 2;
+      disc.position.y = (b - 1) * 0.28;
+      dissectedParts.add(disc);
+    }
+  } else if (productType === 'chips') {
+    const pouchMat = new THREE.MeshStandardMaterial({ color: PALETTE.tomato, roughness: 0.25, metalness: 0.75 });
+    const pouchL = new THREE.Mesh(new THREE.ConeGeometry(0.48, 1.25, 4), pouchMat);
+    pouchL.rotation.y = Math.PI / 4;
+    pouchL.position.x = -0.16;
+    leftFlap.add(pouchL);
+
+    const pouchR = new THREE.Mesh(new THREE.ConeGeometry(0.48, 1.25, 4), pouchMat);
+    pouchR.rotation.y = -Math.PI / 4;
+    pouchR.position.x = 0.16;
+    rightFlap.add(pouchR);
+
+    const crispMat = new THREE.MeshStandardMaterial({ color: 0xFBBF24, roughness: 0.5 });
+    for (let c = 0; c < 4; c++) {
+      const crisp = new THREE.Mesh(new THREE.SphereGeometry(0.2, 12, 12), crispMat);
+      crisp.scale.set(1.4, 0.14, 1.0);
+      crisp.rotation.set(c * 0.8, c * 0.5, c * 0.3);
+      crisp.position.set((Math.random() - 0.5) * 0.2, (c - 1.5) * 0.24, (Math.random() - 0.5) * 0.2);
+      dissectedParts.add(crisp);
+    }
+  } else if (productType === 'noodles') {
+    const cupMat = new THREE.MeshStandardMaterial({ color: PALETTE.mango, roughness: 0.4, metalness: 0.2 });
+    const cupL = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.3, 0.95, 16, 1, false, 0, Math.PI), cupMat);
+    leftFlap.add(cupL);
+    const cupR = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.3, 0.95, 16, 1, false, Math.PI, Math.PI), cupMat);
+    rightFlap.add(cupR);
+
+    const noodleMat = new THREE.MeshStandardMaterial({ color: 0xFDE047, roughness: 0.7 });
+    const block = new THREE.Mesh(new THREE.TorusKnotGeometry(0.2, 0.055, 64, 8), noodleMat);
+    dissectedParts.add(block);
+  }
+
+  // Micro ingredients cloud
+  const ingCount = 45;
+  const ingGeo = new THREE.BufferGeometry();
+  const ingPos = new Float32Array(ingCount * 3);
+  for (let p = 0; p < ingCount; p++) {
+    ingPos[p * 3] = (Math.random() - 0.5) * 0.48;
+    ingPos[p * 3 + 1] = (Math.random() - 0.5) * 0.8;
+    ingPos[p * 3 + 2] = (Math.random() - 0.5) * 0.48;
+  }
+  ingGeo.setAttribute('position', new THREE.BufferAttribute(ingPos, 3));
+  const ingPoints = new THREE.Points(ingGeo, new THREE.PointsMaterial({
+    color: PALETTE.mint,
+    size: 0.06,
+    transparent: true,
+    opacity: 0.9
+  }));
+  dissectedParts.add(ingPoints);
+
+  chamberGroup.userData.leftFlap = leftFlap;
+  chamberGroup.userData.rightFlap = rightFlap;
+  chamberGroup.userData.dissectedParts = dissectedParts;
+
+  museumWorld.add(chamberGroup);
+  inspectionItems.push(chamberGroup);
+  return chamberGroup;
+}
+
+const chamber1 = createInspectionChamber(-1.5, -0.2, 2.0, 'biscuit', 'Glucose Malt Biscuit', 'SPEC-A');
+const chamber2 = createInspectionChamber(1.0, 2.2, -1.8, 'chips', 'Thermal Potato Crisps', 'SPEC-B');
+const chamber3 = createInspectionChamber(7.0, -0.6, -1.2, 'noodles', 'Extruded Noodle', 'SPEC-C');
+
+// Ambient dust
+const dustCount = 200;
+const dustGeo = new THREE.BufferGeometry();
+const dustPos = new Float32Array(dustCount * 3);
+for (let d = 0; d < dustCount; d++) {
+  dustPos[d * 3] = (Math.random() - 0.5) * 28;
+  dustPos[d * 3 + 1] = (Math.random() - 0.5) * 20;
+  dustPos[d * 3 + 2] = (Math.random() - 0.5) * 20;
+}
+dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+const dustParticles = new THREE.Points(dustGeo, new THREE.PointsMaterial({
+  color: 0x16A34A,
+  size: 0.04,
+  transparent: true,
+  opacity: 0.4
+}));
+museumWorld.add(dustParticles);
+
+// ==========================================
+// INTERACTIVE DRAGGING / ORBIT / RAYCASTING
+// ==========================================
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2(-100, -100);
+let isDragging = false;
+let previousMousePosition = { x: 0, y: 0 };
+let worldRotationTarget = { x: 0, y: 0 };
+
+// Auto camera positioning target
+let cameraTargetPos = new THREE.Vector3(1.5, 1.2, 13.0);
+let cameraLookTarget = new THREE.Vector3(2.0, 0.4, 0);
+
+function inspectProductByIndex(index, shouldTriggerDOM = true) {
+  inspectionItems.forEach((item, idx) => {
+    if (idx === index) {
+      item.userData.isOpen = !item.userData.isOpen;
+      if (item.userData.isOpen) {
+        // Move camera closer to this chamber
+        cameraTargetPos.set(item.position.x + 0.5, item.position.y + 0.8, item.position.z + 4.5);
+        cameraLookTarget.set(item.position.x, item.position.y, item.position.z);
+        
+        if (shouldTriggerDOM) {
+          window.dispatchEvent(new CustomEvent('foodies:three_selected', {
+            detail: { specKey: item.userData.specKey, type: item.userData.type }
+          }));
+        }
+      } else {
+        // Return to overview
+        cameraTargetPos.set(1.5, 1.2, 13.0);
+        cameraLookTarget.set(2.0, 0.4, 0);
+      }
+    } else {
+      item.userData.isOpen = false;
+    }
+  });
+}
+
+// Window events from HTML UI
+window.addEventListener('foodies:trigger_inspect', (e) => {
+  const typeMap = { 'biscuit': 0, 'chips': 1, 'noodles': 2, 'SPEC-A': 0, 'SPEC-B': 1, 'SPEC-C': 2 };
+  const target = e.detail && (e.detail.product || e.detail.specKey);
+  if (target !== undefined && typeMap[target] !== undefined) {
+    inspectProductByIndex(typeMap[target], false);
+  }
+});
+
+// Drag to rotate museum world
+const dom = renderer.domElement;
+dom.style.cursor = 'grab';
+
+dom.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  previousMousePosition = { x: e.clientX, y: e.clientY };
+  dom.style.cursor = 'grabbing';
+});
+
+window.addEventListener('mousemove', (e) => {
+  const rect = dom.getBoundingClientRect();
+  mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+  if (isDragging) {
+    const deltaX = e.clientX - previousMousePosition.x;
+    const deltaY = e.clientY - previousMousePosition.y;
+
+    worldRotationTarget.y += deltaX * 0.005;
+    worldRotationTarget.x += deltaY * 0.003;
+    worldRotationTarget.x = Math.max(-0.4, Math.min(0.4, worldRotationTarget.x));
+
+    previousMousePosition = { x: e.clientX, y: e.clientY };
+  }
+});
+
+window.addEventListener('mouseup', () => {
+  isDragging = false;
+  dom.style.cursor = 'grab';
+});
+
+// Click / tap detection
+dom.addEventListener('click', (e) => {
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(museumWorld.children, true);
+  if (intersects.length > 0) {
+    let hit = intersects[0].object;
+    while (hit.parent && !inspectionItems.includes(hit) && hit !== coreGroup) {
+      hit = hit.parent;
+    }
+    if (inspectionItems.includes(hit)) {
+      const idx = inspectionItems.indexOf(hit);
+      inspectProductByIndex(idx, true);
+    } else if (hit === coreGroup) {
+      // Gentle core pulse reaction
+      coreGroup.scale.set(1.15, 1.15, 1.15);
+      setTimeout(() => coreGroup.scale.set(1, 1, 1), 400);
+    }
+  }
+});
+
+// Scroll to zoom
+window.addEventListener('wheel', (e) => {
+  cameraTargetPos.z += e.deltaY * 0.005;
+  cameraTargetPos.z = Math.max(7, Math.min(18, cameraTargetPos.z));
+}, { passive: true });
+
+// Resize
+window.addEventListener('resize', () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || window.innerHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+});
+
+// Animation Loop
+const clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const elapsedTime = clock.getElapsedTime();
+
+  // Smooth lerp world rotation from drag
+  museumWorld.rotation.y = THREE.MathUtils.lerp(museumWorld.rotation.y, worldRotationTarget.y, 0.08);
+  museumWorld.rotation.x = THREE.MathUtils.lerp(museumWorld.rotation.x, worldRotationTarget.x, 0.08);
+
+  // Core motions
+  outerCore.rotation.y = elapsedTime * 0.15;
+  outerCore.rotation.x = Math.sin(elapsedTime * 0.2) * 0.15;
+  innerCore.rotation.y = -elapsedTime * 0.25;
+  wireMesh.rotation.y = -elapsedTime * 0.1;
+
+  rings.forEach((r) => {
+    r.group.rotation.z = elapsedTime * r.speed * 8;
+  });
+
+  coreGroup.position.y = 0.2 + Math.sin(elapsedTime * 0.9) * 0.18;
+
+  // Chambers animation
+  inspectionItems.forEach((chamber, i) => {
+    chamber.position.y = chamber.userData.baseY + Math.sin(elapsedTime * 1.3 + i * 2.0) * 0.1;
+    const left = chamber.userData.leftFlap;
+    const right = chamber.userData.rightFlap;
+    const parts = chamber.userData.dissectedParts;
+
+    if (chamber.userData.isOpen) {
+      left.position.x = THREE.MathUtils.lerp(left.position.x, -0.65, 0.09);
+      left.rotation.y = THREE.MathUtils.lerp(left.rotation.y, -0.45, 0.09);
+
+      right.position.x = THREE.MathUtils.lerp(right.position.x, 0.65, 0.09);
+      right.rotation.y = THREE.MathUtils.lerp(right.rotation.y, 0.45, 0.09);
+
+      parts.position.z = THREE.MathUtils.lerp(parts.position.z, 0.45, 0.09);
+      parts.rotation.y += 0.02;
+      parts.scale.setScalar(THREE.MathUtils.lerp(parts.scale.x, 1.25, 0.09));
+    } else {
+      left.position.x = THREE.MathUtils.lerp(left.position.x, 0, 0.09);
+      left.rotation.y = THREE.MathUtils.lerp(left.rotation.y, 0, 0.09);
+
+      right.position.x = THREE.MathUtils.lerp(right.position.x, 0, 0.09);
+      right.rotation.y = THREE.MathUtils.lerp(right.rotation.y, 0, 0.09);
+
+      parts.position.z = THREE.MathUtils.lerp(parts.position.z, 0, 0.09);
+      parts.scale.setScalar(THREE.MathUtils.lerp(parts.scale.x, 1.0, 0.09));
+    }
+  });
+
+  // Camera lerp
+  camera.position.x = THREE.MathUtils.lerp(camera.position.x, cameraTargetPos.x + (!isDragging ? mouse.x * 0.8 : 0), 0.05);
+  camera.position.y = THREE.MathUtils.lerp(camera.position.y, cameraTargetPos.y + (!isDragging ? mouse.y * 0.5 : 0), 0.05);
+  camera.position.z = THREE.MathUtils.lerp(camera.position.z, cameraTargetPos.z, 0.05);
+  camera.lookAt(cameraLookTarget);
+
+  dustParticles.rotation.y = elapsedTime * 0.02;
+
+  renderer.render(scene, camera);
+}
+
+animate();
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_12 -->
+</body>
+</html>

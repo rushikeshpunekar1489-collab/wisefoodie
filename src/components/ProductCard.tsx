@@ -33,14 +33,14 @@ export default function ProductCard({
       {/* Top Media & Badge Area */}
       <div className="relative w-full aspect-square bg-surface-container-low/40 p-3 flex items-center justify-center overflow-hidden border-b border-outline-variant/20">
         {/* Verification Status Pill */}
-        <div className="absolute top-2.5 left-2.5 z-10">
-          <span className="font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold tracking-wider uppercase border border-primary/10">
+        <div className="absolute top-2.5 left-2.5 z-10 max-w-[55%]">
+          <span className="font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold tracking-wider uppercase border border-primary/10 block truncate">
             Forensic Audit
           </span>
         </div>
 
         {/* FBS Vitality Capsule */}
-        <div className="absolute top-2.5 right-2.5 z-10">
+        <div className="absolute top-2.5 right-2.5 z-10 shrink-0">
           <FBSVitalityCapsule score={score} size="xs" />
         </div>
 
@@ -83,12 +83,12 @@ export default function ProductCard({
       {/* Content Area */}
       <div className="flex flex-col flex-1 p-3.5 gap-2">
         {/* Brand & Price Header */}
-        <div className="flex items-center justify-between gap-2">
-          <span className="font-label-caps text-xs text-secondary font-bold uppercase tracking-wider truncate">
+        <div className="flex items-center justify-between gap-2 min-w-0">
+          <span className="font-label-caps text-xs text-secondary font-bold uppercase tracking-wider truncate min-w-0">
             {product.brand}
           </span>
           {price !== null && price !== undefined && (
-            <span className="font-headline-sm text-xs font-bold text-primary tabular-nums">
+            <span className="font-headline-sm text-xs font-bold text-primary tabular-nums shrink-0">
               ₹{price}
             </span>
           )}
@@ -97,7 +97,7 @@ export default function ProductCard({
         {/* Product Name */}
         <Link
           href={detailUrl}
-          className="font-headline-sm text-sm text-primary group-hover:text-primary-container transition-colors line-clamp-2 leading-snug"
+          className="font-headline-sm text-sm text-primary group-hover:text-primary-container transition-colors line-clamp-2 leading-snug break-words"
           title={product.name}
         >
           {product.name}
@@ -105,18 +105,18 @@ export default function ProductCard({
 
         {/* Nutritional Micro-Metrics */}
         <div className="grid grid-cols-3 gap-1 py-1.5 px-2 rounded-md bg-surface-container-low border border-outline-variant/25 text-center text-xs mt-auto">
-          <div>
-            <div className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase">Protein</div>
-            <div className="font-label-lg text-xs font-bold text-primary tabular-nums">
+          <div className="min-w-0">
+            <div className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase truncate">Protein</div>
+            <div className="font-label-lg text-xs font-bold text-primary tabular-nums truncate">
               {product.per100g?.proteinG !== null && product.per100g?.proteinG !== undefined
                 ? `${product.per100g.proteinG}g`
                 : '—'}
             </div>
           </div>
-          <div>
-            <div className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase">Sugar</div>
+          <div className="min-w-0">
+            <div className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase truncate">Sugar</div>
             <div
-              className={`font-label-lg text-xs font-bold tabular-nums ${
+              className={`font-label-lg text-xs font-bold tabular-nums truncate ${
                 (product.per100g?.totalSugarG ?? 0) > 15 ? 'text-error' : 'text-primary'
               }`}
             >
@@ -125,9 +125,9 @@ export default function ProductCard({
                 : '—'}
             </div>
           </div>
-          <div>
-            <div className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase">Energy</div>
-            <div className="font-label-lg text-xs font-bold text-primary tabular-nums">
+          <div className="min-w-0">
+            <div className="font-label-caps text-[0.625rem] text-on-surface-variant uppercase truncate">Energy</div>
+            <div className="font-label-lg text-xs font-bold text-primary tabular-nums truncate">
               {product.per100g?.energyKcal !== null && product.per100g?.energyKcal !== undefined
                 ? `${product.per100g.energyKcal}`
                 : '—'}
@@ -136,16 +136,16 @@ export default function ProductCard({
         </div>
 
         {/* UPF Stamp or ₹10 Test Pill */}
-        <div className="flex items-center justify-between pt-2 border-t border-outline-variant/20 gap-2">
+        <div className="flex items-center justify-between pt-2 border-t border-outline-variant/20 gap-2 min-w-0">
           {isUPF ? (
-            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-sm bg-error-container text-on-error-container border border-error/30 font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-xs">warning</span>
-              UPF Marker Alert
+            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-sm bg-error-container text-on-error-container border border-error/30 font-bold uppercase tracking-wider truncate min-w-0">
+              <span className="material-symbols-outlined text-xs shrink-0">warning</span>
+              <span className="truncate">UPF Marker Alert</span>
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold uppercase tracking-wider">
-              <span className="material-symbols-outlined text-xs">payments</span>
-              The ₹10 Test
+            <span className="inline-flex items-center gap-1 font-label-caps text-[0.625rem] px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold uppercase tracking-wider truncate min-w-0">
+              <span className="material-symbols-outlined text-xs shrink-0">payments</span>
+              <span className="truncate">The ₹10 Test</span>
             </span>
           )}
 

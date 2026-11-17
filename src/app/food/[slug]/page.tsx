@@ -94,7 +94,7 @@ export default async function ProductDetailPage({ params }: Props) {
     product.concerns?.some((c) => c.toLowerCase().includes('palm oil') || c.toLowerCase().includes('additive'));
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-16 space-y-8 bg-surface text-on-surface">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 md:pt-36 pb-16 space-y-8 bg-surface text-on-surface">
       {/* 1. Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs font-label-caps text-on-surface-variant overflow-x-auto whitespace-nowrap">
         <Link href="/" className="hover:text-primary transition-colors">
@@ -195,7 +195,7 @@ export default async function ProductDetailPage({ params }: Props) {
               )}
             </div>
 
-            <h2 className="font-headline-lg-mobile sm:font-headline-lg text-primary font-serif leading-tight">
+            <h2 className="font-headline-lg-mobile sm:font-headline-lg text-primary font-serif leading-tight break-words">
               {product.name}
             </h2>
 
@@ -206,7 +206,7 @@ export default async function ProductDetailPage({ params }: Props) {
             </p>
 
             {/* Signature FBS Vitality Capsule */}
-            <div className="rounded-xl bg-surface-container-low p-4 border border-outline-variant/30 flex items-center justify-between gap-4">
+            <div className="rounded-xl bg-surface-container-low p-4 border border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="font-label-caps text-xs uppercase text-primary font-bold flex items-center gap-1">
                   <span className="material-symbols-outlined text-base">award_star</span>

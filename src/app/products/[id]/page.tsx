@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { packagedFoodDb, CATEGORY_ICONS } from '@/lib/db/packagedFoodDb';
 import { getProductBySlug } from '@/lib/products';
 import IndianNutritionFacts from '@/components/IndianNutritionFacts';
+import RDABars from '@/components/RDABars';
 import ScorecardV2Container from '@/scorecard-v2/ui/ScorecardV2Container';
 import FBSVitalityCapsule from '@/components/FBSVitalityCapsule';
 import FavouriteButton from '@/components/FavouriteButton';
@@ -65,7 +66,7 @@ export default async function ProductDetailPage({ params }: Props) {
     .slice(0, 4);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-16 space-y-8 bg-surface text-on-surface">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 md:pt-36 pb-16 space-y-8 bg-surface text-on-surface">
       {/* 1. Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs font-label-caps text-on-surface-variant overflow-x-auto whitespace-nowrap">
         <Link href="/" className="hover:text-primary transition-colors">
@@ -160,7 +161,7 @@ export default async function ProductDetailPage({ params }: Props) {
               )}
             </div>
 
-            <h2 className="font-headline-lg-mobile sm:font-headline-lg text-primary font-serif leading-tight">
+            <h2 className="font-headline-lg-mobile sm:font-headline-lg text-primary font-serif leading-tight break-words">
               {product.name}
             </h2>
 
@@ -171,7 +172,7 @@ export default async function ProductDetailPage({ params }: Props) {
             </p>
 
             {/* Signature FBS Vitality Capsule */}
-            <div className="rounded-xl bg-surface-container-low p-4 border border-outline-variant/30 flex items-center justify-between gap-4">
+            <div className="rounded-xl bg-surface-container-low p-4 border border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="font-label-caps text-xs uppercase text-primary font-bold flex items-center gap-1">
                   <span className="material-symbols-outlined text-base">award_star</span>
@@ -281,9 +282,20 @@ export default async function ProductDetailPage({ params }: Props) {
           )}
         </div>
 
-        {/* Right: Nutrition Facts Table (5 cols) */}
+        {/* Right: Nutrition Facts Table & RDA Contribution Graph (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
           <IndianNutritionFacts product={product} />
+          <RDABars
+            per100g={{
+              caloriesKcal: product.caloriesKcal,
+              proteinG: product.proteinG,
+              dietaryFiberG: product.dietaryFiberG,
+              sugarG: product.sugarG,
+              saturatedFatG: product.saturatedFatG,
+              sodiumMg: product.sodiumMg,
+            }}
+            servingSizeG={product.servingSizeG}
+          />
         </div>
       </div>
 

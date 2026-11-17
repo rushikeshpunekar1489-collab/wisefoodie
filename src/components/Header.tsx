@@ -8,6 +8,7 @@ import { useCart } from '@/hooks/useCart';
 import { useFavourites } from '@/hooks/useFavourites';
 import { useI18n } from '@/context/I18nContext';
 import LanguageSelectorModal from '@/components/LanguageSelectorModal';
+import RandomLetterSwapNav from '@/components/ui/RandomLetterSwapNav';
 
 export default function Header() {
   const pathname = usePathname();
@@ -50,7 +51,7 @@ export default function Header() {
                     <span className="font-headline-sm text-headline-sm text-primary leading-tight truncate">
                       WiseFoodies
                     </span>
-                    <span className="font-label-caps text-label-caps bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded-full uppercase">
+                    <span className="hidden sm:inline-block font-label-caps text-label-caps bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded-full uppercase">
                       Forensic
                     </span>
                   </div>
@@ -61,57 +62,8 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-              <Link
-                href="/products"
-                className={`transition-colors hover:text-primary ${
-                  pathname.startsWith('/products') ? 'text-primary border-b-2 border-primary pb-0.5' : ''
-                }`}
-              >
-                Products
-              </Link>
-              <Link
-                href="/category"
-                className={`transition-colors hover:text-primary ${
-                  pathname.startsWith('/category') ? 'text-primary border-b-2 border-primary pb-0.5' : ''
-                }`}
-              >
-                Categories
-              </Link>
-              <Link
-                href="/compare"
-                className={`transition-colors hover:text-primary ${
-                  pathname.startsWith('/compare') ? 'text-primary border-b-2 border-primary pb-0.5' : ''
-                }`}
-              >
-                Compare
-              </Link>
-              <Link
-                href="/fitness-calculators"
-                className={`transition-colors hover:text-primary ${
-                  pathname.startsWith('/fitness-calculators') ? 'text-primary border-b-2 border-primary pb-0.5' : ''
-                }`}
-              >
-                Calculators
-              </Link>
-              <Link
-                href="/diary"
-                className={`transition-colors hover:text-primary ${
-                  pathname.startsWith('/diary') ? 'text-primary border-b-2 border-primary pb-0.5' : ''
-                }`}
-              >
-                Diary
-              </Link>
-              <Link
-                href="/ask"
-                className={`transition-colors hover:text-primary flex items-center gap-1 ${
-                  pathname.startsWith('/ask') ? 'text-primary border-b-2 border-primary pb-0.5' : ''
-                }`}
-              >
-                <span>AI Dietitian</span>
-              </Link>
-            </nav>
+            {/* Desktop Navigation with Random Letter Swap */}
+            <RandomLetterSwapNav />
 
             {/* Right Quick Controls */}
             <div className="flex items-center gap-space-xs flex-shrink-0">

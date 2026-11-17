@@ -6,7 +6,7 @@
     "brand": "Sourced Nutrition (Sample)",
     "category": "Breakfast Cereals",
     "subcategory": "Oats & Porridge",
-    "image": null,
+    "image": "/products/quaker-oats.webp",
     "servingSizeG": 40,
     "packSizeG": 500,
     "priceINR": 150,
@@ -22,11 +22,23 @@
       "fibreG": 10.6,
       "sodiumMg": 5,
       "micronutrients": [
-        { "name": "Iron", "amount": 4.7, "unit": "mg", "rdaPercentage": 25 },
-        { "name": "Magnesium", "amount": 177, "unit": "mg", "rdaPercentage": 40 }
+        {
+          "name": "Iron",
+          "amount": 4.7,
+          "unit": "mg",
+          "rdaPercentage": 25
+        },
+        {
+          "name": "Magnesium",
+          "amount": 177,
+          "unit": "mg",
+          "rdaPercentage": 40
+        }
       ]
     },
-    "ingredients": ["100% Rolled Whole Grain Oats"],
+    "ingredients": [
+      "100% Rolled Whole Grain Oats"
+    ],
     "benefits": [
       "Natural beta-glucan soluble fibre helps reduce cholesterol",
       "High sustained satiety with zero added sugars",
@@ -37,21 +49,60 @@
       "score": 9.1,
       "band": "Excellent",
       "breakdown": [
-        { "factor": "Base Score", "value": "6.0", "points": 6.0, "reason": "Standard baseline score" },
-        { "factor": "Protein", "value": "13.5g", "points": 1.35, "reason": "High protein content" },
-        { "factor": "Dietary Fibre", "value": "10.6g", "points": 1.5, "reason": "Max fibre bonus" },
-        { "factor": "Whole-Food Base", "value": "100% Whole grain", "points": 1.0, "reason": "Single whole food ingredient" },
-        { "factor": "Nutrient Density", "value": "6.2g / 100kcal", "points": 0.5, "reason": "High nutrient density" },
-        { "factor": "Micronutrients", "value": "Iron & Magnesium", "points": 0.5, "reason": ">= 2 micronutrients >= 15% RDA" }
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6.0,
+          "reason": "Standard baseline score"
+        },
+        {
+          "factor": "Protein",
+          "value": "13.5g",
+          "points": 1.35,
+          "reason": "High protein content"
+        },
+        {
+          "factor": "Dietary Fibre",
+          "value": "10.6g",
+          "points": 1.5,
+          "reason": "Max fibre bonus"
+        },
+        {
+          "factor": "Whole-Food Base",
+          "value": "100% Whole grain",
+          "points": 1.0,
+          "reason": "Single whole food ingredient"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "6.2g / 100kcal",
+          "points": 0.5,
+          "reason": "High nutrient density"
+        },
+        {
+          "factor": "Micronutrients",
+          "value": "Iron & Magnesium",
+          "points": 0.5,
+          "reason": ">= 2 micronutrients >= 15% RDA"
+        }
       ]
     },
     "nutritionPerPaisa": {
       "proteinPerRupee": 0.45,
       "fibrePerRupee": 0.35,
       "tenRupeesGet": [
-        { "nutrient": "Energy", "amount": "130 kcal" },
-        { "nutrient": "Protein", "amount": "4.5g" },
-        { "nutrient": "Dietary Fibre", "amount": "3.5g" }
+        {
+          "nutrient": "Energy",
+          "amount": "130 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "4.5g"
+        },
+        {
+          "nutrient": "Dietary Fibre",
+          "amount": "3.5g"
+        }
       ]
     },
     "barcode": "8901234567890",
@@ -66,7 +117,7 @@
     "brand": "Daily Farm (Sample)",
     "category": "Dairy & Frozen",
     "subcategory": "Fresh Paneer",
-    "image": null,
+    "image": "/products/amul-fresh-paneer.webp",
     "servingSizeG": 100,
     "packSizeG": 200,
     "priceINR": 95,
@@ -82,10 +133,18 @@
       "fibreG": 0,
       "sodiumMg": 60,
       "micronutrients": [
-        { "name": "Calcium", "amount": 480, "unit": "mg", "rdaPercentage": 48 }
+        {
+          "name": "Calcium",
+          "amount": 480,
+          "unit": "mg",
+          "rdaPercentage": 48
+        }
       ]
     },
-    "ingredients": ["Pasteurized Fresh Milk", "Citric Acid"],
+    "ingredients": [
+      "Pasteurized Fresh Milk",
+      "Citric Acid"
+    ],
     "benefits": [
       "Dense complete vegetarian protein source",
       "High natural bioavailable dairy calcium",
@@ -98,20 +157,54 @@
       "score": 7.8,
       "band": "Good",
       "breakdown": [
-        { "factor": "Base Score", "value": "6.0", "points": 6.0, "reason": "Standard baseline score" },
-        { "factor": "Protein", "value": "18.0g", "points": 1.5, "reason": "Excellent protein (max +1.5 pts)" },
-        { "factor": "Whole-Food Base", "value": "Fresh milk base", "points": 1.0, "reason": "Minimally processed dairy" },
-        { "factor": "Nutrient Density", "value": "6.8g / 100kcal", "points": 0.5, "reason": "High protein per calorie" },
-        { "factor": "Saturated Fat", "value": "12.0g", "points": -1.0, "reason": "Saturated fat deduction" }
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6.0,
+          "reason": "Standard baseline score"
+        },
+        {
+          "factor": "Protein",
+          "value": "18.0g",
+          "points": 1.5,
+          "reason": "Excellent protein (max +1.5 pts)"
+        },
+        {
+          "factor": "Whole-Food Base",
+          "value": "Fresh milk base",
+          "points": 1.0,
+          "reason": "Minimally processed dairy"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "6.8g / 100kcal",
+          "points": 0.5,
+          "reason": "High protein per calorie"
+        },
+        {
+          "factor": "Saturated Fat",
+          "value": "12.0g",
+          "points": -1.0,
+          "reason": "Saturated fat deduction"
+        }
       ]
     },
     "nutritionPerPaisa": {
       "proteinPerRupee": 0.38,
       "fibrePerRupee": null,
       "tenRupeesGet": [
-        { "nutrient": "Energy", "amount": "56 kcal" },
-        { "nutrient": "Protein", "amount": "3.8g" },
-        { "nutrient": "Calcium", "amount": "101 mg" }
+        {
+          "nutrient": "Energy",
+          "amount": "56 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "3.8g"
+        },
+        {
+          "nutrient": "Calcium",
+          "amount": "101 mg"
+        }
       ]
     },
     "barcode": "8902345678901",
@@ -126,7 +219,7 @@
     "brand": "TeaTime Bakery (Sample)",
     "category": "Biscuits & Cookies",
     "subcategory": "Glucose Biscuits",
-    "image": null,
+    "image": "/products/parle-g-original-glucose-biscuits.webp",
     "servingSizeG": 25,
     "packSizeG": 120,
     "priceINR": 20,
@@ -163,24 +256,78 @@
       "score": 3.7,
       "band": "Limited",
       "breakdown": [
-        { "factor": "Base Score", "value": "6.0", "points": 6.0, "reason": "Standard baseline" },
-        { "factor": "Protein", "value": "6.5g", "points": 0.65, "reason": "Moderate cereal protein" },
-        { "factor": "Dietary Fibre", "value": "1.5g", "points": 0.38, "reason": "Low fibre" },
-        { "factor": "Nutrient Density", "value": "1.7g / 100kcal", "points": 0.17, "reason": "Low nutrient density" },
-        { "factor": "Added Sugar", "value": "24.0g", "points": -1.5, "reason": "Max sugar penalty" },
-        { "factor": "Saturated Fat", "value": "6.5g", "points": -0.65, "reason": "Palm oil saturated fat penalty" },
-        { "factor": "Sodium", "value": "280mg", "points": -0.35, "reason": "Moderate baking sodium" },
-        { "factor": "Energy Density", "value": "460 kcal", "points": -0.3, "reason": "> 450 kcal high energy density" },
-        { "factor": "Processing & Additives", "value": "5 flags", "points": -0.7, "reason": "Refined flour, palm oil, invert sugar, artificial flavours" }
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6.0,
+          "reason": "Standard baseline"
+        },
+        {
+          "factor": "Protein",
+          "value": "6.5g",
+          "points": 0.65,
+          "reason": "Moderate cereal protein"
+        },
+        {
+          "factor": "Dietary Fibre",
+          "value": "1.5g",
+          "points": 0.38,
+          "reason": "Low fibre"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "1.7g / 100kcal",
+          "points": 0.17,
+          "reason": "Low nutrient density"
+        },
+        {
+          "factor": "Added Sugar",
+          "value": "24.0g",
+          "points": -1.5,
+          "reason": "Max sugar penalty"
+        },
+        {
+          "factor": "Saturated Fat",
+          "value": "6.5g",
+          "points": -0.65,
+          "reason": "Palm oil saturated fat penalty"
+        },
+        {
+          "factor": "Sodium",
+          "value": "280mg",
+          "points": -0.35,
+          "reason": "Moderate baking sodium"
+        },
+        {
+          "factor": "Energy Density",
+          "value": "460 kcal",
+          "points": -0.3,
+          "reason": "> 450 kcal high energy density"
+        },
+        {
+          "factor": "Processing & Additives",
+          "value": "5 flags",
+          "points": -0.7,
+          "reason": "Refined flour, palm oil, invert sugar, artificial flavours"
+        }
       ]
     },
     "nutritionPerPaisa": {
       "proteinPerRupee": 0.39,
       "fibrePerRupee": 0.09,
       "tenRupeesGet": [
-        { "nutrient": "Energy", "amount": "276 kcal" },
-        { "nutrient": "Protein", "amount": "3.9g" },
-        { "nutrient": "Dietary Fibre", "amount": "0.9g" }
+        {
+          "nutrient": "Energy",
+          "amount": "276 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "3.9g"
+        },
+        {
+          "nutrient": "Dietary Fibre",
+          "amount": "0.9g"
+        }
       ]
     },
     "barcode": "8903456789012",
@@ -195,7 +342,7 @@
     "brand": "QuickBite (Sample)",
     "category": "Instant Foods",
     "subcategory": "Instant Noodles",
-    "image": null,
+    "image": "/products/maggi-2-minute-masala-noodles.webp",
     "servingSizeG": 70,
     "packSizeG": 70,
     "priceINR": 14,
@@ -234,22 +381,66 @@
       "score": 4.9,
       "band": "Limited",
       "breakdown": [
-        { "factor": "Base Score", "value": "6.0", "points": 6.0, "reason": "Standard baseline" },
-        { "factor": "Protein", "value": "8.0g", "points": 0.8, "reason": "Wheat protein" },
-        { "factor": "Dietary Fibre", "value": "2.0g", "points": 0.5, "reason": "Minimal fibre" },
-        { "factor": "Nutrient Density", "value": "2.3g / 100kcal", "points": 0.23, "reason": "Moderate nutrient density" },
-        { "factor": "Sodium", "value": "950mg", "points": -1.19, "reason": "Exceeds 800mg single meal threshold" },
-        { "factor": "Saturated Fat", "value": "6.8g", "points": -0.68, "reason": "Palm oil frying lipids" },
-        { "factor": "Processing & Additives", "value": "7 flags", "points": -0.7, "reason": "Industrial ultra-processing" }
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6.0,
+          "reason": "Standard baseline"
+        },
+        {
+          "factor": "Protein",
+          "value": "8.0g",
+          "points": 0.8,
+          "reason": "Wheat protein"
+        },
+        {
+          "factor": "Dietary Fibre",
+          "value": "2.0g",
+          "points": 0.5,
+          "reason": "Minimal fibre"
+        },
+        {
+          "factor": "Nutrient Density",
+          "value": "2.3g / 100kcal",
+          "points": 0.23,
+          "reason": "Moderate nutrient density"
+        },
+        {
+          "factor": "Sodium",
+          "value": "950mg",
+          "points": -1.19,
+          "reason": "Exceeds 800mg single meal threshold"
+        },
+        {
+          "factor": "Saturated Fat",
+          "value": "6.8g",
+          "points": -0.68,
+          "reason": "Palm oil frying lipids"
+        },
+        {
+          "factor": "Processing & Additives",
+          "value": "7 flags",
+          "points": -0.7,
+          "reason": "Industrial ultra-processing"
+        }
       ]
     },
     "nutritionPerPaisa": {
-      "proteinPerRupee": 0.40,
-      "fibrePerRupee": 0.10,
+      "proteinPerRupee": 0.4,
+      "fibrePerRupee": 0.1,
       "tenRupeesGet": [
-        { "nutrient": "Energy", "amount": "213 kcal" },
-        { "nutrient": "Protein", "amount": "4.0g" },
-        { "nutrient": "Dietary Fibre", "amount": "1.0g" }
+        {
+          "nutrient": "Energy",
+          "amount": "213 kcal"
+        },
+        {
+          "nutrient": "Protein",
+          "amount": "4.0g"
+        },
+        {
+          "nutrient": "Dietary Fibre",
+          "amount": "1.0g"
+        }
       ]
     },
     "barcode": "8904567890123",
@@ -264,7 +455,7 @@
     "brand": "Fizz Beverages (Sample)",
     "category": "Beverages",
     "subcategory": "Carbonated Drinks",
-    "image": null,
+    "image": "/products/pepsi.webp",
     "servingSizeG": 250,
     "packSizeG": 250,
     "priceINR": 20,
@@ -299,16 +490,34 @@
       "score": 2.7,
       "band": "Poor",
       "breakdown": [
-        { "factor": "Base Score", "value": "6.0", "points": 6.0, "reason": "Standard baseline" },
-        { "factor": "Sugar Content", "value": "10.6g / 100ml", "points": -0.8, "reason": "Liquid sugar penalty" },
-        { "factor": "Sugary Beverage Penalty", "value": "Liquid sugar, 0 protein/fibre", "points": -2.5, "reason": "Empty liquid calories with high glycemic spike" }
+        {
+          "factor": "Base Score",
+          "value": "6.0",
+          "points": 6.0,
+          "reason": "Standard baseline"
+        },
+        {
+          "factor": "Sugar Content",
+          "value": "10.6g / 100ml",
+          "points": -0.8,
+          "reason": "Liquid sugar penalty"
+        },
+        {
+          "factor": "Sugary Beverage Penalty",
+          "value": "Liquid sugar, 0 protein/fibre",
+          "points": -2.5,
+          "reason": "Empty liquid calories with high glycemic spike"
+        }
       ]
     },
     "nutritionPerPaisa": {
       "proteinPerRupee": null,
       "fibrePerRupee": null,
       "tenRupeesGet": [
-        { "nutrient": "Energy", "amount": "55 kcal" }
+        {
+          "nutrient": "Energy",
+          "amount": "55 kcal"
+        }
       ]
     },
     "barcode": "8905678901234",
